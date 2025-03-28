@@ -1548,63 +1548,63 @@
              enum "cisco-hdlc-tcc" {
                description "Cisco-compatible HDLC framing for a translational cross-connect";
              }
-             enum "vlan-ccc" {
-               description "802.1q tagging for a cross-connect";
-             }
-             enum "extended-vlan-ccc" {
-               description "Nonstandard TPID tagging for a cross-connect";
-             }
-             enum "ethernet-ccc" {
-               description "Ethernet cross-connect";
-             }
-             enum "flexible-ethernet-services" {
-               description "Allows per-unit Ethernet encapsulation configuration";
-             }
-             enum "smds-dxi" {
-               description "SMDS DXI framing";
-             }
-             enum "atm-pvc" {
-               description "ATM permanent virtual circuits";
-             }
-             enum "atm-ccc-cell-relay" {
-               description "ATM cell relay encapsulation for cross-connect";
-             }
-             enum "ethernet-over-atm" {
-               description "Ethernet over ATM encapsulation";
-             }
-             enum "ethernet-tcc" {
-               description "Ethernet translational cross-connect";
-             }
-             enum "extended-vlan-tcc" {
-               description "802.1q tagging for a translational cross-connect";
-             }
-             enum "multilink-frame-relay-uni-nni" {
-               description "Multilink Frame Relay UNI NNI (FRF.16) encapsulation";
-             }
-             enum "satop" {
-               description "Structure-Agnostic TDM over Packet encapsulation";
-             }
-             enum "cesopsn" {
-               description "Structure-Agnostic TDM over Packet encapsulation";
-             }
-             enum "ima" {
-               description "Inverse Multiplexing for ATM";
-             }
-             enum "ethernet-vpls" {
-               description "Ethernet virtual private LAN service";
-             }
-             enum "ethernet-bridge" {
-               description "Ethernet layer-2 bridging";
-             }
-             enum "vlan-vpls" {
-               description "VLAN virtual private LAN service";
-             }
-             enum "vlan-vci-ccc" {
-               description "CCC for VLAN Q-in-Q and ATM VPI/VCI interworking";
-             }
-             enum "extended-vlan-vpls" {
-               description "Extended VLAN virtual private LAN service";
-             }
+            //  enum "vlan-ccc" {
+            //    description "802.1q tagging for a cross-connect";
+            //  }
+            //  enum "extended-vlan-ccc" {
+            //    description "Nonstandard TPID tagging for a cross-connect";
+            //  }
+            //  enum "ethernet-ccc" {
+            //    description "Ethernet cross-connect";
+            //  }
+            //  enum "flexible-ethernet-services" {
+            //    description "Allows per-unit Ethernet encapsulation configuration";
+            //  }
+            //  enum "smds-dxi" {
+            //    description "SMDS DXI framing";
+            //  }
+            //  enum "atm-pvc" {
+            //    description "ATM permanent virtual circuits";
+            //  }
+            //  enum "atm-ccc-cell-relay" {
+            //    description "ATM cell relay encapsulation for cross-connect";
+            //  }
+            //  enum "ethernet-over-atm" {
+            //    description "Ethernet over ATM encapsulation";
+            //  }
+            //  enum "ethernet-tcc" {
+            //    description "Ethernet translational cross-connect";
+            //  }
+            //  enum "extended-vlan-tcc" {
+            //    description "802.1q tagging for a translational cross-connect";
+            //  }
+            //  enum "multilink-frame-relay-uni-nni" {
+            //    description "Multilink Frame Relay UNI NNI (FRF.16) encapsulation";
+            //  }
+            //  enum "satop" {
+            //    description "Structure-Agnostic TDM over Packet encapsulation";
+            //  }
+            //  enum "cesopsn" {
+            //    description "Structure-Agnostic TDM over Packet encapsulation";
+            //  }
+            //  enum "ima" {
+            //    description "Inverse Multiplexing for ATM";
+            //  }
+            //  enum "ethernet-vpls" {
+            //    description "Ethernet virtual private LAN service";
+            //  }
+            //  enum "ethernet-bridge" {
+            //    description "Ethernet layer-2 bridging";
+            //  }
+            //  enum "vlan-vpls" {
+            //    description "VLAN virtual private LAN service";
+            //  }
+            //  enum "vlan-vci-ccc" {
+            //    description "CCC for VLAN Q-in-Q and ATM VPI/VCI interworking";
+            //  }
+            //  enum "extended-vlan-vpls" {
+            //    description "Extended VLAN virtual private LAN service";
+            //  }
              enum "extended-vlan-bridge" {
                description "VLAN layer-2 bridging";
              }
@@ -29495,7 +29495,15 @@
        key name;
        description "Logical interface";
        leaf name {
-         type string;
+         description "Unit number";
+         type union {
+           type string {
+             pattern "<.*>|$.*";
+           }
+           type uint32 {
+             range "0 .. 1073741823";
+           }
+         }
        }
        uses apply-advanced;
        leaf interface-tag {
