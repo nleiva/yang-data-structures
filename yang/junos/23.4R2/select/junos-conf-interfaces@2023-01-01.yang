@@ -29495,15 +29495,7 @@
        key name;
        description "Logical interface";
        leaf name {
-         description "Unit number";
-         type union {
-           type string {
-             pattern "<.*>|$.*";
-           }
-           type uint32 {
-             range "0 .. 1073741823";
-           }
-         }
+         type string;
        }
        uses apply-advanced;
        leaf interface-tag {
@@ -29512,44 +29504,44 @@
            length "1 .. 64";
          }
        }
-       container policer-overhead {
-         description "Policer overhead adjustment for this unit";
-         uses apply-advanced;
-         leaf policer-overhead-value {
-           description "Policer overhead bytes to be accounted in ingress and egress";
-           units "bytes";
-           type union {
-             type string {
-               pattern "<.*>|$.*";
-             }
-             type int32;
-           }
-         }
-         leaf ingress {
-           description "Ingress value in bytes";
-           units "bytes";
-           type union {
-             type string {
-               pattern "<.*>|$.*";
-             }
-             type int32 {
-               range "-64 .. 64";
-             }
-           }
-         }
-         leaf egress {
-           description "Egress value in bytes";
-           units "bytes";
-           type union {
-             type string {
-               pattern "<.*>|$.*";
-             }
-             type int32 {
-               range "-64 .. 64";
-             }
-           }
-         }
-       }
+      //  container policer-overhead {
+      //    description "Policer overhead adjustment for this unit";
+      //    uses apply-advanced;
+      //    leaf policer-overhead-value {
+      //      description "Policer overhead bytes to be accounted in ingress and egress";
+      //      units "bytes";
+      //      type union {
+      //        type string {
+      //          pattern "<.*>|$.*";
+      //        }
+      //        type int32;
+      //      }
+      //    }
+      //    leaf ingress {
+      //      description "Ingress value in bytes";
+      //      units "bytes";
+      //      type union {
+      //        type string {
+      //          pattern "<.*>|$.*";
+      //        }
+      //        type int32 {
+      //          range "-64 .. 64";
+      //        }
+      //      }
+      //    }
+      //    leaf egress {
+      //      description "Egress value in bytes";
+      //      units "bytes";
+      //      type union {
+      //        type string {
+      //          pattern "<.*>|$.*";
+      //        }
+      //        type int32 {
+      //          range "-64 .. 64";
+      //        }
+      //      }
+      //    }
+      //  }
       //  leaf alias {
       //    description "Interface alias";
       //    type string;

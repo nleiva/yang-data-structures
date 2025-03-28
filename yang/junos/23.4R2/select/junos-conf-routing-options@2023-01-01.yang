@@ -30,9 +30,9 @@
    augment /jc:configuration {
      uses routing-options-group;
    }
-   augment /jc:configuration/jc:groups {
-     uses routing-options-group;
-   }
+  //  augment /jc:configuration/jc:groups {
+  //    uses routing-options-group;
+  //  }
    grouping routing-options-group {
      container routing-options {
        description "Protocol-independent routing option configuration";
