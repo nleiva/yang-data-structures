@@ -1,4 +1,4 @@
-module github.com/nleiva/oc-data-structures
+module github.com/nleiva/yang-data-structures
 
 go 1.22.5
 
