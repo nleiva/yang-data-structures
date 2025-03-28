@@ -30,9 +30,9 @@
    augment /jc:configuration {
      uses routing-instances-group;
    }
-   augment /jc:configuration/jc:groups {
-     uses routing-instances-group;
-   }
+  //  augment /jc:configuration/jc:groups {
+  //    uses routing-instances-group;
+  //  }
    grouping routing-instances-group {
      container routing-instances {
        description "Routing instance configuration";

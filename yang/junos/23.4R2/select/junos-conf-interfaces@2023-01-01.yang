@@ -30,9 +30,9 @@
    augment /jc:configuration {
      uses interfaces-group;
    }
-   augment /jc:configuration/jc:groups {
-     uses interfaces-group;
-   }
+  //  augment /jc:configuration/jc:groups {
+  //    uses interfaces-group;
+  //  }
    grouping interfaces-group {
      container interfaces {
        description "Interface configuration";
