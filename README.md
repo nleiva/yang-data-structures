@@ -71,3 +71,23 @@ generator -path=. \
   junos/23.4R2/junos-conf-routing-options@2023-01-01.yang \
   junos/23.4R2/junos-configuration-metadata.yang
 ```
+
+### IOS XE
+
+1. Get the models you need from https://github.com/YangModels/yang/tree/main/vendor/cisco/xe
+
+2. Run the generator for a handful of YANG models.
+
+```bash
+go install github.com/openconfig/ygot/generator@latest
+generator -path=. \
+  -output_file=../iosxe/iosxe.go \
+  -shorten_enum_leaf_names \
+  -typedef_enum_with_defmod \
+  -enum_suffix_for_simple_union_enums \
+  -package_name=iosxe -generate_fakeroot -fakeroot_name=iosxe \
+  -generate_getters \
+  -generate_ordered_maps=false \
+  -generate_simple_unions \
+  iosxe/1791/Cisco-IOS-XE-nat.yang
+```
