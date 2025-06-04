@@ -383,53 +383,53 @@ module Cisco-IOS-XE-features {
       "FQDN ACL feature support";
   }
 
-  feature cts-switching {
-    description
-      "Cisco Trustsec Role-based Access Control support for switching platform";
-  }
+  // feature cts-switching {
+  //   description
+  //     "Cisco Trustsec Role-based Access Control support for switching platform";
+  // }
 
-  feature router-poch-lb {
-    description
-      "Port-channel load-balance hash algorithms on Router";
-  }
+  // feature router-poch-lb {
+  //   description
+  //     "Port-channel load-balance hash algorithms on Router";
+  // }
 
   feature vrrp-tloc {
     description
       "TLOC preference increase for VRRP primary on sdwan platforms";
   }
 
-  feature cts-intf-enable {
-    description
-      "Cisco Trustsec config support for Loopback";
-  }
+  // feature cts-intf-enable {
+  //   description
+  //     "Cisco Trustsec config support for Loopback";
+  // }
 
-  feature cts-controller {
-    description
-      "CTS CLIs for controller mode only";
-  }
+  // feature cts-controller {
+  //   description
+  //     "CTS CLIs for controller mode only";
+  // }
 
-  feature cts-autonomous {
-    description
-      "CTS CLIs for autonomous mode only";
-  }
+  // feature cts-autonomous {
+  //   description
+  //     "CTS CLIs for autonomous mode only";
+  // }
 
-  feature canbus {
-    description
-      "CAN bus configuration";
-  }
+  // feature canbus {
+  //   description
+  //     "CAN bus configuration";
+  // }
 
-  feature cellular-serviceability-enhancement {
-    description
-      "cellular serviceability enhancement";
-  }
+  // feature cellular-serviceability-enhancement {
+  //   description
+  //     "cellular serviceability enhancement";
+  // }
 
   feature switching-guard {
     description
       "switching platform specific features that should not be present on router";
   }
 
-  feature ctc-http-app {
-    description
-      "ctc-app UEA platform specific feature";
-  }
+  // feature ctc-http-app {
+  //   description
+  //     "ctc-app UEA platform specific feature";
+  // }
 }

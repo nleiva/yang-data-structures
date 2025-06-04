@@ -3422,28 +3422,28 @@ submodule Cisco-IOS-XE-ip {
           }
         }
       }
-      container routing {
-        status obsolete;
-        description
-          "This node is obsolete and replaced by routing-new and routing-conf";
-        presence "true";
-        container protocol {
-          status obsolete;
-          description
-            "IP routing protocol";
-          container purge {
-            status obsolete;
-            description
-              "routes purge";
-            leaf interface {
-              status obsolete;
-              description
-                "Perform IP routing protocol routes purge on link failures";
-              type boolean;
-            }
-          }
-        }
-      }
+      // container routing {
+      //   status obsolete;
+      //   description
+      //     "This node is obsolete and replaced by routing-new and routing-conf";
+      //   presence "true";
+      //   container protocol {
+      //     status obsolete;
+      //     description
+      //       "IP routing protocol";
+      //     container purge {
+      //       status obsolete;
+      //       description
+      //         "routes purge";
+      //       leaf interface {
+      //         status obsolete;
+      //         description
+      //           "Perform IP routing protocol routes purge on link failures";
+      //         type boolean;
+      //       }
+      //     }
+      //   }
+      // }
       // container explicit-path {
       //   description
       //     "Configure explicit-path";

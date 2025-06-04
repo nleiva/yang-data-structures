@@ -568,212 +568,212 @@ module Cisco-IOS-XE-native {
       description
         "Enter call-home configuration mode";
     }
-    container hw-module {
-      description
-        "Control of individual components in the system";
-      container uplink {
-        description
-          "Uplink control";
-        leaf select {
-          description
-            "Select uplink interface";
-          type string;
-        }
-        leaf mode {
-          description
-            "Uplink mode";
-          type enumeration {
-            enum shared-backplane;
-          }
-        }
-      }
-      list breakout {
-        description
-          "Configure a native port into four breakout ports";
-        key "port-number";
-        leaf port-number {
-          description
-            "Port Number to be converted in to breakout ports";
-          type uint8 {
-            range "1..32";
-          }
-        }
-      }
-      list switch {
-        description
-          "Switch in the system";
-        key "switch-number";
-        leaf switch-number {
-          description
-            "Switch number in the Stack (Refer to show switch CLI)";
-          type uint8 {
-            range "1..8";
-          }
-        }
-        leaf usbflash1-password1 {
-          description
-            "USB SSD Security";
-          type string;
-        }
-        list usbflash1-password {
-          status deprecated;
-          description
-            "USB SSD Security";
-          key "usbflash1-password-string";
-          leaf usbflash1-password-string {
-            status deprecated;
-            description
-              "USB SSD Security";
-            type string;
-          }
-        }
-      }
-      list slot {
-        description
-          "Control a component in a slot";
-        key "name";
-        leaf name {
-          description
-            "Slot of LC";
-          type string;
-        }
-        leaf shutdown {
-          description
-            "Shutdown a fru";
-          type empty;
-        }
-      }
-      list subslot {
-        description
-          "Control a component in a subslot";
-        key "subslot-number";
-        leaf subslot-number {
-          description
-            "Line card subslot number in the range of <0-1>/<0-2> for mode change";
-          type string {
-            length "1..3";
-            pattern '[0-2/0-2]*';
-          }
-        }
-        leaf mode {
-          description
-            "subslot mode value, for which valid mode values are 10, 40 & 100 Gig";
-          type enumeration {
-            enum 10G {
-              value 10;
-            }
-            enum 40G {
-              value 40;
-            }
-            enum 100G {
-              value 100;
-            }
-          }
-          must "not((../subslot-number = '0/2') and (current() = '10G'))" {
-            error-message "10G mode is not supported on bay2";
-          }
-        }
-        container breakout {
-          description
-            "configure breakout mode";
-          choice breakout-choice {
-            default "none";
-            case mode-case {
-              list breakout-mode {
-                description
-                  "Breakout mode for native ports";
-                key "id";
-                leaf id {
-                  type enumeration {
-                    enum 10g;
-                  }
-                  must "not(current() and (current()/../../../mode = '100G'))" {
-                    error-app-tag "Invalid-mode";
-                    error-message "Either EPA is in 100G mode or it has some native ports with active breakout configurations before switching to 100G mode. Please note 10G Breakout is supported only in 40G mode";
-                  }
-                }
-                container port {
-                  description
-                    "Native port";
-                  choice port-mode {
-                    case all {
-                      leaf all {
-                        description
-                          "Configure all native ports in breakout mode";
-                        type empty;
-                      }
-                    }
-                    case native_port {
-                      leaf native_port_0 {
-                        description
-                          "Configure native port 0 in breakout mode";
-                        type empty;
-                      }
-                      leaf native_port_4 {
-                        description
-                          "Configure native port 4 in breakout mode";
-                        type empty;
-                      }
-                      leaf native_port_8 {
-                        description
-                          "Configure native port 8 in breakout mode";
-                        type empty;
-                      }
-                    }
-                  }
-                }
-              }
-            }
-            case none {
-              container none {
-                description
-                  "Remove breakout configuration from all native ports";
-                container port {
-                  description
-                    "Native port";
-                  leaf all {
-                    description
-                      "Remove breakout configuration from all native ports";
-                    type enumeration {
-                      enum all;
-                    }
-                    default "all";
-                  }
-                }
-              }
-            }
-          }
-        }
-        container shutdown {
-          description
-            "Shutdown the target subslot";
-          leaf unpowered {
-            description
-              "Power-off the target subslot";
-            type empty;
-          }
-        }
-        container ethernet {
-          description
-            "Configure ethernet";
-          leaf mode {
-            description
-              "configure mode for front-panel module ports 0/0/<4-5>";
-            type enumeration {
-              enum GE;
-              enum TE;
-            }
-            default "TE";
-          }
-        }
-      }
-      leaf sm {
-        type uint8;
-      }
-      leaf pvdm {
-        type string;
-      }
-    }
+    // container hw-module {
+    //   description
+    //     "Control of individual components in the system";
+    //   container uplink {
+    //     description
+    //       "Uplink control";
+    //     leaf select {
+    //       description
+    //         "Select uplink interface";
+    //       type string;
+    //     }
+    //     leaf mode {
+    //       description
+    //         "Uplink mode";
+    //       type enumeration {
+    //         enum shared-backplane;
+    //       }
+    //     }
+    //   }
+    //   list breakout {
+    //     description
+    //       "Configure a native port into four breakout ports";
+    //     key "port-number";
+    //     leaf port-number {
+    //       description
+    //         "Port Number to be converted in to breakout ports";
+    //       type uint8 {
+    //         range "1..32";
+    //       }
+    //     }
+    //   }
+    //   list switch {
+    //     description
+    //       "Switch in the system";
+    //     key "switch-number";
+    //     leaf switch-number {
+    //       description
+    //         "Switch number in the Stack (Refer to show switch CLI)";
+    //       type uint8 {
+    //         range "1..8";
+    //       }
+    //     }
+    //     leaf usbflash1-password1 {
+    //       description
+    //         "USB SSD Security";
+    //       type string;
+    //     }
+    //     list usbflash1-password {
+    //       status deprecated;
+    //       description
+    //         "USB SSD Security";
+    //       key "usbflash1-password-string";
+    //       leaf usbflash1-password-string {
+    //         status deprecated;
+    //         description
+    //           "USB SSD Security";
+    //         type string;
+    //       }
+    //     }
+    //   }
+    //   list slot {
+    //     description
+    //       "Control a component in a slot";
+    //     key "name";
+    //     leaf name {
+    //       description
+    //         "Slot of LC";
+    //       type string;
+    //     }
+    //     leaf shutdown {
+    //       description
+    //         "Shutdown a fru";
+    //       type empty;
+    //     }
+    //   }
+    //   list subslot {
+    //     description
+    //       "Control a component in a subslot";
+    //     key "subslot-number";
+    //     leaf subslot-number {
+    //       description
+    //         "Line card subslot number in the range of <0-1>/<0-2> for mode change";
+    //       type string {
+    //         length "1..3";
+    //         pattern '[0-2/0-2]*';
+    //       }
+    //     }
+    //     leaf mode {
+    //       description
+    //         "subslot mode value, for which valid mode values are 10, 40 & 100 Gig";
+    //       type enumeration {
+    //         enum 10G {
+    //           value 10;
+    //         }
+    //         enum 40G {
+    //           value 40;
+    //         }
+    //         enum 100G {
+    //           value 100;
+    //         }
+    //       }
+    //       must "not((../subslot-number = '0/2') and (current() = '10G'))" {
+    //         error-message "10G mode is not supported on bay2";
+    //       }
+    //     }
+    //     container breakout {
+    //       description
+    //         "configure breakout mode";
+    //       choice breakout-choice {
+    //         default "none";
+    //         case mode-case {
+    //           list breakout-mode {
+    //             description
+    //               "Breakout mode for native ports";
+    //             key "id";
+    //             leaf id {
+    //               type enumeration {
+    //                 enum 10g;
+    //               }
+    //               must "not(current() and (current()/../../../mode = '100G'))" {
+    //                 error-app-tag "Invalid-mode";
+    //                 error-message "Either EPA is in 100G mode or it has some native ports with active breakout configurations before switching to 100G mode. Please note 10G Breakout is supported only in 40G mode";
+    //               }
+    //             }
+    //             container port {
+    //               description
+    //                 "Native port";
+    //               choice port-mode {
+    //                 case all {
+    //                   leaf all {
+    //                     description
+    //                       "Configure all native ports in breakout mode";
+    //                     type empty;
+    //                   }
+    //                 }
+    //                 case native_port {
+    //                   leaf native_port_0 {
+    //                     description
+    //                       "Configure native port 0 in breakout mode";
+    //                     type empty;
+    //                   }
+    //                   leaf native_port_4 {
+    //                     description
+    //                       "Configure native port 4 in breakout mode";
+    //                     type empty;
+    //                   }
+    //                   leaf native_port_8 {
+    //                     description
+    //                       "Configure native port 8 in breakout mode";
+    //                     type empty;
+    //                   }
+    //                 }
+    //               }
+    //             }
+    //           }
+    //         }
+    //         case none {
+    //           container none {
+    //             description
+    //               "Remove breakout configuration from all native ports";
+    //             container port {
+    //               description
+    //                 "Native port";
+    //               leaf all {
+    //                 description
+    //                   "Remove breakout configuration from all native ports";
+    //                 type enumeration {
+    //                   enum all;
+    //                 }
+    //                 default "all";
+    //               }
+    //             }
+    //           }
+    //         }
+    //       }
+    //     }
+    //     container shutdown {
+    //       description
+    //         "Shutdown the target subslot";
+    //       leaf unpowered {
+    //         description
+    //           "Power-off the target subslot";
+    //         type empty;
+    //       }
+    //     }
+    //     container ethernet {
+    //       description
+    //         "Configure ethernet";
+    //       leaf mode {
+    //         description
+    //           "configure mode for front-panel module ports 0/0/<4-5>";
+    //         type enumeration {
+    //           enum GE;
+    //           enum TE;
+    //         }
+    //         default "TE";
+    //       }
+    //     }
+    //   }
+    //   leaf sm {
+    //     type uint8;
+    //   }
+    //   leaf pvdm {
+    //     type string;
+    //   }
+    // }
     // container cisp {
     //   description
     //     "Set CISP parameters";
@@ -1261,7 +1261,7 @@ module Cisco-IOS-XE-native {
     //   }
     // }
 
-    uses config-parser-grouping;
+    // uses config-parser-grouping;
     container service {
       description
         "Modify use of network based services";
@@ -2849,7 +2849,7 @@ module Cisco-IOS-XE-native {
       description
         "Authentication, Authorization and Accounting.";
     }
-    uses config-privilege-grouping;
+    // uses config-privilege-grouping;
     container login {
       description
         "Enable secure login checking";
@@ -4739,32 +4739,32 @@ module Cisco-IOS-XE-native {
       description
         "Zone pair command";
     }
-    list alarm-contact {
-      key "name";
-      leaf name {
-        type uint8 {
-          range "1..4";
-        }
-      }
-      leaf description {
-        type string {
-          length "1..80";
-        }
-      }
-      leaf severity {
-        type enumeration {
-          enum critical;
-          enum major;
-          enum minor;
-        }
-      }
-      leaf trigger {
-        type enumeration {
-          enum open;
-          enum closed;
-        }
-      }
-    }
+    // list alarm-contact {
+    //   key "name";
+    //   leaf name {
+    //     type uint8 {
+    //       range "1..4";
+    //     }
+    //   }
+    //   leaf description {
+    //     type string {
+    //       length "1..80";
+    //     }
+    //   }
+    //   leaf severity {
+    //     type enumeration {
+    //       enum critical;
+    //       enum major;
+    //       enum minor;
+    //     }
+    //   }
+    //   leaf trigger {
+    //     type enumeration {
+    //       enum open;
+    //       enum closed;
+    //     }
+    //   }
+    // }
     container ethernet {
       description
         "Ethernet configuration";
@@ -5019,68 +5019,68 @@ module Cisco-IOS-XE-native {
       description
         "Modify SNMP engine parameters";
     }
-    container segment-routing {
-      description
-        "Enter Segment Routing Mode";
-    }
-    container performance-measurement {
-      description
-        "Enter Performance Measurement Mode";
-      presence "true";
-    }
-    uses config-license-grouping;
+    // container segment-routing {
+    //   description
+    //     "Enter Segment Routing Mode";
+    // }
+    // container performance-measurement {
+    //   description
+    //     "Enter Performance Measurement Mode";
+    //   presence "true";
+    // }
+    // uses config-license-grouping;
     leaf disable-eadi {
       type empty;
     }
-    container memory-size {
-      if-feature "ios-features:mem-size";
-      description
-        "Adjust memory size by percentage";
-      leaf iomem {
-        description
-          "I/O memory";
-        type uint8 {
-          range "5..25";
-        }
-      }
-    }
-    container transceiver {
-      status obsolete;
-      if-feature "ios-features:transceiver";
-      description
-        "Select from transceiver configuration commands";
-      container type {
-        status obsolete;
-        description
-          "type keyword";
-        container all {
-          status obsolete;
-          container monitoring {
-            status obsolete;
-            description
-              "Enable/disable monitoring";
-            presence "true";
-            leaf interval {
-              status obsolete;
-              description
-                "Set interval for monitoring";
-              type uint16 {
-                range "300..3600";
-              }
-            }
-          }
-        }
-      }
-    }
+    // container memory-size {
+    //   if-feature "ios-features:mem-size";
+    //   description
+    //     "Adjust memory size by percentage";
+    //   leaf iomem {
+    //     description
+    //       "I/O memory";
+    //     type uint8 {
+    //       range "5..25";
+    //     }
+    //   }
+    // }
+    // container transceiver {
+    //   status obsolete;
+    //   if-feature "ios-features:transceiver";
+    //   description
+    //     "Select from transceiver configuration commands";
+    //   container type {
+    //     status obsolete;
+    //     description
+    //       "type keyword";
+    //     container all {
+    //       status obsolete;
+    //       container monitoring {
+    //         status obsolete;
+    //         description
+    //           "Enable/disable monitoring";
+    //         presence "true";
+    //         leaf interval {
+    //           status obsolete;
+    //           description
+    //             "Set interval for monitoring";
+    //           type uint16 {
+    //             range "300..3600";
+    //           }
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
     //uses config-transceiver-grouping;
-    container service-insertion {
-      description
-        "Service Insertion mode";
-    }
-    container udld {
-      description
-        "Configure global UDLD setting";
-    }
+    // container service-insertion {
+    //   description
+    //     "Service Insertion mode";
+    // }
+    // container udld {
+    //   description
+    //     "Configure global UDLD setting";
+    // }
     container qos {
       description
         "Global QoS configuration commands";
@@ -5226,32 +5226,32 @@ module Cisco-IOS-XE-native {
     //     type empty;
     //   }
     // }
-    container alias {
-      description
-        "Create command alias";
-      list exec {
-        description
-          "Exec mode";
-        key "alias-name";
-        leaf alias-name {
-          type string;
-        }
-        leaf new-alias-name {
-          type string;
-        }
-      }
-      list configure {
-        description
-          "Global configuration mode";
-        key "alias-name";
-        leaf alias-name {
-          type string;
-        }
-        leaf new-alias-name {
-          type string;
-        }
-      }
-    }
+    // container alias {
+    //   description
+    //     "Create command alias";
+    //   list exec {
+    //     description
+    //       "Exec mode";
+    //     key "alias-name";
+    //     leaf alias-name {
+    //       type string;
+    //     }
+    //     leaf new-alias-name {
+    //       type string;
+    //     }
+    //   }
+    //   list configure {
+    //     description
+    //       "Global configuration mode";
+    //     key "alias-name";
+    //     leaf alias-name {
+    //       type string;
+    //     }
+    //     leaf new-alias-name {
+    //       type string;
+    //     }
+    //   }
+    // }
     uses config-line-grouping;
     container ntp {
       description

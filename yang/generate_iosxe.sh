@@ -9,4 +9,14 @@ generator -path=. \
   -generate_getters \
   -structs_split_files_count=4 \
   -compress_paths=false \
-  iosxe/1791/Cisco-IOS-XE-nat.yang
+  -shorten_enum_leaf_names=true \
+  -trim_enum_openconfig_prefix=false \
+  iosxe/1791/Cisco-IOS-XE-native.yang \
+  iosxe/1791/Cisco-IOS-XE-nat.yang \
+  iosxe/1791/Cisco-IOS-XE-acl.yang \
+  iosxe/1791/Cisco-IOS-XE-route-map.yang \
+  iosxe/1791/Cisco-IOS-XE-bgp.yang \
+  iosxe/1791/Cisco-IOS-XE-snmp.yang \
+  iosxe/1791/Cisco-IOS-XE-interfaces.yang \
+  iosxe/1791/Cisco-IOS-XE-ntp.yang \
+  iosxe/1791/not-supported.yang 

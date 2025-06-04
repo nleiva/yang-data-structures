@@ -389,25 +389,25 @@ submodule Cisco-IOS-XE-interfaces {
       "Initial revision";
   }
 
-  // grouping nve-member-vni-mcast-group-grouping {
-  //   container mcast-group {
-  //     leaf multicast-group-min {
-  //       description
-  //         "Starting Multicast Group IPv4 Address";
-  //       type inet:ipv4-address;
-  //     }
-  //     leaf multicast-group-max {
-  //       description
-  //         "Ending Multicast Group IPv4 Address";
-  //       type inet:ipv4-address;
-  //     }
-  //     leaf local-routing {
-  //       description
-  //         "Enable vxlan centralized gateway forwarding for routed traffic";
-  //       type empty;
-  //     }
-  //   }
-  // }
+  grouping nve-member-vni-mcast-group-grouping {
+    container mcast-group {
+      leaf multicast-group-min {
+        description
+          "Starting Multicast Group IPv4 Address";
+        type inet:ipv4-address;
+      }
+      leaf multicast-group-max {
+        description
+          "Ending Multicast Group IPv4 Address";
+        type inet:ipv4-address;
+      }
+      leaf local-routing {
+        description
+          "Enable vxlan centralized gateway forwarding for routed traffic";
+        type empty;
+      }
+    }
+  }
 
   // grouping nve-member-vni-ir-deprecated-grouping {
   //   leaf ingress-replication {
@@ -418,61 +418,61 @@ submodule Cisco-IOS-XE-interfaces {
   //   }
   // }
 
-  // grouping nve-member-vni-ir-group-grouping {
-  //   container ir-cp-config {
-  //     when '(../../../host-reachability/protocol/bgp)';
-  //     description
-  //       "Ingress Replication configuration for bgp signaling vni(s)";
-  //     leaf ingress-replication {
-  //       description
-  //         "Ingress Replication control-plane (BGP) signaling";
-  //       type empty;
-  //     }
-  //     leaf local-routing {
-  //       description
-  //         "Enable vxlan centralized gateway forwarding for routed traffic";
-  //       type empty;
-  //     }
-  //   }
-  //   container ir-peer-config {
-  //     when 'not(../../../host-reachability/protocol/bgp)';
-  //     description
-  //       "Ingress Replication peer configuration for dataplane vni(s)";
-  //     leaf-list peer-addr {
-  //       description
-  //         "Ingress Replication or Unicast Peer address";
-  //       type inet:ipv4-address;
-  //     }
-  //   }
-  //   container ingress-replication-config {
-  //     status deprecated;
-  //     description
-  //       "Ingress Replication configuration for vni(s)";
-  //     leaf cp-signal {
-  //       status deprecated;
-  //       description
-  //         "Ingress Replication control-plane (BGP) signaling";
-  //       type empty;
-  //     }
-  //     leaf-list peer-addr {
-  //       status deprecated;
-  //       description
-  //         "Ingress Replication or Unicast Peer address";
-  //       type inet:ipv4-address;
-  //     }
-  //   }
-  //   uses nve-member-vni-ir-deprecated-grouping;
-  // }
+  grouping nve-member-vni-ir-group-grouping {
+    container ir-cp-config {
+      when '(../../../host-reachability/protocol/bgp)';
+      description
+        "Ingress Replication configuration for bgp signaling vni(s)";
+      leaf ingress-replication {
+        description
+          "Ingress Replication control-plane (BGP) signaling";
+        type empty;
+      }
+      leaf local-routing {
+        description
+          "Enable vxlan centralized gateway forwarding for routed traffic";
+        type empty;
+      }
+    }
+    container ir-peer-config {
+      when 'not(../../../host-reachability/protocol/bgp)';
+      description
+        "Ingress Replication peer configuration for dataplane vni(s)";
+      leaf-list peer-addr {
+        description
+          "Ingress Replication or Unicast Peer address";
+        type inet:ipv4-address;
+      }
+    }
+    container ingress-replication-config {
+      status deprecated;
+      description
+        "Ingress Replication configuration for vni(s)";
+      leaf cp-signal {
+        status deprecated;
+        description
+          "Ingress Replication control-plane (BGP) signaling";
+        type empty;
+      }
+      leaf-list peer-addr {
+        status deprecated;
+        description
+          "Ingress Replication or Unicast Peer address";
+        type inet:ipv4-address;
+      }
+    }
+    // uses nve-member-vni-ir-deprecated-grouping;
+  }
 
-  // grouping nve-member-vni-no-grouping {
-  //   uses nve-member-vni-ir-deprecated-grouping;
-  //   uses nve-member-vni-mcast-group-grouping;
-  // }
+  grouping nve-member-vni-no-grouping {
+    // uses nve-member-vni-ir-deprecated-grouping;
+    uses nve-member-vni-mcast-group-grouping;
+  }
 
-  // grouping nve-member-vni-grouping {
-  //   uses nve-member-vni-ir-group-grouping;
-  //   uses nve-member-vni-mcast-group-grouping;
-  // }
+  grouping nve-member-vni-grouping {
+    uses nve-member-vni-ir-group-grouping;
+    uses nve-member-vni-mcast-group-grouping;
+  }
 
   // grouping storm-control-threshold-grouping {
   //   container level {
@@ -551,21 +551,21 @@ submodule Cisco-IOS-XE-interfaces {
           "Five Gigabit Ethernet ";
         type string;
       }
-      leaf AppGigabitEthernet {
-        description
-          "App-hosting Gigabit Ethernet IEEE 802.3z";
-        type string;
-      }
+      // leaf AppGigabitEthernet {
+      //   description
+      //     "App-hosting Gigabit Ethernet IEEE 802.3z";
+      //   type string;
+      // }
       leaf Port-channel {
         description
           "Ethernet Channel of interfaces";
         type uint32;
       }
-      leaf PRP-channel {
-        description
-          "prp-channel virtual interface";
-        type uint8;
-      }
+      // leaf PRP-channel {
+      //   description
+      //     "prp-channel virtual interface";
+      //   type uint8;
+      // }
       leaf TenGigabitEthernet {
         description
           "Ten Gigabit Ethernet";
@@ -1326,72 +1326,72 @@ submodule Cisco-IOS-XE-interfaces {
             type empty;
           }
         }
-        container isl {
-          description
-            "Inter Switch Link - Virtual LAN encapsulation";
-          leaf vlan-id {
-            type uint16 {
-              range "1..4095";
-            }
-          }
-        }
-        container ppp {
-          description
-            "Point-to-Point protocol";
-          presence "true";
-        }
-        container slip {
-          description
-            "Serial Line IP";
-          presence "true";
-        }
-        container frame-relay {
-          description
-            "Frame Relay networks";
-          presence "true";
-          leaf ietf {
-            description
-              "Use RFC1490/RFC2427 encapsulation";
-            type empty;
-          }
-        }
-        container frame-relay-settings {
-          container frame-relay {
-            description
-              "frame-relay-networks";
-            leaf MFR {
-              description
-                "Multilink Frame Relay bundle interface";
-              type uint32 {
-                range "0..2147483647";
-              }
-            }
-          }
-        }
-        container raw-tcp {
-          description
-            "Rawsocket TCP encapsulation";
-          presence "true";
-          if-feature "ios-features:rawsocket";
-        }
-        container raw-udp {
-          description
-            "Rawsocket UDP encapsulation";
-          presence "true";
-          if-feature "ios-features:rawsocket";
-        }
-        container scada {
-          description
-            "SCADA encapsulation";
-          presence "true";
-          if-feature "ios-features:scada-gw";
-        }
-        container relay-line {
-          description
-            "Relay Line encapsulation";
-          presence "true";
-          if-feature "ios-features:scada-gw";
-        }
+        // container isl {
+        //   description
+        //     "Inter Switch Link - Virtual LAN encapsulation";
+        //   leaf vlan-id {
+        //     type uint16 {
+        //       range "1..4095";
+        //     }
+        //   }
+        // }
+        // container ppp {
+        //   description
+        //     "Point-to-Point protocol";
+        //   presence "true";
+        // }
+        // container slip {
+        //   description
+        //     "Serial Line IP";
+        //   presence "true";
+        // }
+        // container frame-relay {
+        //   description
+        //     "Frame Relay networks";
+        //   presence "true";
+        //   leaf ietf {
+        //     description
+        //       "Use RFC1490/RFC2427 encapsulation";
+        //     type empty;
+        //   }
+        // }
+        // container frame-relay-settings {
+        //   container frame-relay {
+        //     description
+        //       "frame-relay-networks";
+        //     leaf MFR {
+        //       description
+        //         "Multilink Frame Relay bundle interface";
+        //       type uint32 {
+        //         range "0..2147483647";
+        //       }
+        //     }
+        //   }
+        // }
+        // container raw-tcp {
+        //   description
+        //     "Rawsocket TCP encapsulation";
+        //   presence "true";
+        //   if-feature "ios-features:rawsocket";
+        // }
+        // container raw-udp {
+        //   description
+        //     "Rawsocket UDP encapsulation";
+        //   presence "true";
+        //   if-feature "ios-features:rawsocket";
+        // }
+        // container scada {
+        //   description
+        //     "SCADA encapsulation";
+        //   presence "true";
+        //   if-feature "ios-features:scada-gw";
+        // }
+        // container relay-line {
+        //   description
+        //     "Relay Line encapsulation";
+        //   presence "true";
+        //   if-feature "ios-features:scada-gw";
+        // }
       }
     }
     // container fair-queue-conf {
@@ -1406,36 +1406,36 @@ submodule Cisco-IOS-XE-interfaces {
     //     type empty;
     //   }
     // }
-    container flowcontrol {
-      description
-        "Configure flow operation.";
-      leaf receive {
-        description
-          "Configure receiving flow operation";
-        type enumeration {
-          enum desired;
-          enum off;
-          enum on;
-        }
-      }
-      leaf send {
-        description
-          "Configure sending flow operation";
-        type enumeration {
-          enum desired;
-          enum off;
-          enum on;
-        }
-      }
-    }
-    container isis {
-      description
-        "IS-IS commands";
-    }
-    container clns {
-      description
-        "IS-IS CLNS commands";
-    }
+    // container flowcontrol {
+    //   description
+    //     "Configure flow operation.";
+    //   leaf receive {
+    //     description
+    //       "Configure receiving flow operation";
+    //     type enumeration {
+    //       enum desired;
+    //       enum off;
+    //       enum on;
+    //     }
+    //   }
+    //   leaf send {
+    //     description
+    //       "Configure sending flow operation";
+    //     type enumeration {
+    //       enum desired;
+    //       enum off;
+    //       enum on;
+    //     }
+    //   }
+    // }
+    // container isis {
+    //   description
+    //     "IS-IS commands";
+    // }
+    // container clns {
+    //   description
+    //     "IS-IS CLNS commands";
+    // }
     choice keepalive-choice {
       leaf keepalive {
         description
@@ -1463,96 +1463,96 @@ submodule Cisco-IOS-XE-interfaces {
       description
         "BFD interface configuration commands";
     }
-    container bandwidth {
-      description
-        "Set bandwidth informational parameter";
-      container receive {
-        description
-          "Specify receive-side bandwidth";
-        leaf inherit {
-          description
-            "Specify how bandwidth is inherited";
-          type empty;
-        }
-        leaf kilobits {
-          type uint32;
-        }
-      }
-      container inherit {
-        description
-          "Specify how bandwidth is inherited";
-        presence "true";
-        leaf kilobits {
-          type uint32;
-        }
-      }
-      leaf qos-reference {
-        description
-          "Reference bandwidth for QOS";
-        type uint32 {
-          range "1..10000000";
-        }
-      }
-      leaf kilobits {
-        type uint32 {
-          range "1..200000000";
-        }
-      }
-    }
-    container dampening {
-      description
-        "Enable event dampening";
-      presence "true";
-      leaf dampening-time {
-        description
-          "<1-30>;;Half-life time for penalty";
-        type uint16 {
-          range "1..30";
-        }
-      }
-      leaf start-reusing-time {
-        description
-          "<1-20000>;;Value to start reusing an interface";
-        type uint16 {
-          range "1..20000";
-        }
-      }
-      leaf start-supressing-time {
-        description
-          "<1-20000>;;Value to start suppressing an interface";
-        type uint16 {
-          range "1..20000";
-        }
-      }
-      leaf maximum-supressing-time {
-        description
-          "<1-255>;;Maximum duration to suppress an interface";
-        type uint16 {
-          range "1..255";
-        }
-      }
-      container restart {
-        description
-          "Enable restart penalty";
-        leaf restart {
-          description
-            "Enable restart penalty";
-          type empty;
-        }
-        leaf restart-penalty {
-          description
-            "<1-20000>;;Penalty applied at restart";
-          type uint16 {
-            range "1..20000";
-          }
-        }
-      }
-    }
-    leaf if-state {
-      type enumeration {
-        enum nhrp;
-      }
-    }
+    // container bandwidth {
+    //   description
+    //     "Set bandwidth informational parameter";
+    //   container receive {
+    //     description
+    //       "Specify receive-side bandwidth";
+    //     leaf inherit {
+    //       description
+    //         "Specify how bandwidth is inherited";
+    //       type empty;
+    //     }
+    //     leaf kilobits {
+    //       type uint32;
+    //     }
+    //   }
+    //   container inherit {
+    //     description
+    //       "Specify how bandwidth is inherited";
+    //     presence "true";
+    //     leaf kilobits {
+    //       type uint32;
+    //     }
+    //   }
+    //   leaf qos-reference {
+    //     description
+    //       "Reference bandwidth for QOS";
+    //     type uint32 {
+    //       range "1..10000000";
+    //     }
+    //   }
+    //   leaf kilobits {
+    //     type uint32 {
+    //       range "1..200000000";
+    //     }
+    //   }
+    // }
+    // container dampening {
+    //   description
+    //     "Enable event dampening";
+    //   presence "true";
+    //   leaf dampening-time {
+    //     description
+    //       "<1-30>;;Half-life time for penalty";
+    //     type uint16 {
+    //       range "1..30";
+    //     }
+    //   }
+    //   leaf start-reusing-time {
+    //     description
+    //       "<1-20000>;;Value to start reusing an interface";
+    //     type uint16 {
+    //       range "1..20000";
+    //     }
+    //   }
+    //   leaf start-supressing-time {
+    //     description
+    //       "<1-20000>;;Value to start suppressing an interface";
+    //     type uint16 {
+    //       range "1..20000";
+    //     }
+    //   }
+    //   leaf maximum-supressing-time {
+    //     description
+    //       "<1-255>;;Maximum duration to suppress an interface";
+    //     type uint16 {
+    //       range "1..255";
+    //     }
+    //   }
+    //   container restart {
+    //     description
+    //       "Enable restart penalty";
+    //     leaf restart {
+    //       description
+    //         "Enable restart penalty";
+    //       type empty;
+    //     }
+    //     leaf restart-penalty {
+    //       description
+    //         "<1-20000>;;Penalty applied at restart";
+    //       type uint16 {
+    //         range "1..20000";
+    //       }
+    //     }
+    //   }
+    // }
+    // leaf if-state {
+    //   type enumeration {
+    //     enum nhrp;
+    //   }
+    // }
     leaf delay {
       description
         "Specify interface throughput delay";
@@ -1731,33 +1731,33 @@ submodule Cisco-IOS-XE-interfaces {
           }
         }
       }
-      container arp {
-        description
-          "Configure ARP features";
-        container inspection {
-          description
-            "Arp Inspection configuration";
-          container limit {
-            description
-              "Configure Rate limit of incoming ARP packets";
-            leaf none {
-              description
-                "No limit";
-              type empty;
-            }
-            leaf rate {
-              description
-                "Rate Limit";
-              type uint32;
-            }
-          }
-          leaf trust {
-            description
-              "Configure Trust state";
-            type empty;
-          }
-        }
-      }
+      // container arp {
+      //   description
+      //     "Configure ARP features";
+      //   container inspection {
+      //     description
+      //       "Arp Inspection configuration";
+      //     container limit {
+      //       description
+      //         "Configure Rate limit of incoming ARP packets";
+      //       leaf none {
+      //         description
+      //           "No limit";
+      //         type empty;
+      //       }
+      //       leaf rate {
+      //         description
+      //           "Rate Limit";
+      //         type uint32;
+      //       }
+      //     }
+      //     leaf trust {
+      //       description
+      //         "Configure Trust state";
+      //       type empty;
+      //     }
+      //   }
+      // }
       container vrf {
         description
           "VPN Routing/Forwarding parameters on the interface";
@@ -2163,16 +2163,16 @@ submodule Cisco-IOS-XE-interfaces {
         type boolean;
         default "true";
       }
-      leaf clear-dont-fragment {
-        description
-          "Enable clear dont fragment (Currently Only SDWAN Tunnel Interface)";
-        type boolean;
-      }
-      leaf mask-reply {
-        description
-          "Enable sending ICMP Mask Reply messages";
-        type empty;
-      }
+      // leaf clear-dont-fragment {
+      //   description
+      //     "Enable clear dont fragment (Currently Only SDWAN Tunnel Interface)";
+      //   type boolean;
+      // }
+      // leaf mask-reply {
+      //   description
+      //     "Enable sending ICMP Mask Reply messages";
+      //   type empty;
+      // }
       container tcp {
         description
           "TCP header compression and other parameters";
@@ -2184,24 +2184,24 @@ submodule Cisco-IOS-XE-interfaces {
           }
         }
       }
-      container virtual-reassembly {
-        presence "true";
-        leaf max-reassemblies {
-          type uint32;
-        }
-        leaf max-fragments {
-          type uint32;
-        }
-        leaf timeout {
-          type uint32;
-        }
-        leaf drop-fragments {
-          type empty;
-        }
-        leaf in {
-          type empty;
-        }
-      }
+      // container virtual-reassembly {
+      //   presence "true";
+      //   leaf max-reassemblies {
+      //     type uint32;
+      //   }
+      //   leaf max-fragments {
+      //     type uint32;
+      //   }
+      //   leaf timeout {
+      //     type uint32;
+      //   }
+      //   leaf drop-fragments {
+      //     type empty;
+      //   }
+      //   leaf in {
+      //     type empty;
+      //   }
+      // }
       container dhcp {
         description
           "Configure DHCP parameters for this interface";
@@ -2218,84 +2218,84 @@ submodule Cisco-IOS-XE-interfaces {
           "Enable switching cache for incoming multicast packets";
         type boolean;
       }
-      container summary-address {
-        list eigrp {
-          status obsolete;
-          description
-            "Enhanced Interior Gateway Routing Protocol (EIGRP)";
-          key "id";
-          leaf id {
-            status obsolete;
-            type string;
-          }
-          leaf ip {
-            status obsolete;
-            type inet:ipv4-address;
-          }
-          leaf mask {
-            status obsolete;
-            type inet:ipv4-address;
-          }
-          leaf metric {
-            status obsolete;
-            type uint32;
-          }
-        }
-      }
-      container verify {
-        description
-          "Enable per packet validation";
-        container source {
-          description
-            "Validation of source address";
-          presence "true";
-          container vlan {
-            description
-              "vlan specification";
-            container dhcp-snooping {
-              description
-                "snooping enable vlan";
-              presence "true";
-              leaf port-security {
-                description
-                  "port security";
-                type empty;
-              }
-            }
-          }
-        }
-        container unicast {
-          description
-            "Enable per packet validation for unicast";
-          container reverse-path {
-            description
-              "Reverse path validation of source address (old command format)";
-            presence "true";
-          }
-          container source {
-            description
-              "Validation of source address";
-            leaf reachable-via {
-              description
-                "Specify reachability check to apply to the source address";
-              type enumeration {
-                enum any;
-                enum rx;
-              }
-            }
-            leaf allow-self-ping {
-              description
-                "Allow router to ping itself (opens vulnerability in verification)";
-              type empty;
-            }
-            leaf allow-default {
-              description
-                "Allow default route to match when checking source address";
-              type empty;
-            }
-          }
-        }
-      }
+      // container summary-address {
+      //   list eigrp {
+      //     status obsolete;
+      //     description
+      //       "Enhanced Interior Gateway Routing Protocol (EIGRP)";
+      //     key "id";
+      //     leaf id {
+      //       status obsolete;
+      //       type string;
+      //     }
+      //     leaf ip {
+      //       status obsolete;
+      //       type inet:ipv4-address;
+      //     }
+      //     leaf mask {
+      //       status obsolete;
+      //       type inet:ipv4-address;
+      //     }
+      //     leaf metric {
+      //       status obsolete;
+      //       type uint32;
+      //     }
+      //   }
+      // }
+      // container verify {
+      //   description
+      //     "Enable per packet validation";
+      //   container source {
+      //     description
+      //       "Validation of source address";
+      //     presence "true";
+      //     container vlan {
+      //       description
+      //         "vlan specification";
+      //       container dhcp-snooping {
+      //         description
+      //           "snooping enable vlan";
+      //         presence "true";
+      //         leaf port-security {
+      //           description
+      //             "port security";
+      //           type empty;
+      //         }
+      //       }
+      //     }
+      //   }
+      //   container unicast {
+      //     description
+      //       "Enable per packet validation for unicast";
+      //     container reverse-path {
+      //       description
+      //         "Reverse path validation of source address (old command format)";
+      //       presence "true";
+      //     }
+      //     container source {
+      //       description
+      //         "Validation of source address";
+      //       leaf reachable-via {
+      //         description
+      //           "Specify reachability check to apply to the source address";
+      //         type enumeration {
+      //           enum any;
+      //           enum rx;
+      //         }
+      //       }
+      //       leaf allow-self-ping {
+      //         description
+      //           "Allow router to ping itself (opens vulnerability in verification)";
+      //         type empty;
+      //       }
+      //       leaf allow-default {
+      //         description
+      //           "Allow default route to match when checking source address";
+      //         type empty;
+      //       }
+      //     }
+      //   }
+      // }
     }
     // container ipv6 {
     //   description
@@ -3127,357 +3127,357 @@ submodule Cisco-IOS-XE-interfaces {
     }
   }
 
-  grouping interface-with-dependency-grouping {
-    choice interface-choice {
-      // leaf AppNav-Compress {
-      //   description
-      //     "Service-Context Virtual Interface Compress";
-      //   type leafref {
-      //     path "/ios:native/ios:interface/ios:AppNav-Compress/ios:name";
-      //   }
-      // }
-      // leaf AppNav-UnCompress {
-      //   description
-      //     "Service-Context Virtual Interface UnCompress";
-      //   type leafref {
-      //     path "/ios:native/ios:interface/ios:AppNav-UnCompress/ios:name";
-      //   }
-      // }
-      // leaf ATM {
-      //   description
-      //     "ATM interface";
-      //   type leafref {
-      //     path "/ios:native/ios:interface/ios:ATM/ios:name";
-      //   }
-      // }
-      // container ATM-subinterface {
-      //   leaf ATM {
-      //     type leafref {
-      //       path "/ios:native/ios:interface/ios:ATM-subinterface/ios:ATM/ios:name";
-      //     }
-      //   }
-      // }
-      // leaf ATM-ACR {
-      //   description
-      //     "ATM-ACR interface";
-      //   type leafref {
-      //     path "/ios:native/ios:interface/ios:ATM-ACR/ios:name";
-      //   }
-      // }
-      // container ATM-ACRsubinterface {
-      //   leaf ATM-ACR {
-      //     type leafref {
-      //       path "/ios:native/ios:interface/ios:ATM-ACRsubinterface/ios:ATM-ACR/ios:name";
-      //     }
-      //   }
-      // }
-      // leaf BDI {
-      //   description
-      //     "Bridge-Domain interface";
-      //   type leafref {
-      //     path "/ios:native/ios:interface/ios:BDI/ios:name";
-      //   }
-      // }
-      // leaf CEM {
-      //   description
-      //     "CEM interface";
-      //   type leafref {
-      //     path "/ios:native/ios:interface/ios:CEM/ios:name";
-      //   }
-      // }
-      // leaf CEM-ACR {
-      //   description
-      //     "CEM-ACR interface";
-      //   type leafref {
-      //     path "/ios:native/ios:interface/ios:CEM-ACR/ios:name";
-      //   }
-      // }
-      // leaf Embedded-Service-Engine {
-      //   description
-      //     "cisco embedded service engine module";
-      //   type leafref {
-      //     path "/ios:native/ios:interface/ios:Embedded-Service-Engine/ios:name";
-      //   }
-      // }
-      leaf Ethernet {
-        description
-          "IEEE 802.3";
-        type leafref {
-          path "/ios:native/ios:interface/ios:Ethernet/ios:name";
-        }
-      }
-      leaf FastEthernet {
-        description
-          "FastEthernet IEEE 802.3";
-        type leafref {
-          path "/ios:native/ios:interface/ios:FastEthernet/ios:name";
-        }
-      }
-      leaf GigabitEthernet {
-        description
-          "GigabitEthernet IEEE 802.3z";
-        type leafref {
-          path "/ios:native/ios:interface/ios:GigabitEthernet/ios:name";
-        }
-      }
-      // leaf FiveGigabitEthernet {
-      //   description
-      //     "Five GigabitEthernet ";
-      //   type leafref {
-      //     path "/ios:native/ios:interface/ios:FiveGigabitEthernet/ios:name";
-      //   }
-      // }
-      // leaf AppGigabitEthernet {
-      //   description
-      //     "App-hosting Gigabit Ethernet IEEE 802.3z";
-      //   type leafref {
-      //     path "/ios:native/ios:interface/ios:AppGigabitEthernet/ios:name";
-      //   }
-      // }
-      leaf TwentyFiveGigE {
-        description
-          "Twenty Five GigabitEthernet ";
-        type leafref {
-          path "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:name";
-        }
-      }
-      // leaf TwoGigabitEthernet {
-      //   description
-      //     "Two GigabitEthernet ";
-      //   type leafref {
-      //     path "/ios:native/ios:interface/ios:TwoGigabitEthernet/ios:name";
-      //   }
-      // }
-      leaf FortyGigabitEthernet {
-        description
-          "Forty GigabitEthernet ";
-        type leafref {
-          path "/ios:native/ios:interface/ios:FortyGigabitEthernet/ios:name";
-        }
-      }
-      leaf FiftyGigabitEthernet {
-        description
-          "Fifty GigabitEthernet ";
-        type leafref {
-          path "/ios:native/ios:interface/ios:FiftyGigabitEthernet/ios:name";
-        }
-      }
-      leaf HundredGigE {
-        description
-          "Hundred GigabitEthernet";
-        type leafref {
-          path "/ios:native/ios:interface/ios:HundredGigE/ios:name";
-        }
-      }
-      leaf TwoHundredGigE {
-        description
-          "Two Hundred GigabitEthernet";
-        type leafref {
-          path "/ios:native/ios:interface/ios:TwoHundredGigE/ios:name";
-        }
-      }
-      leaf FourHundredGigE {
-        description
-          "Four Hundred GigabitEthernet";
-        type leafref {
-          path "/ios:native/ios:interface/ios:FourHundredGigE/ios:name";
-        }
-      }
-      // leaf L2LISP {
-      //   description
-      //     "L2 Locator/ID Separation Protocol Virtual Interface";
-      //   type leafref {
-      //     path "/ios:native/ios:interface/ios:L2LISP/ios:name";
-      //   }
-      // }
-      // container L2LISP-subinterface {
-      //   description
-      //     "L2 Locator/ID Separation Protocol Virtual Interface";
-      //   leaf L2LISP {
-      //     type leafref {
-      //       path "/ios:native/ios:interface/ios:L2LISP-subinterface/ios:L2LISP/ios:name";
-      //     }
-      //   }
-      // }
-      // leaf LISP {
-      //   description
-      //     "Locator/ID Separation Protocol Virtual Interface";
-      //   type leafref {
-      //     path "/ios:native/ios:interface/ios:LISP/ios:name";
-      //   }
-      // }
-      // container LISP-subinterface {
-      //   description
-      //     "Locator/ID Separation Protocol Virtual Interface";
-      //   leaf LISP {
-      //     type leafref {
-      //       path "/ios:native/ios:interface/ios:LISP-subinterface/ios:LISP/ios:name";
-      //     }
-      //   }
-      // }
-      leaf Loopback {
-        description
-          "Loopback interface";
-        type leafref {
-          path "/ios:native/ios:interface/ios:Loopback/ios:name";
-        }
-      }
-      leaf Multilink {
-        description
-          "Multilink-group interface";
-        type leafref {
-          path "/ios:native/ios:interface/ios:Multilink/ios:name";
-        }
-      }
-      // leaf nve {
-      //   description
-      //     "Network virtualization endpoint interface";
-      //   type leafref {
-      //     path "/ios:native/ios:interface/ios:nve/ios:name";
-      //   }
-      // }
-      leaf overlay {
-        description
-          "Overlay interface";
-        type leafref {
-          path "/ios:native/ios:interface/ios:overlay/ios:name";
-        }
-      }
-      leaf Port-channel {
-        description
-          "Ethernet Channel of interfaces";
-        type leafref {
-          path "/ios:native/ios:interface/ios:Port-channel/ios:name";
-        }
-      }
-      container Port-channel-subinterface {
-        leaf Port-channel {
-          type leafref {
-            path "/ios:native/ios:interface/ios:Port-channel-subinterface/ios:Port-channel/ios:name";
-          }
-        }
-      }
-      leaf PRP-channel {
-        description
-          "prp-channel interface";
-        type leafref {
-          path "/ios:native/ios:interface/ios:PRP-channel/ios:name";
-        }
-      }
-      leaf pseudowire {
-        description
-          "Pseudowire Interface";
-        type leafref {
-          path "/ios:native/ios:interface/ios:pseudowire/ios:name";
-        }
-      }
-      leaf SM {
-        description
-          "SM Interface";
-        type leafref {
-          path "/ios:native/ios:interface/ios:SM/ios:name";
-        }
-      }
-      leaf Cellular {
-        description
-          "Cellular Interface";
-        type leafref {
-          path "/ios:native/ios:interface/ios:Cellular/ios:name";
-        }
-      }
-      leaf Dialer {
-        description
-          "Dialer Interface";
-        type leafref {
-          path "/ios:native/ios:interface/ios:Dialer/ios:name";
-        }
-      }
-      leaf Serial {
-        description
-          "Serial interface";
-        type leafref {
-          path "/ios:native/ios:interface/ios:Serial/ios:name";
-        }
-      }
-      leaf Async {
-        description
-          "Async serial interface";
-        type leafref {
-          path "/ios:native/ios:interface/ios:Async/ios:name";
-        }
-      }
-      leaf TenGigabitEthernet {
-        description
-          "Ten Gigabit Ethernet";
-        type leafref {
-          path "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:name";
-        }
-      }
-      leaf Tunnel {
-        description
-          "Tunnel interface";
-        type leafref {
-          path "/ios:native/ios:interface/ios:Tunnel/ios:name";
-        }
-      }
-      leaf Virtual-Template {
-        description
-          "Virtual Template interface";
-        type leafref {
-          path "/ios:native/ios:interface/ios:Virtual-Template/ios:name";
-        }
-      }
-      leaf Vlan {
-        description
-          "Iosxr Vlans";
-        type leafref {
-          path "/ios:native/ios:interface/ios:Vlan/ios:name";
-        }
-      }
-      leaf VirtualPortGroup {
-        description
-          "Virtual Port Group";
-        type leafref {
-          path "/ios:native/ios:interface/ios:VirtualPortGroup/ios:name";
-        }
-      }
-      leaf vasileft {
-        description
-          "vasileft";
-        type leafref {
-          path "/ios:native/ios:interface/ios:vasileft/ios:name";
-        }
-      }
-      leaf vasiright {
-        description
-          "vasiright";
-        type leafref {
-          path "/ios:native/ios:interface/ios:vasiright/ios:name";
-        }
-      }
-      leaf BD-VIF {
-        description
-          "Bridge-Domain Virtual IP interface";
-        type leafref {
-          path "/ios:native/ios:interface/ios:BD-VIF/ios:name";
-        }
-      }
-      leaf MFR {
-        description
-          "MFR interface";
-        type leafref {
-          path "/ios:native/ios:interface/ios:MFR/ios:name";
-        }
-      }
-      container Serial-subinterface {
-        leaf Serial {
-          type leafref {
-            path "/ios:native/ios:interface/ios:Serial-subinterface/ios:Serial/ios:name";
-          }
-        }
-      }
-    }
-  }
+  // grouping interface-with-dependency-grouping {
+  //   choice interface-choice {
+  //     leaf AppNav-Compress {
+  //       description
+  //         "Service-Context Virtual Interface Compress";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:AppNav-Compress/ios:name";
+  //       }
+  //     }
+  //     leaf AppNav-UnCompress {
+  //       description
+  //         "Service-Context Virtual Interface UnCompress";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:AppNav-UnCompress/ios:name";
+  //       }
+  //     }
+  //     leaf ATM {
+  //       description
+  //         "ATM interface";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:ATM/ios:name";
+  //       }
+  //     }
+  //     container ATM-subinterface {
+  //       leaf ATM {
+  //         type leafref {
+  //           path "/ios:native/ios:interface/ios:ATM-subinterface/ios:ATM/ios:name";
+  //         }
+  //       }
+  //     }
+  //     leaf ATM-ACR {
+  //       description
+  //         "ATM-ACR interface";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:ATM-ACR/ios:name";
+  //       }
+  //     }
+  //     container ATM-ACRsubinterface {
+  //       leaf ATM-ACR {
+  //         type leafref {
+  //           path "/ios:native/ios:interface/ios:ATM-ACRsubinterface/ios:ATM-ACR/ios:name";
+  //         }
+  //       }
+  //     }
+  //     leaf BDI {
+  //       description
+  //         "Bridge-Domain interface";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:BDI/ios:name";
+  //       }
+  //     }
+  //     leaf CEM {
+  //       description
+  //         "CEM interface";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:CEM/ios:name";
+  //       }
+  //     }
+  //     leaf CEM-ACR {
+  //       description
+  //         "CEM-ACR interface";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:CEM-ACR/ios:name";
+  //       }
+  //     }
+  //     leaf Embedded-Service-Engine {
+  //       description
+  //         "cisco embedded service engine module";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:Embedded-Service-Engine/ios:name";
+  //       }
+  //     }
+  //     leaf Ethernet {
+  //       description
+  //         "IEEE 802.3";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:Ethernet/ios:name";
+  //       }
+  //     }
+  //     leaf FastEthernet {
+  //       description
+  //         "FastEthernet IEEE 802.3";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:FastEthernet/ios:name";
+  //       }
+  //     }
+  //     leaf GigabitEthernet {
+  //       description
+  //         "GigabitEthernet IEEE 802.3z";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:GigabitEthernet/ios:name";
+  //       }
+  //     }
+  //     leaf FiveGigabitEthernet {
+  //       description
+  //         "Five GigabitEthernet ";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:FiveGigabitEthernet/ios:name";
+  //       }
+  //     }
+  //     leaf AppGigabitEthernet {
+  //       description
+  //         "App-hosting Gigabit Ethernet IEEE 802.3z";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:AppGigabitEthernet/ios:name";
+  //       }
+  //     }
+  //     leaf TwentyFiveGigE {
+  //       description
+  //         "Twenty Five GigabitEthernet ";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:name";
+  //       }
+  //     }
+  //     leaf TwoGigabitEthernet {
+  //       description
+  //         "Two GigabitEthernet ";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:TwoGigabitEthernet/ios:name";
+  //       }
+  //     }
+  //     leaf FortyGigabitEthernet {
+  //       description
+  //         "Forty GigabitEthernet ";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:FortyGigabitEthernet/ios:name";
+  //       }
+  //     }
+  //     leaf FiftyGigabitEthernet {
+  //       description
+  //         "Fifty GigabitEthernet ";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:FiftyGigabitEthernet/ios:name";
+  //       }
+  //     }
+  //     leaf HundredGigE {
+  //       description
+  //         "Hundred GigabitEthernet";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:HundredGigE/ios:name";
+  //       }
+  //     }
+  //     leaf TwoHundredGigE {
+  //       description
+  //         "Two Hundred GigabitEthernet";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:TwoHundredGigE/ios:name";
+  //       }
+  //     }
+  //     leaf FourHundredGigE {
+  //       description
+  //         "Four Hundred GigabitEthernet";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:FourHundredGigE/ios:name";
+  //       }
+  //     }
+  //     leaf L2LISP {
+  //       description
+  //         "L2 Locator/ID Separation Protocol Virtual Interface";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:L2LISP/ios:name";
+  //       }
+  //     }
+  //     container L2LISP-subinterface {
+  //       description
+  //         "L2 Locator/ID Separation Protocol Virtual Interface";
+  //       leaf L2LISP {
+  //         type leafref {
+  //           path "/ios:native/ios:interface/ios:L2LISP-subinterface/ios:L2LISP/ios:name";
+  //         }
+  //       }
+  //     }
+  //     leaf LISP {
+  //       description
+  //         "Locator/ID Separation Protocol Virtual Interface";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:LISP/ios:name";
+  //       }
+  //     }
+  //     container LISP-subinterface {
+  //       description
+  //         "Locator/ID Separation Protocol Virtual Interface";
+  //       leaf LISP {
+  //         type leafref {
+  //           path "/ios:native/ios:interface/ios:LISP-subinterface/ios:LISP/ios:name";
+  //         }
+  //       }
+  //     }
+  //     leaf Loopback {
+  //       description
+  //         "Loopback interface";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:Loopback/ios:name";
+  //       }
+  //     }
+  //     leaf Multilink {
+  //       description
+  //         "Multilink-group interface";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:Multilink/ios:name";
+  //       }
+  //     }
+  //     leaf nve {
+  //       description
+  //         "Network virtualization endpoint interface";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:nve/ios:name";
+  //       }
+  //     }
+  //     leaf overlay {
+  //       description
+  //         "Overlay interface";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:overlay/ios:name";
+  //       }
+  //     }
+  //     leaf Port-channel {
+  //       description
+  //         "Ethernet Channel of interfaces";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:Port-channel/ios:name";
+  //       }
+  //     }
+  //     container Port-channel-subinterface {
+  //       leaf Port-channel {
+  //         type leafref {
+  //           path "/ios:native/ios:interface/ios:Port-channel-subinterface/ios:Port-channel/ios:name";
+  //         }
+  //       }
+  //     }
+  //     leaf PRP-channel {
+  //       description
+  //         "prp-channel interface";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:PRP-channel/ios:name";
+  //       }
+  //     }
+  //     leaf pseudowire {
+  //       description
+  //         "Pseudowire Interface";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:pseudowire/ios:name";
+  //       }
+  //     }
+  //     leaf SM {
+  //       description
+  //         "SM Interface";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:SM/ios:name";
+  //       }
+  //     }
+  //     leaf Cellular {
+  //       description
+  //         "Cellular Interface";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:Cellular/ios:name";
+  //       }
+  //     }
+  //     leaf Dialer {
+  //       description
+  //         "Dialer Interface";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:Dialer/ios:name";
+  //       }
+  //     }
+  //     leaf Serial {
+  //       description
+  //         "Serial interface";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:Serial/ios:name";
+  //       }
+  //     }
+  //     leaf Async {
+  //       description
+  //         "Async serial interface";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:Async/ios:name";
+  //       }
+  //     }
+  //     leaf TenGigabitEthernet {
+  //       description
+  //         "Ten Gigabit Ethernet";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:name";
+  //       }
+  //     }
+  //     leaf Tunnel {
+  //       description
+  //         "Tunnel interface";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:Tunnel/ios:name";
+  //       }
+  //     }
+  //     leaf Virtual-Template {
+  //       description
+  //         "Virtual Template interface";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:Virtual-Template/ios:name";
+  //       }
+  //     }
+  //     leaf Vlan {
+  //       description
+  //         "Iosxr Vlans";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:Vlan/ios:name";
+  //       }
+  //     }
+  //     leaf VirtualPortGroup {
+  //       description
+  //         "Virtual Port Group";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:VirtualPortGroup/ios:name";
+  //       }
+  //     }
+  //     leaf vasileft {
+  //       description
+  //         "vasileft";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:vasileft/ios:name";
+  //       }
+  //     }
+  //     leaf vasiright {
+  //       description
+  //         "vasiright";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:vasiright/ios:name";
+  //       }
+  //     }
+  //     leaf BD-VIF {
+  //       description
+  //         "Bridge-Domain Virtual IP interface";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:BD-VIF/ios:name";
+  //       }
+  //     }
+  //     leaf MFR {
+  //       description
+  //         "MFR interface";
+  //       type leafref {
+  //         path "/ios:native/ios:interface/ios:MFR/ios:name";
+  //       }
+  //     }
+  //     container Serial-subinterface {
+  //       leaf Serial {
+  //         type leafref {
+  //           path "/ios:native/ios:interface/ios:Serial-subinterface/ios:Serial/ios:name";
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 
   grouping config-interface-grouping {
     container interface {
@@ -3494,105 +3494,105 @@ submodule Cisco-IOS-XE-interfaces {
         }
         uses interface-common-grouping;
       }
-      // list AppNav-UnCompress {
-      //   description
-      //     "Service-Context Virtual Interface UnCompress";
-      //   key "name";
-      //   leaf name {
-      //     type uint16 {
-      //       range "1..1000";
-      //     }
-      //   }
-      //   uses interface-common-grouping;
-      // }
-      // list ATM {
-      //   description
-      //     "ATM interface";
-      //   key "name";
-      //   leaf name {
-      //     type string {
-      //       pattern '([0-9]+/)*[0-9]+';
-      //     }
-      //   }
-      //   uses interface-common-grouping;
-      // }
-      // container ATM-subinterface {
-      //   list ATM {
-      //     key "name";
-      //     leaf name {
-      //       type string {
-      //         pattern '([0-9]+/)*[0-9]+\.[0-9]+';
-      //       }
-      //     }
-      //     leaf link-type {
-      //       description
-      //         "Link type for subinterface";
-      //       type enumeration {
-      //         enum point-to-point;
-      //         enum multipoint;
-      //       }
-      //     }
-      //     uses interface-common-grouping;
-      //   }
-      // }
-      // list ATM-ACR {
-      //   description
-      //     "ATM-ACR interface";
-      //   key "name";
-      //   leaf name {
-      //     type string {
-      //       pattern '[0-9]';
-      //     }
-      //   }
-      // }
-      // container ATM-ACRsubinterface {
-      //   list ATM-ACR {
-      //     key "name";
-      //     leaf name {
-      //       type string {
-      //         pattern '[0-9]\.([0-9]/){3}[0-9]';
-      //       }
-      //     }
-      //   }
-      // }
-      // list BDI {
-      //   description
-      //     "Bridge-Domain interface";
-      //   key "name";
-      //   leaf name {
-      //     type string;
-      //   }
-      //   uses interface-common-grouping;
-      // }
-      // list CEM {
-      //   description
-      //     "Circuit Emulation interface";
-      //   key "name";
-      //   leaf name {
-      //     type string {
-      //       pattern '([0-9]/){2}[0-9]';
-      //     }
-      //   }
-      // }
-      // list CEM-ACR {
-      //   description
-      //     "Circuit Emulation interface";
-      //   key "name";
-      //   leaf name {
-      //     type uint8 {
-      //       range "0..255";
-      //     }
-      //   }
-      // }
-      // list Embedded-Service-Engine {
-      //   description
-      //     "cisco embedded service engine module";
-      //   key "name";
-      //   leaf name {
-      //     type string;
-      //   }
-      //   uses interface-common-grouping;
-      // }
+      list AppNav-UnCompress {
+        description
+          "Service-Context Virtual Interface UnCompress";
+        key "name";
+        leaf name {
+          type uint16 {
+            range "1..1000";
+          }
+        }
+        uses interface-common-grouping;
+      }
+      list ATM {
+        description
+          "ATM interface";
+        key "name";
+        leaf name {
+          type string {
+            pattern '([0-9]+/)*[0-9]+';
+          }
+        }
+        uses interface-common-grouping;
+      }
+      container ATM-subinterface {
+        list ATM {
+          key "name";
+          leaf name {
+            type string {
+              pattern '([0-9]+/)*[0-9]+\.[0-9]+';
+            }
+          }
+          leaf link-type {
+            description
+              "Link type for subinterface";
+            type enumeration {
+              enum point-to-point;
+              enum multipoint;
+            }
+          }
+          uses interface-common-grouping;
+        }
+      }
+      list ATM-ACR {
+        description
+          "ATM-ACR interface";
+        key "name";
+        leaf name {
+          type string {
+            pattern '[0-9]';
+          }
+        }
+      }
+      container ATM-ACRsubinterface {
+        list ATM-ACR {
+          key "name";
+          leaf name {
+            type string {
+              pattern '[0-9]\.([0-9]/){3}[0-9]';
+            }
+          }
+        }
+      }
+      list BDI {
+        description
+          "Bridge-Domain interface";
+        key "name";
+        leaf name {
+          type string;
+        }
+        uses interface-common-grouping;
+      }
+      list CEM {
+        description
+          "Circuit Emulation interface";
+        key "name";
+        leaf name {
+          type string {
+            pattern '([0-9]/){2}[0-9]';
+          }
+        }
+      }
+      list CEM-ACR {
+        description
+          "Circuit Emulation interface";
+        key "name";
+        leaf name {
+          type uint8 {
+            range "0..255";
+          }
+        }
+      }
+      list Embedded-Service-Engine {
+        description
+          "cisco embedded service engine module";
+        key "name";
+        leaf name {
+          type string;
+        }
+        uses interface-common-grouping;
+      }
       list Ethernet {
         description
           "IEEE 802.3";
@@ -3769,33 +3769,33 @@ submodule Cisco-IOS-XE-interfaces {
         }
         uses interface-common-grouping;
       }
-      // list TwentyFiveGigabitEthernet {
-      //   status obsolete;
-      //   description
-      //     "Twenty Five Gigabit Ethernet";
-      //   key "name";
-      //   leaf name {
-      //     status obsolete;
-      //     type string;
-      //   }
-      //   leaf media-type {
-      //     status obsolete;
-      //     description
-      //       "Media type";
-      //     type enumeration {
-      //       enum auto-select;
-      //       enum rj45;
-      //       enum sfp;
-      //     }
-      //   }
-      //   leaf port-type {
-      //     status obsolete;
-      //     type enumeration {
-      //       enum nni;
-      //     }
-      //   }
-      //   uses obsolete-interface-common-grouping;
-      // }
+      list TwentyFiveGigabitEthernet {
+        status obsolete;
+        description
+          "Twenty Five Gigabit Ethernet";
+        key "name";
+        leaf name {
+          status obsolete;
+          type string;
+        }
+        leaf media-type {
+          status obsolete;
+          description
+            "Media type";
+          type enumeration {
+            enum auto-select;
+            enum rj45;
+            enum sfp;
+          }
+        }
+        leaf port-type {
+          status obsolete;
+          type enumeration {
+            enum nni;
+          }
+        }
+        // uses obsolete-interface-common-grouping;
+      }
       list TwentyFiveGigE {
         description
           "Twenty Five Gigabit Ethernet";
@@ -3992,88 +3992,88 @@ submodule Cisco-IOS-XE-interfaces {
           uses interface-common-grouping;
         }
       }
-      // list nve {
-      //   description
-      //     "Network virtualization endpoint interface";
-      //   key "name";
-      //   leaf name {
-      //     type uint16 {
-      //       range "1..4096";
-      //     }
-      //   }
-      //   container group-based {
-      //     description
-      //       "group based policy mode";
-      //     leaf policy {
-      //       type empty;
-      //     }
-      //   }
-      //   container host-reachability {
-      //     container protocol {
-      //       leaf bgp {
-      //         type empty;
-      //       }
-      //     }
-      //   }
-      //   container vxlan {
-      //     container udp {
-      //       leaf port {
-      //         description
-      //           "VxLAN dataplane UDP destination port for this NVE interface";
-      //         type uint16 {
-      //           range "1024..65535";
-      //         }
-      //       }
-      //     }
-      //   }
-      //   container source-interface {
-      //     description
-      //       "Specify source interface for NVE";
-      //     uses ios-ifc:interface-grouping;
-      //   }
-      //   container member-in-one-line {
-      //     container member {
-      //       list vni {
-      //         description
-      //           "Configure VNI information";
-      //         key "vni-range";
-      //         leaf vni-range {
-      //           description
-      //             "VNI range or instance between 4096-16777215, example: 6010-6030 or 7115";
-      //           type string;
-      //         }
-      //         leaf vrf {
-      //           description
-      //             "Specify a particular VRF";
-      //           must '/ios:native/ios:vrf/ios:definition[ios:name=current()] or /ios:native/ios:ip/ios:vrf[ios:name=current()]' {
-      //             error-message "VRF must be created 1st, deleted last";
-      //           }
-      //           type string;
-      //         }
-      //       }
-      //     }
-      //   }
-      //   container member {
-      //     list vni {
-      //       description
-      //         "Configure VNI information";
-      //       key "vni-range";
-      //       leaf vni-range {
-      //         description
-      //           "VNI range or instance between 4096-16777215, example: 6010-6030 or 7115";
-      //         type string;
-      //       }
-      //       container default {
-      //         uses nve-member-vni-no-grouping;
-      //       }
-      //       uses nve-member-vni-grouping;
-      //       container no {
-      //         uses nve-member-vni-no-grouping;
-      //       }
-      //     }
-      //   }
-      //   uses interface-common-grouping;
-      // }
+      list nve {
+        description
+          "Network virtualization endpoint interface";
+        key "name";
+        leaf name {
+          type uint16 {
+            range "1..4096";
+          }
+        }
+        container group-based {
+          description
+            "group based policy mode";
+          leaf policy {
+            type empty;
+          }
+        }
+        container host-reachability {
+          container protocol {
+            leaf bgp {
+              type empty;
+            }
+          }
+        }
+        container vxlan {
+          container udp {
+            leaf port {
+              description
+                "VxLAN dataplane UDP destination port for this NVE interface";
+              type uint16 {
+                range "1024..65535";
+              }
+            }
+          }
+        }
+        container source-interface {
+          description
+            "Specify source interface for NVE";
+          uses ios-ifc:interface-grouping;
+        }
+        container member-in-one-line {
+          container member {
+            list vni {
+              description
+                "Configure VNI information";
+              key "vni-range";
+              leaf vni-range {
+                description
+                  "VNI range or instance between 4096-16777215, example: 6010-6030 or 7115";
+                type string;
+              }
+              leaf vrf {
+                description
+                  "Specify a particular VRF";
+                must '/ios:native/ios:vrf/ios:definition[ios:name=current()] or /ios:native/ios:ip/ios:vrf[ios:name=current()]' {
+                  error-message "VRF must be created 1st, deleted last";
+                }
+                type string;
+              }
+            }
+          }
+        }
+        container member {
+          list vni {
+            description
+              "Configure VNI information";
+            key "vni-range";
+            leaf vni-range {
+              description
+                "VNI range or instance between 4096-16777215, example: 6010-6030 or 7115";
+              type string;
+            }
+            container default {
+              uses nve-member-vni-no-grouping;
+            }
+            uses nve-member-vni-grouping;
+            container no {
+              uses nve-member-vni-no-grouping;
+            }
+          }
+        }
+        uses interface-common-grouping;
+      }
       list overlay {
         description
           "Overlay interface";
@@ -4252,68 +4252,68 @@ submodule Cisco-IOS-XE-interfaces {
         }
         uses interface-common-grouping;
       }
-      // list GMPLS {
-      //   description
-      //     "MPLS interface";
-      //   key "name";
-      //   leaf name {
-      //     type uint16 {
-      //       range "0..1000";
-      //     }
-      //   }
-      //   uses interface-common-grouping;
-      // }
-      // list Group-Async {
-      //   description
-      //     "Async Group interface";
-      //   key "name";
-      //   leaf name {
-      //     type uint16 {
-      //       range "0..64";
-      //     }
-      //   }
-      //   leaf physical-layer {
-      //     description
-      //       "Configure sync or async physical layer on serial interface";
-      //     type enumeration {
-      //       enum async;
-      //       enum sync;
-      //     }
-      //   }
-      //   uses interface-common-grouping;
-      // }
-      // list Multilink {
-      //   description
-      //     "Multilink-group interface";
-      //   key "name";
-      //   leaf name {
-      //     type uint32 {
-      //       range "1..2147483647";
-      //     }
-      //   }
-      //   uses interface-common-grouping;
-      // }
-      // list Serial {
-      //   description
-      //     "Serial interface";
-      //   key "name";
-      //   leaf name {
-      //     type string;
-      //   }
-      //   leaf down-when-looped {
-      //     type empty;
-      //   }
-      //   uses interface-common-grouping;
-      // }
-      // list Async {
-      //   description
-      //     "Async interface";
-      //   key "name";
-      //   leaf name {
-      //     type string;
-      //   }
-      //   uses interface-common-grouping;
-      // }
+      list GMPLS {
+        description
+          "MPLS interface";
+        key "name";
+        leaf name {
+          type uint16 {
+            range "0..1000";
+          }
+        }
+        uses interface-common-grouping;
+      }
+      list Group-Async {
+        description
+          "Async Group interface";
+        key "name";
+        leaf name {
+          type uint16 {
+            range "0..64";
+          }
+        }
+        leaf physical-layer {
+          description
+            "Configure sync or async physical layer on serial interface";
+          type enumeration {
+            enum async;
+            enum sync;
+          }
+        }
+        uses interface-common-grouping;
+      }
+      list Multilink {
+        description
+          "Multilink-group interface";
+        key "name";
+        leaf name {
+          type uint32 {
+            range "1..2147483647";
+          }
+        }
+        uses interface-common-grouping;
+      }
+      list Serial {
+        description
+          "Serial interface";
+        key "name";
+        leaf name {
+          type string;
+        }
+        leaf down-when-looped {
+          type empty;
+        }
+        uses interface-common-grouping;
+      }
+      list Async {
+        description
+          "Async interface";
+        key "name";
+        leaf name {
+          type string;
+        }
+        uses interface-common-grouping;
+      }
       list Tunnel {
         description
           "Tunnel interface";
@@ -4332,83 +4332,83 @@ submodule Cisco-IOS-XE-interfaces {
           }
         }
       }
-      // list vmi {
-      //   description
-      //     "Virtual Multipoint Interface";
-      //   key "name";
-      //   leaf name {
-      //     type uint32 {
-      //       range "1..2147483647";
-      //     }
-      //   }
-      //   uses interface-common-grouping;
-      //   uses interface-vmi-grouping;
-      // }
-      // list Virtual-Template {
-      //   description
-      //     "Virtual Template interface";
-      //   key "name";
-      //   leaf name {
-      //     type uint16 {
-      //       range "1..4095";
-      //     }
-      //   }
-      //   leaf type {
-      //     description
-      //       "type of the virtual-template";
-      //     type enumeration {
-      //       enum ethernet;
-      //       enum serial;
-      //       enum tunnel;
-      //       enum vpn;
-      //     }
-      //   }
-      //   uses interface-common-grouping;
-      // }
-      // list Virtual-PPP {
-      //   description
-      //     "Virtual PPP interface";
-      //   key "name";
-      //   leaf name {
-      //     type uint32 {
-      //       range "1..2147483647";
-      //     }
-      //   }
-      //   uses interface-common-grouping;
-      // }
-      // list VirtualPortGroup {
-      //   description
-      //     "Virtual Port Group";
-      //   key "name";
-      //   leaf name {
-      //     type uint16 {
-      //       range "0..31";
-      //     }
-      //   }
-      //   uses interface-common-grouping;
-      // }
-      // list vasileft {
-      //   description
-      //     "vasileft";
-      //   key "name";
-      //   leaf name {
-      //     type uint16 {
-      //       range "1..2000";
-      //     }
-      //   }
-      //   uses interface-common-grouping;
-      // }
-      // list vasiright {
-      //   description
-      //     "vasiright";
-      //   key "name";
-      //   leaf name {
-      //     type uint16 {
-      //       range "1..2000";
-      //     }
-      //   }
-      //   uses interface-common-grouping;
-      // }
+      list vmi {
+        description
+          "Virtual Multipoint Interface";
+        key "name";
+        leaf name {
+          type uint32 {
+            range "1..2147483647";
+          }
+        }
+        uses interface-common-grouping;
+        uses interface-vmi-grouping;
+      }
+      list Virtual-Template {
+        description
+          "Virtual Template interface";
+        key "name";
+        leaf name {
+          type uint16 {
+            range "1..4095";
+          }
+        }
+        leaf type {
+          description
+            "type of the virtual-template";
+          type enumeration {
+            enum ethernet;
+            enum serial;
+            enum tunnel;
+            enum vpn;
+          }
+        }
+        uses interface-common-grouping;
+      }
+      list Virtual-PPP {
+        description
+          "Virtual PPP interface";
+        key "name";
+        leaf name {
+          type uint32 {
+            range "1..2147483647";
+          }
+        }
+        uses interface-common-grouping;
+      }
+      list VirtualPortGroup {
+        description
+          "Virtual Port Group";
+        key "name";
+        leaf name {
+          type uint16 {
+            range "0..31";
+          }
+        }
+        uses interface-common-grouping;
+      }
+      list vasileft {
+        description
+          "vasileft";
+        key "name";
+        leaf name {
+          type uint16 {
+            range "1..2000";
+          }
+        }
+        uses interface-common-grouping;
+      }
+      list vasiright {
+        description
+          "vasiright";
+        key "name";
+        leaf name {
+          type uint16 {
+            range "1..2000";
+          }
+        }
+        uses interface-common-grouping;
+      }
       list Vif {
         description
           "PGM Multicast Host interface";
@@ -4439,58 +4439,58 @@ submodule Cisco-IOS-XE-interfaces {
         }
         uses interface-common-grouping;
       }
-      // list MFR {
-      //   description
-      //     "Multilink Frame Relay bundle interface";
-      //   key "name";
-      //   leaf name {
-      //     description
-      //       "MFR interface number";
-      //     type uint32 {
-      //       range "0..2147483647";
-      //     }
-      //   }
-      //   uses interface-common-grouping;
-      // }
-      // container Serial-subinterface {
-      //   list Serial {
-      //     key "name";
-      //     leaf name {
-      //       description
-      //         "Serial interface Number";
-      //       type string;
-      //     }
-      //     leaf link-type {
-      //       description
-      //         "Link type for subinterface";
-      //       type enumeration {
-      //         enum point-to-point;
-      //       }
-      //     }
-      //     uses interface-common-grouping;
-      //   }
-      // }
-      // container MFR-subinterface {
-      //   list MFR {
-      //     key "name";
-      //     leaf name {
-      //       description
-      //         "MFR interface number";
-      //       must "/ios:native/ios:interface/ios:MFR[ios:name=number(substring-before(current(), '.'))]" {
-      //         error-message "To create a MFR subinterface, the MFR interface needs to be created 1st; vice versa for delete.";
-      //       }
-      //       type string;
-      //     }
-      //     leaf link-type {
-      //       description
-      //         "Link type for subinterface";
-      //       type enumeration {
-      //         enum point-to-point;
-      //       }
-      //     }
-      //     uses interface-common-grouping;
-      //   }
-      // }
+      list MFR {
+        description
+          "Multilink Frame Relay bundle interface";
+        key "name";
+        leaf name {
+          description
+            "MFR interface number";
+          type uint32 {
+            range "0..2147483647";
+          }
+        }
+        uses interface-common-grouping;
+      }
+      container Serial-subinterface {
+        list Serial {
+          key "name";
+          leaf name {
+            description
+              "Serial interface Number";
+            type string;
+          }
+          leaf link-type {
+            description
+              "Link type for subinterface";
+            type enumeration {
+              enum point-to-point;
+            }
+          }
+          uses interface-common-grouping;
+        }
+      }
+      container MFR-subinterface {
+        list MFR {
+          key "name";
+          leaf name {
+            description
+              "MFR interface number";
+            must "/ios:native/ios:interface/ios:MFR[ios:name=number(substring-before(current(), '.'))]" {
+              error-message "To create a MFR subinterface, the MFR interface needs to be created 1st; vice versa for delete.";
+            }
+            type string;
+          }
+          leaf link-type {
+            description
+              "Link type for subinterface";
+            type enumeration {
+              enum point-to-point;
+            }
+          }
+          uses interface-common-grouping;
+        }
+      }
     }
   }
 

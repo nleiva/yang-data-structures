@@ -1,0 +1,189 @@
+module Cisco-IOS-XE-skip {
+  namespace "http://cisco.com/ns/yang/Cisco-IOS-XE-skip";
+  prefix ios-skip;
+
+  import cisco-semver {
+    prefix cisco-semver;
+  }
+  import Cisco-IOS-XE-native {
+    prefix ios;
+  }
+  import Cisco-IOS-XE-ntp {
+    prefix ios-ntp;
+  }
+
+  organization
+    "Bloomberg LP";
+
+  revision 2025-06-04 {
+    description
+      "Added prefix deviation";
+    cisco-semver:module-version "0.1.0";
+  }
+
+  //============================= Interfaces ==================================
+  deviation "/ios:native/ios:interface/ios:FastEthernet" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:FiveGigabitEthernet" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:AppGigabitEthernet" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TwoGigabitEthernet" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Tunnel" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Virtual-Template" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Dialer" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:AppNav-Compress" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:AppNav-UnCompress" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:ATM" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:ATM-subinterface" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Async" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:BD-VIF" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:BDI" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Cellular" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Embedded-Service-Engine" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Ethernet" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:LISP" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Multilink" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Port-channel" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:SM" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Serial" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:VirtualPortGroup" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:nve" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Vif" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Wlan-GigabitEthernet" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:MFR" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:MFR-subinterface" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Serial-subinterface" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:ucse" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Ethernet-Internal" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Service-Engine" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:LISP-subinterface" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Port-channel-subinterface" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:GMPLS" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Group-Async" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Virtual-PPP" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:vasileft" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:vasiright" {
+    deviate not-supported;
+  }
+
+  //============================= NTP ==================================
+  deviation "/ios:native/ios:ntp/ios-ntp:access-group/ios-ntp:ipv6" {
+    deviate not-supported;
+  }  
+}

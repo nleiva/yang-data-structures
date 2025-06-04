@@ -3497,9 +3497,9 @@ module Cisco-IOS-XE-nat {
   //   uses config-interface-nat64-grouping;
   // }
 
-  augment "/ios:native/ios:interface/ios:BD-VIF/ios:ip" {
-    uses config-interface-ip-nat-grouping;
-  }
+  // augment "/ios:native/ios:interface/ios:BD-VIF/ios:ip" {
+  //   uses config-interface-ip-nat-grouping;
+  // }
 
   // augment "/ios:native/ios:interface/ios:ucse" {
   //   uses config-interface-nat64-grouping;
