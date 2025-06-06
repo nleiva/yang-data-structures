@@ -4467,13 +4467,13 @@ module Cisco-IOS-XE-snmp {
     uses config-snmp-server-grouping;
   }
 
-//   augment "/ios:native/ios:interface/ios:FastEthernet" {
-//     uses config-interface-snmp-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:FastEthernet" {
+    uses config-interface-snmp-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:ATM-subinterface/ios:ATM" {
-//     uses config-interface-ATMsubinterface-snmp-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:ATM-subinterface/ios:ATM" {
+    uses config-interface-ATMsubinterface-snmp-grouping;
+  }
 
   augment "/ios:native/ios:interface/ios:GigabitEthernet" {
     uses config-interface-snmp-grouping;
@@ -4483,13 +4483,13 @@ module Cisco-IOS-XE-snmp {
     uses config-interface-snmp-grouping;
   }
 
-//   augment "/ios:native/ios:interface/ios:FiveGigabitEthernet" {
-//     uses config-interface-snmp-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet" {
+    uses config-interface-snmp-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:AppGigabitEthernet" {
-//     uses config-interface-snmp-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:AppGigabitEthernet" {
+    uses config-interface-snmp-grouping;
+  }
 
 //   augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet" {
 //     status obsolete;
@@ -4502,9 +4502,9 @@ module Cisco-IOS-XE-snmp {
     uses config-interface-snmp-grouping;
   }
 
-//   augment "/ios:native/ios:interface/ios:TwoGigabitEthernet" {
-//     uses config-interface-snmp-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet" {
+    uses config-interface-snmp-grouping;
+  }
 
   augment "/ios:native/ios:interface/ios:FortyGigabitEthernet" {
     uses config-interface-snmp-grouping;
@@ -4518,23 +4518,23 @@ module Cisco-IOS-XE-snmp {
     uses config-interface-snmp-grouping;
   }
 
-  // augment "/ios:native/ios:interface/ios:Port-channel" {
-  //   uses config-interface-snmp-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:Port-channel" {
+    uses config-interface-snmp-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:Tunnel" {
-  //   uses config-interface-snmp-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:Tunnel" {
+    uses config-interface-snmp-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:Virtual-Template" {
-//     uses config-interface-snmp-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:Virtual-Template" {
+    uses config-interface-snmp-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:VirtualPortGroup" {
-//     uses config-interface-snmp-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:VirtualPortGroup" {
+    uses config-interface-snmp-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:Serial" {
-//     uses config-interface-snmp-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:Serial" {
+    uses config-interface-snmp-grouping;
+  }
 }

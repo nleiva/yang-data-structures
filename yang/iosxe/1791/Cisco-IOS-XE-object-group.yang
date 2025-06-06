@@ -379,24 +379,24 @@ module Cisco-IOS-XE-object-group {
         length "1..200";
       }
     }
-    // list group-objects {
-    //   description
-    //     "List of nested IPv4 service object groups";
-    //   key "service-group";
-    //   leaf service-group {
-    //     description
-    //       "Nested service object group name";
-    //     type leafref {
-    //       path "/ios:native/ios:object-group/ios-og:service/ios-og:name";
-    //     }
-    //   }
-    // }
-    // leaf group-object {
-    //   status deprecated;
-    //   description
-    //     "Nested object group (DEPRECATED - use group-objects)";
-    //   type string;
-    // }
+    list group-objects {
+      description
+        "List of nested IPv4 service object groups";
+      key "service-group";
+      leaf service-group {
+        description
+          "Nested service object group name";
+        type leafref {
+          path "/ios:native/ios:object-group/ios-og:service/ios-og:name";
+        }
+      }
+    }
+    leaf group-object {
+      status deprecated;
+      description
+        "Nested object group (DEPRECATED - use group-objects)";
+      type string;
+    }
     leaf-list protocal-number {
       description
         "An IP protocol number";
@@ -1855,100 +1855,100 @@ module Cisco-IOS-XE-object-group {
         }
       }
     }
-    // list fqdn {
-    //   description
-    //     "FQDN object-group type";
-    //   key "name";
-    //   leaf name {
-    //     description
-    //       "Name of FQDN OG";
-    //     type string {
-    //       length "1..64";
-    //     }
-    //   }
-    //   leaf description {
-    //     description
-    //       "Description for FQDN OG";
-    //     type string {
-    //       length "1..200";
-    //     }
-    //   }
-    //   list group-object {
-    //     description
-    //       "List of nested FQDN Groups";
-    //     key "fqdn-group";
-    //     leaf fqdn-group {
-    //       description
-    //         "FQDN group name";
-    //       type leafref {
-    //         path "/ios:native/ios:object-group/ios-og:fqdn/ios-og:name";
-    //       }
-    //     }
-    //   }
-    //   list pattern {
-    //     description
-    //       "List of reg exp FQDN patterns";
-    //     key "fqdn-pattern";
-    //     leaf fqdn-pattern {
-    //       description
-    //         "FQDN pattern";
-    //       type string {
-    //         length "1..240";
-    //       }
-    //     }
-    //   }
-    // }
-    // list geo {
-    //   description
-    //     "Geolocation object groups";
-    //   key "name";
-    //   leaf name {
-    //     description
-    //       "Name of geolocation object group";
-    //     type string {
-    //       length "1..64";
-    //     }
-    //   }
-    //   leaf description {
-    //     description
-    //       "Geolocation group description";
-    //     type string {
-    //       length "1..200";
-    //     }
-    //   }
-    //   list group-object {
-    //     description
-    //       "Nested geolocation groups";
-    //     key "geo-group";
-    //     leaf geo-group {
-    //       description
-    //         "Nested geolocation group";
-    //       type leafref {
-    //         path "/ios:native/ios:object-group/ios-og:geo/ios-og:name";
-    //       }
-    //     }
-    //   }
-    //   list countries {
-    //     description
-    //       "List of countries, identified by ISO-3661-1 alpha-3 codes";
-    //     key "country";
-    //     leaf country {
-    //       description
-    //         "ISO-3166 alpha-3 country code";
-    //       type alpha-3-country-code-type;
-    //     }
-    //   }
-    //   list continents {
-    //     description
-    //       "List of continents";
-    //     key "continent";
-    //     leaf continent {
-    //       description
-    //         "2-letter continent code";
-    //       type alpha-continent-code-type;
-    //     }
-    //   }
-    // }
+    list fqdn {
+      description
+        "FQDN object-group type";
+      key "name";
+      leaf name {
+        description
+          "Name of FQDN OG";
+        type string {
+          length "1..64";
+        }
+      }
+      leaf description {
+        description
+          "Description for FQDN OG";
+        type string {
+          length "1..200";
+        }
+      }
+      list group-object {
+        description
+          "List of nested FQDN Groups";
+        key "fqdn-group";
+        leaf fqdn-group {
+          description
+            "FQDN group name";
+          type leafref {
+            path "/ios:native/ios:object-group/ios-og:fqdn/ios-og:name";
+          }
+        }
+      }
+      list pattern {
+        description
+          "List of reg exp FQDN patterns";
+        key "fqdn-pattern";
+        leaf fqdn-pattern {
+          description
+            "FQDN pattern";
+          type string {
+            length "1..240";
+          }
+        }
+      }
+    }
+    list geo {
+      description
+        "Geolocation object groups";
+      key "name";
+      leaf name {
+        description
+          "Name of geolocation object group";
+        type string {
+          length "1..64";
+        }
+      }
+      leaf description {
+        description
+          "Geolocation group description";
+        type string {
+          length "1..200";
+        }
+      }
+      list group-object {
+        description
+          "Nested geolocation groups";
+        key "geo-group";
+        leaf geo-group {
+          description
+            "Nested geolocation group";
+          type leafref {
+            path "/ios:native/ios:object-group/ios-og:geo/ios-og:name";
+          }
+        }
+      }
+      list countries {
+        description
+          "List of countries, identified by ISO-3661-1 alpha-3 codes";
+        key "country";
+        leaf country {
+          description
+            "ISO-3166 alpha-3 country code";
+          type alpha-3-country-code-type;
+        }
+      }
+      list continents {
+        description
+          "List of continents";
+        key "continent";
+        leaf continent {
+          description
+            "2-letter continent code";
+          type alpha-continent-code-type;
+        }
+      }
+    }
     list service {
       description
         "service group";
@@ -1960,54 +1960,54 @@ module Cisco-IOS-XE-object-group {
       }
       uses object-group-service-grouping;
     }
-    // list v6-network {
-    //   description
-    //     "IPv6 network group";
-    //   key "name";
-    //   leaf name {
-    //     description
-    //       "WORD;;object-group name";
-    //     type string {
-    //       length "1..64";
-    //     }
-    //   }
-    //   leaf description {
-    //     description
-    //       "STRING;;Network object group description";
-    //     type string {
-    //       length "1..200";
-    //     }
-    //   }
-    //   list network-address {
-    //     key "ipv6-addr-prefix";
-    //     leaf ipv6-addr-prefix {
-    //       description
-    //         "X:X:X:X::X/<0-128>;;IPv6 network address/prefix length";
-    //       type ios-types:ipv6-prefix;
-    //     }
-    //   }
-    //   list host {
-    //     key "ipv6-host";
-    //     leaf ipv6-host {
-    //       description
-    //         "X:X:X:X::X;;Host address of group member";
-    //       type ios-types:ipv6-host;
-    //     }
-    //   }
-    //   list group-object {
-    //     key "v6-network-object-group";
-    //     leaf v6-network-object-group {
-    //       description
-    //         "WORD;;Nested object group";
-    //       type leafref {
-    //         path "/ios:native/ios:object-group/ios-og:v6-network/ios-og:name";
-    //       }
-    //     }
-    //   }
-    // }
+    list v6-network {
+      description
+        "IPv6 network group";
+      key "name";
+      leaf name {
+        description
+          "WORD;;object-group name";
+        type string {
+          length "1..64";
+        }
+      }
+      leaf description {
+        description
+          "STRING;;Network object group description";
+        type string {
+          length "1..200";
+        }
+      }
+      list network-address {
+        key "ipv6-addr-prefix";
+        leaf ipv6-addr-prefix {
+          description
+            "X:X:X:X::X/<0-128>;;IPv6 network address/prefix length";
+          type ios-types:ipv6-prefix;
+        }
+      }
+      list host {
+        key "ipv6-host";
+        leaf ipv6-host {
+          description
+            "X:X:X:X::X;;Host address of group member";
+          type ios-types:ipv6-host;
+        }
+      }
+      list group-object {
+        key "v6-network-object-group";
+        leaf v6-network-object-group {
+          description
+            "WORD;;Nested object group";
+          type leafref {
+            path "/ios:native/ios:object-group/ios-og:v6-network/ios-og:name";
+          }
+        }
+      }
+    }
   }
 
-//   augment "/ios:native/ios:object-group" {
-//     uses config-object-group-grouping;
-//   }
+  augment "/ios:native/ios:object-group" {
+    uses config-object-group-grouping;
+  }
 }

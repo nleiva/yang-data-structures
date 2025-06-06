@@ -651,227 +651,227 @@ module Cisco-IOS-XE-bgp {
     }
   }
 
-  // grouping config-bmp-server-grouping {
-  //   container bmp {
-  //     description
-  //       "BGP Monitoring Protocol";
-  //     leaf buffer-size {
-  //       description
-  //         "Buffer Size in MB";
-  //       type uint16 {
-  //         range "1..2048";
-  //       }
-  //     }
-  //     container initial-refresh {
-  //       description
-  //         "Initial Refresh options";
-  //       choice initial-refresh-options {
-  //         case delay-option {
-  //           leaf delay {
-  //             description
-  //               "Delay before Initial Refresh";
-  //             type uint16 {
-  //               range "1..3600";
-  //             }
-  //           }
-  //         }
-  //         case skip-option {
-  //           leaf skip {
-  //             description
-  //               "skip all references";
-  //             type empty;
-  //           }
-  //         }
-  //       }
-  //     }
-  //     list server {
-  //       description
-  //         "Server Information";
-  //       key "id";
-  //       max-elements 4;
-  //       leaf id {
-  //         description
-  //           "BMP Server Number";
-  //         type uint8 {
-  //           range "1..4";
-  //         }
-  //       }
-  //       container address-config {
-  //         leaf address {
-  //           description
-  //             "BMP Server Address";
-  //           type union {
-  //             type inet:ipv4-address;
-  //             type inet:ipv6-address;
-  //           }
-  //         }
-  //         leaf port-number {
-  //           type uint16 {
-  //             range "1..65535";
-  //           }
-  //         }
-  //         must '(address and port-number) or (not(address) and not(port-number))' {
-  //           error-message "Both address and port-number must be configured together.";
-  //         }
-  //       }
-  //       leaf activate {
-  //         description
-  //           "Initiate connection to BMP server";
-  //         must '../address-config/port-number' {
-  //           error-message "Address and port-number must be configured to activate the BMP server";
-  //         }
-  //         type empty;
-  //       }
-  //       leaf description {
-  //         description
-  //           "Textual description of BMP server";
-  //         type string;
-  //       }
-  //       leaf failure-retry-delay {
-  //         description
-  //           "Failure retry delay in sending BMP server updates";
-  //         default "600";
-  //         type uint16 {
-  //           range "1..3600";
-  //         }
-  //       }
-  //       leaf flapping-delay {
-  //         description
-  //           "Flapping delay in sending BMP server updates";
-  //         default "1800";
-  //         type uint16 {
-  //           range "1..3600";
-  //         }
-  //       }
-  //       leaf initial-delay {
-  //         description
-  //           "Initial delay in sending BMP server updates";
-  //         default "600";
-  //         type uint16 {
-  //           range "1..3600";
-  //         }
-  //       }
-  //       leaf stats-reporting-period {
-  //         description
-  //           "Stats reporting period for BMP server";
-  //         type uint16 {
-  //           range "1..3600";
-  //         }
-  //       }
-  //       container set {
-  //         description
-  //           "Set DSCP value";
-  //         container ip {
-  //           description
-  //             "Set IP TOS field";
-  //           leaf dscp {
-  //             description
-  //               "DSCP value";
-  //             type enumeration {
-  //               enum 0 {
-  //                 description
-  //                   "Routine";
-  //               }
-  //               enum 1 {
-  //                 description
-  //                   "Priority";
-  //               }
-  //               enum 2 {
-  //                 description
-  //                   "Immediate";
-  //               }
-  //               enum 3 {
-  //                 description
-  //                   "Flash";
-  //               }
-  //               enum 4 {
-  //                 description
-  //                   "Flash Override";
-  //               }
-  //               enum 5 {
-  //                 description
-  //                   "Critical ECP";
-  //               }
-  //               enum 6 {
-  //                 description
-  //                   "Internetwork Control";
-  //               }
-  //               enum 7 {
-  //                 description
-  //                   "Network Control";
-  //               }
-  //             }
-  //           }
-  //         }
-  //       }
-  //       container update-source {
-  //         description
-  //           "Source of routing updates";
-  //         uses ios:interface-with-dependency-grouping;
-  //       }
-  //     }
-  //   }
-  // }
+  grouping config-bmp-server-grouping {
+    container bmp {
+      description
+        "BGP Monitoring Protocol";
+      leaf buffer-size {
+        description
+          "Buffer Size in MB";
+        type uint16 {
+          range "1..2048";
+        }
+      }
+      container initial-refresh {
+        description
+          "Initial Refresh options";
+        choice initial-refresh-options {
+          case delay-option {
+            leaf delay {
+              description
+                "Delay before Initial Refresh";
+              type uint16 {
+                range "1..3600";
+              }
+            }
+          }
+          case skip-option {
+            leaf skip {
+              description
+                "skip all references";
+              type empty;
+            }
+          }
+        }
+      }
+      list server {
+        description
+          "Server Information";
+        key "id";
+        max-elements 4;
+        leaf id {
+          description
+            "BMP Server Number";
+          type uint8 {
+            range "1..4";
+          }
+        }
+        container address-config {
+          leaf address {
+            description
+              "BMP Server Address";
+            type union {
+              type inet:ipv4-address;
+              type inet:ipv6-address;
+            }
+          }
+          leaf port-number {
+            type uint16 {
+              range "1..65535";
+            }
+          }
+          must '(address and port-number) or (not(address) and not(port-number))' {
+            error-message "Both address and port-number must be configured together.";
+          }
+        }
+        leaf activate {
+          description
+            "Initiate connection to BMP server";
+          must '../address-config/port-number' {
+            error-message "Address and port-number must be configured to activate the BMP server";
+          }
+          type empty;
+        }
+        leaf description {
+          description
+            "Textual description of BMP server";
+          type string;
+        }
+        leaf failure-retry-delay {
+          description
+            "Failure retry delay in sending BMP server updates";
+          default "600";
+          type uint16 {
+            range "1..3600";
+          }
+        }
+        leaf flapping-delay {
+          description
+            "Flapping delay in sending BMP server updates";
+          default "1800";
+          type uint16 {
+            range "1..3600";
+          }
+        }
+        leaf initial-delay {
+          description
+            "Initial delay in sending BMP server updates";
+          default "600";
+          type uint16 {
+            range "1..3600";
+          }
+        }
+        leaf stats-reporting-period {
+          description
+            "Stats reporting period for BMP server";
+          type uint16 {
+            range "1..3600";
+          }
+        }
+        container set {
+          description
+            "Set DSCP value";
+          container ip {
+            description
+              "Set IP TOS field";
+            leaf dscp {
+              description
+                "DSCP value";
+              type enumeration {
+                enum 0 {
+                  description
+                    "Routine";
+                }
+                enum 1 {
+                  description
+                    "Priority";
+                }
+                enum 2 {
+                  description
+                    "Immediate";
+                }
+                enum 3 {
+                  description
+                    "Flash";
+                }
+                enum 4 {
+                  description
+                    "Flash Override";
+                }
+                enum 5 {
+                  description
+                    "Critical ECP";
+                }
+                enum 6 {
+                  description
+                    "Internetwork Control";
+                }
+                enum 7 {
+                  description
+                    "Network Control";
+                }
+              }
+            }
+          }
+        }
+        container update-source {
+          description
+            "Source of routing updates";
+          // uses ios:interface-with-dependency-grouping;
+        }
+      }
+    }
+  }
 
-  // grouping rpki-password-grouping {
-  //   container password {
-  //     description
-  //       "Set a password";
-  //     leaf enctype {
-  //       description
-  //         "Encryption type (0 to disable encryption, 7 for proprietary)";
-  //       type uint8 {
-  //         range "0..7";
-  //       }
-  //     }
-  //     leaf text {
-  //       description
-  //         "MD5 password";
-  //       type string;
-  //     }
-  //     must '(not(text) and not(enctype)) or text' {
-  //       error-message "password text must be configured";
-  //     }
-  //   }
-  // }
+  grouping rpki-password-grouping {
+    container password {
+      description
+        "Set a password";
+      leaf enctype {
+        description
+          "Encryption type (0 to disable encryption, 7 for proprietary)";
+        type uint8 {
+          range "0..7";
+        }
+      }
+      leaf text {
+        description
+          "MD5 password";
+        type string;
+      }
+      must '(not(text) and not(enctype)) or text' {
+        error-message "password text must be configured";
+      }
+    }
+  }
 
-  // grouping bgp-rpki-server-grouping {
-  //   container rpki {
-  //     description
-  //       "RPKI parameters";
-  //     container server {
-  //       description
-  //         "RPKI cache server parameters";
-  //       list tcp {
-  //         key "address port refresh";
-  //         unique "address port";
-  //         leaf address {
-  //           description
-  //             "IP address";
-  //           type union {
-  //             type inet:ipv4-address;
-  //             type inet:ipv6-address;
-  //           }
-  //         }
-  //         leaf port {
-  //           description
-  //             "Port number of RPKI Cache";
-  //           type uint16 {
-  //             range "1..65535";
-  //           }
-  //         }
-  //         leaf refresh {
-  //           description
-  //             "Refresh time in seconds";
-  //           type uint16 {
-  //             range "1..65535";
-  //           }
-  //         }
-  //         uses rpki-password-grouping;
-  //       }
-  //     }
-  //   }
-  // }
+  grouping bgp-rpki-server-grouping {
+    container rpki {
+      description
+        "RPKI parameters";
+      container server {
+        description
+          "RPKI cache server parameters";
+        list tcp {
+          key "address port refresh";
+          unique "address port";
+          leaf address {
+            description
+              "IP address";
+            type union {
+              type inet:ipv4-address;
+              type inet:ipv6-address;
+            }
+          }
+          leaf port {
+            description
+              "Port number of RPKI Cache";
+            type uint16 {
+              range "1..65535";
+            }
+          }
+          leaf refresh {
+            description
+              "Refresh time in seconds";
+            type uint16 {
+              range "1..65535";
+            }
+          }
+          uses rpki-password-grouping;
+        }
+      }
+    }
+  }
 
   grouping bgp-graceful-shutdown-options-grouping {
     container gshut-config-container {
@@ -1389,7 +1389,7 @@ module Cisco-IOS-XE-bgp {
       type boolean;
     }
     uses bgp-router-id-grouping;
-    // uses bgp-rpki-server-grouping;
+    uses bgp-rpki-server-grouping;
     leaf safe-ebgp-policy {
       description
         " Allow propagation of ebgp routes only with policy configured. Command may trigger refresh on all sessions!";
@@ -2271,237 +2271,237 @@ module Cisco-IOS-XE-bgp {
     }
   }
 
-//   grouping neighbor-additional-paths-grouping {
-//     container additional-paths {
-//       choice additional-paths-choice {
-//         leaf disable-paths {
-//           description
-//             "Disable additional paths for this neighbor";
-//           type empty;
-//         }
-//         leaf receive-paths {
-//           description
-//             "Receive additional paths from neighbors";
-//           type empty;
-//         }
-//         container send-paths {
-//           description
-//             "Send additional paths to this neighbor";
-//           presence "true";
-//           leaf receive {
-//             description
-//               "Receive additional paths from this neighbor";
-//             type empty;
-//           }
-//         }
-//       }
-//       leaf disable {
-//         description
-//           "Disable additional paths for this neighbor (OBSOLETE)";
-//         status obsolete;
-//         type empty;
-//       }
-//       leaf receive {
-//         description
-//           "Receive additional paths from neighbors (OBSOLETE)";
-//         status obsolete;
-//         type empty;
-//       }
-//       container send {
-//         description
-//           "Send additional paths to this neighbor (OBSOLETE)";
-//         status obsolete;
-//         presence "true";
-//         leaf receive {
-//           description
-//             "Receive additional paths from this neighbor (OBSOLETE)";
-//           status obsolete;
-//           type empty;
-//         }
-//       }
-//     }
-//   }
+  grouping neighbor-additional-paths-grouping {
+    container additional-paths {
+      choice additional-paths-choice {
+        leaf disable-paths {
+          description
+            "Disable additional paths for this neighbor";
+          type empty;
+        }
+        leaf receive-paths {
+          description
+            "Receive additional paths from neighbors";
+          type empty;
+        }
+        container send-paths {
+          description
+            "Send additional paths to this neighbor";
+          presence "true";
+          leaf receive {
+            description
+              "Receive additional paths from this neighbor";
+            type empty;
+          }
+        }
+      }
+      // leaf disable {
+      //   description
+      //     "Disable additional paths for this neighbor (OBSOLETE)";
+      //   status obsolete;
+      //   type empty;
+      // }
+      // leaf receive {
+      //   description
+      //     "Receive additional paths from neighbors (OBSOLETE)";
+      //   status obsolete;
+      //   type empty;
+      // }
+      // container send {
+      //   description
+      //     "Send additional paths to this neighbor (OBSOLETE)";
+      //   status obsolete;
+      //   presence "true";
+      //   leaf receive {
+      //     description
+      //       "Receive additional paths from this neighbor (OBSOLETE)";
+      //     status obsolete;
+      //     type empty;
+      //   }
+      // }
+    }
+  }
 
-//   grouping neighbor-advertise-grouping {
-//     container advertise {
-//       description
-//         "Advertise to this neighbor";
-//       choice advertise-choice {
-//         container additional-paths-choice {
-//           description
-//             "Advertise additional paths";
-//           leaf all {
-//             description
-//               "Select all, group-best, best available paths";
-//             type empty;
-//           }
-//           leaf group-best {
-//             description
-//               "Select group-best path";
-//             type empty;
-//           }
-//           leaf best {
-//             description
-//               "Number of best paths in additional paths to be selected";
-//             type uint8 {
-//               range "2..3";
-//             }
-//           }
-//         }
-//         container diverse-path-choice {
-//           description
-//             "Advertise diverse path";
-//           leaf backup {
-//             description
-//               "Diverse path can be backup path";
-//             type empty;
-//           }
-//           leaf mpath {
-//             description
-//               "Diverse path can be multipath";
-//             type empty;
-//           }
-//           must '(../../ios-bgp:route-reflector-client and (backup or mpath)) or (not(backup) and not(mpath))' {
-//             error-message "Neighbor must be route reflector client in order to configure diverse-path";
-//           }
-//         }
-//       }
-//       container additional-paths {
-//         status obsolete;
-//         description
-//           "Advertise additional paths (OBSOLETE)";
-//         container all {
-//           status obsolete;
-//           description
-//             "Select all available paths (OBSOLETE)";
-//           presence "true";
-//           container best {
-//             status obsolete;
-//             description
-//               "Select best N paths (OBSOLETE)";
-//             list best-range {
-//               status obsolete;
-//               key "range";
-//               leaf range {
-//                 status obsolete;
-//                 description
-//                   "Number of best paths in additional paths to be selected (OBSOLETE)";
-//                 type uint8 {
-//                   range "2..3";
-//                 }
-//               }
-//               leaf group-best {
-//                 status obsolete;
-//                 description
-//                   "Select group-best paths (OBSOLETE)";
-//                 type empty;
-//               }
-//             }
-//           }
-//           container group-best {
-//             status obsolete;
-//             description
-//               "Select group-best paths (OBSOLETE)";
-//             presence "true";
-//             leaf best {
-//               status obsolete;
-//               description
-//                 "Number of best paths in additional paths to be selected (OBSOLETE)";
-//               type uint8 {
-//                 range "2..3";
-//               }
-//             }
-//           }
-//         }
-//         container best {
-//           status obsolete;
-//           description
-//             "Select best N paths (OBSOLETE)";
-//           list best-range {
-//             status obsolete;
-//             key "range";
-//             leaf range {
-//               status obsolete;
-//               description
-//                 "Number of best paths in additional paths to be selected (OBSOLETE)";
-//               type uint8 {
-//                 range "2..3";
-//               }
-//             }
-//             leaf all {
-//               status obsolete;
-//               description
-//                 "Select all available paths (OBSOLETE)";
-//               type empty;
-//             }
-//             container group-best {
-//               status obsolete;
-//               description
-//                 "Select group-best paths (OBSOLETE)";
-//               presence "true";
-//               leaf all {
-//                 status obsolete;
-//                 description
-//                   "Select all available paths (OBSOLETE)";
-//                 type empty;
-//               }
-//             }
-//           }
-//         }
-//         container group-best {
-//           status obsolete;
-//           description
-//             "Select group-best paths (OBSOLETE)";
-//           presence "true";
-//           leaf all {
-//             status obsolete;
-//             description
-//               "Select all available paths (OBSOLETE)";
-//             type empty;
-//           }
-//           leaf best {
-//             status obsolete;
-//             description
-//               "Number of best paths in additional paths to be selected (OBSOLETE)";
-//             type uint8 {
-//               range "2..3";
-//             }
-//           }
-//         }
-//       }
-//       leaf best-external {
-//         description
-//           "Advertise best-external (at RRs best-internal) path";
-//         type empty;
-//       }
-//       container diverse-path {
-//         status obsolete;
-//         description
-//           "Advertise diverse path (OBSOLETE)";
-//         container backup {
-//           status obsolete;
-//           description
-//             "Diverse path can be backup path (OBSOLETE)";
-//           presence "true";
-//           leaf mpath {
-//             status obsolete;
-//             description
-//               "Diverse path can be multipath (OBSOLETE)";
-//             type empty;
-//           }
-//         }
-//         leaf mpath {
-//           status obsolete;
-//           description
-//             "Diverse path can be multipath (OBSOLETE)";
-//           type empty;
-//         }
-//         must '(../../ios-bgp:route-reflector-client and (backup or mpath)) or (not(backup) and not(mpath))' {
-//           error-message "Neighbor must be route reflector client in order to configure diverse-path";
-//         }
-//       }
-//     }
-//   }
+  grouping neighbor-advertise-grouping {
+    container advertise {
+      description
+        "Advertise to this neighbor";
+      choice advertise-choice {
+        container additional-paths-choice {
+          description
+            "Advertise additional paths";
+          leaf all {
+            description
+              "Select all, group-best, best available paths";
+            type empty;
+          }
+          leaf group-best {
+            description
+              "Select group-best path";
+            type empty;
+          }
+          leaf best {
+            description
+              "Number of best paths in additional paths to be selected";
+            type uint8 {
+              range "2..3";
+            }
+          }
+        }
+        container diverse-path-choice {
+          description
+            "Advertise diverse path";
+          leaf backup {
+            description
+              "Diverse path can be backup path";
+            type empty;
+          }
+          leaf mpath {
+            description
+              "Diverse path can be multipath";
+            type empty;
+          }
+          must '(../../ios-bgp:route-reflector-client and (backup or mpath)) or (not(backup) and not(mpath))' {
+            error-message "Neighbor must be route reflector client in order to configure diverse-path";
+          }
+        }
+      }
+      // container additional-paths {
+      //   status obsolete;
+      //   description
+      //     "Advertise additional paths (OBSOLETE)";
+      //   container all {
+      //     status obsolete;
+      //     description
+      //       "Select all available paths (OBSOLETE)";
+      //     presence "true";
+      //     container best {
+      //       status obsolete;
+      //       description
+      //         "Select best N paths (OBSOLETE)";
+      //       list best-range {
+      //         status obsolete;
+      //         key "range";
+      //         leaf range {
+      //           status obsolete;
+      //           description
+      //             "Number of best paths in additional paths to be selected (OBSOLETE)";
+      //           type uint8 {
+      //             range "2..3";
+      //           }
+      //         }
+      //         leaf group-best {
+      //           status obsolete;
+      //           description
+      //             "Select group-best paths (OBSOLETE)";
+      //           type empty;
+      //         }
+      //       }
+      //     }
+      //     container group-best {
+      //       status obsolete;
+      //       description
+      //         "Select group-best paths (OBSOLETE)";
+      //       presence "true";
+      //       leaf best {
+      //         status obsolete;
+      //         description
+      //           "Number of best paths in additional paths to be selected (OBSOLETE)";
+      //         type uint8 {
+      //           range "2..3";
+      //         }
+      //       }
+      //     }
+      //   }
+      //   container best {
+      //     status obsolete;
+      //     description
+      //       "Select best N paths (OBSOLETE)";
+      //     list best-range {
+      //       status obsolete;
+      //       key "range";
+      //       leaf range {
+      //         status obsolete;
+      //         description
+      //           "Number of best paths in additional paths to be selected (OBSOLETE)";
+      //         type uint8 {
+      //           range "2..3";
+      //         }
+      //       }
+      //       leaf all {
+      //         status obsolete;
+      //         description
+      //           "Select all available paths (OBSOLETE)";
+      //         type empty;
+      //       }
+      //       container group-best {
+      //         status obsolete;
+      //         description
+      //           "Select group-best paths (OBSOLETE)";
+      //         presence "true";
+      //         leaf all {
+      //           status obsolete;
+      //           description
+      //             "Select all available paths (OBSOLETE)";
+      //           type empty;
+      //         }
+      //       }
+      //     }
+      //   }
+      //   // container group-best {
+      //   //   status obsolete;
+      //   //   description
+      //   //     "Select group-best paths (OBSOLETE)";
+      //   //   presence "true";
+      //   //   leaf all {
+      //   //     status obsolete;
+      //   //     description
+      //   //       "Select all available paths (OBSOLETE)";
+      //   //     type empty;
+      //   //   }
+      //   //   leaf best {
+      //   //     status obsolete;
+      //   //     description
+      //   //       "Number of best paths in additional paths to be selected (OBSOLETE)";
+      //   //     type uint8 {
+      //   //       range "2..3";
+      //   //     }
+      //   //   }
+      //   // }
+      // }
+      leaf best-external {
+        description
+          "Advertise best-external (at RRs best-internal) path";
+        type empty;
+      }
+      // container diverse-path {
+      //   status obsolete;
+      //   description
+      //     "Advertise diverse path (OBSOLETE)";
+      //   container backup {
+      //     status obsolete;
+      //     description
+      //       "Diverse path can be backup path (OBSOLETE)";
+      //     presence "true";
+      //     leaf mpath {
+      //       status obsolete;
+      //       description
+      //         "Diverse path can be multipath (OBSOLETE)";
+      //       type empty;
+      //     }
+      //   }
+      //   leaf mpath {
+      //     status obsolete;
+      //     description
+      //       "Diverse path can be multipath (OBSOLETE)";
+      //     type empty;
+      //   }
+      //   must '(../../ios-bgp:route-reflector-client and (backup or mpath)) or (not(backup) and not(mpath))' {
+      //     error-message "Neighbor must be route reflector client in order to configure diverse-path";
+      //   }
+      // }
+    }
+  }
 
 //   grouping evpn-neighbor-advertise-grouping {
 //     container advertise {
@@ -2662,190 +2662,190 @@ module Cisco-IOS-XE-bgp {
 //     }
 //   }
 
-//   grouping neighbor-vpn-advertise-grouping {
-//     container advertise {
-//       description
-//         "Advertise to this neighbor";
-//       container additional-paths {
-//         status obsolete;
-//         description
-//           "Advertise additional paths";
-//         container all {
-//           status obsolete;
-//           description
-//             "Select all available paths";
-//           presence "true";
-//           container best {
-//             status obsolete;
-//             description
-//               "Select best N paths";
-//             list best-range {
-//               status obsolete;
-//               key "range";
-//               leaf range {
-//                 status obsolete;
-//                 description
-//                   "Number of best paths in additional paths to be selected";
-//                 type uint8 {
-//                   range "2..3";
-//                 }
-//               }
-//               leaf group-best {
-//                 status obsolete;
-//                 description
-//                   "Select group-best paths";
-//                 type empty;
-//               }
-//             }
-//           }
-//           container group-best {
-//             status obsolete;
-//             description
-//               "Select group-best paths";
-//             presence "true";
-//             leaf best {
-//               status obsolete;
-//               description
-//                 "Number of best paths in additional paths to be selected";
-//               type uint8 {
-//                 range "2..3";
-//               }
-//             }
-//           }
-//         }
-//         container best {
-//           status obsolete;
-//           description
-//             "Select best N paths";
-//           list best-range {
-//             status obsolete;
-//             key "range";
-//             leaf range {
-//               status obsolete;
-//               description
-//                 "Number of best paths in additional paths to be selected";
-//               type uint8 {
-//                 range "2..3";
-//               }
-//             }
-//             leaf all {
-//               status obsolete;
-//               description
-//                 "Select all available paths";
-//               type empty;
-//             }
-//             container group-best {
-//               status obsolete;
-//               description
-//                 "Select group-best paths";
-//               presence "true";
-//               leaf all {
-//                 status obsolete;
-//                 description
-//                   "Select all available paths";
-//                 type empty;
-//               }
-//             }
-//           }
-//         }
-//         container group-best {
-//           status obsolete;
-//           description
-//             "Select group-best paths";
-//           presence "true";
-//           leaf all {
-//             status obsolete;
-//             description
-//               "Select all available paths";
-//             type empty;
-//           }
-//           leaf best {
-//             status obsolete;
-//             description
-//               "Number of best paths in additional paths to be selected";
-//             type uint8 {
-//               range "2..3";
-//             }
-//           }
-//         }
-//       }
-//       leaf best-external {
-//         description
-//           "Advertise best-external (at RRs best-internal) path";
-//         type empty;
-//       }
-//       container diverse-path {
-//         description
-//           "Advertise diverse path";
-//         leaf backup-path {
-//           description
-//             "Diverse path can be backup path";
-//           when '../../../route-reflector-client';
-//           type empty;
-//         }
-//         container backup {
-//           status obsolete;
-//           description
-//             "Diverse path can be backup path";
-//           presence "true";
-//           leaf mpath {
-//             status obsolete;
-//             description
-//               "Diverse path can be multipath";
-//             type empty;
-//           }
-//         }
-//         leaf mpath {
-//           description
-//             "Diverse path can be multipath";
-//           when '../../../route-reflector-client';
-//           type empty;
-//         }
-//       }
-//     }
-//   }
+  grouping neighbor-vpn-advertise-grouping {
+    container advertise {
+      description
+        "Advertise to this neighbor";
+      container additional-paths {
+        status obsolete;
+        description
+          "Advertise additional paths";
+        container all {
+          status obsolete;
+          description
+            "Select all available paths";
+          presence "true";
+          container best {
+            status obsolete;
+            description
+              "Select best N paths";
+            list best-range {
+              status obsolete;
+              key "range";
+              leaf range {
+                status obsolete;
+                description
+                  "Number of best paths in additional paths to be selected";
+                type uint8 {
+                  range "2..3";
+                }
+              }
+              leaf group-best {
+                status obsolete;
+                description
+                  "Select group-best paths";
+                type empty;
+              }
+            }
+          }
+          container group-best {
+            status obsolete;
+            description
+              "Select group-best paths";
+            presence "true";
+            leaf best {
+              status obsolete;
+              description
+                "Number of best paths in additional paths to be selected";
+              type uint8 {
+                range "2..3";
+              }
+            }
+          }
+        }
+        container best {
+          status obsolete;
+          description
+            "Select best N paths";
+          list best-range {
+            status obsolete;
+            key "range";
+            leaf range {
+              status obsolete;
+              description
+                "Number of best paths in additional paths to be selected";
+              type uint8 {
+                range "2..3";
+              }
+            }
+            leaf all {
+              status obsolete;
+              description
+                "Select all available paths";
+              type empty;
+            }
+            container group-best {
+              status obsolete;
+              description
+                "Select group-best paths";
+              presence "true";
+              leaf all {
+                status obsolete;
+                description
+                  "Select all available paths";
+                type empty;
+              }
+            }
+          }
+        }
+        container group-best {
+          status obsolete;
+          description
+            "Select group-best paths";
+          presence "true";
+          leaf all {
+            status obsolete;
+            description
+              "Select all available paths";
+            type empty;
+          }
+          leaf best {
+            status obsolete;
+            description
+              "Number of best paths in additional paths to be selected";
+            type uint8 {
+              range "2..3";
+            }
+          }
+        }
+      }
+      leaf best-external {
+        description
+          "Advertise best-external (at RRs best-internal) path";
+        type empty;
+      }
+      container diverse-path {
+        description
+          "Advertise diverse path";
+        leaf backup-path {
+          description
+            "Diverse path can be backup path";
+          when '../../../route-reflector-client';
+          type empty;
+        }
+        // container backup {
+        //   status obsolete;
+        //   description
+        //     "Diverse path can be backup path";
+        //   presence "true";
+        //   leaf mpath {
+        //     status obsolete;
+        //     description
+        //       "Diverse path can be multipath";
+        //     type empty;
+        //   }
+        // }
+        leaf mpath {
+          description
+            "Diverse path can be multipath";
+          when '../../../route-reflector-client';
+          type empty;
+        }
+      }
+    }
+  }
 
-//   grouping neighbor-advertise-map-grouping {
-//     container advertise-map {
-//       description
-//         "specify route-map for conditional advertisement";
-//       list name {
-//         key "word";
-//         leaf word {
-//           description
-//             "advertise route-map name";
-//           type string;
-//         }
-//         leaf-list exist-map-list {
-//           description
-//             "condition route-map name";
-//           type string;
-//         }
-//         leaf-list non-exist-map-list {
-//           description
-//             "condition route-map name";
-//           type string;
-//         }
-//         leaf exist-map {
-//           status obsolete;
-//           description
-//             "condition route-map name (OBSOLETE) - Please use exist-map-list
-//              instead";
-//           type string;
-//         }
-//         leaf non-exist-map {
-//           status obsolete;
-//           description
-//             "condition route-map name (OBSOLETE) - Please use non-exist-map
-//              instead";
-//           type string;
-//         }
-//         must 'exist-map-list or non-exist-map-list' {
-//           error-message "Either exist-map or non-exist-map must be configured";
-//         }
-//       }
-//     }
-//   }
+  grouping neighbor-advertise-map-grouping {
+    container advertise-map {
+      description
+        "specify route-map for conditional advertisement";
+      list name {
+        key "word";
+        leaf word {
+          description
+            "advertise route-map name";
+          type string;
+        }
+        leaf-list exist-map-list {
+          description
+            "condition route-map name";
+          type string;
+        }
+        leaf-list non-exist-map-list {
+          description
+            "condition route-map name";
+          type string;
+        }
+        // leaf exist-map {
+        //   status obsolete;
+        //   description
+        //     "condition route-map name (OBSOLETE) - Please use exist-map-list
+        //      instead";
+        //   type string;
+        // }
+        // leaf non-exist-map {
+        //   status obsolete;
+        //   description
+        //     "condition route-map name (OBSOLETE) - Please use non-exist-map
+        //      instead";
+        //   type string;
+        // }
+        must 'exist-map-list or non-exist-map-list' {
+          error-message "Either exist-map or non-exist-map must be configured";
+        }
+      }
+    }
+  }
 
   grouping neighbor-advertisement-interval-grouping {
     leaf advertisement-interval {
@@ -2857,16 +2857,16 @@ module Cisco-IOS-XE-bgp {
     }
   }
 
-//   grouping neighbor-advertisement-interval-ebgp-grouping {
-//     leaf advertisement-interval-ebgp {
-//       status obsolete;
-//       description
-//         "Minimum interval between sending BGP routing updates for eBGP peers(OBSOLETE)";
-//       type uint16 {
-//         range "0..600";
-//       }
-//     }
-//   }
+  // grouping neighbor-advertisement-interval-ebgp-grouping {
+  //   leaf advertisement-interval-ebgp {
+  //     status obsolete;
+  //     description
+  //       "Minimum interval between sending BGP routing updates for eBGP peers(OBSOLETE)";
+  //     type uint16 {
+  //       range "0..600";
+  //     }
+  //   }
+  // }
 
 //   grouping neighbor-aigp-grouping {
 //     container aigp {
@@ -2976,24 +2976,24 @@ module Cisco-IOS-XE-bgp {
     }
   }
 
-//   grouping neighbor-announce-grouping {
-//     container announce {
-//       description
-//         "Announce RPKI state using an extended community";
-//       container rpki {
-//         description
-//           "Announce RPKI information using an extended community";
-//         leaf state {
-//           description
-//             "Announce RPKI state information using an extended community";
-//           type empty;
-//           must "((../../../ios-bgp:send-community/ios-bgp:send-community-where = 'extended') or (../../../ios-bgp:send-community/ios-bgp:send-community-where = 'both'))" {
-//             error-message "Configure neighbor send-community extended before rpki";
-//           }
-//         }
-//       }
-//     }
-//   }
+  grouping neighbor-announce-grouping {
+    container announce {
+      description
+        "Announce RPKI state using an extended community";
+      container rpki {
+        description
+          "Announce RPKI information using an extended community";
+        leaf state {
+          description
+            "Announce RPKI state information using an extended community";
+          type empty;
+          must "((../../../ios-bgp:send-community/ios-bgp:send-community-where = 'extended') or (../../../ios-bgp:send-community/ios-bgp:send-community-where = 'both'))" {
+            error-message "Configure neighbor send-community extended before rpki";
+          }
+        }
+      }
+    }
+  }
 
   grouping neighbor-as-override-grouping {
     container as-override {
@@ -3076,13 +3076,13 @@ module Cisco-IOS-XE-bgp {
     }
   }
 
-//   grouping neighbor-dmzlink-bw-grouping {
-//     leaf dmzlink-bw {
-//       description
-//         "Propagate the DMZ link bandwidth";
-//       type empty;
-//     }
-//   }
+  grouping neighbor-dmzlink-bw-grouping {
+    leaf dmzlink-bw {
+      description
+        "Propagate the DMZ link bandwidth";
+      type empty;
+    }
+  }
 
   grouping neighbor-encap-grouping {
     container encap {
@@ -4007,25 +4007,25 @@ module Cisco-IOS-XE-bgp {
     }
   }
 
-  grouping peer-group-inherit-grouping {
-    container inherit {
-      status obsolete;
-      description
-        "Inherit a template";
-      leaf peer-policy {
-        status obsolete;
-        description
-          "Inherit a peer-policy template (OBSOLETE)";
-        type string;
-      }
-      leaf peer-session {
-        status obsolete;
-        description
-          "Inherit a peer-session template (OBSOLETE)";
-        type string;
-      }
-    }
-  }
+  // grouping peer-group-inherit-grouping {
+  //   container inherit {
+  //     status obsolete;
+  //     description
+  //       "Inherit a template";
+  //     leaf peer-policy {
+  //       status obsolete;
+  //       description
+  //         "Inherit a peer-policy template (OBSOLETE)";
+  //       type string;
+  //     }
+  //     leaf peer-session {
+  //       status obsolete;
+  //       description
+  //         "Inherit a peer-session template (OBSOLETE)";
+  //       type string;
+  //     }
+  //   }
+  // }
 
   grouping neighbor-inter-as-hybrid-grouping {
     leaf inter-as-hybrid {
@@ -4202,32 +4202,32 @@ module Cisco-IOS-XE-bgp {
     }
   }
 
-//   grouping neighbor-ao-grouping {
-//     container ao {
-//       description
-//         "BGP AO security";
-//       leaf keychain-name {
-//         description
-//           "Key Chain Name";
-//         type string;
-//         must 'not(. and ../../password/text)' {
-//           error-message "Neighbor cannot have both password and ao keychain-name";
-//         }
-//       }
-//       leaf include-tcp-options {
-//         when '../keychain-name';
-//         description
-//           "Include TCP options";
-//         type empty;
-//       }
-//       leaf accept-ao-mismatch-connections {
-//         when '../keychain-name';
-//         description
-//           "accept ao mismatch connections";
-//         type empty;
-//       }
-//     }
-//   }
+  grouping neighbor-ao-grouping {
+    container ao {
+      description
+        "BGP AO security";
+      leaf keychain-name {
+        description
+          "Key Chain Name";
+        type string;
+        must 'not(. and ../../password/text)' {
+          error-message "Neighbor cannot have both password and ao keychain-name";
+        }
+      }
+      leaf include-tcp-options {
+        when '../keychain-name';
+        description
+          "Include TCP options";
+        type empty;
+      }
+      leaf accept-ao-mismatch-connections {
+        when '../keychain-name';
+        description
+          "accept ao mismatch connections";
+        type empty;
+      }
+    }
+  }
 
   grouping neighbor-path-attribute-grouping {
     container path-attribute {
@@ -4869,270 +4869,270 @@ module Cisco-IOS-XE-bgp {
           mandatory true;
           type ios-types:access-list-in-out-type;
         }
-        container interface {
-          status obsolete;
-          description
-            "Interface name (Interface container is obsolete).";
-          choice interface-choice {
-            status obsolete;
-            leaf AppNav-Compress {
-              status obsolete;
-              description
-                "Service-Context Virtual Interface Compress";
-              type uint16;
-            }
-            leaf AppNav-UnCompress {
-              status obsolete;
-              description
-                "Service-Context Virtual Interface UnCompress";
-              type uint16;
-            }
-            leaf ATM {
-              status obsolete;
-              description
-                "ATM interface";
-              type string;
-            }
-            container ATM-subinterface {
-              status obsolete;
-              leaf ATM {
-                status obsolete;
-                type string;
-              }
-            }
-            leaf ATM-ACR {
-              status obsolete;
-              description
-                "ATM-ACR interface";
-              type string {
-                pattern '[0-9]';
-              }
-            }
-            container ATM-ACRsubinterface {
-              status obsolete;
-              leaf ATM-ACR {
-                status obsolete;
-                type string {
-                  pattern '[0-9]\.([0-9]/){3}[0-9]';
-                }
-              }
-            }
-            leaf BDI {
-              status obsolete;
-              description
-                "Bridge-Domain interface";
-              type string;
-            }
-            leaf CEM {
-              status obsolete;
-              description
-                "CEM interface";
-              type string {
-                pattern '([0-9]/){2}[0-9]';
-              }
-            }
-            leaf CEM-ACR {
-              status obsolete;
-              description
-                "CEM-ACR interface";
-              type uint8 {
-                range "0..255";
-              }
-            }
-            leaf Embedded-Service-Engine {
-              status obsolete;
-              description
-                "cisco embedded service engine module";
-              type string;
-            }
-            leaf Ethernet {
-              status obsolete;
-              description
-                "IEEE 802.3";
-              type string;
-            }
-            leaf FastEthernet {
-              status obsolete;
-              description
-                "FastEthernet IEEE 802.3";
-              type string;
-            }
-            leaf GigabitEthernet {
-              status obsolete;
-              description
-                "GigabitEthernet IEEE 802.3z";
-              type string;
-            }
-            leaf FiveGigabitEthernet {
-              status obsolete;
-              description
-                "Five GigabitEthernet ";
-              type string;
-            }
-            leaf AppGigabitEthernet {
-              status obsolete;
-              description
-                "App-hosting Gigabit Ethernet IEEE 802.3z";
-              type string;
-            }
-            leaf TwentyFiveGigE {
-              status obsolete;
-              description
-                "Twenty Five GigabitEthernet ";
-              type string;
-            }
-            leaf TwoGigabitEthernet {
-              status obsolete;
-              description
-                "Two GigabitEthernet ";
-              type string;
-            }
-            leaf FortyGigabitEthernet {
-              status obsolete;
-              description
-                "Forty GigabitEthernet ";
-              type string;
-            }
-            leaf HundredGigE {
-              status obsolete;
-              description
-                "Hundred GigabitEthernet";
-              type string;
-            }
-            leaf LISP {
-              status obsolete;
-              description
-                "Locator/ID Separation Protocol Virtual Interface";
-              type string;
-            }
-            container LISP-subinterface {
-              status obsolete;
-              description
-                "Locator/ID Separation Protocol Virtual Interface";
-              leaf LISP {
-                status obsolete;
-                type string {
-                  pattern '[0-9]*(. ?[1-9][0-9]*)*';
-                }
-              }
-            }
-            leaf Loopback {
-              status obsolete;
-              description
-                "Loopback interface";
-              type uint32;
-            }
-            leaf Multilink {
-              status obsolete;
-              description
-                "Multilink-group interface";
-              type uint16;
-            }
-            leaf nve {
-              status obsolete;
-              description
-                "Network virtualization endpoint interface";
-              type uint16;
-            }
-            leaf overlay {
-              status obsolete;
-              description
-                "Overlay interface";
-              type uint16;
-            }
-            leaf Port-channel {
-              status obsolete;
-              description
-                "Ethernet Channel of interfaces";
-              type uint32;
-            }
-            container Port-channel-subinterface {
-              status obsolete;
-              leaf Port-channel {
-                status obsolete;
-                type string;
-              }
-            }
-            leaf pseudowire {
-              status obsolete;
-              description
-                "Pseudowire Interface";
-              type uint32;
-            }
-            leaf SM {
-              status obsolete;
-              description
-                "SM Interface";
-              type string;
-            }
-            leaf Cellular {
-              status obsolete;
-              description
-                "Cellular Interface";
-              type string;
-            }
-            leaf Dialer {
-              status obsolete;
-              description
-                "Dialer Interface";
-              type string;
-            }
-            leaf Serial {
-              status obsolete;
-              description
-                "Serial interface";
-              type string;
-            }
-            leaf TenGigabitEthernet {
-              status obsolete;
-              description
-                "Ten Gigabit Ethernet";
-              type string;
-            }
-            leaf Tunnel {
-              status obsolete;
-              description
-                "Tunnel interface";
-              type uint32;
-            }
-            leaf Virtual-Template {
-              status obsolete;
-              description
-                "Virtual Template interface";
-              type uint16;
-            }
-            leaf Vlan {
-              status obsolete;
-              description
-                "Iosxr Vlans";
-              type uint16;
-            }
-            leaf VirtualPortGroup {
-              status obsolete;
-              description
-                "Virtual Port Group";
-              type uint16;
-            }
-            leaf vasileft {
-              status obsolete;
-              description
-                "vasileft";
-              type uint16;
-            }
-            leaf vasiright {
-              status obsolete;
-              description
-                "vasiright";
-              type uint16;
-            }
-            leaf BD-VIF {
-              status obsolete;
-              description
-                "Bridge-Domain Virtual IP interface";
-              type string;
-            }
-          }
-        }
+        // container interface {
+        //   status obsolete;
+        //   description
+        //     "Interface name (Interface container is obsolete).";
+        //   choice interface-choice {
+        //     status obsolete;
+        //     leaf AppNav-Compress {
+        //       status obsolete;
+        //       description
+        //         "Service-Context Virtual Interface Compress";
+        //       type uint16;
+        //     }
+        //     leaf AppNav-UnCompress {
+        //       status obsolete;
+        //       description
+        //         "Service-Context Virtual Interface UnCompress";
+        //       type uint16;
+        //     }
+        //     leaf ATM {
+        //       status obsolete;
+        //       description
+        //         "ATM interface";
+        //       type string;
+        //     }
+        //     container ATM-subinterface {
+        //       status obsolete;
+        //       leaf ATM {
+        //         status obsolete;
+        //         type string;
+        //       }
+        //     }
+        //     leaf ATM-ACR {
+        //       status obsolete;
+        //       description
+        //         "ATM-ACR interface";
+        //       type string {
+        //         pattern '[0-9]';
+        //       }
+        //     }
+        //     container ATM-ACRsubinterface {
+        //       status obsolete;
+        //       leaf ATM-ACR {
+        //         status obsolete;
+        //         type string {
+        //           pattern '[0-9]\.([0-9]/){3}[0-9]';
+        //         }
+        //       }
+        //     }
+        //     leaf BDI {
+        //       status obsolete;
+        //       description
+        //         "Bridge-Domain interface";
+        //       type string;
+        //     }
+        //     leaf CEM {
+        //       status obsolete;
+        //       description
+        //         "CEM interface";
+        //       type string {
+        //         pattern '([0-9]/){2}[0-9]';
+        //       }
+        //     }
+        //     leaf CEM-ACR {
+        //       status obsolete;
+        //       description
+        //         "CEM-ACR interface";
+        //       type uint8 {
+        //         range "0..255";
+        //       }
+        //     }
+        //     leaf Embedded-Service-Engine {
+        //       status obsolete;
+        //       description
+        //         "cisco embedded service engine module";
+        //       type string;
+        //     }
+        //     leaf Ethernet {
+        //       status obsolete;
+        //       description
+        //         "IEEE 802.3";
+        //       type string;
+        //     }
+        //     leaf FastEthernet {
+        //       status obsolete;
+        //       description
+        //         "FastEthernet IEEE 802.3";
+        //       type string;
+        //     }
+        //     leaf GigabitEthernet {
+        //       status obsolete;
+        //       description
+        //         "GigabitEthernet IEEE 802.3z";
+        //       type string;
+        //     }
+        //     leaf FiveGigabitEthernet {
+        //       status obsolete;
+        //       description
+        //         "Five GigabitEthernet ";
+        //       type string;
+        //     }
+        //     leaf AppGigabitEthernet {
+        //       status obsolete;
+        //       description
+        //         "App-hosting Gigabit Ethernet IEEE 802.3z";
+        //       type string;
+        //     }
+        //     leaf TwentyFiveGigE {
+        //       status obsolete;
+        //       description
+        //         "Twenty Five GigabitEthernet ";
+        //       type string;
+        //     }
+        //     leaf TwoGigabitEthernet {
+        //       status obsolete;
+        //       description
+        //         "Two GigabitEthernet ";
+        //       type string;
+        //     }
+        //     leaf FortyGigabitEthernet {
+        //       status obsolete;
+        //       description
+        //         "Forty GigabitEthernet ";
+        //       type string;
+        //     }
+        //     leaf HundredGigE {
+        //       status obsolete;
+        //       description
+        //         "Hundred GigabitEthernet";
+        //       type string;
+        //     }
+        //     leaf LISP {
+        //       status obsolete;
+        //       description
+        //         "Locator/ID Separation Protocol Virtual Interface";
+        //       type string;
+        //     }
+        //     container LISP-subinterface {
+        //       status obsolete;
+        //       description
+        //         "Locator/ID Separation Protocol Virtual Interface";
+        //       leaf LISP {
+        //         status obsolete;
+        //         type string {
+        //           pattern '[0-9]*(. ?[1-9][0-9]*)*';
+        //         }
+        //       }
+        //     }
+        //     leaf Loopback {
+        //       status obsolete;
+        //       description
+        //         "Loopback interface";
+        //       type uint32;
+        //     }
+        //     leaf Multilink {
+        //       status obsolete;
+        //       description
+        //         "Multilink-group interface";
+        //       type uint16;
+        //     }
+        //     leaf nve {
+        //       status obsolete;
+        //       description
+        //         "Network virtualization endpoint interface";
+        //       type uint16;
+        //     }
+        //     leaf overlay {
+        //       status obsolete;
+        //       description
+        //         "Overlay interface";
+        //       type uint16;
+        //     }
+        //     leaf Port-channel {
+        //       status obsolete;
+        //       description
+        //         "Ethernet Channel of interfaces";
+        //       type uint32;
+        //     }
+        //     container Port-channel-subinterface {
+        //       status obsolete;
+        //       leaf Port-channel {
+        //         status obsolete;
+        //         type string;
+        //       }
+        //     }
+        //     leaf pseudowire {
+        //       status obsolete;
+        //       description
+        //         "Pseudowire Interface";
+        //       type uint32;
+        //     }
+        //     leaf SM {
+        //       status obsolete;
+        //       description
+        //         "SM Interface";
+        //       type string;
+        //     }
+        //     leaf Cellular {
+        //       status obsolete;
+        //       description
+        //         "Cellular Interface";
+        //       type string;
+        //     }
+        //     leaf Dialer {
+        //       status obsolete;
+        //       description
+        //         "Dialer Interface";
+        //       type string;
+        //     }
+        //     leaf Serial {
+        //       status obsolete;
+        //       description
+        //         "Serial interface";
+        //       type string;
+        //     }
+        //     leaf TenGigabitEthernet {
+        //       status obsolete;
+        //       description
+        //         "Ten Gigabit Ethernet";
+        //       type string;
+        //     }
+        //     leaf Tunnel {
+        //       status obsolete;
+        //       description
+        //         "Tunnel interface";
+        //       type uint32;
+        //     }
+        //     leaf Virtual-Template {
+        //       status obsolete;
+        //       description
+        //         "Virtual Template interface";
+        //       type uint16;
+        //     }
+        //     leaf Vlan {
+        //       status obsolete;
+        //       description
+        //         "Iosxr Vlans";
+        //       type uint16;
+        //     }
+        //     leaf VirtualPortGroup {
+        //       status obsolete;
+        //       description
+        //         "Virtual Port Group";
+        //       type uint16;
+        //     }
+        //     leaf vasileft {
+        //       status obsolete;
+        //       description
+        //         "vasileft";
+        //       type uint16;
+        //     }
+        //     leaf vasiright {
+        //       status obsolete;
+        //       description
+        //         "vasiright";
+        //       type uint16;
+        //     }
+        //     leaf BD-VIF {
+        //       status obsolete;
+        //       description
+        //         "Bridge-Domain Virtual IP interface";
+        //       type string;
+        //     }
+        //   }
+        // }
       }
       list prefix-gateway-name {
         key "prefix-gateway name in-out";
@@ -5152,270 +5152,270 @@ module Cisco-IOS-XE-bgp {
             "Filter incoming or out-going update";
           type ios-types:access-list-in-out-type;
         }
-        container interface {
-          status obsolete;
-          description
-            "Interface name (Interface container is obsolete).";
-          choice interface-choice {
-            status obsolete;
-            leaf AppNav-Compress {
-              status obsolete;
-              description
-                "Service-Context Virtual Interface Compress";
-              type uint16;
-            }
-            leaf AppNav-UnCompress {
-              status obsolete;
-              description
-                "Service-Context Virtual Interface UnCompress";
-              type uint16;
-            }
-            leaf ATM {
-              status obsolete;
-              description
-                "ATM interface";
-              type string;
-            }
-            container ATM-subinterface {
-              status obsolete;
-              leaf ATM {
-                status obsolete;
-                type string;
-              }
-            }
-            leaf ATM-ACR {
-              status obsolete;
-              description
-                "ATM-ACR interface";
-              type string {
-                pattern '[0-9]';
-              }
-            }
-            container ATM-ACRsubinterface {
-              status obsolete;
-              leaf ATM-ACR {
-                status obsolete;
-                type string {
-                  pattern '[0-9]\.([0-9]/){3}[0-9]';
-                }
-              }
-            }
-            leaf BDI {
-              status obsolete;
-              description
-                "Bridge-Domain interface";
-              type string;
-            }
-            leaf CEM {
-              status obsolete;
-              description
-                "CEM interface";
-              type string {
-                pattern '([0-9]/){2}[0-9]';
-              }
-            }
-            leaf CEM-ACR {
-              status obsolete;
-              description
-                "CEM-ACR interface";
-              type uint8 {
-                range "0..255";
-              }
-            }
-            leaf Embedded-Service-Engine {
-              status obsolete;
-              description
-                "cisco embedded service engine module";
-              type string;
-            }
-            leaf Ethernet {
-              status obsolete;
-              description
-                "IEEE 802.3";
-              type string;
-            }
-            leaf FastEthernet {
-              status obsolete;
-              description
-                "FastEthernet IEEE 802.3";
-              type string;
-            }
-            leaf GigabitEthernet {
-              status obsolete;
-              description
-                "GigabitEthernet IEEE 802.3z";
-              type string;
-            }
-            leaf FiveGigabitEthernet {
-              status obsolete;
-              description
-                "Five GigabitEthernet ";
-              type string;
-            }
-            leaf AppGigabitEthernet {
-              status obsolete;
-              description
-                "App-hosting Gigabit Ethernet IEEE 802.3z";
-              type string;
-            }
-            leaf TwentyFiveGigE {
-              status obsolete;
-              description
-                "Twenty Five GigabitEthernet ";
-              type string;
-            }
-            leaf TwoGigabitEthernet {
-              status obsolete;
-              description
-                "Two GigabitEthernet ";
-              type string;
-            }
-            leaf FortyGigabitEthernet {
-              status obsolete;
-              description
-                "Forty GigabitEthernet ";
-              type string;
-            }
-            leaf HundredGigE {
-              status obsolete;
-              description
-                "Hundred GigabitEthernet";
-              type string;
-            }
-            leaf LISP {
-              status obsolete;
-              description
-                "Locator/ID Separation Protocol Virtual Interface";
-              type string;
-            }
-            container LISP-subinterface {
-              status obsolete;
-              description
-                "Locator/ID Separation Protocol Virtual Interface";
-              leaf LISP {
-                status obsolete;
-                type string {
-                  pattern '[0-9]*(. ?[1-9][0-9]*)*';
-                }
-              }
-            }
-            leaf Loopback {
-              status obsolete;
-              description
-                "Loopback interface";
-              type uint32;
-            }
-            leaf Multilink {
-              status obsolete;
-              description
-                "Multilink-group interface";
-              type uint16;
-            }
-            leaf nve {
-              status obsolete;
-              description
-                "Network virtualization endpoint interface";
-              type uint16;
-            }
-            leaf overlay {
-              status obsolete;
-              description
-                "Overlay interface";
-              type uint16;
-            }
-            leaf Port-channel {
-              status obsolete;
-              description
-                "Ethernet Channel of interfaces";
-              type uint32;
-            }
-            container Port-channel-subinterface {
-              status obsolete;
-              leaf Port-channel {
-                status obsolete;
-                type string;
-              }
-            }
-            leaf pseudowire {
-              status obsolete;
-              description
-                "Pseudowire Interface";
-              type uint32;
-            }
-            leaf SM {
-              status obsolete;
-              description
-                "SM Interface";
-              type string;
-            }
-            leaf Cellular {
-              status obsolete;
-              description
-                "Cellular Interface";
-              type string;
-            }
-            leaf Dialer {
-              status obsolete;
-              description
-                "Dialer Interface";
-              type string;
-            }
-            leaf Serial {
-              status obsolete;
-              description
-                "Serial interface";
-              type string;
-            }
-            leaf TenGigabitEthernet {
-              status obsolete;
-              description
-                "Ten Gigabit Ethernet";
-              type string;
-            }
-            leaf Tunnel {
-              status obsolete;
-              description
-                "Tunnel interface";
-              type uint32;
-            }
-            leaf Virtual-Template {
-              status obsolete;
-              description
-                "Virtual Template interface";
-              type uint16;
-            }
-            leaf Vlan {
-              status obsolete;
-              description
-                "Iosxr Vlans";
-              type uint16;
-            }
-            leaf VirtualPortGroup {
-              status obsolete;
-              description
-                "Virtual Port Group";
-              type uint16;
-            }
-            leaf vasileft {
-              status obsolete;
-              description
-                "vasileft";
-              type uint16;
-            }
-            leaf vasiright {
-              status obsolete;
-              description
-                "vasiright";
-              type uint16;
-            }
-            leaf BD-VIF {
-              status obsolete;
-              description
-                "Bridge-Domain Virtual IP interface";
-              type string;
-            }
-          }
-        }
+        // container interface {
+        //   status obsolete;
+        //   description
+        //     "Interface name (Interface container is obsolete).";
+        //   choice interface-choice {
+        //     status obsolete;
+        //     leaf AppNav-Compress {
+        //       status obsolete;
+        //       description
+        //         "Service-Context Virtual Interface Compress";
+        //       type uint16;
+        //     }
+        //     leaf AppNav-UnCompress {
+        //       status obsolete;
+        //       description
+        //         "Service-Context Virtual Interface UnCompress";
+        //       type uint16;
+        //     }
+        //     leaf ATM {
+        //       status obsolete;
+        //       description
+        //         "ATM interface";
+        //       type string;
+        //     }
+        //     container ATM-subinterface {
+        //       status obsolete;
+        //       leaf ATM {
+        //         status obsolete;
+        //         type string;
+        //       }
+        //     }
+        //     leaf ATM-ACR {
+        //       status obsolete;
+        //       description
+        //         "ATM-ACR interface";
+        //       type string {
+        //         pattern '[0-9]';
+        //       }
+        //     }
+        //     container ATM-ACRsubinterface {
+        //       status obsolete;
+        //       leaf ATM-ACR {
+        //         status obsolete;
+        //         type string {
+        //           pattern '[0-9]\.([0-9]/){3}[0-9]';
+        //         }
+        //       }
+        //     }
+        //     leaf BDI {
+        //       status obsolete;
+        //       description
+        //         "Bridge-Domain interface";
+        //       type string;
+        //     }
+        //     leaf CEM {
+        //       status obsolete;
+        //       description
+        //         "CEM interface";
+        //       type string {
+        //         pattern '([0-9]/){2}[0-9]';
+        //       }
+        //     }
+        //     leaf CEM-ACR {
+        //       status obsolete;
+        //       description
+        //         "CEM-ACR interface";
+        //       type uint8 {
+        //         range "0..255";
+        //       }
+        //     }
+        //     leaf Embedded-Service-Engine {
+        //       status obsolete;
+        //       description
+        //         "cisco embedded service engine module";
+        //       type string;
+        //     }
+        //     leaf Ethernet {
+        //       status obsolete;
+        //       description
+        //         "IEEE 802.3";
+        //       type string;
+        //     }
+        //     leaf FastEthernet {
+        //       status obsolete;
+        //       description
+        //         "FastEthernet IEEE 802.3";
+        //       type string;
+        //     }
+        //     leaf GigabitEthernet {
+        //       status obsolete;
+        //       description
+        //         "GigabitEthernet IEEE 802.3z";
+        //       type string;
+        //     }
+        //     leaf FiveGigabitEthernet {
+        //       status obsolete;
+        //       description
+        //         "Five GigabitEthernet ";
+        //       type string;
+        //     }
+        //     leaf AppGigabitEthernet {
+        //       status obsolete;
+        //       description
+        //         "App-hosting Gigabit Ethernet IEEE 802.3z";
+        //       type string;
+        //     }
+        //     leaf TwentyFiveGigE {
+        //       status obsolete;
+        //       description
+        //         "Twenty Five GigabitEthernet ";
+        //       type string;
+        //     }
+        //     leaf TwoGigabitEthernet {
+        //       status obsolete;
+        //       description
+        //         "Two GigabitEthernet ";
+        //       type string;
+        //     }
+        //     leaf FortyGigabitEthernet {
+        //       status obsolete;
+        //       description
+        //         "Forty GigabitEthernet ";
+        //       type string;
+        //     }
+        //     leaf HundredGigE {
+        //       status obsolete;
+        //       description
+        //         "Hundred GigabitEthernet";
+        //       type string;
+        //     }
+        //     leaf LISP {
+        //       status obsolete;
+        //       description
+        //         "Locator/ID Separation Protocol Virtual Interface";
+        //       type string;
+        //     }
+        //     container LISP-subinterface {
+        //       status obsolete;
+        //       description
+        //         "Locator/ID Separation Protocol Virtual Interface";
+        //       leaf LISP {
+        //         status obsolete;
+        //         type string {
+        //           pattern '[0-9]*(. ?[1-9][0-9]*)*';
+        //         }
+        //       }
+        //     }
+        //     leaf Loopback {
+        //       status obsolete;
+        //       description
+        //         "Loopback interface";
+        //       type uint32;
+        //     }
+        //     leaf Multilink {
+        //       status obsolete;
+        //       description
+        //         "Multilink-group interface";
+        //       type uint16;
+        //     }
+        //     leaf nve {
+        //       status obsolete;
+        //       description
+        //         "Network virtualization endpoint interface";
+        //       type uint16;
+        //     }
+        //     leaf overlay {
+        //       status obsolete;
+        //       description
+        //         "Overlay interface";
+        //       type uint16;
+        //     }
+        //     leaf Port-channel {
+        //       status obsolete;
+        //       description
+        //         "Ethernet Channel of interfaces";
+        //       type uint32;
+        //     }
+        //     container Port-channel-subinterface {
+        //       status obsolete;
+        //       leaf Port-channel {
+        //         status obsolete;
+        //         type string;
+        //       }
+        //     }
+        //     leaf pseudowire {
+        //       status obsolete;
+        //       description
+        //         "Pseudowire Interface";
+        //       type uint32;
+        //     }
+        //     leaf SM {
+        //       status obsolete;
+        //       description
+        //         "SM Interface";
+        //       type string;
+        //     }
+        //     leaf Cellular {
+        //       status obsolete;
+        //       description
+        //         "Cellular Interface";
+        //       type string;
+        //     }
+        //     leaf Dialer {
+        //       status obsolete;
+        //       description
+        //         "Dialer Interface";
+        //       type string;
+        //     }
+        //     leaf Serial {
+        //       status obsolete;
+        //       description
+        //         "Serial interface";
+        //       type string;
+        //     }
+        //     leaf TenGigabitEthernet {
+        //       status obsolete;
+        //       description
+        //         "Ten Gigabit Ethernet";
+        //       type string;
+        //     }
+        //     leaf Tunnel {
+        //       status obsolete;
+        //       description
+        //         "Tunnel interface";
+        //       type uint32;
+        //     }
+        //     leaf Virtual-Template {
+        //       status obsolete;
+        //       description
+        //         "Virtual Template interface";
+        //       type uint16;
+        //     }
+        //     leaf Vlan {
+        //       status obsolete;
+        //       description
+        //         "Iosxr Vlans";
+        //       type uint16;
+        //     }
+        //     leaf VirtualPortGroup {
+        //       status obsolete;
+        //       description
+        //         "Virtual Port Group";
+        //       type uint16;
+        //     }
+        //     leaf vasileft {
+        //       status obsolete;
+        //       description
+        //         "vasileft";
+        //       type uint16;
+        //     }
+        //     leaf vasiright {
+        //       status obsolete;
+        //       description
+        //         "vasiright";
+        //       type uint16;
+        //     }
+        //     leaf BD-VIF {
+        //       status obsolete;
+        //       description
+        //         "Bridge-Domain Virtual IP interface";
+        //       type string;
+        //     }
+        //   }
+        // }
       }
     }
   }
@@ -5964,61 +5964,61 @@ module Cisco-IOS-XE-bgp {
     }
   }
 
-  grouping address-family-ipv4-network-obsolete-grouping {
-    container network {
-      status obsolete;
-      list with-mask {
-        status obsolete;
-        description
-          "Specify a network to announce via BGP (OBSOLETE)";
-        key "number mask";
-        leaf number {
-          status obsolete;
-          type inet:ipv4-address;
-        }
-        leaf mask {
-          status obsolete;
-          description
-            "Network mask (OBSOLETE)";
-          type inet:ipv4-address;
-        }
-        leaf route-map {
-          status obsolete;
-          description
-            "Route-map to modify the attributes (OBSOLETE)";
-          type string;
-        }
-        leaf backdoor {
-          status obsolete;
-          description
-            "Specify a BGP backdoor route (OBSOLETE)";
-          type empty;
-        }
-      }
-      list no-mask {
-        status obsolete;
-        description
-          "Specify a network to announce via BGP (OBSOLETE)";
-        key "number";
-        leaf number {
-          status obsolete;
-          type inet:ipv4-address;
-        }
-        leaf route-map {
-          status obsolete;
-          description
-            "Route-map to modify the attributes (OBSOLETE)";
-          type string;
-        }
-        leaf backdoor {
-          status obsolete;
-          description
-            "Specify a BGP backdoor route (OBSOLETE)";
-          type empty;
-        }
-      }
-    }
-  }
+  // grouping address-family-ipv4-network-obsolete-grouping {
+  //   container network {
+  //     status obsolete;
+  //     list with-mask {
+  //       status obsolete;
+  //       description
+  //         "Specify a network to announce via BGP (OBSOLETE)";
+  //       key "number mask";
+  //       leaf number {
+  //         status obsolete;
+  //         type inet:ipv4-address;
+  //       }
+  //       leaf mask {
+  //         status obsolete;
+  //         description
+  //           "Network mask (OBSOLETE)";
+  //         type inet:ipv4-address;
+  //       }
+  //       leaf route-map {
+  //         status obsolete;
+  //         description
+  //           "Route-map to modify the attributes (OBSOLETE)";
+  //         type string;
+  //       }
+  //       leaf backdoor {
+  //         status obsolete;
+  //         description
+  //           "Specify a BGP backdoor route (OBSOLETE)";
+  //         type empty;
+  //       }
+  //     }
+  //     list no-mask {
+  //       status obsolete;
+  //       description
+  //         "Specify a network to announce via BGP (OBSOLETE)";
+  //       key "number";
+  //       leaf number {
+  //         status obsolete;
+  //         type inet:ipv4-address;
+  //       }
+  //       leaf route-map {
+  //         status obsolete;
+  //         description
+  //           "Route-map to modify the attributes (OBSOLETE)";
+  //         type string;
+  //       }
+  //       leaf backdoor {
+  //         status obsolete;
+  //         description
+  //           "Specify a BGP backdoor route (OBSOLETE)";
+  //         type empty;
+  //       }
+  //     }
+  //   }
+  // }
 
   grouping address-family-vrf-ipv4-network-grouping {
     container network {
@@ -6080,78 +6080,78 @@ module Cisco-IOS-XE-bgp {
     }
   }
 
-  grouping address-family-vrf-ipv4-network-obsolete-grouping {
-    container network {
-      status obsolete;
-      list with-mask {
-        description
-          "Specify a network to announce via BGP (OBSOLETE)";
-        status obsolete;
-        key "number mask";
-        leaf number {
-          status obsolete;
-          type inet:ipv4-address;
-        }
-        leaf mask {
-          status obsolete;
-          description
-            "Network mask (OBSOLETE)";
-          type inet:ipv4-address;
-        }
-        leaf route-map {
-          status obsolete;
-          description
-            "Route-map to modify the attributes (OBSOLETE)";
-          type string;
-        }
-        choice network-option {
-          status obsolete;
-          leaf backdoor {
-            status obsolete;
-            description
-              "Specify a BGP backdoor route (OBSOLETE)";
-            type empty;
-          }
-          leaf evpn {
-            status obsolete;
-            description
-              "Advertise or export to EVPN address-family (OBSOLETE)";
-            type empty;
-          }
-        }
-      }
-      list no-mask {
-        status obsolete;
-        description
-          "Specify a network to announce via BGP (OBSOLETE)";
-        key "number";
-        leaf number {
-          type inet:ipv4-address;
-        }
-        leaf route-map {
-          status obsolete;
-          description
-            "Route-map to modify the attributes (OBSOLETE)";
-          type string;
-        }
-        choice network-option {
-          status obsolete;
-          leaf backdoor {
-            status obsolete;
-            description
-              "Specify a BGP backdoor route (OBSOLETE)";
-            type empty;
-          }
-          leaf evpn {
-            status obsolete;
-            description
-              "Advertise or export to EVPN address-family (OBSOLETE)";
-            type empty;
-          }
-        }
-      }
-    }
-  }
+  // grouping address-family-vrf-ipv4-network-obsolete-grouping {
+  //   container network {
+  //     status obsolete;
+  //     list with-mask {
+  //       description
+  //         "Specify a network to announce via BGP (OBSOLETE)";
+  //       status obsolete;
+  //       key "number mask";
+  //       leaf number {
+  //         status obsolete;
+  //         type inet:ipv4-address;
+  //       }
+  //       leaf mask {
+  //         status obsolete;
+  //         description
+  //           "Network mask (OBSOLETE)";
+  //         type inet:ipv4-address;
+  //       }
+  //       leaf route-map {
+  //         status obsolete;
+  //         description
+  //           "Route-map to modify the attributes (OBSOLETE)";
+  //         type string;
+  //       }
+  //       choice network-option {
+  //         status obsolete;
+  //         leaf backdoor {
+  //           status obsolete;
+  //           description
+  //             "Specify a BGP backdoor route (OBSOLETE)";
+  //           type empty;
+  //         }
+  //         leaf evpn {
+  //           status obsolete;
+  //           description
+  //             "Advertise or export to EVPN address-family (OBSOLETE)";
+  //           type empty;
+  //         }
+  //       }
+  //     }
+  //     list no-mask {
+  //       status obsolete;
+  //       description
+  //         "Specify a network to announce via BGP (OBSOLETE)";
+  //       key "number";
+  //       leaf number {
+  //         type inet:ipv4-address;
+  //       }
+  //       leaf route-map {
+  //         status obsolete;
+  //         description
+  //           "Route-map to modify the attributes (OBSOLETE)";
+  //         type string;
+  //       }
+  //       choice network-option {
+  //         status obsolete;
+  //         leaf backdoor {
+  //           status obsolete;
+  //           description
+  //             "Specify a BGP backdoor route (OBSOLETE)";
+  //           type empty;
+  //         }
+  //         leaf evpn {
+  //           status obsolete;
+  //           description
+  //             "Advertise or export to EVPN address-family (OBSOLETE)";
+  //           type empty;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 
   grouping address-family-nsap-network-grouping {
     list network {
@@ -6190,30 +6190,30 @@ module Cisco-IOS-XE-bgp {
     }
   }
 
-  grouping address-family-ipv6-network-obsolete-grouping {
-    list network {
-      status obsolete;
-      description
-        "Specify a network to announce via BGP (OBSOLETE)";
-      key "number";
-      leaf number {
-        status obsolete;
-        type ios-types:ipv6-prefix;
-      }
-      leaf route-map {
-        status obsolete;
-        description
-          "Route-map to modify the attributes (OBSOLETE)";
-        type string;
-      }
-      leaf backdoor {
-        status obsolete;
-        description
-          "Specify a BGP backdoor route (OBSOLETE)";
-        type empty;
-      }
-    }
-  }
+  // grouping address-family-ipv6-network-obsolete-grouping {
+  //   list network {
+  //     status obsolete;
+  //     description
+  //       "Specify a network to announce via BGP (OBSOLETE)";
+  //     key "number";
+  //     leaf number {
+  //       status obsolete;
+  //       type ios-types:ipv6-prefix;
+  //     }
+  //     leaf route-map {
+  //       status obsolete;
+  //       description
+  //         "Route-map to modify the attributes (OBSOLETE)";
+  //       type string;
+  //     }
+  //     leaf backdoor {
+  //       status obsolete;
+  //       description
+  //         "Specify a BGP backdoor route (OBSOLETE)";
+  //       type empty;
+  //     }
+  //   }
+  // }
 
   grouping address-family-vrf-ipv6-network-grouping {
     list network {
@@ -6241,51 +6241,51 @@ module Cisco-IOS-XE-bgp {
     }
   }
 
-  grouping address-family-vrf-ipv6-network-obsolete-grouping {
-    list network {
-      status obsolete;
+  // grouping address-family-vrf-ipv6-network-obsolete-grouping {
+  //   list network {
+  //     status obsolete;
+  //     description
+  //       "Specify a network to announce via BGP (OBSOLETE)";
+  //     key "number";
+  //     leaf number {
+  //       status obsolete;
+  //       type ios-types:ipv6-prefix;
+  //     }
+  //     leaf route-map {
+  //       status obsolete;
+  //       description
+  //         "Route-map to modify the attributes (OBSOLETE)";
+  //       type string;
+  //     }
+  //     leaf backdoor {
+  //       status obsolete;
+  //       description
+  //         "Specify a BGP backdoor route (OBSOLETE)";
+  //       type empty;
+  //     }
+  //     leaf evpn {
+  //       status obsolete;
+  //       description
+  //         "Advertise or export to EVPN address-family (OBSOLETE)";
+  //       type empty;
+  //     }
+  //   }
+  // }
+
+  grouping address-family-propagate-aspath-grouping {
+    leaf propagate-aspath {
+      if-feature "ios-features:omp";
       description
-        "Specify a network to announce via BGP (OBSOLETE)";
-      key "number";
-      leaf number {
-        status obsolete;
-        type ios-types:ipv6-prefix;
-      }
-      leaf route-map {
-        status obsolete;
-        description
-          "Route-map to modify the attributes (OBSOLETE)";
-        type string;
-      }
-      leaf backdoor {
-        status obsolete;
-        description
-          "Specify a BGP backdoor route (OBSOLETE)";
-        type empty;
-      }
-      leaf evpn {
-        status obsolete;
-        description
-          "Advertise or export to EVPN address-family (OBSOLETE)";
-        type empty;
-      }
+        "BGP Propagate AS Path";
+      type empty;
+    }
+    leaf propagate-community {
+      if-feature "ios-features:omp";
+      description
+        "BGP Propagate Community";
+      type empty;
     }
   }
-
-//   grouping address-family-propagate-aspath-grouping {
-//     leaf propagate-aspath {
-//       if-feature "ios-features:omp";
-//       description
-//         "BGP Propagate AS Path";
-//       type empty;
-//     }
-//     leaf propagate-community {
-//       if-feature "ios-features:omp";
-//       description
-//         "BGP Propagate Community";
-//       type empty;
-//     }
-//   }
 
 //   grouping address-family-propagate-aspath-obsolete-grouping {
 //     leaf propagate-aspath {
@@ -6620,377 +6620,377 @@ module Cisco-IOS-XE-bgp {
     }
   }
 
-  grouping address-family-redistribute-grouping-obsolete {
-    container redistribute {
-      status obsolete;
-      description
-        "Redistribute information from another routing protocol";
-      container application {
-        status obsolete;
-        description
-          "Application";
-        presence "true";
-        list name {
-          status obsolete;
-          key "name";
-          leaf name {
-            status obsolete;
-            description
-              "WORD :: Route-map name";
-            type string;
-          }
-          uses metric-route-map-grouping-obsolete;
-        }
-      }
-      container bgp {
-        status obsolete;
-        description
-          "Border Gateway Protocol (BGP) (OBSOLETE)";
-        leaf as-no {
-          status obsolete;
-          type ios-types:bgp-as-number-type;
-        }
-        uses metric-route-map-grouping-obsolete;
-      }
-      container connected {
-        description
-          "Connected";
-        status obsolete;
-        presence "Connected";
-        uses metric-route-map-grouping-obsolete;
-      }
-      container dvmrp {
-        status obsolete;
-        description
-          "Redistribution of DVMRP into BGP IPv4 Multicast (OBSOLETE)";
-        presence "Redistribution of DVMRP into BGP IPv4 Multicast";
-        uses metric-route-map-grouping-obsolete;
-      }
-      container eigrp {
-        description
-          "Enhanced Interior Gateway Routing Protocol (EIGRP)";
-        status obsolete;
-        leaf as-no {
-          status obsolete;
-          type uint16 {
-            range "1..65535";
-          }
-        }
-        uses metric-route-map-grouping-obsolete;
-      }
-    //   container isis {
-    //     status obsolete;
-    //     description
-    //       "ISO IS-IS";
-    //     presence "true";
-    //     must '/ios:native/ios:router/ios-isis:isis' {
-    //       error-message "Router isis must be configured before redistribute isis and deleted after redistribute isis";
-    //     }
-    //     choice osi-ip-choice {
-    //       status obsolete;
-    //       leaf ip {
-    //         status obsolete;
-    //         description
-    //           "Redistribution of IP dynamic routes";
-    //         type empty;
-    //       }
-    //       leaf clns {
-    //         status obsolete;
-    //         description
-    //           "Redistribution of OSI dynamic routes";
-    //         type empty;
-    //       }
-    //     }
-    //     leaf routes {
-    //       status obsolete;
-    //       default "level-2";
-    //       type enumeration {
-    //         enum level-1;
-    //         enum level-2;
-    //         enum level-1-2;
-    //       }
-    //     }
-    //     uses metric-route-map-grouping-obsolete;
-    //   }
-    //   container isis-area-tag {
-    //     description
-    //       "ISO IS-IS area-tag";
-    //     status obsolete;
-    //     list isis {
-    //       status obsolete;
-    //       key "area-tag";
-    //       leaf area-tag {
-    //         status obsolete;
-    //         type leafref {
-    //           path "/ios:native/ios:router/ios-isis:isis-container/ios-isis:isis/ios-isis:area-tag";
-    //         }
-    //       }
-    //       choice osi-ip-choice {
-    //         status obsolete;
-    //         leaf ip {
-    //           status obsolete;
-    //           description
-    //             "Redistribution of IP dynamic routes";
-    //           type empty;
-    //         }
-    //         leaf clns {
-    //           status obsolete;
-    //           description
-    //             "Redistribution of OSI dynamic routes";
-    //           type empty;
-    //         }
-    //       }
-    //       leaf routes {
-    //         status obsolete;
-    //         default "level-2";
-    //         type enumeration {
-    //           enum level-1;
-    //           enum level-2;
-    //           enum level-1-2;
-    //         }
-    //       }
-    //       uses metric-route-map-grouping-obsolete;
-    //     }
-    //   }
-    //   container lisp {
-    //     description
-    //       "Locator/ID Separation Protocol";
-    //     status obsolete;
-    //     presence "lisp";
-    //     leaf include-connected {
-    //       status obsolete;
-    //       description
-    //         "OBSOLETE";
-    //       type empty;
-    //     }
-    //     uses metric-route-map-grouping-obsolete;
-    //   }
-    //   container iso-igrp {
-    //     status obsolete;
-    //     description
-    //       "IGRP for OSI networks";
-    //     list iso-igrp-area {
-    //       status obsolete;
-    //       key "name";
-    //       leaf name {
-    //         status obsolete;
-    //         type string;
-    //       }
-    //       uses metric-route-map-grouping-obsolete;
-    //     }
-    //     container default {
-    //       status obsolete;
-    //       uses metric-route-map-grouping-obsolete;
-    //     }
-    //   }
-    //   container mobile {
-    //     status obsolete;
-    //     presence "Mobile routes";
-    //     description
-    //       "Mobile routes";
-    //     uses metric-route-map-grouping-obsolete;
-    //   }
-    //   container odr {
-    //     presence "On Demand stub Routes";
-    //     status obsolete;
-    //     description
-    //       "On Demand stub Routes";
-    //     uses metric-route-map-grouping-obsolete;
-    //   }
-    //   container omp {
-    //     if-feature "ios-features:omp";
-    //     description
-    //       "Overlay Management Protocol (OMP)";
-    //     status obsolete;
-    //     presence "omp";
-    //     uses metric-route-map-grouping-obsolete;
-    //   }
-    //   container nat-route {
-    //     if-feature "ios-features:sdwan";
-    //     description
-    //       "NAT Route";
-    //     status obsolete;
-    //     leaf dia {
-    //       status obsolete;
-    //       description
-    //         "Redistribute NAT Direct Internet Access routes";
-    //       type empty;
-    //     }
-    //     leaf outside {
-    //       status obsolete;
-    //       description
-    //         "Redistribute NAT outside routes";
-    //       type empty;
-    //     }
-    //     uses metric-route-map-grouping-obsolete;
-    //   }
-      list ospf {
-        description
-          "Open Shortest Path First (OSPF)";
-        status obsolete;
-        key "id";
-        leaf id {
-          status obsolete;
-          type uint16 {
-            range "1..65535";
-          }
-        }
-        choice ospf-choice {
-          status obsolete;
-          list vrf {
-            description
-              "VPN Routing/Forwarding Instance";
-            status obsolete;
-            key "name";
-            leaf name {
-              status obsolete;
-              must '/ios:native/ios:vrf/ios:definition[ios:name=current()] or /ios:native/ios:ip/ios:vrf[ios:name=current()]' {
-                error-message "VRF must be created 1st, deleted last";
-              }
-              type string;
-            }
-            container match {
-              status obsolete;
-              leaf internal {
-                status obsolete;
-                description
-                  "Redistribute OSPF internal routes";
-                type empty;
-              }
-              leaf external {
-                status obsolete;
-                description
-                  "Redistribute OSPF external routes";
-                type ios-types:redist-ospf-external-type;
-              }
-              leaf external2 {
-                status obsolete;
-                description
-                  "Redistribute OSPF external routes";
-                type ios-types:redist-ospf-external-type;
-              }
-              leaf nssa-external {
-                status obsolete;
-                description
-                  "Redistribute OSPF NSSA external routes";
-                type ios-types:redist-ospf-external-type;
-              }
-            }
-            uses metric-route-map-grouping-obsolete;
-          }
-          container non-vrf {
-            status obsolete;
-            container match {
-              status obsolete;
-              leaf internal {
-                status obsolete;
-                description
-                  "Redistribute OSPF internal routes";
-                type empty;
-              }
-              leaf external {
-                status obsolete;
-                description
-                  "Redistribute OSPF external routes";
-                type ios-types:redist-ospf-external-type;
-              }
-              leaf external2 {
-                status obsolete;
-                description
-                  "Redistribute OSPF external routes";
-                type ios-types:redist-ospf-external-type;
-              }
-              leaf nssa-external {
-                status obsolete;
-                description
-                  "Redistribute OSPF NSSA external routes";
-                type ios-types:redist-ospf-external-type;
-              }
-            }
-            uses metric-route-map-grouping-obsolete;
-          }
-        }
-      }
-    //   list ospfv3 {
-    //     description
-    //       "OSPFv3";
-    //     status obsolete;
-    //     key "id";
-    //     leaf id {
-    //       status obsolete;
-    //       type leafref {
-    //         path "/ios:native/ios:router/ios-ospfv3:ospfv3/ios-ospfv3:id";
-    //       }
-    //     }
-    //     container match {
-    //       status obsolete;
-    //       leaf internal {
-    //         status obsolete;
-    //         description
-    //           "Redistribute OSPF internal routes";
-    //         type empty;
-    //       }
-    //       leaf external {
-    //         status obsolete;
-    //         description
-    //           "Redistribute OSPF external routes";
-    //         type ios-types:redist-ospf-external-type;
-    //       }
-    //       leaf external2 {
-    //         status obsolete;
-    //         description
-    //           "Redistribute OSPF external routes";
-    //         type ios-types:redist-ospf-external-type;
-    //       }
-    //       leaf nssa-external {
-    //         status obsolete;
-    //         description
-    //           "Redistribute OSPF NSSA external routes";
-    //         type ios-types:redist-ospf-external-type;
-    //       }
-    //     }
-    //     uses metric-route-map-grouping-obsolete;
-    //   }
-      container rip {
-        presence "Routing Information Protocol (RIP)";
-        status obsolete;
-        description
-          "Routing Information Protocol (RIP)";
-        leaf name {
-          description
-            "User selected string identifying this process";
-          status obsolete;
-          type string;
-        }
-        uses metric-route-map-grouping-obsolete;
-      }
-      container static {
-        presence "Static routes";
-        status obsolete;
-        description
-          "Static routes";
-        choice static-choice {
-          status obsolete;
-          container clns {
-            status obsolete;
-            description
-              "Redistribution of OSI dynamic routes";
-            presence "true";
-            uses metric-route-map-grouping-obsolete;
-          }
-          container ip {
-            status obsolete;
-            presence "true";
-            uses metric-route-map-grouping-obsolete;
-          }
-          container default {
-            status obsolete;
-            uses metric-route-map-grouping-obsolete;
-          }
-        }
-      }
-    }
-  }
+  // grouping address-family-redistribute-grouping-obsolete {
+  //   container redistribute {
+  //     status obsolete;
+  //     description
+  //       "Redistribute information from another routing protocol";
+  //     container application {
+  //       status obsolete;
+  //       description
+  //         "Application";
+  //       presence "true";
+  //       list name {
+  //         status obsolete;
+  //         key "name";
+  //         leaf name {
+  //           status obsolete;
+  //           description
+  //             "WORD :: Route-map name";
+  //           type string;
+  //         }
+  //         uses metric-route-map-grouping-obsolete;
+  //       }
+  //     }
+  //     container bgp {
+  //       status obsolete;
+  //       description
+  //         "Border Gateway Protocol (BGP) (OBSOLETE)";
+  //       leaf as-no {
+  //         status obsolete;
+  //         type ios-types:bgp-as-number-type;
+  //       }
+  //       uses metric-route-map-grouping-obsolete;
+  //     }
+  //     container connected {
+  //       description
+  //         "Connected";
+  //       status obsolete;
+  //       presence "Connected";
+  //       uses metric-route-map-grouping-obsolete;
+  //     }
+  //     container dvmrp {
+  //       status obsolete;
+  //       description
+  //         "Redistribution of DVMRP into BGP IPv4 Multicast (OBSOLETE)";
+  //       presence "Redistribution of DVMRP into BGP IPv4 Multicast";
+  //       uses metric-route-map-grouping-obsolete;
+  //     }
+  //     container eigrp {
+  //       description
+  //         "Enhanced Interior Gateway Routing Protocol (EIGRP)";
+  //       status obsolete;
+  //       leaf as-no {
+  //         status obsolete;
+  //         type uint16 {
+  //           range "1..65535";
+  //         }
+  //       }
+  //       uses metric-route-map-grouping-obsolete;
+  //     }
+  //   //   container isis {
+  //   //     status obsolete;
+  //   //     description
+  //   //       "ISO IS-IS";
+  //   //     presence "true";
+  //   //     must '/ios:native/ios:router/ios-isis:isis' {
+  //   //       error-message "Router isis must be configured before redistribute isis and deleted after redistribute isis";
+  //   //     }
+  //   //     choice osi-ip-choice {
+  //   //       status obsolete;
+  //   //       leaf ip {
+  //   //         status obsolete;
+  //   //         description
+  //   //           "Redistribution of IP dynamic routes";
+  //   //         type empty;
+  //   //       }
+  //   //       leaf clns {
+  //   //         status obsolete;
+  //   //         description
+  //   //           "Redistribution of OSI dynamic routes";
+  //   //         type empty;
+  //   //       }
+  //   //     }
+  //   //     leaf routes {
+  //   //       status obsolete;
+  //   //       default "level-2";
+  //   //       type enumeration {
+  //   //         enum level-1;
+  //   //         enum level-2;
+  //   //         enum level-1-2;
+  //   //       }
+  //   //     }
+  //   //     uses metric-route-map-grouping-obsolete;
+  //   //   }
+  //   //   container isis-area-tag {
+  //   //     description
+  //   //       "ISO IS-IS area-tag";
+  //   //     status obsolete;
+  //   //     list isis {
+  //   //       status obsolete;
+  //   //       key "area-tag";
+  //   //       leaf area-tag {
+  //   //         status obsolete;
+  //   //         type leafref {
+  //   //           path "/ios:native/ios:router/ios-isis:isis-container/ios-isis:isis/ios-isis:area-tag";
+  //   //         }
+  //   //       }
+  //   //       choice osi-ip-choice {
+  //   //         status obsolete;
+  //   //         leaf ip {
+  //   //           status obsolete;
+  //   //           description
+  //   //             "Redistribution of IP dynamic routes";
+  //   //           type empty;
+  //   //         }
+  //   //         leaf clns {
+  //   //           status obsolete;
+  //   //           description
+  //   //             "Redistribution of OSI dynamic routes";
+  //   //           type empty;
+  //   //         }
+  //   //       }
+  //   //       leaf routes {
+  //   //         status obsolete;
+  //   //         default "level-2";
+  //   //         type enumeration {
+  //   //           enum level-1;
+  //   //           enum level-2;
+  //   //           enum level-1-2;
+  //   //         }
+  //   //       }
+  //   //       uses metric-route-map-grouping-obsolete;
+  //   //     }
+  //   //   }
+  //   //   container lisp {
+  //   //     description
+  //   //       "Locator/ID Separation Protocol";
+  //   //     status obsolete;
+  //   //     presence "lisp";
+  //   //     leaf include-connected {
+  //   //       status obsolete;
+  //   //       description
+  //   //         "OBSOLETE";
+  //   //       type empty;
+  //   //     }
+  //   //     uses metric-route-map-grouping-obsolete;
+  //   //   }
+  //   //   container iso-igrp {
+  //   //     status obsolete;
+  //   //     description
+  //   //       "IGRP for OSI networks";
+  //   //     list iso-igrp-area {
+  //   //       status obsolete;
+  //   //       key "name";
+  //   //       leaf name {
+  //   //         status obsolete;
+  //   //         type string;
+  //   //       }
+  //   //       uses metric-route-map-grouping-obsolete;
+  //   //     }
+  //   //     container default {
+  //   //       status obsolete;
+  //   //       uses metric-route-map-grouping-obsolete;
+  //   //     }
+  //   //   }
+  //   //   container mobile {
+  //   //     status obsolete;
+  //   //     presence "Mobile routes";
+  //   //     description
+  //   //       "Mobile routes";
+  //   //     uses metric-route-map-grouping-obsolete;
+  //   //   }
+  //   //   container odr {
+  //   //     presence "On Demand stub Routes";
+  //   //     status obsolete;
+  //   //     description
+  //   //       "On Demand stub Routes";
+  //   //     uses metric-route-map-grouping-obsolete;
+  //   //   }
+  //   //   container omp {
+  //   //     if-feature "ios-features:omp";
+  //   //     description
+  //   //       "Overlay Management Protocol (OMP)";
+  //   //     status obsolete;
+  //   //     presence "omp";
+  //   //     uses metric-route-map-grouping-obsolete;
+  //   //   }
+  //   //   container nat-route {
+  //   //     if-feature "ios-features:sdwan";
+  //   //     description
+  //   //       "NAT Route";
+  //   //     status obsolete;
+  //   //     leaf dia {
+  //   //       status obsolete;
+  //   //       description
+  //   //         "Redistribute NAT Direct Internet Access routes";
+  //   //       type empty;
+  //   //     }
+  //   //     leaf outside {
+  //   //       status obsolete;
+  //   //       description
+  //   //         "Redistribute NAT outside routes";
+  //   //       type empty;
+  //   //     }
+  //   //     uses metric-route-map-grouping-obsolete;
+  //   //   }
+  //     list ospf {
+  //       description
+  //         "Open Shortest Path First (OSPF)";
+  //       status obsolete;
+  //       key "id";
+  //       leaf id {
+  //         status obsolete;
+  //         type uint16 {
+  //           range "1..65535";
+  //         }
+  //       }
+  //       choice ospf-choice {
+  //         status obsolete;
+  //         list vrf {
+  //           description
+  //             "VPN Routing/Forwarding Instance";
+  //           status obsolete;
+  //           key "name";
+  //           leaf name {
+  //             status obsolete;
+  //             must '/ios:native/ios:vrf/ios:definition[ios:name=current()] or /ios:native/ios:ip/ios:vrf[ios:name=current()]' {
+  //               error-message "VRF must be created 1st, deleted last";
+  //             }
+  //             type string;
+  //           }
+  //           container match {
+  //             status obsolete;
+  //             leaf internal {
+  //               status obsolete;
+  //               description
+  //                 "Redistribute OSPF internal routes";
+  //               type empty;
+  //             }
+  //             leaf external {
+  //               status obsolete;
+  //               description
+  //                 "Redistribute OSPF external routes";
+  //               type ios-types:redist-ospf-external-type;
+  //             }
+  //             leaf external2 {
+  //               status obsolete;
+  //               description
+  //                 "Redistribute OSPF external routes";
+  //               type ios-types:redist-ospf-external-type;
+  //             }
+  //             leaf nssa-external {
+  //               status obsolete;
+  //               description
+  //                 "Redistribute OSPF NSSA external routes";
+  //               type ios-types:redist-ospf-external-type;
+  //             }
+  //           }
+  //           uses metric-route-map-grouping-obsolete;
+  //         }
+  //         container non-vrf {
+  //           status obsolete;
+  //           container match {
+  //             status obsolete;
+  //             leaf internal {
+  //               status obsolete;
+  //               description
+  //                 "Redistribute OSPF internal routes";
+  //               type empty;
+  //             }
+  //             leaf external {
+  //               status obsolete;
+  //               description
+  //                 "Redistribute OSPF external routes";
+  //               type ios-types:redist-ospf-external-type;
+  //             }
+  //             leaf external2 {
+  //               status obsolete;
+  //               description
+  //                 "Redistribute OSPF external routes";
+  //               type ios-types:redist-ospf-external-type;
+  //             }
+  //             leaf nssa-external {
+  //               status obsolete;
+  //               description
+  //                 "Redistribute OSPF NSSA external routes";
+  //               type ios-types:redist-ospf-external-type;
+  //             }
+  //           }
+  //           uses metric-route-map-grouping-obsolete;
+  //         }
+  //       }
+  //     }
+  //   //   list ospfv3 {
+  //   //     description
+  //   //       "OSPFv3";
+  //   //     status obsolete;
+  //   //     key "id";
+  //   //     leaf id {
+  //   //       status obsolete;
+  //   //       type leafref {
+  //   //         path "/ios:native/ios:router/ios-ospfv3:ospfv3/ios-ospfv3:id";
+  //   //       }
+  //   //     }
+  //   //     container match {
+  //   //       status obsolete;
+  //   //       leaf internal {
+  //   //         status obsolete;
+  //   //         description
+  //   //           "Redistribute OSPF internal routes";
+  //   //         type empty;
+  //   //       }
+  //   //       leaf external {
+  //   //         status obsolete;
+  //   //         description
+  //   //           "Redistribute OSPF external routes";
+  //   //         type ios-types:redist-ospf-external-type;
+  //   //       }
+  //   //       leaf external2 {
+  //   //         status obsolete;
+  //   //         description
+  //   //           "Redistribute OSPF external routes";
+  //   //         type ios-types:redist-ospf-external-type;
+  //   //       }
+  //   //       leaf nssa-external {
+  //   //         status obsolete;
+  //   //         description
+  //   //           "Redistribute OSPF NSSA external routes";
+  //   //         type ios-types:redist-ospf-external-type;
+  //   //       }
+  //   //     }
+  //   //     uses metric-route-map-grouping-obsolete;
+  //   //   }
+  //     container rip {
+  //       presence "Routing Information Protocol (RIP)";
+  //       status obsolete;
+  //       description
+  //         "Routing Information Protocol (RIP)";
+  //       leaf name {
+  //         description
+  //           "User selected string identifying this process";
+  //         status obsolete;
+  //         type string;
+  //       }
+  //       uses metric-route-map-grouping-obsolete;
+  //     }
+  //     container static {
+  //       presence "Static routes";
+  //       status obsolete;
+  //       description
+  //         "Static routes";
+  //       choice static-choice {
+  //         status obsolete;
+  //         container clns {
+  //           status obsolete;
+  //           description
+  //             "Redistribution of OSI dynamic routes";
+  //           presence "true";
+  //           uses metric-route-map-grouping-obsolete;
+  //         }
+  //         container ip {
+  //           status obsolete;
+  //           presence "true";
+  //           uses metric-route-map-grouping-obsolete;
+  //         }
+  //         container default {
+  //           status obsolete;
+  //           uses metric-route-map-grouping-obsolete;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 
   grouping address-family-vrf-redistribute-grouping {
     container redistribute-vrf {
@@ -7014,22 +7014,22 @@ module Cisco-IOS-XE-bgp {
     }
   }
 
-//   grouping address-family-v6-redistribute-grouping {
-//     container redistribute-v6 {
-//       description
-//         "Redistribute information from another routing protocol";
-//       uses redistribute-application-v6-grouping;
-//       uses redistribute-connected-grouping;
-//       uses redistribute-eigrp-v6-grouping;
-//       uses redistribute-isis-v6-grouping;
-//       uses redistribute-lisp-v6-grouping;
-//       uses redistribute-nat-route-v6-grouping;
-//       uses redistribute-omp-grouping;
-//       uses redistribute-ospf-v6-grouping;
-//       uses redistribute-rip-v6-grouping;
-//       uses redistribute-static-v6-grouping;
-//     }
-//   }
+  grouping address-family-v6-redistribute-grouping {
+    container redistribute-v6 {
+      description
+        "Redistribute information from another routing protocol";
+      //uses redistribute-application-v6-grouping;
+      uses redistribute-connected-grouping;
+      //uses redistribute-eigrp-v6-grouping;
+      //uses redistribute-isis-v6-grouping;
+      //uses redistribute-lisp-v6-grouping;
+      //uses redistribute-nat-route-v6-grouping;
+      //uses redistribute-omp-grouping;
+      //uses redistribute-ospf-v6-grouping;
+      //uses redistribute-rip-v6-grouping;
+      uses redistribute-static-v6-grouping;
+    }
+  }
 
 //   grouping address-family-v6-redistribute-grouping-obsolete {
 //     container redistribute-v6 {
@@ -7173,32 +7173,32 @@ module Cisco-IOS-XE-bgp {
 //     }
 //   }
 
-//   grouping redistribute-application-grouping {
-//     container application {
-//       description
-//         "Application";
-//       presence "true";
-//       list name {
-//         key "name";
-//         leaf name {
-//           description
-//             "WORD :: Route-map name";
-//           type string;
-//         }
-//         uses redistribute-metric-route-map-v2-grouping;
-//       }
-//     }
-//   }
+  grouping redistribute-application-grouping {
+    container application {
+      description
+        "Application";
+      presence "true";
+      list name {
+        key "name";
+        leaf name {
+          description
+            "WORD :: Route-map name";
+          type string;
+        }
+        uses redistribute-metric-route-map-v2-grouping;
+      }
+    }
+  }
 
-//   grouping redistribute-application-v6-grouping {
-//     container application {
-//       description
-//         "Application";
-//       presence "true";
-//       uses redistribute-include-connected-v2-grouping;
-//       uses redistribute-metric-route-map-v2-grouping;
-//     }
-//   }
+  grouping redistribute-application-v6-grouping {
+    container application {
+      description
+        "Application";
+      presence "true";
+      uses redistribute-include-connected-v2-grouping;
+      uses redistribute-metric-route-map-v2-grouping;
+    }
+  }
 
   grouping redistribute-connected-grouping {
     container connected {
@@ -7674,13 +7674,13 @@ module Cisco-IOS-XE-bgp {
     }
   }
 
-//   grouping redistribute-include-connected-v2-grouping {
-//     leaf include-connected {
-//       description
-//         "Include connected";
-//       type empty;
-//     }
-//   }
+  grouping redistribute-include-connected-v2-grouping {
+    leaf include-connected {
+      description
+        "Include connected";
+      type empty;
+    }
+  }
 
 //   grouping redistribute-include-connected-grouping-obsolete {
 //     leaf include-connected {
@@ -7950,13 +7950,13 @@ module Cisco-IOS-XE-bgp {
 //     }
 //   }
 
-//   grouping address-family-synchronization-grouping {
-//     leaf synchronization {
-//       description
-//         "Perform IGP synchronization";
-//       type empty;
-//     }
-//   }
+  grouping address-family-synchronization-grouping {
+    leaf synchronization {
+      description
+        "Perform IGP synchronization";
+      type empty;
+    }
+  }
 
   grouping address-family-table-map-grouping {
     container table-map {
@@ -7977,7 +7977,7 @@ module Cisco-IOS-XE-bgp {
     uses neighbor-remote-as-grouping {
       refine "remote-as";
     }
-    uses global-neighbor-inherit-grouping;
+    // uses global-neighbor-inherit-grouping;
     uses neighbor-peer-group-grouping {
       refine "peer-group/peer-group-name" {
         must '(/ios:native/ios:router/ios-bgp:bgp/peer-group/neighbor[id=current()]/peer-group)' {
@@ -7985,7 +7985,7 @@ module Cisco-IOS-XE-bgp {
         }
       }
     }
-    // uses neighbor-bmp-activate-grouping;
+    uses neighbor-bmp-activate-grouping;
     uses neighbor-cluster-id-grouping;
     uses neighbor-description-grouping;
     uses neighbor-disable-connected-check-grouping;
@@ -8017,7 +8017,7 @@ module Cisco-IOS-XE-bgp {
     uses neighbor-ebgp-multihop-grouping;
     uses neighbor-fall-over-grouping;
     uses neighbor-ha-mode-grouping;
-    uses peer-group-inherit-grouping;
+    // uses peer-group-inherit-grouping;
     uses neighbor-peer-group-local-as-grouping;
     uses neighbor-log-neighbor-changes-grouping;
     uses neighbor-password-grouping;
@@ -8060,7 +8060,7 @@ module Cisco-IOS-XE-bgp {
     //   }
     // }
     uses neighbor-filter-list-grouping;
-    uses neighbor-af-inherit-grouping;
+    // uses neighbor-af-inherit-grouping;
     uses neighbor-maximum-prefix-grouping;
     uses neighbor-next-hop-self-grouping;
     uses neighbor-next-hop-unchanged-v2-grouping;
@@ -8136,7 +8136,7 @@ module Cisco-IOS-XE-bgp {
 //     }
 //     uses neighbor-advertisement-interval-grouping;
 //     uses neighbor-allowas-in-grouping;
-//     uses peer-group-inherit-grouping;
+//     // uses peer-group-inherit-grouping;
 //     uses neighbor-maximum-prefix-grouping;
 //     uses neighbor-next-hop-self-grouping;
 //     uses neighbor-next-hop-unchanged-v2-grouping;
@@ -8182,7 +8182,7 @@ module Cisco-IOS-XE-bgp {
 //     }
 //     uses neighbor-advertisement-interval-grouping;
 //     uses neighbor-allowas-in-grouping;
-//     uses peer-group-inherit-grouping;
+//     // uses peer-group-inherit-grouping;
 //     uses neighbor-maximum-prefix-grouping;
 //     uses neighbor-next-hop-self-grouping;
 //     uses neighbor-next-hop-unchanged-v2-grouping;
@@ -8228,7 +8228,7 @@ module Cisco-IOS-XE-bgp {
 //     uses neighbor-allow-policy-grouping;
 //     uses neighbor-allowas-in-grouping;
 //     uses neighbor-filter-list-grouping;
-//     uses peer-group-inherit-grouping;
+//     // uses peer-group-inherit-grouping;
 //     uses neighbor-maximum-prefix-grouping;
 //     uses neighbor-next-hop-self-grouping;
 //     uses neighbor-next-hop-unchanged-v2-grouping;
@@ -8284,7 +8284,7 @@ module Cisco-IOS-XE-bgp {
 //     uses neighbor-allow-policy-grouping;
 //     uses neighbor-allowas-in-grouping;
 //     uses neighbor-filter-list-grouping;
-//     uses peer-group-inherit-grouping;
+//     // uses peer-group-inherit-grouping;
 //     uses neighbor-maximum-prefix-grouping;
 //     uses neighbor-next-hop-self-grouping;
 //     uses neighbor-next-hop-unchanged-v2-grouping;
@@ -8329,57 +8329,57 @@ module Cisco-IOS-XE-bgp {
 //     // uses neighbor-weight-grouping;
 //   }
 
-//   grouping ipv6-unicast-neighbor {
-//     uses neighbor-activate-grouping;
-//     // uses neighbor-additional-paths-grouping;
-//     // uses neighbor-advertise-grouping;
-//     // uses neighbor-advertise-map-grouping;
-//     uses neighbor-advertisement-interval-ebgp-grouping {
-//       when "(/ios:native/ios:router/ios-bgp:bgp/ios-bgp:id != /ios:native/ios:router/ios-bgp:bgp/ios-bgp:neighbor[ios-bgp:id=current()/ios-bgp:id]/ios-bgp:remote-as)
-//             or (/ios:native/ios:router/ios-bgp:bgp/ios-bgp:id != /ios:native/ios:router/ios-bgp:bgp/ios-bgp:peer-group/ios-bgp:neighbor[ios-bgp:id=current()/ios-bgp:id]/ios-bgp:remote-as)
-//             or not(/ios:native/ios:router/ios-bgp:bgp/ios-bgp:peer-group/ios-bgp:neighbor[ios-bgp:id=current()/ios-bgp:id]/ios-bgp:remote-as)";
-//     }
-//     uses neighbor-advertisement-interval-grouping;
-//     // uses neighbor-aigp-grouping;
-//     uses neighbor-allow-policy-grouping;
-//     uses neighbor-allowas-in-grouping;
-//     // uses neighbor-announce-grouping;
-//     uses neighbor-as-override-grouping;
-//     uses neighbor-capability-grouping;
-//     uses neighbor-default-originate-grouping;
-//     uses neighbor-dmzlink-bw-grouping {
-//       refine "dmzlink-bw" {
-//         must 'not(/ios:native/ios:router/ios-bgp:bgp/ios-bgp:peer-group/ios-bgp:neighbor[ios-bgp:id=current()]/ios-bgp:ebgp-multihop)' {
-//           error-message "Propagation of DMZ-Link-Bandwidth is supported only for single-hop EBGP peers";
-//         }
-//       }
-//     }
-//     uses neighbor-filter-list-grouping;
-//     uses neighbor-af-inherit-grouping;
-//     uses neighbor-maximum-prefix-grouping;
-//     uses neighbor-next-hop-self-grouping;
-//     uses neighbor-next-hop-unchanged-v2-grouping;
-//     uses neighbor-next-hop-unchanged-grouping;
-//     uses neighbor-prefix-list-grouping;
-//     uses neighbor-remove-private-as-grouping;
-//     uses neighbor-route-map-grouping;
-//     uses neighbor-route-reflector-client-grouping {
-//       refine "route-reflector-client" {
-//         must 'not(../advertise/best-external)' {
-//           error-message "route-reflector-client and advertise/best-external cannot be configured at the same time";
-//         }
-//       }
-//     }
-//     uses neighbor-send-community-grouping;
-//     uses neighbor-send-label-only-grouping;
-//     // uses neighbor-send-label-obsolete-grouping;
-//     uses neighbor-slow-peer-grouping;
-//     uses neighbor-soft-reconfiguration-grouping;
-//     uses neighbor-soo-grouping;
-//     // uses neighbor-translate-update-grouping;
-//     // uses neighbor-unsuppress-map-grouping;
-//     // uses neighbor-weight-grouping;
-//   }
+  grouping ipv6-unicast-neighbor {
+    uses neighbor-activate-grouping;
+    // uses neighbor-additional-paths-grouping;
+    // uses neighbor-advertise-grouping;
+    // uses neighbor-advertise-map-grouping;
+    // uses neighbor-advertisement-interval-ebgp-grouping {
+    //   when "(/ios:native/ios:router/ios-bgp:bgp/ios-bgp:id != /ios:native/ios:router/ios-bgp:bgp/ios-bgp:neighbor[ios-bgp:id=current()/ios-bgp:id]/ios-bgp:remote-as)
+    //         or (/ios:native/ios:router/ios-bgp:bgp/ios-bgp:id != /ios:native/ios:router/ios-bgp:bgp/ios-bgp:peer-group/ios-bgp:neighbor[ios-bgp:id=current()/ios-bgp:id]/ios-bgp:remote-as)
+    //         or not(/ios:native/ios:router/ios-bgp:bgp/ios-bgp:peer-group/ios-bgp:neighbor[ios-bgp:id=current()/ios-bgp:id]/ios-bgp:remote-as)";
+    // }
+    uses neighbor-advertisement-interval-grouping;
+    // uses neighbor-aigp-grouping;
+    uses neighbor-allow-policy-grouping;
+    uses neighbor-allowas-in-grouping;
+    // uses neighbor-announce-grouping;
+    uses neighbor-as-override-grouping;
+    uses neighbor-capability-grouping;
+    uses neighbor-default-originate-grouping;
+    uses neighbor-dmzlink-bw-grouping {
+      refine "dmzlink-bw" {
+        must 'not(/ios:native/ios:router/ios-bgp:bgp/ios-bgp:peer-group/ios-bgp:neighbor[ios-bgp:id=current()]/ios-bgp:ebgp-multihop)' {
+          error-message "Propagation of DMZ-Link-Bandwidth is supported only for single-hop EBGP peers";
+        }
+      }
+    }
+    uses neighbor-filter-list-grouping;
+    // uses neighbor-af-inherit-grouping;
+    uses neighbor-maximum-prefix-grouping;
+    uses neighbor-next-hop-self-grouping;
+    uses neighbor-next-hop-unchanged-v2-grouping;
+    uses neighbor-next-hop-unchanged-grouping;
+    uses neighbor-prefix-list-grouping;
+    uses neighbor-remove-private-as-grouping;
+    uses neighbor-route-map-grouping;
+    uses neighbor-route-reflector-client-grouping {
+      refine "route-reflector-client" {
+        must 'not(../advertise/best-external)' {
+          error-message "route-reflector-client and advertise/best-external cannot be configured at the same time";
+        }
+      }
+    }
+    uses neighbor-send-community-grouping;
+    uses neighbor-send-label-only-grouping;
+    // uses neighbor-send-label-obsolete-grouping;
+    uses neighbor-slow-peer-grouping;
+    uses neighbor-soft-reconfiguration-grouping;
+    uses neighbor-soo-grouping;
+    // uses neighbor-translate-update-grouping;
+    // uses neighbor-unsuppress-map-grouping;
+    // uses neighbor-weight-grouping;
+  }
 
 //   grouping ipv6-multicast-neighbor {
 //     uses neighbor-activate-grouping;
@@ -8432,7 +8432,7 @@ module Cisco-IOS-XE-bgp {
 //     }
 //     uses neighbor-advertisement-interval-grouping;
 //     uses neighbor-allowas-in-grouping;
-//     uses peer-group-inherit-grouping;
+//     // uses peer-group-inherit-grouping;
 //     uses neighbor-maximum-prefix-grouping;
 //     uses neighbor-next-hop-self-grouping;
 //     uses neighbor-next-hop-unchanged-v2-grouping;
@@ -8480,7 +8480,7 @@ module Cisco-IOS-XE-bgp {
 //     uses neighbor-allow-policy-grouping;
 //     uses neighbor-allowas-in-grouping;
 //     uses neighbor-filter-list-grouping;
-//     uses peer-group-inherit-grouping;
+//     // uses peer-group-inherit-grouping;
 //     uses neighbor-maximum-prefix-grouping;
 //     uses neighbor-next-hop-self-grouping;
 //     uses neighbor-next-hop-unchanged-v2-grouping;
@@ -8547,7 +8547,7 @@ module Cisco-IOS-XE-bgp {
 //     }
 //     uses neighbor-encap-grouping;
 //     uses neighbor-filter-list-grouping;
-//     uses peer-group-inherit-grouping;
+//     // uses peer-group-inherit-grouping;
 //     uses neighbor-maximum-prefix-grouping;
 //     uses neighbor-next-hop-self-grouping;
 //     uses neighbor-next-hop-unchanged-v2-grouping;
@@ -8637,66 +8637,66 @@ module Cisco-IOS-XE-bgp {
 //     // uses neighbor-weight-grouping;
 //   }
 
-//   grouping rtfilter-neighbor {
-//     uses neighbor-activate-grouping;
-//     uses neighbor-advertisement-interval-ebgp-grouping {
-//       when "(/ios:native/ios:router/ios-bgp:bgp/ios-bgp:id != /ios:native/ios:router/ios-bgp:bgp/ios-bgp:neighbor[ios-bgp:id=current()/ios-bgp:id]/ios-bgp:remote-as)
-//             or (/ios:native/ios:router/ios-bgp:bgp/ios-bgp:id != /ios:native/ios:router/ios-bgp:bgp/ios-bgp:peer-group/ios-bgp:neighbor[ios-bgp:id=current()/ios-bgp:id]/ios-bgp:remote-as)
-//             or not(/ios:native/ios:router/ios-bgp:bgp/ios-bgp:peer-group/ios-bgp:neighbor[ios-bgp:id=current()/ios-bgp:id]/ios-bgp:remote-as)";
-//     }
-//     uses neighbor-advertisement-interval-grouping;
-//     uses neighbor-allow-policy-grouping;
-//     uses neighbor-allowas-in-grouping;
-//     uses neighbor-capability-grouping;
-//     uses rtfilter-neighbor-default-originate-grouping;
-//     container default-originate {
-//       status obsolete;
-//       description
-//         "Originate default route to this neighbor (OBSOLETE)";
-//       presence "enable originate default route to this neighbor";
-//       leaf route-map {
-//         status obsolete;
-//         description
-//           "Route-map to specify criteria to originate default (OBSOLETE)";
-//         type string;
-//       }
-//     }
-//     uses neighbor-af-inherit-grouping;
-//     uses neighbor-maximum-prefix-grouping;
-//     uses neighbor-next-hop-self-grouping;
-//     uses neighbor-next-hop-unchanged-v2-grouping;
-//     uses neighbor-next-hop-unchanged-grouping;
-//     uses neighbor-remove-private-as-grouping;
-//     uses neighbor-route-map-grouping;
-//     uses neighbor-route-reflector-client-grouping;
-//     uses neighbor-send-community-grouping;
-//     uses neighbor-slow-peer-grouping;
-//     uses neighbor-soft-reconfiguration-grouping;
-//     uses neighbor-soo-grouping;
-//     // uses neighbor-weight-grouping;
-//   }
+  grouping rtfilter-neighbor {
+    uses neighbor-activate-grouping;
+    // uses neighbor-advertisement-interval-ebgp-grouping {
+    //   when "(/ios:native/ios:router/ios-bgp:bgp/ios-bgp:id != /ios:native/ios:router/ios-bgp:bgp/ios-bgp:neighbor[ios-bgp:id=current()/ios-bgp:id]/ios-bgp:remote-as)
+    //         or (/ios:native/ios:router/ios-bgp:bgp/ios-bgp:id != /ios:native/ios:router/ios-bgp:bgp/ios-bgp:peer-group/ios-bgp:neighbor[ios-bgp:id=current()/ios-bgp:id]/ios-bgp:remote-as)
+    //         or not(/ios:native/ios:router/ios-bgp:bgp/ios-bgp:peer-group/ios-bgp:neighbor[ios-bgp:id=current()/ios-bgp:id]/ios-bgp:remote-as)";
+    // }
+    uses neighbor-advertisement-interval-grouping;
+    uses neighbor-allow-policy-grouping;
+    uses neighbor-allowas-in-grouping;
+    uses neighbor-capability-grouping;
+    uses rtfilter-neighbor-default-originate-grouping;
+    container default-originate {
+      status obsolete;
+      description
+        "Originate default route to this neighbor (OBSOLETE)";
+      presence "enable originate default route to this neighbor";
+      leaf route-map {
+        status obsolete;
+        description
+          "Route-map to specify criteria to originate default (OBSOLETE)";
+        type string;
+      }
+    }
+    // uses neighbor-af-inherit-grouping;
+    uses neighbor-maximum-prefix-grouping;
+    uses neighbor-next-hop-self-grouping;
+    uses neighbor-next-hop-unchanged-v2-grouping;
+    uses neighbor-next-hop-unchanged-grouping;
+    uses neighbor-remove-private-as-grouping;
+    uses neighbor-route-map-grouping;
+    uses neighbor-route-reflector-client-grouping;
+    uses neighbor-send-community-grouping;
+    uses neighbor-slow-peer-grouping;
+    uses neighbor-soft-reconfiguration-grouping;
+    uses neighbor-soo-grouping;
+    // uses neighbor-weight-grouping;
+  }
 
-//   grouping rtfilter-peer-group {
-//     uses neighbor-activate-grouping {
-//       when '/ios:native/ios:router/ios-bgp:bgp/ios-bgp:bgp/ios-bgp:listen/ios-bgp:range/ios-bgp:network-range';
-//     }
-//     uses neighbor-advertisement-interval-grouping;
-//     uses neighbor-allow-policy-grouping;
-//     uses neighbor-allowas-in-grouping;
-//     uses neighbor-capability-grouping;
-//     uses rtfilter-neighbor-default-originate-grouping;
-//     uses neighbor-maximum-prefix-grouping;
-//     uses neighbor-next-hop-self-grouping;
-//     uses neighbor-next-hop-unchanged-v2-grouping;
-//     uses neighbor-remove-private-as-grouping;
-//     uses neighbor-route-map-grouping;
-//     uses neighbor-route-reflector-client-grouping;
-//     uses neighbor-send-community-grouping;
-//     uses neighbor-slow-peer-grouping;
-//     uses neighbor-soft-reconfiguration-grouping;
-//     uses neighbor-soo-grouping;
-//     // uses neighbor-weight-grouping;
-//   }
+  grouping rtfilter-peer-group {
+    uses neighbor-activate-grouping {
+      when '/ios:native/ios:router/ios-bgp:bgp/ios-bgp:bgp/ios-bgp:listen/ios-bgp:range/ios-bgp:network-range';
+    }
+    uses neighbor-advertisement-interval-grouping;
+    uses neighbor-allow-policy-grouping;
+    uses neighbor-allowas-in-grouping;
+    uses neighbor-capability-grouping;
+    uses rtfilter-neighbor-default-originate-grouping;
+    uses neighbor-maximum-prefix-grouping;
+    uses neighbor-next-hop-self-grouping;
+    uses neighbor-next-hop-unchanged-v2-grouping;
+    uses neighbor-remove-private-as-grouping;
+    uses neighbor-route-map-grouping;
+    uses neighbor-route-reflector-client-grouping;
+    uses neighbor-send-community-grouping;
+    uses neighbor-slow-peer-grouping;
+    uses neighbor-soft-reconfiguration-grouping;
+    uses neighbor-soo-grouping;
+    // uses neighbor-weight-grouping;
+  }
 
   grouping vpnv4-unicast-neighbor {
     uses neighbor-activate-grouping;
@@ -8720,7 +8720,7 @@ module Cisco-IOS-XE-bgp {
     //   }
     // }
     uses neighbor-filter-list-grouping;
-    uses neighbor-af-inherit-grouping;
+    // uses neighbor-af-inherit-grouping;
     uses neighbor-inter-as-hybrid-grouping;
     uses neighbor-long-lived-grouping;
     uses neighbor-maximum-prefix-grouping;
@@ -8792,7 +8792,7 @@ module Cisco-IOS-XE-bgp {
 //     }
 //     uses neighbor-advertisement-interval-grouping;
 //     uses neighbor-allowas-in-grouping;
-//     uses peer-group-inherit-grouping;
+//     // uses peer-group-inherit-grouping;
 //     uses neighbor-long-lived-grouping;
 //     uses neighbor-maximum-prefix-grouping;
 //     uses neighbor-next-hop-self-grouping;
@@ -8925,7 +8925,7 @@ module Cisco-IOS-XE-bgp {
 //     }
 //     uses neighbor-advertisement-interval-grouping;
 //     uses neighbor-allowas-in-grouping;
-//     uses peer-group-inherit-grouping;
+//     // uses peer-group-inherit-grouping;
 //     uses neighbor-long-lived-grouping;
 //     uses neighbor-maximum-prefix-grouping;
 //     uses neighbor-next-hop-self-grouping;
@@ -8966,86 +8966,86 @@ module Cisco-IOS-XE-bgp {
 //     // uses neighbor-weight-grouping;
 //   }
 
-//   grouping nsap-neighbor {
-//     uses neighbor-activate-grouping;
-//     uses neighbor-advertisement-interval-ebgp-grouping {
-//       when "(/ios:native/ios:router/ios-bgp:bgp/ios-bgp:id != /ios:native/ios:router/ios-bgp:bgp/ios-bgp:neighbor[ios-bgp:id=current()/ios-bgp:id]/ios-bgp:remote-as)
-//             or (/ios:native/ios:router/ios-bgp:bgp/ios-bgp:id != /ios:native/ios:router/ios-bgp:bgp/ios-bgp:peer-group/ios-bgp:neighbor[ios-bgp:id=current()/ios-bgp:id]/ios-bgp:remote-as)
-//             or not(/ios:native/ios:router/ios-bgp:bgp/ios-bgp:peer-group/ios-bgp:neighbor[ios-bgp:id=current()/ios-bgp:id]/ios-bgp:remote-as)";
-//     }
-//     uses neighbor-advertisement-interval-grouping;
-//     uses neighbor-allow-policy-grouping;
-//     uses neighbor-allowas-in-grouping;
-//     uses neighbor-capability-grouping;
-//     uses neighbor-default-originate-grouping;
-//     uses neighbor-dmzlink-bw-grouping {
-//       refine "dmzlink-bw" {
-//         must 'not(/ios:native/ios:router/ios-bgp:bgp/ios-bgp:peer-group/ios-bgp:neighbor[ios-bgp:id=current()]/ios-bgp:ebgp-multihop)' {
-//           error-message "Propagation of DMZ-Link-Bandwidth is supported only for single-hop EBGP peers";
-//         }
-//       }
-//     }
-//     uses neighbor-filter-list-grouping;
-//     uses neighbor-af-inherit-grouping;
-//     uses neighbor-maximum-prefix-grouping;
-//     uses neighbor-next-hop-self-grouping;
-//     uses neighbor-next-hop-unchanged-v2-grouping;
-//     uses neighbor-next-hop-unchanged-grouping;
-//     uses neighbor-prefix-list-grouping;
-//     uses neighbor-remove-private-as-grouping;
-//     uses neighbor-route-map-grouping;
-//     uses neighbor-route-reflector-client-grouping;
-//     uses neighbor-send-community-grouping;
-//     uses neighbor-slow-peer-grouping;
-//     uses neighbor-soo-grouping;
-//     // uses neighbor-weight-grouping;
-//   }
+  grouping nsap-neighbor {
+    uses neighbor-activate-grouping;
+    // uses neighbor-advertisement-interval-ebgp-grouping {
+    //   when "(/ios:native/ios:router/ios-bgp:bgp/ios-bgp:id != /ios:native/ios:router/ios-bgp:bgp/ios-bgp:neighbor[ios-bgp:id=current()/ios-bgp:id]/ios-bgp:remote-as)
+    //         or (/ios:native/ios:router/ios-bgp:bgp/ios-bgp:id != /ios:native/ios:router/ios-bgp:bgp/ios-bgp:peer-group/ios-bgp:neighbor[ios-bgp:id=current()/ios-bgp:id]/ios-bgp:remote-as)
+    //         or not(/ios:native/ios:router/ios-bgp:bgp/ios-bgp:peer-group/ios-bgp:neighbor[ios-bgp:id=current()/ios-bgp:id]/ios-bgp:remote-as)";
+    // }
+    // uses neighbor-advertisement-interval-grouping;
+    uses neighbor-allow-policy-grouping;
+    uses neighbor-allowas-in-grouping;
+    uses neighbor-capability-grouping;
+    uses neighbor-default-originate-grouping;
+    // uses neighbor-dmzlink-bw-grouping {
+    //   refine "dmzlink-bw" {
+    //     must 'not(/ios:native/ios:router/ios-bgp:bgp/ios-bgp:peer-group/ios-bgp:neighbor[ios-bgp:id=current()]/ios-bgp:ebgp-multihop)' {
+    //       error-message "Propagation of DMZ-Link-Bandwidth is supported only for single-hop EBGP peers";
+    //     }
+    //   }
+    // }
+    uses neighbor-filter-list-grouping;
+    // uses neighbor-af-inherit-grouping;
+    uses neighbor-maximum-prefix-grouping;
+    uses neighbor-next-hop-self-grouping;
+    uses neighbor-next-hop-unchanged-v2-grouping;
+    uses neighbor-next-hop-unchanged-grouping;
+    uses neighbor-prefix-list-grouping;
+    uses neighbor-remove-private-as-grouping;
+    uses neighbor-route-map-grouping;
+    uses neighbor-route-reflector-client-grouping;
+    uses neighbor-send-community-grouping;
+    uses neighbor-slow-peer-grouping;
+    uses neighbor-soo-grouping;
+    // uses neighbor-weight-grouping;
+  }
 
-//   grouping link-state-peer-group {
-//     uses neighbor-activate-grouping;
-//     uses neighbor-advertisement-interval-ebgp-grouping {
-//       when "(/ios:native/ios:router/ios-bgp:bgp/ios-bgp:id != /ios:native/ios:router/ios-bgp:bgp/ios-bgp:neighbor[ios-bgp:id=current()/ios-bgp:id]/ios-bgp:remote-as)
-//             or (/ios:native/ios:router/ios-bgp:bgp/ios-bgp:id != /ios:native/ios:router/ios-bgp:bgp/ios-bgp:peer-group/ios-bgp:neighbor[ios-bgp:id=current()/ios-bgp:id]/ios-bgp:remote-as)
-//             or not(/ios:native/ios:router/ios-bgp:bgp/ios-bgp:peer-group/ios-bgp:neighbor[ios-bgp:id=current()/ios-bgp:id]/ios-bgp:remote-as)";
-//     }
-//     uses neighbor-advertisement-interval-grouping;
-//     uses neighbor-allowas-in-grouping;
-//     uses peer-group-inherit-grouping;
-//     uses neighbor-maximum-prefix-grouping;
-//     uses neighbor-next-hop-self-grouping;
-//     uses neighbor-next-hop-unchanged-v2-grouping;
-//     uses neighbor-next-hop-unchanged-grouping;
-//     uses neighbor-remove-private-as-grouping;
-//     uses neighbor-route-map-grouping;
-//     uses neighbor-route-reflector-client-grouping;
-//     uses neighbor-send-community-grouping;
-//     uses neighbor-slow-peer-grouping;
-//     uses neighbor-soft-reconfiguration-grouping;
-//     // uses neighbor-weight-grouping;
-//   }
+  grouping link-state-peer-group {
+    uses neighbor-activate-grouping;
+    // uses neighbor-advertisement-interval-ebgp-grouping {
+    //   when "(/ios:native/ios:router/ios-bgp:bgp/ios-bgp:id != /ios:native/ios:router/ios-bgp:bgp/ios-bgp:neighbor[ios-bgp:id=current()/ios-bgp:id]/ios-bgp:remote-as)
+    //         or (/ios:native/ios:router/ios-bgp:bgp/ios-bgp:id != /ios:native/ios:router/ios-bgp:bgp/ios-bgp:peer-group/ios-bgp:neighbor[ios-bgp:id=current()/ios-bgp:id]/ios-bgp:remote-as)
+    //         or not(/ios:native/ios:router/ios-bgp:bgp/ios-bgp:peer-group/ios-bgp:neighbor[ios-bgp:id=current()/ios-bgp:id]/ios-bgp:remote-as)";
+    // }
+    uses neighbor-advertisement-interval-grouping;
+    uses neighbor-allowas-in-grouping;
+    // uses peer-group-inherit-grouping;
+    uses neighbor-maximum-prefix-grouping;
+    uses neighbor-next-hop-self-grouping;
+    uses neighbor-next-hop-unchanged-v2-grouping;
+    uses neighbor-next-hop-unchanged-grouping;
+    uses neighbor-remove-private-as-grouping;
+    uses neighbor-route-map-grouping;
+    uses neighbor-route-reflector-client-grouping;
+    uses neighbor-send-community-grouping;
+    uses neighbor-slow-peer-grouping;
+    uses neighbor-soft-reconfiguration-grouping;
+    // uses neighbor-weight-grouping;
+  }
 
-//   grouping link-state-neighbor {
-//     uses neighbor-activate-grouping;
-//     uses neighbor-advertisement-interval-ebgp-grouping {
-//       when "(/ios:native/ios:router/ios-bgp:bgp/ios-bgp:id != /ios:native/ios:router/ios-bgp:bgp/ios-bgp:neighbor[ios-bgp:id=current()/ios-bgp:id]/ios-bgp:remote-as)
-//             or (/ios:native/ios:router/ios-bgp:bgp/ios-bgp:id != /ios:native/ios:router/ios-bgp:bgp/ios-bgp:peer-group/ios-bgp:neighbor[ios-bgp:id=current()/ios-bgp:id]/ios-bgp:remote-as)
-//             or not(/ios:native/ios:router/ios-bgp:bgp/ios-bgp:peer-group/ios-bgp:neighbor[ios-bgp:id=current()/ios-bgp:id]/ios-bgp:remote-as)";
-//     }
-//     uses neighbor-advertisement-interval-grouping;
-//     uses neighbor-allowas-in-grouping;
-//     uses neighbor-af-inherit-grouping;
-//     uses neighbor-maximum-prefix-grouping;
-//     uses neighbor-next-hop-self-grouping;
-//     uses neighbor-next-hop-unchanged-v2-grouping;
-//     uses neighbor-next-hop-unchanged-grouping;
-//     uses neighbor-remove-private-as-grouping;
-//     uses neighbor-route-map-grouping;
-//     uses neighbor-route-reflector-client-grouping;
-//     uses neighbor-send-community-grouping;
-//     uses neighbor-slow-peer-grouping;
-//     uses neighbor-soft-reconfiguration-grouping;
-//     // uses neighbor-weight-grouping;
-//   }
+  grouping link-state-neighbor {
+    uses neighbor-activate-grouping;
+    // uses neighbor-advertisement-interval-ebgp-grouping {
+    //   when "(/ios:native/ios:router/ios-bgp:bgp/ios-bgp:id != /ios:native/ios:router/ios-bgp:bgp/ios-bgp:neighbor[ios-bgp:id=current()/ios-bgp:id]/ios-bgp:remote-as)
+    //         or (/ios:native/ios:router/ios-bgp:bgp/ios-bgp:id != /ios:native/ios:router/ios-bgp:bgp/ios-bgp:peer-group/ios-bgp:neighbor[ios-bgp:id=current()/ios-bgp:id]/ios-bgp:remote-as)
+    //         or not(/ios:native/ios:router/ios-bgp:bgp/ios-bgp:peer-group/ios-bgp:neighbor[ios-bgp:id=current()/ios-bgp:id]/ios-bgp:remote-as)";
+    // }
+    uses neighbor-advertisement-interval-grouping;
+    uses neighbor-allowas-in-grouping;
+    // uses neighbor-af-inherit-grouping;
+    uses neighbor-maximum-prefix-grouping;
+    uses neighbor-next-hop-self-grouping;
+    uses neighbor-next-hop-unchanged-v2-grouping;
+    uses neighbor-next-hop-unchanged-grouping;
+    uses neighbor-remove-private-as-grouping;
+    uses neighbor-route-map-grouping;
+    uses neighbor-route-reflector-client-grouping;
+    uses neighbor-send-community-grouping;
+    uses neighbor-slow-peer-grouping;
+    uses neighbor-soft-reconfiguration-grouping;
+    // uses neighbor-weight-grouping;
+  }
 
   grouping vrf-ipv4-unicast-neighbor {
     uses neighbor-remote-as-grouping;
@@ -9056,7 +9056,7 @@ module Cisco-IOS-XE-bgp {
         }
       }
     }
-    uses neighbor-inherit-grouping;
+    // uses neighbor-inherit-grouping;
     uses neighbor-activate-grouping;
     // uses neighbor-advertise-map-grouping;
     uses neighbor-advertisement-interval-grouping;
@@ -9125,7 +9125,7 @@ module Cisco-IOS-XE-bgp {
 //         }
 //       }
 //     }
-//     uses neighbor-inherit-grouping;
+//     // uses neighbor-inherit-grouping;
 //     uses neighbor-activate-grouping;
 //     // uses neighbor-advertise-map-grouping;
 //     uses neighbor-advertisement-interval-grouping;
@@ -9189,7 +9189,7 @@ module Cisco-IOS-XE-bgp {
 //         }
 //       }
 //     }
-//     uses neighbor-inherit-grouping;
+//     // uses neighbor-inherit-grouping;
 //     uses neighbor-activate-grouping;
 //     uses neighbor-advertisement-interval-grouping {
 //       refine "advertisement-interval" {
@@ -9241,7 +9241,7 @@ module Cisco-IOS-XE-bgp {
 //         }
 //       }
 //     }
-//     uses neighbor-inherit-grouping;
+//     // uses neighbor-inherit-grouping;
 //     uses neighbor-activate-grouping;
 //     // uses neighbor-advertise-map-grouping;
 //     uses neighbor-advertisement-interval-grouping {
@@ -9313,7 +9313,7 @@ module Cisco-IOS-XE-bgp {
 //         }
 //       }
 //     }
-//     uses neighbor-inherit-grouping;
+//     // uses neighbor-inherit-grouping;
 //     uses neighbor-activate-grouping;
 //     uses neighbor-advertisement-interval-grouping {
 //       refine "advertisement-interval" {
@@ -9380,7 +9380,7 @@ module Cisco-IOS-XE-bgp {
 //         }
 //       }
 //     }
-//     uses neighbor-inherit-grouping;
+//     // uses neighbor-inherit-grouping;
 //     uses neighbor-activate-grouping;
 //     uses neighbor-advertisement-interval-grouping {
 //       refine "advertisement-interval" {
@@ -9474,7 +9474,7 @@ module Cisco-IOS-XE-bgp {
     uses neighbor-fall-over-grouping;
     uses neighbor-filter-list-grouping;
     uses neighbor-ha-mode-grouping;
-    uses peer-group-inherit-grouping;
+    // uses peer-group-inherit-grouping;
     uses neighbor-internal-vpn-client-grouping;
     uses neighbor-peer-group-local-as-grouping;
     uses neighbor-log-neighbor-changes-grouping;
@@ -9558,7 +9558,7 @@ module Cisco-IOS-XE-bgp {
 //     uses neighbor-fall-over-grouping;
 //     uses neighbor-filter-list-grouping;
 //     uses neighbor-ha-mode-grouping;
-//     uses peer-group-inherit-grouping;
+//     // uses peer-group-inherit-grouping;
 //     uses neighbor-internal-vpn-client-grouping;
 //     uses neighbor-peer-group-local-as-grouping;
 //     uses neighbor-log-neighbor-changes-grouping;
@@ -9606,7 +9606,7 @@ module Cisco-IOS-XE-bgp {
 //     uses neighbor-ebgp-multihop-grouping;
 //     uses neighbor-fall-over-grouping;
 //     uses neighbor-ha-mode-grouping;
-//     uses peer-group-inherit-grouping;
+//     // uses peer-group-inherit-grouping;
 //     uses neighbor-internal-vpn-client-grouping;
 //     uses neighbor-peer-group-local-as-grouping;
 //     uses neighbor-log-neighbor-changes-grouping;
@@ -9686,7 +9686,7 @@ module Cisco-IOS-XE-bgp {
 //     uses neighbor-fall-over-grouping;
 //     uses neighbor-filter-list-grouping;
 //     uses neighbor-ha-mode-grouping;
-//     uses peer-group-inherit-grouping;
+//     // uses peer-group-inherit-grouping;
 //     uses neighbor-internal-vpn-client-grouping;
 //     uses neighbor-peer-group-local-as-grouping;
 //     uses neighbor-log-neighbor-changes-grouping;
@@ -9769,7 +9769,7 @@ module Cisco-IOS-XE-bgp {
 //     uses neighbor-fall-over-grouping;
 //     uses neighbor-filter-list-grouping;
 //     uses neighbor-ha-mode-grouping;
-//     uses peer-group-inherit-grouping;
+//     // uses peer-group-inherit-grouping;
 //     uses neighbor-internal-vpn-client-grouping;
 //     uses neighbor-peer-group-local-as-grouping;
 //     uses neighbor-log-neighbor-changes-grouping;
@@ -9817,7 +9817,7 @@ module Cisco-IOS-XE-bgp {
 //     uses neighbor-ebgp-multihop-grouping;
 //     uses neighbor-fall-over-grouping;
 //     uses neighbor-ha-mode-grouping;
-//     uses peer-group-inherit-grouping;
+//     // uses peer-group-inherit-grouping;
 //     uses neighbor-internal-vpn-client-grouping;
 //     uses neighbor-peer-group-local-as-grouping;
 //     uses neighbor-log-neighbor-changes-grouping;
@@ -9930,33 +9930,33 @@ module Cisco-IOS-XE-bgp {
 //     }
 //   }
 
-//   grouping ipv6-unicast-bgp {
-//     container bgp {
-//       uses bgp-additional-paths-grouping;
-//       uses bgp-advertise-best-external-grouping {
-//         refine "advertise-best-external" {
-//           must 'not(../additional-paths/select/best-external-backup/best-external)' {
-//             error-message "advertise-best-external and bgp additional-path select best-external cannot be configured at the same time";
-//           }
-//         }
-//       }
-//       uses bgp-aggregate-timer-grouping;
-//       uses bgp-bestpath-grouping;
-//       uses bgp-dampening-grouping;
-//       // uses bgp-dmzlink-bw-grouping;
-//       uses bgp-inject-map-grouping;
-//       uses bgp-nexthop-grouping;
-//       uses bgp-recursion-grouping;
-//       uses bgp-redistribute-internal-grouping;
-//       uses bgp-route-map-grouping;
-//       uses bgp-scan-time-grouping;
-//       uses bgp-slow-peer-grouping;
-//       uses bgp-soft-reconfig-backup-grouping;
-//       uses bgp-sourced-paths-grouping;
-//       uses bgp-suppress-inactive-grouping;
-//       uses bgp-update-group-grouping;
-//     }
-//   }
+  grouping ipv6-unicast-bgp {
+    container bgp {
+      uses bgp-additional-paths-grouping;
+      uses bgp-advertise-best-external-grouping {
+        refine "advertise-best-external" {
+          must 'not(../additional-paths/select/best-external-backup/best-external)' {
+            error-message "advertise-best-external and bgp additional-path select best-external cannot be configured at the same time";
+          }
+        }
+      }
+      uses bgp-aggregate-timer-grouping;
+      uses bgp-bestpath-grouping;
+      uses bgp-dampening-grouping;
+      // uses bgp-dmzlink-bw-grouping;
+      uses bgp-inject-map-grouping;
+      uses bgp-nexthop-grouping;
+      uses bgp-recursion-grouping;
+      uses bgp-redistribute-internal-grouping;
+      uses bgp-route-map-grouping;
+      uses bgp-scan-time-grouping;
+      uses bgp-slow-peer-grouping;
+      uses bgp-soft-reconfig-backup-grouping;
+      uses bgp-sourced-paths-grouping;
+      uses bgp-suppress-inactive-grouping;
+      uses bgp-update-group-grouping;
+    }
+  }
 
 //   grouping ipv6-multicast-bgp {
 //     container bgp {
@@ -10119,35 +10119,35 @@ module Cisco-IOS-XE-bgp {
 //     }
 //   }
 
-//   grouping rtfilter-bgp {
-//     container bgp {
-//       uses bgp-nexthop-grouping;
-//       uses bgp-slow-peer-grouping;
-//     }
-//   }
+  grouping rtfilter-bgp {
+    container bgp {
+      uses bgp-nexthop-grouping;
+      uses bgp-slow-peer-grouping;
+    }
+  }
 
-//   grouping nsap-bgp {
-//     container bgp {
-//       uses bgp-aggregate-timer-grouping;
-//       uses bgp-dampening-grouping;
-//       // uses bgp-dmzlink-bw-grouping;
-//       uses bgp-nexthop-grouping;
-//       uses bgp-redistribute-internal-grouping;
-//       uses bgp-route-map-grouping;
-//       uses bgp-scan-time-grouping;
-//       uses bgp-slow-peer-grouping;
-//       uses bgp-soft-reconfig-backup-grouping;
-//     }
-//   }
+  grouping nsap-bgp {
+    container bgp {
+      uses bgp-aggregate-timer-grouping;
+      uses bgp-dampening-grouping;
+      // uses bgp-dmzlink-bw-grouping;
+      uses bgp-nexthop-grouping;
+      uses bgp-redistribute-internal-grouping;
+      uses bgp-route-map-grouping;
+      uses bgp-scan-time-grouping;
+      uses bgp-slow-peer-grouping;
+      uses bgp-soft-reconfig-backup-grouping;
+    }
+  }
 
-//   grouping link-state-bgp {
-//     container bgp {
-//       uses bgp-nexthop-grouping;
-//       uses bgp-route-map-grouping;
-//       uses bgp-scan-time-grouping;
-//       uses bgp-slow-peer-grouping;
-//     }
-//   }
+  grouping link-state-bgp {
+    container bgp {
+      uses bgp-nexthop-grouping;
+      uses bgp-route-map-grouping;
+      uses bgp-scan-time-grouping;
+      uses bgp-slow-peer-grouping;
+    }
+  }
 
   grouping vrf-ipv4-unicast-bgp {
     container bgp {
@@ -10298,7 +10298,7 @@ module Cisco-IOS-XE-bgp {
           uses neighbor-distribute-list-grouping;
           // uses neighbor-dmzlink-bw-grouping;
           uses neighbor-filter-list-grouping;
-          uses peer-group-inherit-grouping;
+          // uses peer-group-inherit-grouping;
           uses neighbor-maximum-prefix-grouping;
           uses neighbor-next-hop-self-grouping;
           uses neighbor-next-hop-unchanged-v2-grouping;
@@ -10344,7 +10344,7 @@ module Cisco-IOS-XE-bgp {
       uses address-family-redistribute-grouping;
       // uses address-family-segment-routing-grouping;
       // uses address-family-snmp-grouping;
-      // uses address-family-synchronization-grouping;
+      uses address-family-synchronization-grouping;
       uses address-family-table-map-grouping;
     }
   }
@@ -10401,7 +10401,7 @@ module Cisco-IOS-XE-bgp {
 //           uses neighbor-distribute-list-grouping;
 //           // uses neighbor-dmzlink-bw-grouping;
 //           uses neighbor-filter-list-grouping;
-//           uses peer-group-inherit-grouping;
+//           // uses peer-group-inherit-grouping;
 //           uses neighbor-maximum-prefix-grouping;
 //           uses neighbor-next-hop-self-grouping;
 //           uses neighbor-next-hop-unchanged-v2-grouping;
@@ -10606,111 +10606,111 @@ module Cisco-IOS-XE-bgp {
 //     }
 //   }
 
-//   grouping ipv6-unicast-grouping {
-//     container ipv6-unicast {
-//       description
-//         "IPv6 Unicast address family";
-//       when "(../ios-bgp:af-name = 'unicast')";
-//       uses address-family-ipv6-aggregate-address-grouping;
-//       uses ipv6-unicast-bgp;
-//       uses address-family-default-information-grouping;
-//       uses address-family-default-metric-grouping;
-//       uses address-family-ipv6-distance-grouping;
-//       uses address-family-ipv4-maximum-paths-grouping;
-//       uses address-family-ipv6-label-mode-grouping;
-//       container peer-group {
-//         list neighbor {
-//           description
-//             "Specify a neighbor router";
-//           must 'count(*) > 1';
-//           key "id";
-//           leaf id {
-//             type string;
-//           }
-//           uses neighbor-activate-grouping;
-//           // uses neighbor-additional-paths-grouping;
-//           // uses neighbor-advertise-grouping;
-//           // uses neighbor-advertise-map-grouping;
-//           uses neighbor-advertisement-interval-grouping;
-//           // uses neighbor-aigp-grouping;
-//           uses neighbor-allow-policy-grouping;
-//           uses neighbor-allowas-in-grouping;
-//           // uses neighbor-announce-grouping;
-//           uses neighbor-as-override-grouping;
-//           container capability {
-//             description
-//               "Advertise capability to the peer";
-//             container orf {
-//               description
-//                 "Advertise ORF capability to the peer";
-//               uses neighbor-capability-peer-group-grouping;
-//               leaf-list prefix-list {
-//                 status obsolete;
-//                 description
-//                   "Advertise prefix list ORF capability to this neighbor";
-//                 max-elements 1;
-//                 type enumeration {
-//                   enum both;
-//                   enum receive;
-//                   enum send;
-//                 }
-//               }
-//             }
-//           }
-//           uses neighbor-default-originate-grouping;
-//           // uses neighbor-dmzlink-bw-grouping;
-//           uses neighbor-filter-list-grouping;
-//           uses peer-group-inherit-grouping;
-//           uses neighbor-maximum-prefix-grouping;
-//           uses neighbor-next-hop-self-grouping;
-//           uses neighbor-next-hop-unchanged-v2-grouping;
-//           uses neighbor-next-hop-unchanged-grouping;
-//           uses neighbor-prefix-list-grouping;
-//           uses neighbor-remove-private-as-grouping;
-//           uses neighbor-route-map-grouping;
-//           uses neighbor-route-reflector-client-grouping {
-//             refine "route-reflector-client" {
-//               must 'not(../advertise/best-external)' {
-//                 error-message "route-reflector-client and advertise/best-external cannot be configured at the same time";
-//               }
-//             }
-//           }
-//           uses neighbor-send-community-grouping;
-//           uses neighbor-send-label-only-grouping;
-//           // uses neighbor-send-label-obsolete-grouping;
-//           uses neighbor-slow-peer-grouping;
-//           uses neighbor-soft-reconfiguration-grouping;
-//           uses neighbor-soo-grouping;
-//           // uses neighbor-translate-update-grouping;
-//           // uses neighbor-unsuppress-map-grouping;
-//           // uses neighbor-weight-grouping;
-//         }
-//       }
-//       list neighbor {
-//         description
-//           "Specify a neighbor router";
-//         must 'count(*) > 1';
-//         key "id";
-//         leaf id {
-//           type union {
-//             type inet:ip-address;
-//             type ios-types:ipv6-link-local-interface-address;
-//           }
-//         }
-//         uses ipv6-unicast-neighbor {
-//           refine "activate" {
-//             mandatory true;
-//           }
-//         }
-//       }
-//       uses address-family-ipv6-network-grouping;
-//       uses address-family-v6-redistribute-grouping;
-//       uses address-family-redistribute-grouping-obsolete;
-//       // uses address-family-snmp-grouping;
-//       // uses address-family-synchronization-grouping;
-//       uses address-family-table-map-grouping;
-//     }
-//   }
+  grouping ipv6-unicast-grouping {
+    container ipv6-unicast {
+      description
+        "IPv6 Unicast address family";
+      when "(../ios-bgp:af-name = 'unicast')";
+      uses address-family-ipv6-aggregate-address-grouping;
+      uses ipv6-unicast-bgp;
+      uses address-family-default-information-grouping;
+      uses address-family-default-metric-grouping;
+      uses address-family-ipv6-distance-grouping;
+      uses address-family-ipv4-maximum-paths-grouping;
+      uses address-family-ipv6-label-mode-grouping;
+      container peer-group {
+        list neighbor {
+          description
+            "Specify a neighbor router";
+          must 'count(*) > 1';
+          key "id";
+          leaf id {
+            type string;
+          }
+          uses neighbor-activate-grouping;
+          // uses neighbor-additional-paths-grouping;
+          // uses neighbor-advertise-grouping;
+          // uses neighbor-advertise-map-grouping;
+          uses neighbor-advertisement-interval-grouping;
+          // uses neighbor-aigp-grouping;
+          uses neighbor-allow-policy-grouping;
+          uses neighbor-allowas-in-grouping;
+          // uses neighbor-announce-grouping;
+          uses neighbor-as-override-grouping;
+          container capability {
+            description
+              "Advertise capability to the peer";
+            container orf {
+              description
+                "Advertise ORF capability to the peer";
+              uses neighbor-capability-peer-group-grouping;
+              leaf-list prefix-list {
+                status obsolete;
+                description
+                  "Advertise prefix list ORF capability to this neighbor";
+                max-elements 1;
+                type enumeration {
+                  enum both;
+                  enum receive;
+                  enum send;
+                }
+              }
+            }
+          }
+          uses neighbor-default-originate-grouping;
+          // uses neighbor-dmzlink-bw-grouping;
+          uses neighbor-filter-list-grouping;
+          // uses peer-group-inherit-grouping;
+          uses neighbor-maximum-prefix-grouping;
+          uses neighbor-next-hop-self-grouping;
+          uses neighbor-next-hop-unchanged-v2-grouping;
+          uses neighbor-next-hop-unchanged-grouping;
+          uses neighbor-prefix-list-grouping;
+          uses neighbor-remove-private-as-grouping;
+          uses neighbor-route-map-grouping;
+          uses neighbor-route-reflector-client-grouping {
+            refine "route-reflector-client" {
+              must 'not(../advertise/best-external)' {
+                error-message "route-reflector-client and advertise/best-external cannot be configured at the same time";
+              }
+            }
+          }
+          uses neighbor-send-community-grouping;
+          uses neighbor-send-label-only-grouping;
+          // uses neighbor-send-label-obsolete-grouping;
+          uses neighbor-slow-peer-grouping;
+          uses neighbor-soft-reconfiguration-grouping;
+          uses neighbor-soo-grouping;
+          // uses neighbor-translate-update-grouping;
+          // uses neighbor-unsuppress-map-grouping;
+          // uses neighbor-weight-grouping;
+        }
+      }
+      list neighbor {
+        description
+          "Specify a neighbor router";
+        must 'count(*) > 1';
+        key "id";
+        leaf id {
+          type union {
+            type inet:ip-address;
+            type ios-types:ipv6-link-local-interface-address;
+          }
+        }
+        uses ipv6-unicast-neighbor {
+          refine "activate" {
+            mandatory true;
+          }
+        }
+      }
+      uses address-family-ipv6-network-grouping;
+      uses address-family-v6-redistribute-grouping;
+      // uses address-family-redistribute-grouping-obsolete;
+      // uses address-family-snmp-grouping;
+      uses address-family-synchronization-grouping;
+      uses address-family-table-map-grouping;
+    }
+  }
 
 //   grouping ipv6-multicast-grouping {
 //     container ipv6-multicast {
@@ -10761,7 +10761,7 @@ module Cisco-IOS-XE-bgp {
 //           uses neighbor-distribute-list-grouping;
 //           // uses neighbor-dmzlink-bw-grouping;
 //           uses neighbor-filter-list-grouping;
-//           uses peer-group-inherit-grouping;
+//           // uses peer-group-inherit-grouping;
 //           uses neighbor-maximum-prefix-grouping;
 //           uses neighbor-next-hop-self-grouping;
 //           uses neighbor-next-hop-unchanged-v2-grouping;
@@ -10994,7 +10994,7 @@ module Cisco-IOS-XE-bgp {
           uses neighbor-distribute-list-grouping;
           // uses neighbor-dmzlink-bw-grouping;
           uses neighbor-filter-list-grouping;
-          uses peer-group-inherit-grouping;
+          // uses peer-group-inherit-grouping;
           uses neighbor-inter-as-hybrid-grouping;
           uses neighbor-long-lived-grouping;
           uses neighbor-maximum-prefix-grouping;
@@ -11085,7 +11085,7 @@ module Cisco-IOS-XE-bgp {
 //           uses neighbor-distribute-list-grouping;
 //           // uses neighbor-dmzlink-bw-grouping;
 //           uses neighbor-filter-list-grouping;
-//           uses peer-group-inherit-grouping;
+//           // uses peer-group-inherit-grouping;
 //           uses neighbor-maximum-prefix-grouping;
 //           uses neighbor-next-hop-self-grouping;
 //           uses neighbor-next-hop-unchanged-v2-grouping;
@@ -11208,7 +11208,7 @@ module Cisco-IOS-XE-bgp {
 //           uses neighbor-distribute-list-grouping;
 //           // uses neighbor-dmzlink-bw-grouping;
 //           uses neighbor-filter-list-grouping;
-//           uses peer-group-inherit-grouping;
+//           // uses peer-group-inherit-grouping;
 //           uses neighbor-long-lived-grouping;
 //           uses neighbor-maximum-prefix-grouping;
 //           uses neighbor-next-hop-self-grouping;
@@ -11295,7 +11295,7 @@ module Cisco-IOS-XE-bgp {
 //           uses neighbor-distribute-list-grouping;
 //           // uses neighbor-dmzlink-bw-grouping;
 //           uses neighbor-filter-list-grouping;
-//           uses peer-group-inherit-grouping;
+//           // uses peer-group-inherit-grouping;
 //           uses neighbor-maximum-prefix-grouping;
 //           uses neighbor-next-hop-self-grouping;
 //           uses neighbor-next-hop-unchanged-v2-grouping;
@@ -11414,7 +11414,7 @@ module Cisco-IOS-XE-bgp {
 //               }
 //             }
 //           }
-//           uses peer-group-inherit-grouping;
+//           // uses peer-group-inherit-grouping;
 //           uses neighbor-maximum-prefix-grouping;
 //           uses neighbor-next-hop-self-grouping;
 //           uses neighbor-next-hop-unchanged-v2-grouping;
@@ -11598,7 +11598,7 @@ module Cisco-IOS-XE-bgp {
 //           }
 //         }
 //       }
-//       uses peer-group-inherit-grouping;
+//       // uses peer-group-inherit-grouping;
 //       container maximum-prefix {
 //         description
 //           "Maximum number of prefixes accepted from this peer";
@@ -11809,170 +11809,170 @@ module Cisco-IOS-XE-bgp {
 //     }
 //   }
 
-//   grouping nsap-grouping {
-//     container nsap {
-//       description
-//         "NSAP address family";
-//       when "(../ios-bgp:af-name = 'unicast')";
-//       uses nsap-bgp;
-//       uses address-family-default-information-grouping;
-//       uses address-family-default-metric-grouping;
-//       uses address-family-maximum-paths-ebgp-grouping;
-//       container peer-group {
-//         list neighbor {
-//           description
-//             "Specify a neighbor router";
-//           must 'count(*) > 1';
-//           key "id";
-//           leaf id {
-//             type string;
-//           }
-//           uses neighbor-activate-grouping;
-//           uses neighbor-advertisement-interval-grouping;
-//           uses neighbor-allow-policy-grouping;
-//           uses neighbor-allowas-in-grouping;
-//           container capability {
-//             description
-//               "Advertise capability to the peer";
-//             container orf {
-//               description
-//                 "Advertise ORF capability to the peer";
-//               uses neighbor-capability-peer-group-grouping;
-//               leaf-list prefix-list {
-//                 status obsolete;
-//                 description
-//                   "Advertise prefix list ORF capability to this neighbor";
-//                 max-elements 1;
-//                 type enumeration {
-//                   enum both;
-//                   enum receive;
-//                   enum send;
-//                 }
-//               }
-//             }
-//           }
-//           uses neighbor-default-originate-grouping;
-//           // uses neighbor-dmzlink-bw-grouping;
-//           uses neighbor-filter-list-grouping;
-//           uses peer-group-inherit-grouping;
-//           uses neighbor-maximum-prefix-grouping;
-//           uses neighbor-next-hop-self-grouping;
-//           uses neighbor-next-hop-unchanged-v2-grouping;
-//           uses neighbor-next-hop-unchanged-grouping;
-//           uses neighbor-prefix-list-grouping;
-//           uses neighbor-remove-private-as-grouping;
-//           uses neighbor-route-map-grouping;
-//           uses neighbor-route-reflector-client-grouping;
-//           uses neighbor-send-community-grouping;
-//           uses neighbor-slow-peer-grouping;
-//           uses neighbor-soo-grouping;
-//           // uses neighbor-weight-grouping;
-//         }
-//       }
-//       list neighbor {
-//         description
-//           "Specify a neighbor router";
-//         must 'count(*) > 1';
-//         key "id";
-//         leaf id {
-//           type union {
-//             type inet:ip-address;
-//             type ios-types:ipv6-link-local-interface-address;
-//           }
-//         }
-//         uses nsap-neighbor {
-//           refine "activate" {
-//             mandatory true;
-//           }
-//         }
-//       }
-//       uses address-family-nsap-network-grouping;
-//       // uses address-family-snmp-grouping;
-//       // uses address-family-synchronization-grouping;
-//     }
-//   }
+  grouping nsap-grouping {
+    container nsap {
+      description
+        "NSAP address family";
+      when "(../ios-bgp:af-name = 'unicast')";
+      uses nsap-bgp;
+      uses address-family-default-information-grouping;
+      uses address-family-default-metric-grouping;
+      uses address-family-maximum-paths-ebgp-grouping;
+      container peer-group {
+        list neighbor {
+          description
+            "Specify a neighbor router";
+          must 'count(*) > 1';
+          key "id";
+          leaf id {
+            type string;
+          }
+          uses neighbor-activate-grouping;
+          uses neighbor-advertisement-interval-grouping;
+          uses neighbor-allow-policy-grouping;
+          uses neighbor-allowas-in-grouping;
+          container capability {
+            description
+              "Advertise capability to the peer";
+            container orf {
+              description
+                "Advertise ORF capability to the peer";
+              uses neighbor-capability-peer-group-grouping;
+              leaf-list prefix-list {
+                status obsolete;
+                description
+                  "Advertise prefix list ORF capability to this neighbor";
+                max-elements 1;
+                type enumeration {
+                  enum both;
+                  enum receive;
+                  enum send;
+                }
+              }
+            }
+          }
+          uses neighbor-default-originate-grouping;
+          // uses neighbor-dmzlink-bw-grouping;
+          uses neighbor-filter-list-grouping;
+          // uses peer-group-inherit-grouping;
+          uses neighbor-maximum-prefix-grouping;
+          uses neighbor-next-hop-self-grouping;
+          uses neighbor-next-hop-unchanged-v2-grouping;
+          uses neighbor-next-hop-unchanged-grouping;
+          uses neighbor-prefix-list-grouping;
+          uses neighbor-remove-private-as-grouping;
+          uses neighbor-route-map-grouping;
+          uses neighbor-route-reflector-client-grouping;
+          uses neighbor-send-community-grouping;
+          uses neighbor-slow-peer-grouping;
+          uses neighbor-soo-grouping;
+          // uses neighbor-weight-grouping;
+        }
+      }
+      list neighbor {
+        description
+          "Specify a neighbor router";
+        must 'count(*) > 1';
+        key "id";
+        leaf id {
+          type union {
+            type inet:ip-address;
+            type ios-types:ipv6-link-local-interface-address;
+          }
+        }
+        uses nsap-neighbor {
+          refine "activate" {
+            mandatory true;
+          }
+        }
+      }
+      uses address-family-nsap-network-grouping;
+      // uses address-family-snmp-grouping;
+      uses address-family-synchronization-grouping;
+    }
+  }
 
-//   grouping rtfilter-grouping {
-//     container rtfilter {
-//       description
-//         "RT-Filter address family";
-//       when "(../ios-bgp:af-name = 'unicast')";
-//       uses rtfilter-bgp;
-//       uses address-family-rtf-maximum-paths-grouping;
-//       container peer-group {
-//         list neighbor {
-//           description
-//             "Specify a neighbor router";
-//           must 'count(*) > 1';
-//           key "id";
-//           leaf id {
-//             type string;
-//             must '/ios:native/ios:router/ios-bgp:bgp/peer-group/neighbor[ios-bgp:id=current()]/peer-group' {
-//               error-message "Create  peer-group at global level before triggering this config";
-//             }
-//           }
-//           uses rtfilter-peer-group;
-//         }
-//       }
-//       list neighbor {
-//         description
-//           "Specify a neighbor router";
-//         must 'count(*) > 1';
-//         key "id";
-//         leaf id {
-//           type inet:ip-address;
-//         }
-//         uses rtfilter-neighbor {
-//           refine "activate" {
-//             mandatory true;
-//           }
-//         }
-//       }
-//       // uses address-family-snmp-grouping;
-//     }
-//   }
+  grouping rtfilter-grouping {
+    container rtfilter {
+      description
+        "RT-Filter address family";
+      when "(../ios-bgp:af-name = 'unicast')";
+      uses rtfilter-bgp;
+      uses address-family-rtf-maximum-paths-grouping;
+      container peer-group {
+        list neighbor {
+          description
+            "Specify a neighbor router";
+          must 'count(*) > 1';
+          key "id";
+          leaf id {
+            type string;
+            must '/ios:native/ios:router/ios-bgp:bgp/peer-group/neighbor[ios-bgp:id=current()]/peer-group' {
+              error-message "Create  peer-group at global level before triggering this config";
+            }
+          }
+          uses rtfilter-peer-group;
+        }
+      }
+      list neighbor {
+        description
+          "Specify a neighbor router";
+        must 'count(*) > 1';
+        key "id";
+        leaf id {
+          type inet:ip-address;
+        }
+        uses rtfilter-neighbor {
+          refine "activate" {
+            mandatory true;
+          }
+        }
+      }
+      // uses address-family-snmp-grouping;
+    }
+  }
 
-//   grouping link-state-grouping {
-//     container link-state {
-//       description
-//         "link-state family";
-//       when "(../ios-bgp:af-name = 'link-state')";
-//       uses link-state-bgp;
-//       uses address-family-maximum-paths-ebgp-grouping;
-//       uses address-family-link-state-domain-distinguisher-grouping;
-//       container peer-group {
-//         list neighbor {
-//           description
-//             "Specify a neighbor router";
-//           must 'count(*) > 1';
-//           key "id";
-//           leaf id {
-//             type string;
-//           }
-//           uses link-state-peer-group;
-//         }
-//       }
-//       list neighbor {
-//         description
-//           "Specify a neighbor router";
-//         must 'count(*) > 1';
-//         key "id";
-//         leaf id {
-//           type union {
-//             type inet:ip-address;
-//             type ios-types:ipv6-link-local-interface-address;
-//           }
-//         }
-//         uses link-state-neighbor {
-//           refine "activate" {
-//             mandatory true;
-//           }
-//         }
-//       }
-//       uses address-family-link-state-propagate-aspath-grouping;
-//       // uses address-family-snmp-grouping;
-//     }
-//   }
+  grouping link-state-grouping {
+    container link-state {
+      description
+        "link-state family";
+      when "(../ios-bgp:af-name = 'link-state')";
+      uses link-state-bgp;
+      uses address-family-maximum-paths-ebgp-grouping;
+      uses address-family-link-state-domain-distinguisher-grouping;
+      container peer-group {
+        list neighbor {
+          description
+            "Specify a neighbor router";
+          must 'count(*) > 1';
+          key "id";
+          leaf id {
+            type string;
+          }
+          uses link-state-peer-group;
+        }
+      }
+      list neighbor {
+        description
+          "Specify a neighbor router";
+        must 'count(*) > 1';
+        key "id";
+        leaf id {
+          type union {
+            type inet:ip-address;
+            type ios-types:ipv6-link-local-interface-address;
+          }
+        }
+        uses link-state-neighbor {
+          refine "activate" {
+            mandatory true;
+          }
+        }
+      }
+      uses address-family-link-state-propagate-aspath-grouping;
+      // uses address-family-snmp-grouping;
+    }
+  }
 
   grouping vrf-ipv4-unicast-grouping {
     container ipv4-unicast {
@@ -12029,9 +12029,9 @@ module Cisco-IOS-XE-bgp {
       uses address-family-vrf-ipv4-network-grouping;
       // uses address-family-propagate-aspath-grouping;
       uses address-family-vrf-redistribute-grouping;
-      uses address-family-redistribute-grouping-obsolete;
+      // uses address-family-redistribute-grouping-obsolete;
       // uses address-family-snmp-grouping;
-      // uses address-family-synchronization-grouping;
+      uses address-family-synchronization-grouping;
       uses address-family-table-map-grouping;
     }
   }
@@ -12085,7 +12085,7 @@ module Cisco-IOS-XE-bgp {
 //       uses address-family-vrf-ipv4-network-grouping;
 //       uses address-family-propagate-aspath-obsolete-grouping;
 //       uses address-family-vrf-redistribute-grouping;
-//       uses address-family-redistribute-grouping-obsolete;
+//       // uses address-family-redistribute-grouping-obsolete;
 //       // uses address-family-snmp-grouping;
 //       uses address-family-table-map-grouping;
 //       uses address-family-unicast-reachability-grouping;
@@ -12207,9 +12207,9 @@ module Cisco-IOS-XE-bgp {
 //       uses address-family-vrf-ipv6-network-grouping;
 //       // uses address-family-propagate-aspath-grouping;
 //       uses address-family-v6-redistribute-grouping;
-//       uses address-family-redistribute-grouping-obsolete;
+//       // uses address-family-redistribute-grouping-obsolete;
 //       // uses address-family-snmp-grouping;
-//       // uses address-family-synchronization-grouping;
+//       uses address-family-synchronization-grouping;
 //       uses address-family-table-map-grouping;
 //       uses address-family-unicast-reachability-grouping;
 //     }
@@ -12262,7 +12262,7 @@ module Cisco-IOS-XE-bgp {
 //       uses address-family-vrf-ipv6-network-grouping;
 //       uses address-family-propagate-aspath-obsolete-grouping;
 //       uses address-family-v6-redistribute-grouping;
-//       uses address-family-redistribute-grouping-obsolete;
+//       // uses address-family-redistribute-grouping-obsolete;
 //       // uses address-family-snmp-grouping;
 //       uses address-family-unicast-reachability-grouping;
 //     }
@@ -12423,7 +12423,7 @@ module Cisco-IOS-XE-bgp {
 //       uses address-family-vrf-ipv6-network-obsolete-grouping;
 //       uses address-family-propagate-aspath-obsolete-grouping;
 //       uses address-family-v6-redistribute-grouping-obsolete;
-//       uses address-family-redistribute-grouping-obsolete;
+//       // uses address-family-redistribute-grouping-obsolete;
 //       // uses address-family-snmp-grouping;
 //     }
 //   }
@@ -12451,15 +12451,15 @@ module Cisco-IOS-XE-bgp {
         }
         uses ipv4-unicast-grouping;
       }
-    //   list ipv6 {
-    //     description
-    //       "Address family";
-    //     key "af-name";
-    //     leaf af-name {
-    //       type ios-types:bgp_ipv6_af_type;
-    //     }
-    //     uses ipv6-unicast-grouping;
-    //   }
+      list ipv6 {
+        description
+          "Address family";
+        key "af-name";
+        leaf af-name {
+          type ios-types:bgp_ipv6_af_type;
+        }
+        uses ipv6-unicast-grouping;
+      }
       list vpnv4 {
         description
           "Address family";
@@ -12473,66 +12473,66 @@ module Cisco-IOS-XE-bgp {
         }
         uses vpnv4-unicast-grouping;
       }
-    //   list vpnv6 {
-    //     description
-    //       "Address family";
-    //     key "af-name";
-    //     leaf af-name {
-    //       type enumeration {
-    //         enum unicast;
-    //         enum multicast;
-    //         enum flowspec;
-    //       }
-    //     }
-    //     uses vpnv6-unicast-grouping;
-    //   }
-    //   list nsap {
-    //     description
-    //       "Address family";
-    //     key "af-name";
-    //     leaf af-name {
-    //       type enumeration {
-    //         enum unicast;
-    //       }
-    //     }
-    //     uses nsap-grouping;
-    //   }
-    //   list l2vpn {
-    //     if-feature "ios-features:l2vpn";
-    //     description
-    //       "Address family";
-    //     key "af-name";
-    //     leaf af-name {
-    //       type enumeration {
-    //         enum evpn;
-    //         enum vpls;
-    //       }
-    //     }
-    //     uses l2vpn-evpn-grouping;
-    //     uses l2vpn-vpls-grouping;
-    //   }
-    //   list rtfilter {
-    //     description
-    //       "Address family";
-    //     key "af-name";
-    //     leaf af-name {
-    //       type enumeration {
-    //         enum unicast;
-    //       }
-    //     }
-    //     uses rtfilter-grouping;
-    //   }
-    //   list link-state {
-    //     description
-    //       "Address family";
-    //     key "af-name";
-    //     leaf af-name {
-    //       type enumeration {
-    //         enum link-state;
-    //       }
-    //     }
-    //     uses link-state-grouping;
-    //   }
+      list vpnv6 {
+        description
+          "Address family";
+        key "af-name";
+        leaf af-name {
+          type enumeration {
+            enum unicast;
+            enum multicast;
+            enum flowspec;
+          }
+        }
+        // uses vpnv6-unicast-grouping;
+      }
+      list nsap {
+        description
+          "Address family";
+        key "af-name";
+        leaf af-name {
+          type enumeration {
+            enum unicast;
+          }
+        }
+        // uses nsap-grouping;
+      }
+      list l2vpn {
+        if-feature "ios-features:l2vpn";
+        description
+          "Address family";
+        key "af-name";
+        leaf af-name {
+          type enumeration {
+            enum evpn;
+            enum vpls;
+          }
+        }
+        // uses l2vpn-evpn-grouping;
+        // uses l2vpn-vpls-grouping;
+      }
+      list rtfilter {
+        description
+          "Address family";
+        key "af-name";
+        leaf af-name {
+          type enumeration {
+            enum unicast;
+          }
+        }
+        // uses rtfilter-grouping;
+      }
+      list link-state {
+        description
+          "Address family";
+        key "af-name";
+        leaf af-name {
+          type enumeration {
+            enum link-state;
+          }
+        }
+        // uses link-state-grouping;
+      }
     }
   }
 
@@ -12932,7 +12932,7 @@ module Cisco-IOS-XE-bgp {
       container bgp {
         uses global-bgp-grouping;
       }
-      //uses config-bmp-server-grouping;
+      uses config-bmp-server-grouping;
       //uses config-route-svr-ctx-grouping;
       container template {
         description
@@ -13002,28 +13002,28 @@ module Cisco-IOS-XE-bgp {
               type empty;
             }
           }
-          container inherit {
-            description
-              "Inherit a template";
-            container peer-policy {
-              list template {
-                key "name";
-                leaf name {
-                  description
-                    "Template name";
-                  type string;
-                }
-                leaf range {
-                  description
-                    "Sequence number";
-                  type uint16 {
-                    range "1..65535";
-                  }
-                  mandatory true;
-                }
-              }
-            }
-          }
+          // container inherit {
+          //   description
+          //     "Inherit a template";
+          //   container peer-policy {
+          //     list template {
+          //       key "name";
+          //       leaf name {
+          //         description
+          //           "Template name";
+          //         type string;
+          //       }
+          //       leaf range {
+          //         description
+          //           "Sequence number";
+          //         type uint16 {
+          //           range "1..65535";
+          //         }
+          //         mandatory true;
+          //       }
+          //     }
+          //   }
+          // }
           uses neighbor-inter-as-hybrid-grouping;
           uses neighbor-internal-vpn-client-grouping;
           uses neighbor-long-lived-grouping;
@@ -13123,7 +13123,7 @@ module Cisco-IOS-XE-bgp {
               }
             }
           }
-          uses template-peer-session-inherit-grouping;
+          // uses template-peer-session-inherit-grouping;
           uses neighbor-local-as-grouping;
           uses neighbor-log-neighbor-changes-grouping;
           uses neighbor-password-grouping;
@@ -13212,27 +13212,27 @@ module Cisco-IOS-XE-bgp {
             //   uses vrf-ipv4-mvpn-grouping;
             }
           }
-        //   list ipv6 {
-        //     description
-        //       "Address family";
-        //     key "af-name";
-        //     leaf af-name {
-        //       type ios-types:bgp_ipv6_af_type;
-        //     }
-        //     list vrf {
-        //       key "name";
-        //       leaf name {
-        //         must '/ios:native/ios:vrf/ios:definition[ios:name=current()]' {
-        //           error-message "VRF must be created 1st, deleted last";
-        //         }
-        //         type string;
-        //       }
-        //       // uses vrf-ipv6-unicast-grouping;
-        //       // uses vrf-ipv6-multicast-grouping;
-        //       // uses vrf-ipv6-flowspec-grouping;
-        //       // uses vrf-ipv6-mvpn-grouping;
-        //     }
-        //   }
+          list ipv6 {
+            description
+              "Address family";
+            key "af-name";
+            leaf af-name {
+              type ios-types:bgp_ipv6_af_type;
+            }
+            list vrf {
+              key "name";
+              leaf name {
+                must '/ios:native/ios:vrf/ios:definition[ios:name=current()]' {
+                  error-message "VRF must be created 1st, deleted last";
+                }
+                type string;
+              }
+              // uses vrf-ipv6-unicast-grouping;
+              // uses vrf-ipv6-multicast-grouping;
+              // uses vrf-ipv6-flowspec-grouping;
+              // uses vrf-ipv6-mvpn-grouping;
+            }
+          }
         }
         container no-vrf {
           list ipv4 {
@@ -13249,18 +13249,18 @@ module Cisco-IOS-XE-bgp {
             // uses ipv4-mvpn-grouping;
             // uses ipv4-mdt-grouping;
           }
-        //   list ipv6 {
-        //     description
-        //       "Address family";
-        //     key "af-name";
-        //     leaf af-name {
-        //       type ios-types:bgp_ipv6_af_type;
-        //     }
-        //     uses ipv6-unicast-grouping;
-        //     uses ipv6-multicast-grouping;
-        //     uses ipv6-flowspec-grouping;
-        //     uses ipv6-mvpn-grouping;
-        //   }
+          list ipv6 {
+            description
+              "Address family";
+            key "af-name";
+            leaf af-name {
+              type ios-types:bgp_ipv6_af_type;
+            }
+            uses ipv6-unicast-grouping;
+            // uses ipv6-multicast-grouping;
+            // uses ipv6-flowspec-grouping;
+            // uses ipv6-mvpn-grouping;
+          }
           list vpnv4 {
             description
               "Address family";
@@ -13276,68 +13276,68 @@ module Cisco-IOS-XE-bgp {
             // uses vpnv4-multicast-grouping;
             // uses vpnv4-flowspec-grouping;
           }
-        //   list vpnv6 {
-        //     description
-        //       "Address family";
-        //     key "af-name";
-        //     leaf af-name {
-        //       type enumeration {
-        //         enum unicast;
-        //         enum multicast;
-        //         enum flowspec;
-        //       }
-        //     }
-        //     // uses vpnv6-unicast-grouping;
-        //     // uses vpnv6-multicast-grouping;
-        //     // uses vpnv6-flowspec-grouping;
-        //   }
-        //   list nsap {
-        //     description
-        //       "Address family";
-        //     key "af-name";
-        //     leaf af-name {
-        //       type enumeration {
-        //         enum unicast;
-        //       }
-        //     }
-        //     uses nsap-grouping;
-        //   }
-        //   list l2vpn {
-        //     if-feature "ios-features:l2vpn";
-        //     description
-        //       "Address family";
-        //     key "af-name";
-        //     leaf af-name {
-        //       type enumeration {
-        //         enum evpn;
-        //         enum vpls;
-        //       }
-        //     }
-        //     uses l2vpn-evpn-grouping;
-        //     uses l2vpn-vpls-grouping;
-        //   }
-        //   list rtfilter {
-        //     description
-        //       "Address family";
-        //     key "af-name";
-        //     leaf af-name {
-        //       type enumeration {
-        //         enum unicast;
-        //       }
-        //     }
-        //     uses rtfilter-grouping;
-        //   }
-        //   list link-state {
-        //     description
-        //       "Address family";
-        //     key "af-name";
-        //     leaf af-name {
-        //       type enumeration {
-        //         enum link-state;
-        //       }
-        //     }
-        //     uses link-state-grouping;
-        //   }
+          list vpnv6 {
+            description
+              "Address family";
+            key "af-name";
+            leaf af-name {
+              type enumeration {
+                enum unicast;
+                enum multicast;
+                enum flowspec;
+              }
+            }
+            // uses vpnv6-unicast-grouping;
+            // uses vpnv6-multicast-grouping;
+            // uses vpnv6-flowspec-grouping;
+          }
+          list nsap {
+            description
+              "Address family";
+            key "af-name";
+            leaf af-name {
+              type enumeration {
+                enum unicast;
+              }
+            }
+            uses nsap-grouping;
+          }
+          list l2vpn {
+            if-feature "ios-features:l2vpn";
+            description
+              "Address family";
+            key "af-name";
+            leaf af-name {
+              type enumeration {
+                enum evpn;
+                enum vpls;
+              }
+            }
+            // uses l2vpn-evpn-grouping;
+            // uses l2vpn-vpls-grouping;
+          }
+          list rtfilter {
+            description
+              "Address family";
+            key "af-name";
+            leaf af-name {
+              type enumeration {
+                enum unicast;
+              }
+            }
+            // uses rtfilter-grouping;
+          }
+          list link-state {
+            description
+              "Address family";
+            key "af-name";
+            leaf af-name {
+              type enumeration {
+                enum link-state;
+              }
+            }
+            // uses link-state-grouping;
+          }
         }
       }
       container timers {
@@ -13463,60 +13463,60 @@ module Cisco-IOS-XE-bgp {
     }
   }
 
-//   grouping snmp-server-trap-bgp-grouping {
-//     container bgp {
-//       description
-//         "Enable BGP traps";
-//       presence "true";
-//       container state-changes {
-//         description
-//           "State change traps";
-//         leaf-list suboptions {
-//           max-elements 3;
-//           type enumeration {
-//             enum all {
-//               description
-//                 "CISCO specific trap for all fsm state changes";
-//             }
-//             enum backward-trans {
-//               description
-//                 "CISCO specific trap for backward transition";
-//             }
-//             enum limited {
-//               description
-//                 "Trap for standard backward transition and established";
-//             }
-//             enum updown-limited {
-//               description
-//                 "Like limited, but only session goes to Established or comes from Established state";
-//             }
-//           }
-//         }
-//         leaf enable-all-traps {
-//           description
-//             "Traps for FSM state changes";
-//           type empty;
-//         }
-//         must '(enable-all-traps and not (suboptions)) or (not (enable-all-traps) and not (suboptions)) or (not (enable-all-traps) and suboptions)' {
-//           error-message "Cannot configure enable-all-traps and a specific trap. In order to enable a specific trap, delete enable-all-traps. Likewise, in order to configure enable-all-traps, delete all specific traps";
-//         }
-//       }
-//       leaf cbgp2 {
-//         description
-//           "Enable BGP MIBv2 traps";
-//         type empty;
-//       }
-//       container threshold {
-//         description
-//           "Traps for threshold events";
-//         leaf prefix {
-//           description
-//             "CISCO specific trap for prefix threshold events";
-//           type empty;
-//         }
-//       }
-//     }
-//   }
+  grouping snmp-server-trap-bgp-grouping {
+    container bgp {
+      description
+        "Enable BGP traps";
+      presence "true";
+      container state-changes {
+        description
+          "State change traps";
+        leaf-list suboptions {
+          max-elements 3;
+          type enumeration {
+            enum all {
+              description
+                "CISCO specific trap for all fsm state changes";
+            }
+            enum backward-trans {
+              description
+                "CISCO specific trap for backward transition";
+            }
+            enum limited {
+              description
+                "Trap for standard backward transition and established";
+            }
+            enum updown-limited {
+              description
+                "Like limited, but only session goes to Established or comes from Established state";
+            }
+          }
+        }
+        leaf enable-all-traps {
+          description
+            "Traps for FSM state changes";
+          type empty;
+        }
+        must '(enable-all-traps and not (suboptions)) or (not (enable-all-traps) and not (suboptions)) or (not (enable-all-traps) and suboptions)' {
+          error-message "Cannot configure enable-all-traps and a specific trap. In order to enable a specific trap, delete enable-all-traps. Likewise, in order to configure enable-all-traps, delete all specific traps";
+        }
+      }
+      leaf cbgp2 {
+        description
+          "Enable BGP MIBv2 traps";
+        type empty;
+      }
+      container threshold {
+        description
+          "Traps for threshold events";
+        leaf prefix {
+          description
+            "CISCO specific trap for prefix threshold events";
+          type empty;
+        }
+      }
+    }
+  }
 
   grouping bgp-route-map-community-grouping {
     list community-id {

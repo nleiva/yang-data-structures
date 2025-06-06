@@ -2547,7 +2547,7 @@ module Cisco-IOS-XE-native {
     //       "Macro autoexecution settings";
     //   }
     // }
-    // uses config-ipv6-grouping;
+    uses config-ipv6-grouping;
     container vlan {
       description
         "Global vlan configuration";
@@ -2602,10 +2602,10 @@ module Cisco-IOS-XE-native {
     //   description
     //     "mls global commands";
     // }
-    // container object-group {
-    //   description
-    //     "Configure Object group";
-    // }
+    container object-group {
+      description
+        "Configure Object group";
+    }
     // list pseudowire-class {
     //   description
     //     "Pseudowire-class configuration";

@@ -11,6 +11,9 @@ module Cisco-IOS-XE-skip {
   import Cisco-IOS-XE-ntp {
     prefix ios-ntp;
   }
+  import Cisco-IOS-XE-bgp {
+    prefix ios-bgp;
+  }
 
   organization
     "Bloomberg LP";
@@ -184,6 +187,80 @@ module Cisco-IOS-XE-skip {
 
   //============================= NTP ==================================
   deviation "/ios:native/ios:ntp/ios-ntp:access-group/ios-ntp:ipv6" {
+    deviate not-supported;
+  }
+
+  //============================= BGP ==================================
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:bmp" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:bgp/ios-bgp:rpki" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:template" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:address-family/ios-bgp:with-vrf" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:address-family/ios-bgp:no-vrf/ios-bgp:vpnv4" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:address-family/ios-bgp:no-vrf/ios-bgp:nsap" {
+    deviate not-supported;
+  } 
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:address-family/ios-bgp:no-vrf/ios-bgp:link-state" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:address-family/ios-bgp:no-vrf/ios-bgp:rtfilter" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:address-family/ios-bgp:no-vrf/ios-bgp:l2vpn" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:address-family/ios-bgp:no-vrf/ios-bgp:ipv6" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:address-family/ios-bgp:no-vrf/ios-bgp:vpnv6" {
+    deviate not-supported;
+  } 
+
+  //============================= IP ==================================
+  // deviation "/ios:native/ios:ip/ios:domain/ios:lookup-settings/" {
+  //   deviate not-supported;
+  // }   
+
+  //============================= NAT ==================================
+  deviation "/ios:native/ios:nat64" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:nat66" {
+    deviate not-supported;
+  }  
+
+  //============================= Object Group ==================================
+  deviation "/ios:native/ios:object-group" {
+    deviate not-supported;
+  }
+
+  //============================= ACL ==================================
+  deviation "/ios:native/ios:ipv6/ios:access-list" {
+    deviate not-supported;
+  }
+
+  //============================= IPv6 ==================================
+  deviation "/ios:native/ios:ipv6" {
     deviate not-supported;
   }  
 }

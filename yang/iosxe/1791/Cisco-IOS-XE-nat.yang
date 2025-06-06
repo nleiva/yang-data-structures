@@ -2279,22 +2279,22 @@ module Cisco-IOS-XE-nat {
             "Reset dns canonical name ttl value";
           type empty;
         }
-        // container dns-v6-config {
-        //   description
-        //     "dns v6 packet processing";
-        //   presence "true";
-        //   leaf list {
-        //     description
-        //       "Specify IPv6 access list describing DNS server addresses";
-        //     type string;
-        //   }
-        // }
-        // leaf dns-v6 {
-        //   status deprecated;
-        //   description
-        //     "dns v6 packet processing";
-        //   type empty;
-        // }
+        container dns-v6-config {
+          description
+            "dns v6 packet processing";
+          presence "true";
+          leaf list {
+            description
+              "Specify IPv6 access list describing DNS server addresses";
+            type string;
+          }
+        }
+        leaf dns-v6 {
+          status deprecated;
+          description
+            "dns v6 packet processing";
+          type empty;
+        }
         leaf ftp {
           description
             "ftp protocol";
@@ -2624,54 +2624,54 @@ module Cisco-IOS-XE-nat {
                         uses nat-log-dest-grouping;
                       }
                     }
-                    // list ipv6-destination {
-                    //   description
-                    //     "netflow record export destination";
-                    //   key "address port";
-                    //   leaf address {
-                    //     description
-                    //       "IP address";
-                    //     type inet:ipv6-address;
-                    //   }
-                    //   leaf port {
-                    //     description
-                    //       "Valid Port Number";
-                    //     type uint16 {
-                    //       range "1..65535";
-                    //     }
-                    //   }
-                    //   uses nat-log-dest-grouping;
-                    // }
-                    // container ipv6-destination-vrf {
-                    //   list ipv6-destination {
-                    //     description
-                    //       "netflow record export destination";
-                    //     key "address port vrf";
-                    //     leaf address {
-                    //       description
-                    //         "IP address";
-                    //       type inet:ipv6-address;
-                    //     }
-                    //     leaf port {
-                    //       description
-                    //         "Valid Port Number";
-                    //       type uint16 {
-                    //         range "1..65535";
-                    //       }
-                    //     }
-                    //     leaf vrf {
-                    //       description
-                    //         "Optional VRF label";
-                    //       must '/ios:native/ios:vrf/ios:definition[ios:name=current()] or /ios:native/ios:ip/ios:vrf[ios:name=current()]' {
-                    //         error-message "VRF must be created 1st, deleted last";
-                    //       }
-                    //       type string {
-                    //         length "1..32";
-                    //       }
-                    //     }
-                    //     uses nat-log-dest-grouping;
-                    //   }
-                    // }
+                    list ipv6-destination {
+                      description
+                        "netflow record export destination";
+                      key "address port";
+                      leaf address {
+                        description
+                          "IP address";
+                        type inet:ipv6-address;
+                      }
+                      leaf port {
+                        description
+                          "Valid Port Number";
+                        type uint16 {
+                          range "1..65535";
+                        }
+                      }
+                      uses nat-log-dest-grouping;
+                    }
+                    container ipv6-destination-vrf {
+                      list ipv6-destination {
+                        description
+                          "netflow record export destination";
+                        key "address port vrf";
+                        leaf address {
+                          description
+                            "IP address";
+                          type inet:ipv6-address;
+                        }
+                        leaf port {
+                          description
+                            "Valid Port Number";
+                          type uint16 {
+                            range "1..65535";
+                          }
+                        }
+                        leaf vrf {
+                          description
+                            "Optional VRF label";
+                          must '/ios:native/ios:vrf/ios:definition[ios:name=current()] or /ios:native/ios:ip/ios:vrf[ios:name=current()]' {
+                            error-message "VRF must be created 1st, deleted last";
+                          }
+                          type string {
+                            length "1..32";
+                          }
+                        }
+                        uses nat-log-dest-grouping;
+                      }
+                    }
                   }
                 }
               }
@@ -2682,588 +2682,588 @@ module Cisco-IOS-XE-nat {
     }
   }
 
-  // grouping config-nat66-grouping {
-  //   container nat66 {
-  //     description
-  //       "NAT66 configuration commands";
-  //     container prefix {
-  //       description
-  //         "NAT66 prefix";
-  //       container inside-no-vrf {
-  //         list inside {
-  //           description
-  //             "inside prefix";
-  //           key "inside-pfx";
-  //           leaf inside-pfx {
-  //             description
-  //               "IPv6 prefix";
-  //             type ios-types:ipv6-prefix;
-  //           }
-  //           leaf outside {
-  //             description
-  //               "outside prefix";
-  //             type union {
-  //               type ios-types:ipv6-prefix;
-  //               type string;
-  //             }
-  //           }
-  //         }
-  //       }
-  //       container inside-with-vrf {
-  //         list inside {
-  //           description
-  //             "inside prefix";
-  //           key "inside-pfx vrf";
-  //           leaf inside-pfx {
-  //             description
-  //               "IPv6 prefix";
-  //             type ios-types:ipv6-prefix;
-  //           }
-  //           leaf vrf {
-  //             description
-  //               "Optional VRF label";
-  //             must '/ios:native/ios:vrf/ios:definition[ios:name=current()] or /ios:native/ios:ip/ios:vrf[ios:name=current()]' {
-  //               error-message "VRF must be created 1st, deleted last";
-  //             }
-  //             type string {
-  //               length "1..32";
-  //             }
-  //           }
-  //           leaf outside {
-  //             description
-  //               "outside prefix";
-  //             type union {
-  //               type ios-types:ipv6-prefix;
-  //               type string;
-  //             }
-  //           }
-  //         }
-  //       }
-  //       list inside {
-  //         status deprecated;
-  //         description
-  //           "inside prefix";
-  //         key "inside-pfx";
-  //         leaf inside-pfx {
-  //           status deprecated;
-  //           description
-  //             "IPv6 prefix";
-  //           type ios-types:ipv6-prefix;
-  //         }
-  //         leaf outside {
-  //           status deprecated;
-  //           description
-  //             "outside prefix";
-  //           type ios-types:ipv6-prefix;
-  //         }
-  //       }
-  //     }
-  //     list route {
-  //       description
-  //         "Establish NAT64 DIA routes";
-  //       key "vrf ipv6-prefix";
-  //       leaf vrf {
-  //         description
-  //           "Configure NAT64 DIA route for a VPN Routing/Forwarding instance";
-  //         must "(/ios:native/ios:vrf/ios:definition[ios:name=current()] and
-  //                /ios:native/ios:vrf/ios:definition[ios:name=current()]/ios:address-family/ios:ipv6)" {
-  //           error-message "IPV6 VRF must be created first, deleted last";
-  //         }
-  //         type string;
-  //       }
-  //       leaf ipv6-prefix {
-  //         description
-  //           "IPV6 prefix";
-  //         type ios-types:ipv6-prefix;
-  //       }
-  //       leaf global {
-  //         description
-  //           "Next hop address is global";
-  //         type empty;
-  //       }
-  //     }
-  //     container nd {
-  //       leaf enable {
-  //         type boolean;
-  //         default "true";
-  //       }
-  //     }
-  //     leaf max-vpn {
-  //       type uint8 {
-  //         range "1..250";
-  //       }
-  //     }
-  //     leaf outside {
-  //       status deprecated;
-  //       type empty;
-  //     }
-  //   }
-  // }
+  grouping config-nat66-grouping {
+    container nat66 {
+      description
+        "NAT66 configuration commands";
+      container prefix {
+        description
+          "NAT66 prefix";
+        container inside-no-vrf {
+          list inside {
+            description
+              "inside prefix";
+            key "inside-pfx";
+            leaf inside-pfx {
+              description
+                "IPv6 prefix";
+              type ios-types:ipv6-prefix;
+            }
+            leaf outside {
+              description
+                "outside prefix";
+              type union {
+                type ios-types:ipv6-prefix;
+                type string;
+              }
+            }
+          }
+        }
+        container inside-with-vrf {
+          list inside {
+            description
+              "inside prefix";
+            key "inside-pfx vrf";
+            leaf inside-pfx {
+              description
+                "IPv6 prefix";
+              type ios-types:ipv6-prefix;
+            }
+            leaf vrf {
+              description
+                "Optional VRF label";
+              must '/ios:native/ios:vrf/ios:definition[ios:name=current()] or /ios:native/ios:ip/ios:vrf[ios:name=current()]' {
+                error-message "VRF must be created 1st, deleted last";
+              }
+              type string {
+                length "1..32";
+              }
+            }
+            leaf outside {
+              description
+                "outside prefix";
+              type union {
+                type ios-types:ipv6-prefix;
+                type string;
+              }
+            }
+          }
+        }
+        list inside {
+          status deprecated;
+          description
+            "inside prefix";
+          key "inside-pfx";
+          leaf inside-pfx {
+            status deprecated;
+            description
+              "IPv6 prefix";
+            type ios-types:ipv6-prefix;
+          }
+          leaf outside {
+            status deprecated;
+            description
+              "outside prefix";
+            type ios-types:ipv6-prefix;
+          }
+        }
+      }
+      list route {
+        description
+          "Establish NAT64 DIA routes";
+        key "vrf ipv6-prefix";
+        leaf vrf {
+          description
+            "Configure NAT64 DIA route for a VPN Routing/Forwarding instance";
+          must "(/ios:native/ios:vrf/ios:definition[ios:name=current()] and
+                 /ios:native/ios:vrf/ios:definition[ios:name=current()]/ios:address-family/ios:ipv6)" {
+            error-message "IPV6 VRF must be created first, deleted last";
+          }
+          type string;
+        }
+        leaf ipv6-prefix {
+          description
+            "IPV6 prefix";
+          type ios-types:ipv6-prefix;
+        }
+        leaf global {
+          description
+            "Next hop address is global";
+          type empty;
+        }
+      }
+      container nd {
+        leaf enable {
+          type boolean;
+          default "true";
+        }
+      }
+      leaf max-vpn {
+        type uint8 {
+          range "1..250";
+        }
+      }
+      leaf outside {
+        status deprecated;
+        type empty;
+      }
+    }
+  }
 
-  // grouping config-interface-nat66-grouping {
-  //   leaf nat66 {
-  //     description
-  //       "NAT66 interface commands";
-  //     type enumeration {
-  //       enum inside;
-  //       enum outside;
-  //     }
-  //   }
-  // }
+  grouping config-interface-nat66-grouping {
+    leaf nat66 {
+      description
+        "NAT66 interface commands";
+      type enumeration {
+        enum inside;
+        enum outside;
+      }
+    }
+  }
 
-  // grouping config-interface-nat64-grouping {
-  //   container nat64 {
-  //     description
-  //       "NAT64 interface commands";
-  //     leaf enable {
-  //       description
-  //         "Enable NAT64 on interface";
-  //       type empty;
-  //     }
-  //     container prefix {
-  //       description
-  //         "NAT64 stateful prefix";
-  //       container stateful {
-  //         description
-  //           "NAT64 prefix stateful";
-  //         leaf ipv6-prefix {
-  //           description
-  //             "IPv6 prefix";
-  //           type ios-types:ipv6-prefix;
-  //         }
-  //         leaf vrf {
-  //           status obsolete;
-  //           description
-  //             "Configure NAT static route for a VPN Routing/Forwarding instance";
-  //           must "(/ios:native/ios:vrf/ios:definition[ios:name=current()] and (/ios:native/ios:vrf/ios:definition[ios:name=current()]/ios:address-family/ios:ipv4) or
-  //                 (/ios:native/ios:vrf/ios:definition[ios:name=current()]/ios:address-family/ios:ipv6)) or /ios:native/ios:ip/ios:vrf[ios:name=current()]" {
-  //             error-message "VRF must be created first, deleted last";
-  //           }
-  //           type string;
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
+  grouping config-interface-nat64-grouping {
+    container nat64 {
+      description
+        "NAT64 interface commands";
+      leaf enable {
+        description
+          "Enable NAT64 on interface";
+        type empty;
+      }
+      container prefix {
+        description
+          "NAT64 stateful prefix";
+        container stateful {
+          description
+            "NAT64 prefix stateful";
+          leaf ipv6-prefix {
+            description
+              "IPv6 prefix";
+            type ios-types:ipv6-prefix;
+          }
+          leaf vrf {
+            status obsolete;
+            description
+              "Configure NAT static route for a VPN Routing/Forwarding instance";
+            must "(/ios:native/ios:vrf/ios:definition[ios:name=current()] and (/ios:native/ios:vrf/ios:definition[ios:name=current()]/ios:address-family/ios:ipv4) or
+                  (/ios:native/ios:vrf/ios:definition[ios:name=current()]/ios:address-family/ios:ipv6)) or /ios:native/ios:ip/ios:vrf[ios:name=current()]" {
+              error-message "VRF must be created first, deleted last";
+            }
+            type string;
+          }
+        }
+      }
+    }
+  }
 
-  // grouping config-nat64-v6v4-map-base-grouping {
-  //   list vrf {
-  //     description
-  //       "Specify vrf";
-  //     key "name";
-  //     leaf name {
-  //       must "(/ios:native/ios:vrf/ios:definition[ios:name=current()] and (/ios:native/ios:vrf/ios:definition[ios:name=current()]/ios:address-family/ios:ipv4) or
-  //             (/ios:native/ios:vrf/ios:definition[ios:name=current()]/ios:address-family/ios:ipv6)) or /ios:native/ios:ip/ios:vrf[ios:name=current()]" {
-  //         error-message "VRF must be created first, deleted last";
-  //       }
-  //       type string;
-  //     }
-  //     leaf overload {
-  //       description
-  //         "Overload an address translation";
-  //       type empty;
-  //     }
-  //   }
-  //   leaf overload {
-  //     description
-  //       "Overload an address translation";
-  //     type empty;
-  //   }
-  // }
+  grouping config-nat64-v6v4-map-base-grouping {
+    list vrf {
+      description
+        "Specify vrf";
+      key "name";
+      leaf name {
+        must "(/ios:native/ios:vrf/ios:definition[ios:name=current()] and (/ios:native/ios:vrf/ios:definition[ios:name=current()]/ios:address-family/ios:ipv4) or
+              (/ios:native/ios:vrf/ios:definition[ios:name=current()]/ios:address-family/ios:ipv6)) or /ios:native/ios:ip/ios:vrf[ios:name=current()]" {
+          error-message "VRF must be created first, deleted last";
+        }
+        type string;
+      }
+      leaf overload {
+        description
+          "Overload an address translation";
+        type empty;
+      }
+    }
+    leaf overload {
+      description
+        "Overload an address translation";
+      type empty;
+    }
+  }
 
-  // grouping config-nat64-v6v4-map-grouping {
-  //   choice pool-or-interface {
-  //     case pool-choice {
-  //       list pool {
-  //         description
-  //           "Name pool of global addresses";
-  //         key "name";
-  //         leaf name {
-  //           type string;
-  //         }
-  //         uses config-nat64-v6v4-map-base-grouping;
-  //       }
-  //     }
-  //     case interface-choice {
-  //       list interface {
-  //         description
-  //           "Specify interface for global address";
-  //         key "name";
-  //         leaf name {
-  //           type string;
-  //         }
-  //         list vrf {
-  //           status deprecated;
-  //           description
-  //             "Specify vrf";
-  //           key "name";
-  //           leaf name {
-  //             status deprecated;
-  //             type string;
-  //           }
-  //           leaf overload {
-  //             status deprecated;
-  //             description
-  //               "Overload an address translation";
-  //             type empty;
-  //           }
-  //         }
-  //         leaf overload {
-  //           description
-  //             "Overload an address translation";
-  //           type empty;
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
+  grouping config-nat64-v6v4-map-grouping {
+    choice pool-or-interface {
+      case pool-choice {
+        list pool {
+          description
+            "Name pool of global addresses";
+          key "name";
+          leaf name {
+            type string;
+          }
+          uses config-nat64-v6v4-map-base-grouping;
+        }
+      }
+      case interface-choice {
+        list interface {
+          description
+            "Specify interface for global address";
+          key "name";
+          leaf name {
+            type string;
+          }
+          list vrf {
+            status deprecated;
+            description
+              "Specify vrf";
+            key "name";
+            leaf name {
+              status deprecated;
+              type string;
+            }
+            leaf overload {
+              status deprecated;
+              description
+                "Overload an address translation";
+              type empty;
+            }
+          }
+          leaf overload {
+            description
+              "Overload an address translation";
+            type empty;
+          }
+        }
+      }
+    }
+  }
 
-  // grouping config-nat64-grouping {
-  //   container nat64 {
-  //     description
-  //       "NAT64 configuration commands";
-  //     container v4 {
-  //       description
-  //         "IPv4 configuration";
-  //       list pool {
-  //         description
-  //           "Define pool of addresses";
-  //         key "pool-name";
-  //         leaf pool-name {
-  //           description
-  //             "NAT64 pool";
-  //           type string;
-  //         }
-  //         leaf start-address {
-  //           description
-  //             "Starting address of pool address range";
-  //           type inet:ipv4-address;
-  //         }
-  //         leaf end-address {
-  //           description
-  //             "Ending address of pool address range";
-  //           when '../start-address';
-  //           type inet:ipv4-address;
-  //         }
-  //       }
-  //     }
-  //     container v6v4 {
-  //       description
-  //         "IPv6 to IPv4 mapping";
-  //       container list {
-  //         description
-  //           "Specify access list describing local addresses";
-  //         list list {
-  //           key "id";
-  //           leaf id {
-  //             type union {
-  //               type uint16 {
-  //                 range "1..2699";
-  //               }
-  //               type string;
-  //             }
-  //           }
-  //           uses config-nat64-v6v4-map-grouping;
-  //         }
-  //       }
-  //       container static {
-  //         container ipv6address {
-  //           list ipv6address {
-  //             key "ipv6-address";
-  //             leaf ipv6-address {
-  //               description
-  //                 "IPv6 Address";
-  //               type inet:ipv6-address;
-  //             }
-  //             leaf ipv4-address {
-  //               description
-  //                 "IPv4 Address";
-  //               type inet:ipv4-address;
-  //             }
-  //           }
-  //         }
-  //         container tcp {
-  //           list tcp {
-  //             key "ipv6-address";
-  //             leaf ipv6-address {
-  //               description
-  //                 "IPv6 Address";
-  //               type inet:ipv6-address;
-  //             }
-  //             leaf v6-port-number {
-  //               description
-  //                 "TCP v6 port";
-  //               type uint16 {
-  //                 range "1..65535";
-  //               }
-  //             }
-  //             leaf ipv4-address {
-  //               description
-  //                 "IPv4 Address";
-  //               type inet:ipv4-address;
-  //             }
-  //             leaf v4-port-number {
-  //               description
-  //                 "TCP v4 port";
-  //               type uint16 {
-  //                 range "1..65535";
-  //               }
-  //             }
-  //           }
-  //         }
-  //         container udp {
-  //           list udp {
-  //             key "ipv6-address";
-  //             leaf ipv6-address {
-  //               description
-  //                 "IPv6 Address";
-  //               type inet:ipv6-address;
-  //             }
-  //             leaf v6-port-number {
-  //               description
-  //                 "UDP v6 port";
-  //               type uint16 {
-  //                 range "1..65535";
-  //               }
-  //             }
-  //             leaf ipv4-address {
-  //               description
-  //                 "IPv4 Address";
-  //               type inet:ipv4-address;
-  //             }
-  //             leaf v4-port-number {
-  //               description
-  //                 "UDP v4 port";
-  //               type uint16 {
-  //                 range "1..65535";
-  //               }
-  //             }
-  //           }
-  //         }
-  //       }
-  //     }
-  //     container v4v6 {
-  //       description
-  //         "IPv4 to IPv6 mapping";
-  //       container static {
-  //         container ipv4address {
-  //           list ipv4address {
-  //             key "ipv4-address";
-  //             leaf ipv4-address {
-  //               description
-  //                 "IPv4 Address";
-  //               type inet:ipv4-address;
-  //             }
-  //             leaf ipv6-address {
-  //               description
-  //                 "IPv6 Address";
-  //               type inet:ipv6-address;
-  //             }
-  //           }
-  //         }
-  //         container tcp {
-  //           list tcp {
-  //             key "ipv4-address";
-  //             leaf ipv4-address {
-  //               description
-  //                 "IPv4 Address";
-  //               type inet:ipv4-address;
-  //             }
-  //             leaf v4-port-number {
-  //               description
-  //                 "TCP v4 port";
-  //               type uint16 {
-  //                 range "1..65535";
-  //               }
-  //             }
-  //             leaf ipv6-address {
-  //               description
-  //                 "IPv6 Address";
-  //               type inet:ipv6-address;
-  //             }
-  //             leaf v6-port-number {
-  //               description
-  //                 "TCP v6 port";
-  //               type uint16 {
-  //                 range "1..65535";
-  //               }
-  //             }
-  //           }
-  //         }
-  //         container udp {
-  //           list udp {
-  //             key "ipv4-address";
-  //             leaf ipv4-address {
-  //               description
-  //                 "IPv6 Address";
-  //               type inet:ipv4-address;
-  //             }
-  //             leaf v4-port-number {
-  //               description
-  //                 "UDP v4 port";
-  //               type uint16 {
-  //                 range "1..65535";
-  //               }
-  //             }
-  //             leaf ipv6-address {
-  //               description
-  //                 "IPv6 Address";
-  //               type inet:ipv6-address;
-  //             }
-  //             leaf v6-port-number {
-  //               description
-  //                 "UDP v6 port";
-  //               type uint16 {
-  //                 range "1..65535";
-  //               }
-  //             }
-  //           }
-  //         }
-  //       }
-  //     }
-  //     container prefix {
-  //       description
-  //         "NAT64 prefix";
-  //       container stateful {
-  //         description
-  //           "NAT64 stateful prefix";
-  //         leaf ipv6-prefix {
-  //           description
-  //             "IPv6 prefix";
-  //           type ios-types:ipv6-prefix;
-  //         }
-  //       }
-  //       container stateful-with-vrf {
-  //         list stateful {
-  //           description
-  //             "NAT64 stateful prefix";
-  //           key "vrf";
-  //           leaf vrf {
-  //             description
-  //               "Specify vrf";
-  //             must "(/ios:native/ios:vrf/ios:definition[ios:name=current()] and (/ios:native/ios:vrf/ios:definition[ios:name=current()]/ios:address-family/ios:ipv4) or
-  //                   (/ios:native/ios:vrf/ios:definition[ios:name=current()]/ios:address-family/ios:ipv6)) or /ios:native/ios:ip/ios:vrf[ios:name=current()]" {
-  //               error-message "VRF must be created first, deleted last";
-  //             }
-  //             type string;
-  //           }
-  //           leaf ipv6-prefix {
-  //             description
-  //               "IPv6 prefix";
-  //             type ios-types:ipv6-prefix;
-  //           }
-  //         }
-  //       }
-  //       container stateless {
-  //         description
-  //           "NAT64 stateless prefix";
-  //         leaf ipv6-prefix {
-  //           description
-  //             "IPv6 prefix";
-  //           type inet:ipv6-prefix;
-  //         }
-  //       }
-  //       container stateless-with-vrf {
-  //         list stateless {
-  //           description
-  //             "NAT64 stateless prefix";
-  //           key "ipv4-prefix vrf";
-  //           leaf ipv4-prefix {
-  //             description
-  //               "IPv4 prefix";
-  //             type inet:ipv4-prefix;
-  //           }
-  //           leaf vrf {
-  //             description
-  //               "Specify vrf";
-  //             must "(/ios:native/ios:vrf/ios:definition[ios:name=current()] and (/ios:native/ios:vrf/ios:definition[ios:name=current()]/ios:address-family/ios:ipv4) or
-  //                         (/ios:native/ios:vrf/ios:definition[ios:name=current()]/ios:address-family/ios:ipv6)) or /ios:native/ios:ip/ios:vrf[ios:name=current()]" {
-  //               error-message "VRF must be created first, deleted last";
-  //             }
-  //             type string;
-  //           }
-  //           leaf ipv6-prefix {
-  //             description
-  //               "IPv6 prefix";
-  //             type inet:ipv6-prefix;
-  //           }
-  //           leaf add-route {
-  //             description
-  //               "Add IPV4 prefix to routing table";
-  //             type empty;
-  //           }
-  //           leaf global {
-  //             description
-  //               "IPV6 global routing table";
-  //             type empty;
-  //           }
-  //         }
-  //       }
-  //     }
-  //     container translation {
-  //       container timeout {
-  //         container bind {
-  //           description
-  //             "Specify the timeout for NAT64 binds";
-  //           uses ip-nat-translation-timeout-grouping;
-  //         }
-  //         container icmp {
-  //           description
-  //             "Specify the timeout for NAT64 ICMP flows";
-  //           uses ip-nat-translation-timeout-grouping;
-  //         }
-  //         container tcp {
-  //           description
-  //             "Specify the timeout for NAT64 TCP flows";
-  //           uses ip-nat-translation-timeout-grouping;
-  //         }
-  //         container tcp-transient {
-  //           description
-  //             "Specify the timeout for NAT64 transient TCP flows";
-  //           uses ip-nat-translation-timeout-grouping;
-  //         }
-  //         container udp {
-  //           description
-  //             "Specify the timeout for NAT64 UDP flows";
-  //           uses ip-nat-translation-timeout-grouping;
-  //         }
-  //       }
-  //       container max-entries {
-  //         description
-  //           "Specify maximum number of NAT entries";
-  //         leaf max-entries {
-  //           type uint32 {
-  //             range "1..2147483647";
-  //           }
-  //         }
-  //       }
-  //     }
-  //     list route {
-  //       description
-  //         "Establish NAT64 DIA routes";
-  //       key "vrf ipv6-prefix";
-  //       leaf vrf {
-  //         description
-  //           "Configure NAT64 DIA route for a VPN Routing/Forwarding instance";
-  //         must "(/ios:native/ios:vrf/ios:definition[ios:name=current()] and
-  //                /ios:native/ios:vrf/ios:definition[ios:name=current()]/ios:address-family/ios:ipv6)" {
-  //           error-message "IPV6 VRF must be created first, deleted last";
-  //         }
-  //         type string;
-  //       }
-  //       leaf ipv6-prefix {
-  //         description
-  //           "IPV6 prefix";
-  //         type ios-types:ipv6-prefix;
-  //       }
-  //       leaf global {
-  //         description
-  //           "Next hop address is global";
-  //         type empty;
-  //       }
-  //     }
-  //   }
-  // }
+  grouping config-nat64-grouping {
+    container nat64 {
+      description
+        "NAT64 configuration commands";
+      container v4 {
+        description
+          "IPv4 configuration";
+        list pool {
+          description
+            "Define pool of addresses";
+          key "pool-name";
+          leaf pool-name {
+            description
+              "NAT64 pool";
+            type string;
+          }
+          leaf start-address {
+            description
+              "Starting address of pool address range";
+            type inet:ipv4-address;
+          }
+          leaf end-address {
+            description
+              "Ending address of pool address range";
+            when '../start-address';
+            type inet:ipv4-address;
+          }
+        }
+      }
+      container v6v4 {
+        description
+          "IPv6 to IPv4 mapping";
+        container list {
+          description
+            "Specify access list describing local addresses";
+          list list {
+            key "id";
+            leaf id {
+              type union {
+                type uint16 {
+                  range "1..2699";
+                }
+                type string;
+              }
+            }
+            uses config-nat64-v6v4-map-grouping;
+          }
+        }
+        container static {
+          container ipv6address {
+            list ipv6address {
+              key "ipv6-address";
+              leaf ipv6-address {
+                description
+                  "IPv6 Address";
+                type inet:ipv6-address;
+              }
+              leaf ipv4-address {
+                description
+                  "IPv4 Address";
+                type inet:ipv4-address;
+              }
+            }
+          }
+          container tcp {
+            list tcp {
+              key "ipv6-address";
+              leaf ipv6-address {
+                description
+                  "IPv6 Address";
+                type inet:ipv6-address;
+              }
+              leaf v6-port-number {
+                description
+                  "TCP v6 port";
+                type uint16 {
+                  range "1..65535";
+                }
+              }
+              leaf ipv4-address {
+                description
+                  "IPv4 Address";
+                type inet:ipv4-address;
+              }
+              leaf v4-port-number {
+                description
+                  "TCP v4 port";
+                type uint16 {
+                  range "1..65535";
+                }
+              }
+            }
+          }
+          container udp {
+            list udp {
+              key "ipv6-address";
+              leaf ipv6-address {
+                description
+                  "IPv6 Address";
+                type inet:ipv6-address;
+              }
+              leaf v6-port-number {
+                description
+                  "UDP v6 port";
+                type uint16 {
+                  range "1..65535";
+                }
+              }
+              leaf ipv4-address {
+                description
+                  "IPv4 Address";
+                type inet:ipv4-address;
+              }
+              leaf v4-port-number {
+                description
+                  "UDP v4 port";
+                type uint16 {
+                  range "1..65535";
+                }
+              }
+            }
+          }
+        }
+      }
+      container v4v6 {
+        description
+          "IPv4 to IPv6 mapping";
+        container static {
+          container ipv4address {
+            list ipv4address {
+              key "ipv4-address";
+              leaf ipv4-address {
+                description
+                  "IPv4 Address";
+                type inet:ipv4-address;
+              }
+              leaf ipv6-address {
+                description
+                  "IPv6 Address";
+                type inet:ipv6-address;
+              }
+            }
+          }
+          container tcp {
+            list tcp {
+              key "ipv4-address";
+              leaf ipv4-address {
+                description
+                  "IPv4 Address";
+                type inet:ipv4-address;
+              }
+              leaf v4-port-number {
+                description
+                  "TCP v4 port";
+                type uint16 {
+                  range "1..65535";
+                }
+              }
+              leaf ipv6-address {
+                description
+                  "IPv6 Address";
+                type inet:ipv6-address;
+              }
+              leaf v6-port-number {
+                description
+                  "TCP v6 port";
+                type uint16 {
+                  range "1..65535";
+                }
+              }
+            }
+          }
+          container udp {
+            list udp {
+              key "ipv4-address";
+              leaf ipv4-address {
+                description
+                  "IPv6 Address";
+                type inet:ipv4-address;
+              }
+              leaf v4-port-number {
+                description
+                  "UDP v4 port";
+                type uint16 {
+                  range "1..65535";
+                }
+              }
+              leaf ipv6-address {
+                description
+                  "IPv6 Address";
+                type inet:ipv6-address;
+              }
+              leaf v6-port-number {
+                description
+                  "UDP v6 port";
+                type uint16 {
+                  range "1..65535";
+                }
+              }
+            }
+          }
+        }
+      }
+      container prefix {
+        description
+          "NAT64 prefix";
+        container stateful {
+          description
+            "NAT64 stateful prefix";
+          leaf ipv6-prefix {
+            description
+              "IPv6 prefix";
+            type ios-types:ipv6-prefix;
+          }
+        }
+        container stateful-with-vrf {
+          list stateful {
+            description
+              "NAT64 stateful prefix";
+            key "vrf";
+            leaf vrf {
+              description
+                "Specify vrf";
+              must "(/ios:native/ios:vrf/ios:definition[ios:name=current()] and (/ios:native/ios:vrf/ios:definition[ios:name=current()]/ios:address-family/ios:ipv4) or
+                    (/ios:native/ios:vrf/ios:definition[ios:name=current()]/ios:address-family/ios:ipv6)) or /ios:native/ios:ip/ios:vrf[ios:name=current()]" {
+                error-message "VRF must be created first, deleted last";
+              }
+              type string;
+            }
+            leaf ipv6-prefix {
+              description
+                "IPv6 prefix";
+              type ios-types:ipv6-prefix;
+            }
+          }
+        }
+        container stateless {
+          description
+            "NAT64 stateless prefix";
+          leaf ipv6-prefix {
+            description
+              "IPv6 prefix";
+            type inet:ipv6-prefix;
+          }
+        }
+        container stateless-with-vrf {
+          list stateless {
+            description
+              "NAT64 stateless prefix";
+            key "ipv4-prefix vrf";
+            leaf ipv4-prefix {
+              description
+                "IPv4 prefix";
+              type inet:ipv4-prefix;
+            }
+            leaf vrf {
+              description
+                "Specify vrf";
+              must "(/ios:native/ios:vrf/ios:definition[ios:name=current()] and (/ios:native/ios:vrf/ios:definition[ios:name=current()]/ios:address-family/ios:ipv4) or
+                          (/ios:native/ios:vrf/ios:definition[ios:name=current()]/ios:address-family/ios:ipv6)) or /ios:native/ios:ip/ios:vrf[ios:name=current()]" {
+                error-message "VRF must be created first, deleted last";
+              }
+              type string;
+            }
+            leaf ipv6-prefix {
+              description
+                "IPv6 prefix";
+              type inet:ipv6-prefix;
+            }
+            leaf add-route {
+              description
+                "Add IPV4 prefix to routing table";
+              type empty;
+            }
+            leaf global {
+              description
+                "IPV6 global routing table";
+              type empty;
+            }
+          }
+        }
+      }
+      container translation {
+        container timeout {
+          container bind {
+            description
+              "Specify the timeout for NAT64 binds";
+            uses ip-nat-translation-timeout-grouping;
+          }
+          container icmp {
+            description
+              "Specify the timeout for NAT64 ICMP flows";
+            uses ip-nat-translation-timeout-grouping;
+          }
+          container tcp {
+            description
+              "Specify the timeout for NAT64 TCP flows";
+            uses ip-nat-translation-timeout-grouping;
+          }
+          container tcp-transient {
+            description
+              "Specify the timeout for NAT64 transient TCP flows";
+            uses ip-nat-translation-timeout-grouping;
+          }
+          container udp {
+            description
+              "Specify the timeout for NAT64 UDP flows";
+            uses ip-nat-translation-timeout-grouping;
+          }
+        }
+        container max-entries {
+          description
+            "Specify maximum number of NAT entries";
+          leaf max-entries {
+            type uint32 {
+              range "1..2147483647";
+            }
+          }
+        }
+      }
+      list route {
+        description
+          "Establish NAT64 DIA routes";
+        key "vrf ipv6-prefix";
+        leaf vrf {
+          description
+            "Configure NAT64 DIA route for a VPN Routing/Forwarding instance";
+          must "(/ios:native/ios:vrf/ios:definition[ios:name=current()] and
+                 /ios:native/ios:vrf/ios:definition[ios:name=current()]/ios:address-family/ios:ipv6)" {
+            error-message "IPV6 VRF must be created first, deleted last";
+          }
+          type string;
+        }
+        leaf ipv6-prefix {
+          description
+            "IPV6 prefix";
+          type ios-types:ipv6-prefix;
+        }
+        leaf global {
+          description
+            "Next hop address is global";
+          type empty;
+        }
+      }
+    }
+  }
 
   augment "/ios:native/ios:ip" {
     uses config-ip-nat-grouping;
@@ -3321,37 +3321,37 @@ module Cisco-IOS-XE-nat {
     uses config-interface-ip-nat-grouping;
   }
 
-  // augment "/ios:native/ios:interface/ios:BDI/ios:ip" {
-  //   uses config-interface-ip-nat-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:BDI/ios:ip" {
+    uses config-interface-ip-nat-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:Cellular/ios:ip" {
-  //   uses config-interface-ip-nat-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:Cellular/ios:ip" {
+    uses config-interface-ip-nat-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:Dialer/ios:ip" {
-  //   uses config-interface-ip-nat-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:Dialer/ios:ip" {
+    uses config-interface-ip-nat-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:VirtualPortGroup/ios:ip" {
-  //   uses config-interface-ip-nat-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:VirtualPortGroup/ios:ip" {
+    uses config-interface-ip-nat-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:Serial/ios:ip" {
-  //   uses config-interface-ip-nat-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:Serial/ios:ip" {
+    uses config-interface-ip-nat-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:Multilink/ios:ip" {
-  //   uses config-interface-ip-nat-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:Multilink/ios:ip" {
+    uses config-interface-ip-nat-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:ATM/ios:ip" {
-  //   uses config-interface-ip-nat-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:ATM/ios:ip" {
+    uses config-interface-ip-nat-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:ATM-subinterface/ios:ATM/ios:ip" {
-  //   uses config-interface-ip-nat-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:ATM-subinterface/ios:ATM/ios:ip" {
+    uses config-interface-ip-nat-grouping;
+  }
 
   augment "/ios:native/ios:interface/ios:Vlan/ios:ip" {
     uses config-interface-ip-nat-grouping;
@@ -3361,147 +3361,147 @@ module Cisco-IOS-XE-nat {
     uses config-interface-ip-nat-grouping;
   }
 
-  // augment "/ios:native/ios:interface/ios:vasileft/ios:ip" {
-  //   uses config-interface-ip-nat-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:vasileft/ios:ip" {
+    uses config-interface-ip-nat-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:vasiright/ios:ip" {
-  //   uses config-interface-ip-nat-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:vasiright/ios:ip" {
+    uses config-interface-ip-nat-grouping;
+  }
 
-  // augment "/ios:native" {
-  //   uses config-nat66-grouping;
-  // }
+  augment "/ios:native" {
+    uses config-nat66-grouping;
+  }
 
-  // augment "/ios:native" {
-  //   uses config-nat64-grouping;
-  // }
+  augment "/ios:native" {
+    uses config-nat64-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:FastEthernet" {
-  //   uses config-interface-nat66-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:FastEthernet" {
+    uses config-interface-nat66-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:GigabitEthernet" {
-  //   uses config-interface-nat66-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:GigabitEthernet" {
+    uses config-interface-nat66-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:TenGigabitEthernet" {
-  //   uses config-interface-nat66-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:TenGigabitEthernet" {
+    uses config-interface-nat66-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:FiveGigabitEthernet" {
-  //   uses config-interface-nat66-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet" {
+    uses config-interface-nat66-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:AppGigabitEthernet" {
-  //   uses config-interface-nat66-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:AppGigabitEthernet" {
+    uses config-interface-nat66-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:TwentyFiveGigE" {
-  //   uses config-interface-nat66-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE" {
+    uses config-interface-nat66-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:TwoGigabitEthernet" {
-  //   uses config-interface-nat66-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet" {
+    uses config-interface-nat66-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:FortyGigabitEthernet" {
-  //   uses config-interface-nat66-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet" {
+    uses config-interface-nat66-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:HundredGigE" {
-  //   uses config-interface-nat66-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:HundredGigE" {
+    uses config-interface-nat66-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:Port-channel" {
-  //   uses config-interface-nat66-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:Port-channel" {
+    uses config-interface-nat66-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:Loopback" {
-  //   uses config-interface-nat66-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:Loopback" {
+    uses config-interface-nat66-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:Tunnel" {
-  //   uses config-interface-nat66-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:Tunnel" {
+    uses config-interface-nat66-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:ATM" {
-  //   uses config-interface-nat66-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:ATM" {
+    uses config-interface-nat66-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:ATM-subinterface" {
-  //   uses config-interface-nat66-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:ATM-subinterface" {
+    uses config-interface-nat66-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:Vlan" {
-  //   uses config-interface-nat66-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:Vlan" {
+    uses config-interface-nat66-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:ucse" {
-  //   uses config-interface-nat66-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:ucse" {
+    uses config-interface-nat66-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:FastEthernet" {
-  //   uses config-interface-nat64-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:FastEthernet" {
+    uses config-interface-nat64-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:GigabitEthernet" {
-  //   uses config-interface-nat64-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:GigabitEthernet" {
+    uses config-interface-nat64-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:TenGigabitEthernet" {
-  //   uses config-interface-nat64-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:TenGigabitEthernet" {
+    uses config-interface-nat64-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:FiveGigabitEthernet" {
-  //   uses config-interface-nat64-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet" {
+    uses config-interface-nat64-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:AppGigabitEthernet" {
-  //   uses config-interface-nat64-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:AppGigabitEthernet" {
+    uses config-interface-nat64-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:TwentyFiveGigE" {
-  //   uses config-interface-nat64-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE" {
+    uses config-interface-nat64-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:TwoGigabitEthernet" {
-  //   uses config-interface-nat64-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet" {
+    uses config-interface-nat64-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:FortyGigabitEthernet" {
-  //   uses config-interface-nat64-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet" {
+    uses config-interface-nat64-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:HundredGigE" {
-  //   uses config-interface-nat64-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:HundredGigE" {
+    uses config-interface-nat64-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:Port-channel" {
-  //   uses config-interface-nat64-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:Port-channel" {
+    uses config-interface-nat64-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:Loopback" {
-  //   uses config-interface-nat64-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:Loopback" {
+    uses config-interface-nat64-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:Tunnel" {
-  //   uses config-interface-nat64-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:Tunnel" {
+    uses config-interface-nat64-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:ATM" {
-  //   uses config-interface-nat64-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:ATM" {
+    uses config-interface-nat64-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:ATM-subinterface" {
-  //   uses config-interface-nat64-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:ATM-subinterface" {
+    uses config-interface-nat64-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:BD-VIF/ios:ip" {
-  //   uses config-interface-ip-nat-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:BD-VIF/ios:ip" {
+    uses config-interface-ip-nat-grouping;
+  }
 
-  // augment "/ios:native/ios:interface/ios:ucse" {
-  //   uses config-interface-nat64-grouping;
-  // }
+  augment "/ios:native/ios:interface/ios:ucse" {
+    uses config-interface-nat64-grouping;
+  }
 }
