@@ -198,37 +198,37 @@ submodule Cisco-IOS-XE-ipv6 {
     }
   }
 
-  // grouping ipv6-route-grouping-min-elements {
-  //   list ipv6-route-list {
-  //     key "prefix";
-  //     min-elements 1;
-  //     leaf prefix {
-  //       type ios-types:ipv6-prefix;
-  //     }
-  //     list ipv6-fwd-list {
-  //       key "fwd";
-  //       leaf fwd {
-  //         type union {
-  //           type enumeration {
-  //             enum Null0;
-  //           }
-  //           type inet:ipv6-address;
-  //           type string;
-  //         }
-  //       }
-  //       list interface-next-hop {
-  //         description
-  //           "IPv6 address of next-hop";
-  //         key "ipv6-address";
-  //         leaf ipv6-address {
-  //           type inet:ipv6-address;
-  //         }
-  //         uses ipv6-route-options-grouping;
-  //       }
-  //       uses ipv6-route-options-grouping;
-  //     }
-  //   }
-  // }
+  grouping ipv6-route-grouping-min-elements {
+    list ipv6-route-list {
+      key "prefix";
+      min-elements 1;
+      leaf prefix {
+        type ios-types:ipv6-prefix;
+      }
+      list ipv6-fwd-list {
+        key "fwd";
+        leaf fwd {
+          type union {
+            type enumeration {
+              enum Null0;
+            }
+            type inet:ipv6-address;
+            type string;
+          }
+        }
+        list interface-next-hop {
+          description
+            "IPv6 address of next-hop";
+          key "ipv6-address";
+          leaf ipv6-address {
+            type inet:ipv6-address;
+          }
+          uses ipv6-route-options-grouping;
+        }
+        uses ipv6-route-options-grouping;
+      }
+    }
+  }
 
   grouping ipv6-bfd-unassociate-grouping {
     leaf interface {
@@ -266,27 +266,27 @@ submodule Cisco-IOS-XE-ipv6 {
           leaf source-guard-policy-name {
             type string;
           }
-          // container validate {
-          //   description
-          //     "Validate the src of the received data traffic";
-          //   leaf address-config {
-          //     description
-          //       "Validate against addresses learned in NDP/DHCP traffic (default)";
-          //     type boolean;
-          //     default "true";
-          //   }
-          //   leaf address {
-          //     status deprecated;
-          //     description
-          //       "DEPRECATED: deprecated and replaced by address-config";
-          //     type empty;
-          //   }
-          //   leaf prefix {
-          //     description
-          //       "Validate against prefixes learned in RA or DHCP-PD traffic";
-          //     type empty;
-          //   }
-          // }
+          container validate {
+            description
+              "Validate the src of the received data traffic";
+            leaf address-config {
+              description
+                "Validate against addresses learned in NDP/DHCP traffic (default)";
+              type boolean;
+              default "true";
+            }
+            leaf address {
+              status deprecated;
+              description
+                "DEPRECATED: deprecated and replaced by address-config";
+              type empty;
+            }
+            leaf prefix {
+              description
+                "Validate against prefixes learned in RA or DHCP-PD traffic";
+              type empty;
+            }
+          }
           container deny {
             description
               "Block data traffic";
@@ -516,7 +516,7 @@ submodule Cisco-IOS-XE-ipv6 {
             }
             type string;
           }
-          // uses ipv6-route-grouping-min-elements;
+          uses ipv6-route-grouping-min-elements;
         }
         container static {
           description

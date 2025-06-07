@@ -1752,28 +1752,28 @@ submodule Cisco-IOS-XE-ip {
     }
   }
 
-  // grouping ip-route-srte-options-grouping {
-  //   leaf metric {
-  //     type uint8 {
-  //       range "1..255";
-  //     }
-  //     default "1";
-  //   }
-  //   leaf name {
-  //     description
-  //       "Specify name of the next hop";
-  //     type string {
-  //       length "1..255";
-  //     }
-  //   }
-  //   leaf tag {
-  //     description
-  //       "Set tag for this route";
-  //     type uint32 {
-  //       range "1..4294967295";
-  //     }
-  //   }
-  // }
+  grouping ip-route-srte-options-grouping {
+    leaf metric {
+      type uint8 {
+        range "1..255";
+      }
+      default "1";
+    }
+    leaf name {
+      description
+        "Specify name of the next hop";
+      type string {
+        length "1..255";
+      }
+    }
+    leaf tag {
+      description
+        "Set tag for this route";
+      type uint32 {
+        range "1..4294967295";
+      }
+    }
+  }
 
   grouping ip-route-grouping-min-elements {
     list ip-route-interface-forwarding-list {
@@ -1965,69 +1965,69 @@ submodule Cisco-IOS-XE-ip {
         uses ip-route-dhcp-grouping;
         uses ip-route-options-track-mandatory-grouping;
       }
-      // uses ip-route-segment-routing-grouping;
+      uses ip-route-segment-routing-grouping;
     }
   }
 
-  // grouping ip-route-segment-routing-grouping {
-  //   container segment-routing {
-  //     list policy {
-  //       key "srname";
-  //       leaf srname {
-  //         type string {
-  //           length "1..64";
-  //         }
-  //       }
-  //       uses ip-route-srte-options-grouping;
-  //     }
-  //   }
-  // }
+  grouping ip-route-segment-routing-grouping {
+    container segment-routing {
+      list policy {
+        key "srname";
+        leaf srname {
+          type string {
+            length "1..64";
+          }
+        }
+        uses ip-route-srte-options-grouping;
+      }
+    }
+  }
 
-  // grouping ip-exp-path-mode-cfg-grouping {
-  //   list index {
-  //     description
-  //       "Specify the next entry index to add, edit (or delete): <1..65535>";
-  //     key "idx";
-  //     leaf idx {
-  //       type uint32 {
-  //         range "1..65535";
-  //       }
-  //     }
-  //     choice ip-exp-path-option {
-  //       container next-address {
-  //         description
-  //           "Specify the next address in the path";
-  //         leaf loose {
-  //           description
-  //             "Target IPv4 address is loose";
-  //           type empty;
-  //         }
-  //         leaf ipv4 {
-  //           description
-  //             "Target IPv4 address (strict)";
-  //           type inet:ipv4-address;
-  //         }
-  //       }
-  //       leaf next-label {
-  //         description
-  //           "Specify the next MPLS label in the path: <0..1048575>";
-  //         type uint32 {
-  //           range "0..1048575";
-  //         }
-  //       }
-  //       leaf exclude-address {
-  //         description
-  //           "Exclude an address from subsequent partial path segments";
-  //         type inet:ipv4-address;
-  //       }
-  //       leaf exclude-srlg {
-  //         description
-  //           "Specify an address to get SRLGs from for exclusion";
-  //         type inet:ipv4-address;
-  //       }
-  //     }
-  //   }
-  // }
+  grouping ip-exp-path-mode-cfg-grouping {
+    list index {
+      description
+        "Specify the next entry index to add, edit (or delete): <1..65535>";
+      key "idx";
+      leaf idx {
+        type uint32 {
+          range "1..65535";
+        }
+      }
+      choice ip-exp-path-option {
+        container next-address {
+          description
+            "Specify the next address in the path";
+          leaf loose {
+            description
+              "Target IPv4 address is loose";
+            type empty;
+          }
+          leaf ipv4 {
+            description
+              "Target IPv4 address (strict)";
+            type inet:ipv4-address;
+          }
+        }
+        leaf next-label {
+          description
+            "Specify the next MPLS label in the path: <0..1048575>";
+          type uint32 {
+            range "0..1048575";
+          }
+        }
+        leaf exclude-address {
+          description
+            "Exclude an address from subsequent partial path segments";
+          type inet:ipv4-address;
+        }
+        leaf exclude-srlg {
+          description
+            "Specify an address to get SRLGs from for exclusion";
+          type inet:ipv4-address;
+        }
+      }
+    }
+  }
 
   grouping config-ip-ssh-algorithm-grouping {
     container algorithm {
@@ -2100,126 +2100,126 @@ submodule Cisco-IOS-XE-ip {
           }
         }
       }
-      // container arp {
-      //   description
-      //     "IP ARP global configuration";
-      //   container incomplete {
-      //     description
-      //       "Fine-tune the ARP Retry parameters";
-      //     leaf entries {
-      //       description
-      //         "Specify the number of IP addresses to resolve";
-      //       type uint32 {
-      //         range "1..2147483647";
-      //       }
-      //     }
-      //   }
-      //   container inspection {
-      //     description
-      //       "Arp Inspection configuration";
-      //     list filter {
-      //       description
-      //         "Specify ARP acl to be applied";
-      //       key "arpacl";
-      //       leaf arpacl {
-      //         type string;
-      //       }
-      //       list vlan {
-      //         description
-      //           "Vlans to apply the filter";
-      //         key "vlan-range";
-      //         leaf vlan-range {
-      //           type string;
-      //         }
-      //         leaf static {
-      //           description
-      //             "Apply the ACL statically";
-      //           type empty;
-      //         }
-      //       }
-      //     }
-      //     container validate {
-      //       description
-      //         "Validate addresses";
-      //       leaf src-mac {
-      //         description
-      //           "Validate source MAC address";
-      //         type empty;
-      //       }
-      //       leaf dst-mac {
-      //         description
-      //           "Validate destination MAC address";
-      //         type empty;
-      //       }
-      //       leaf ip {
-      //         description
-      //           "Validate IP addresses";
-      //         type empty;
-      //       }
-      //       container allow {
-      //         leaf zeros {
-      //           description
-      //             "Allow 0.0.0.0 sender IP address";
-      //           type empty;
-      //         }
-      //       }
-      //     }
-      //     container log-buffer {
-      //       description
-      //         "Log Buffer Configuration";
-      //       leaf entries {
-      //         description
-      //           "Number of entries for log buffer";
-      //         type uint16 {
-      //           range "0..1024";
-      //         }
-      //       }
-      //       container logs {
-      //         description
-      //           "Number of logs per interval";
-      //         leaf entries {
-      //           description
-      //             "Number of entries for log buffer";
-      //           type uint16 {
-      //             range "0..1024";
-      //           }
-      //         }
-      //         leaf interval {
-      //           description
-      //             "Interval for controlling logging rate";
-      //           type uint32 {
-      //             range "0..86400";
-      //           }
-      //         }
-      //       }
-      //     }
-      //     leaf vlan {
-      //       description
-      //         "Enable/Disable ARP Inspection on vlans";
-      //       type string;
-      //     }
-      //   }
-      //   container proxy {
-      //     description
-      //       "Gratuitous ARP control";
-      //     leaf disable {
-      //       description
-      //         "Disable proxy ARP on all interfaces";
-      //       type empty;
-      //     }
-      //   }
-      //   container entry {
-      //     description
-      //       "Global ARP table learn entry";
-      //     leaf learn {
-      //       description
-      //         "Maximum learn entry limit";
-      //       type uint32 {
-      //         range "255..512000";
-      //       }
-      //     }
-      //   }
-      // }
+      container arp {
+        description
+          "IP ARP global configuration";
+        container incomplete {
+          description
+            "Fine-tune the ARP Retry parameters";
+          leaf entries {
+            description
+              "Specify the number of IP addresses to resolve";
+            type uint32 {
+              range "1..2147483647";
+            }
+          }
+        }
+        container inspection {
+          description
+            "Arp Inspection configuration";
+          list filter {
+            description
+              "Specify ARP acl to be applied";
+            key "arpacl";
+            leaf arpacl {
+              type string;
+            }
+            list vlan {
+              description
+                "Vlans to apply the filter";
+              key "vlan-range";
+              leaf vlan-range {
+                type string;
+              }
+              leaf static {
+                description
+                  "Apply the ACL statically";
+                type empty;
+              }
+            }
+          }
+          container validate {
+            description
+              "Validate addresses";
+            leaf src-mac {
+              description
+                "Validate source MAC address";
+              type empty;
+            }
+            leaf dst-mac {
+              description
+                "Validate destination MAC address";
+              type empty;
+            }
+            leaf ip {
+              description
+                "Validate IP addresses";
+              type empty;
+            }
+            container allow {
+              leaf zeros {
+                description
+                  "Allow 0.0.0.0 sender IP address";
+                type empty;
+              }
+            }
+          }
+          container log-buffer {
+            description
+              "Log Buffer Configuration";
+            leaf entries {
+              description
+                "Number of entries for log buffer";
+              type uint16 {
+                range "0..1024";
+              }
+            }
+            container logs {
+              description
+                "Number of logs per interval";
+              leaf entries {
+                description
+                  "Number of entries for log buffer";
+                type uint16 {
+                  range "0..1024";
+                }
+              }
+              leaf interval {
+                description
+                  "Interval for controlling logging rate";
+                type uint32 {
+                  range "0..86400";
+                }
+              }
+            }
+          }
+          leaf vlan {
+            description
+              "Enable/Disable ARP Inspection on vlans";
+            type string;
+          }
+        }
+        container proxy {
+          description
+            "Gratuitous ARP control";
+          leaf disable {
+            description
+              "Disable proxy ARP on all interfaces";
+            type empty;
+          }
+        }
+        container entry {
+          description
+            "Global ARP table learn entry";
+          leaf learn {
+            description
+              "Maximum learn entry limit";
+            type uint32 {
+              range "255..512000";
+            }
+          }
+        }
+      }
       container domain-list {
         description
           "Domain name to complete unqualified host names";
@@ -3422,107 +3422,107 @@ submodule Cisco-IOS-XE-ip {
           }
         }
       }
-      // container routing {
-      //   status obsolete;
-      //   description
-      //     "This node is obsolete and replaced by routing-new and routing-conf";
-      //   presence "true";
-      //   container protocol {
-      //     status obsolete;
-      //     description
-      //       "IP routing protocol";
-      //     container purge {
-      //       status obsolete;
-      //       description
-      //         "routes purge";
-      //       leaf interface {
-      //         status obsolete;
-      //         description
-      //           "Perform IP routing protocol routes purge on link failures";
-      //         type boolean;
-      //       }
-      //     }
-      //   }
-      // }
-      // container explicit-path {
-      //   description
-      //     "Configure explicit-path";
-      //   list identifier {
-      //     description
-      //       "Specify explicit path by number: <1..65535>";
-      //     key "pnum";
-      //     leaf pnum {
-      //       type uint16 {
-      //         range "1..65535";
-      //       }
-      //     }
-      //     leaf mode {
-      //       type enumeration {
-      //         enum enable;
-      //         enum disable;
-      //       }
-      //     }
-      //     uses ip-exp-path-mode-cfg-grouping;
-      //   }
-      //   list name {
-      //     description
-      //       "Specify explicit path by name";
-      //     key "pname";
-      //     leaf pname {
-      //       type string;
-      //     }
-      //     leaf mode {
-      //       type enumeration {
-      //         enum enable;
-      //         enum disable;
-      //       }
-      //     }
-      //     uses ip-exp-path-mode-cfg-grouping;
-      //   }
-      // }
-      // container scp {
-      //   description
-      //     "Scp commands";
-      //   container server {
-      //     description
-      //       "Configure SCP server-side functionality";
-      //     leaf enable {
-      //       description
-      //         "Enable server side of SCP";
-      //       type empty;
-      //     }
-      //   }
-      // }
-      // container spd {
-      //   description
-      //     "spd";
-      //   leaf mode {
-      //     type enumeration {
-      //       enum aggressive;
-      //     }
-      //   }
-      //   container queue {
-      //     description
-      //       "queue";
-      //     leaf max-threshold {
-      //       description
-      //         "Max threshold";
-      //       type uint16 {
-      //         range "0..65535";
-      //       }
-      //     }
-      //     leaf min-threshold {
-      //       description
-      //         "Min threshold";
-      //       must '. < ../max-threshold' {
-      //         error-message "min-threshold must be less than max-threshold";
-      //       }
-      //       type uint16 {
-      //         range "0..65535";
-      //       }
-      //     }
-      //   }
-      // }
+      container routing {
+        status obsolete;
+        description
+          "This node is obsolete and replaced by routing-new and routing-conf";
+        presence "true";
+        container protocol {
+          status obsolete;
+          description
+            "IP routing protocol";
+          container purge {
+            status obsolete;
+            description
+              "routes purge";
+            leaf interface {
+              status obsolete;
+              description
+                "Perform IP routing protocol routes purge on link failures";
+              type boolean;
+            }
+          }
+        }
+      }
+      container explicit-path {
+        description
+          "Configure explicit-path";
+        list identifier {
+          description
+            "Specify explicit path by number: <1..65535>";
+          key "pnum";
+          leaf pnum {
+            type uint16 {
+              range "1..65535";
+            }
+          }
+          leaf mode {
+            type enumeration {
+              enum enable;
+              enum disable;
+            }
+          }
+          uses ip-exp-path-mode-cfg-grouping;
+        }
+        list name {
+          description
+            "Specify explicit path by name";
+          key "pname";
+          leaf pname {
+            type string;
+          }
+          leaf mode {
+            type enumeration {
+              enum enable;
+              enum disable;
+            }
+          }
+          uses ip-exp-path-mode-cfg-grouping;
+        }
+      }
+      container scp {
+        description
+          "Scp commands";
+        container server {
+          description
+            "Configure SCP server-side functionality";
+          leaf enable {
+            description
+              "Enable server side of SCP";
+            type empty;
+          }
+        }
+      }
+      container spd {
+        description
+          "spd";
+        leaf mode {
+          type enumeration {
+            enum aggressive;
+          }
+        }
+        container queue {
+          description
+            "queue";
+          leaf max-threshold {
+            description
+              "Max threshold";
+            type uint16 {
+              range "0..65535";
+            }
+          }
+          leaf min-threshold {
+            description
+              "Min threshold";
+            must '. < ../max-threshold' {
+              error-message "min-threshold must be less than max-threshold";
+            }
+            type uint16 {
+              range "0..65535";
+            }
+          }
+        }
+      }
       container bootp {
         description
           "Config BOOTP services";
@@ -3532,11 +3532,11 @@ submodule Cisco-IOS-XE-ip {
           type boolean;
         }
       }
-      // leaf source-route {
-      //   description
-      //     "Process packets with source routing header options";
-      //   type boolean;
-      // }
+      leaf source-route {
+        description
+          "Process packets with source routing header options";
+        type boolean;
+      }
       container ssh {
         description
           "Configure ssh options";
@@ -3821,63 +3821,63 @@ submodule Cisco-IOS-XE-ip {
         description
           "Device tracking";
       }
-      // container visibility {
-      //   description
-      //     "NetFlow Global Command";
-      // }
-      // container sdwan {
-      //   list route {
-      //     key "vrf ipaddr";
-      //     leaf vrf {
-      //       description
-      //         "Configure ipsec route for a VPN Routing/Forwarding instance";
-      //       must '(/ios:native/ios:vrf/ios:definition[ios:name=current()] and /ios:native/ios:vrf/ios:definition[ios:name=current()]/ios:address-family/ios:ipv4) or /ios:native/ios:ip/ios:vrf[ios:name=current()]' {
-      //         error-message "Please create ipv4 vrf first, and delete the last";
-      //       }
-      //       type string;
-      //     }
-      //     leaf ipaddr {
-      //       description
-      //         "IP address";
-      //       type ios-types:ipv4-address-slash-prefix-len;
-      //     }
-      //     choice tunnel-or-service {
-      //       case tunnel-based {
-      //         container tunnel {
-      //           container active {
-      //             leaf Tunnel {
-      //               description
-      //                 "Active tunnel used for SIG";
-      //               type leafref {
-      //                 path "/ios:native/ios:interface/ios:Tunnel/ios:name";
-      //               }
-      //             }
-      //             container backup {
-      //               leaf Tunnel {
-      //                 description
-      //                   "Backup tunnel used for SIG";
-      //                 type leafref {
-      //                   path "/ios:native/ios:interface/ios:Tunnel/ios:name";
-      //                 }
-      //               }
-      //             }
-      //           }
-      //         }
-      //       }
-      //       case service-based {
-      //         container service {
-      //           choice service-based {
-      //             case sig-based {
-      //               leaf sig {
-      //                 type empty;
-      //               }
-      //             }
-      //           }
-      //         }
-      //       }
-      //     }
-      //   }
-      // }
+      container visibility {
+        description
+          "NetFlow Global Command";
+      }
+      container sdwan {
+        list route {
+          key "vrf ipaddr";
+          leaf vrf {
+            description
+              "Configure ipsec route for a VPN Routing/Forwarding instance";
+            must '(/ios:native/ios:vrf/ios:definition[ios:name=current()] and /ios:native/ios:vrf/ios:definition[ios:name=current()]/ios:address-family/ios:ipv4) or /ios:native/ios:ip/ios:vrf[ios:name=current()]' {
+              error-message "Please create ipv4 vrf first, and delete the last";
+            }
+            type string;
+          }
+          leaf ipaddr {
+            description
+              "IP address";
+            type ios-types:ipv4-address-slash-prefix-len;
+          }
+          choice tunnel-or-service {
+            case tunnel-based {
+              container tunnel {
+                container active {
+                  leaf Tunnel {
+                    description
+                      "Active tunnel used for SIG";
+                    type leafref {
+                      path "/ios:native/ios:interface/ios:Tunnel/ios:name";
+                    }
+                  }
+                  container backup {
+                    leaf Tunnel {
+                      description
+                        "Backup tunnel used for SIG";
+                      type leafref {
+                        path "/ios:native/ios:interface/ios:Tunnel/ios:name";
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            case service-based {
+              container service {
+                choice service-based {
+                  case sig-based {
+                    leaf sig {
+                      type empty;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 

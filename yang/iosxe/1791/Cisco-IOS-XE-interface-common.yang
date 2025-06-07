@@ -380,613 +380,613 @@ module Cisco-IOS-XE-interface-common {
     }
   }
 
-  // grouping interface-deprecated-grouping {
-  //   choice interface-choice {
-  //     leaf AppNav-Compress {
-  //       status deprecated;
-  //       description
-  //         "Service-Context Virtual Interface Compress";
-  //       type uint16;
-  //     }
-  //     leaf AppNav-UnCompress {
-  //       status deprecated;
-  //       description
-  //         "Service-Context Virtual Interface UnCompress";
-  //       type uint16;
-  //     }
-  //     leaf ATM {
-  //       status deprecated;
-  //       description
-  //         "ATM interface";
-  //       type string;
-  //     }
-  //     container ATM-subinterface {
-  //       status deprecated;
-  //       leaf ATM {
-  //         status deprecated;
-  //         type string;
-  //       }
-  //     }
-  //     leaf ATM-ACR {
-  //       status deprecated;
-  //       description
-  //         "ATM-ACR interface";
-  //       type string {
-  //         pattern '[0-9]';
-  //       }
-  //     }
-  //     container ATM-ACRsubinterface {
-  //       status deprecated;
-  //       leaf ATM-ACR {
-  //         status deprecated;
-  //         type string {
-  //           pattern '[0-9]\.([0-9]/){3}[0-9]';
-  //         }
-  //       }
-  //     }
-  //     leaf BDI {
-  //       status deprecated;
-  //       description
-  //         "Bridge-Domain interface";
-  //       type string;
-  //     }
-  //     leaf CEM {
-  //       status deprecated;
-  //       description
-  //         "CEM interface";
-  //       type string {
-  //         pattern '([0-9]/){2}[0-9]';
-  //       }
-  //     }
-  //     leaf CEM-ACR {
-  //       status deprecated;
-  //       description
-  //         "CEM-ACR interface";
-  //       type uint8 {
-  //         range "0..255";
-  //       }
-  //     }
-  //     leaf Embedded-Service-Engine {
-  //       status deprecated;
-  //       description
-  //         "cisco embedded service engine module";
-  //       type string;
-  //     }
-  //     leaf Ethernet {
-  //       status deprecated;
-  //       description
-  //         "IEEE 802.3";
-  //       type string;
-  //     }
-  //     leaf FastEthernet {
-  //       status deprecated;
-  //       description
-  //         "FastEthernet IEEE 802.3";
-  //       type string;
-  //     }
-  //     leaf GigabitEthernet {
-  //       status deprecated;
-  //       description
-  //         "GigabitEthernet IEEE 802.3z";
-  //       type string;
-  //     }
-  //     leaf FiveGigabitEthernet {
-  //       status deprecated;
-  //       description
-  //         "Five GigabitEthernet ";
-  //       type string;
-  //     }
-  //     leaf AppGigabitEthernet {
-  //       status deprecated;
-  //       description
-  //         "App-hosting Gigabit Ethernet IEEE 802.3z";
-  //       type string;
-  //     }
-  //     leaf TwentyFiveGigE {
-  //       status deprecated;
-  //       description
-  //         "Twenty Five GigabitEthernet ";
-  //       type string;
-  //     }
-  //     leaf TwoGigabitEthernet {
-  //       status deprecated;
-  //       description
-  //         "Two GigabitEthernet ";
-  //       type string;
-  //     }
-  //     leaf FortyGigabitEthernet {
-  //       status deprecated;
-  //       description
-  //         "Forty GigabitEthernet ";
-  //       type string;
-  //     }
-  //     leaf HundredGigE {
-  //       status deprecated;
-  //       description
-  //         "Hundred GigabitEthernet";
-  //       type string;
-  //     }
-  //     leaf L2LISP {
-  //       description
-  //         "L2 Locator/ID Separation Protocol Virtual Interface";
-  //       status deprecated;
-  //       type string;
-  //     }
-  //     container L2LISP-subinterface {
-  //       description
-  //         "L2 Locator/ID Separation Protocol Virtual Interface";
-  //       leaf L2LISP {
-  //         status deprecated;
-  //         type string {
-  //           pattern '[0-9]*(. ?[1-9][0-9]*)*';
-  //         }
-  //       }
-  //     }
-  //     leaf LISP {
-  //       status deprecated;
-  //       description
-  //         "Locator/ID Separation Protocol Virtual Interface";
-  //       type string;
-  //     }
-  //     container LISP-subinterface {
-  //       status deprecated;
-  //       description
-  //         "Locator/ID Separation Protocol Virtual Interface";
-  //       leaf LISP {
-  //         status deprecated;
-  //         type string {
-  //           pattern '[0-9]*(. ?[1-9][0-9]*)*';
-  //         }
-  //       }
-  //     }
-  //     leaf Loopback {
-  //       status deprecated;
-  //       description
-  //         "Loopback interface";
-  //       type uint32;
-  //     }
-  //     leaf Multilink {
-  //       status deprecated;
-  //       description
-  //         "Multilink-group interface";
-  //       type uint16;
-  //     }
-  //     leaf nve {
-  //       status deprecated;
-  //       description
-  //         "Network virtualization endpoint interface";
-  //       type uint16;
-  //     }
-  //     leaf overlay {
-  //       status deprecated;
-  //       description
-  //         "Overlay interface";
-  //       type uint16;
-  //     }
-  //     leaf Port-channel {
-  //       status deprecated;
-  //       description
-  //         "Ethernet Channel of interfaces";
-  //       type uint32;
-  //     }
-  //     container Port-channel-subinterface {
-  //       status deprecated;
-  //       leaf Port-channel {
-  //         status deprecated;
-  //         type string;
-  //       }
-  //     }
-  //     leaf pseudowire {
-  //       status deprecated;
-  //       description
-  //         "Pseudowire Interface";
-  //       type uint32;
-  //     }
-  //     leaf SM {
-  //       status deprecated;
-  //       description
-  //         "SM Interface";
-  //       type string;
-  //     }
-  //     leaf Cellular {
-  //       status deprecated;
-  //       description
-  //         "Cellular Interface";
-  //       type string;
-  //     }
-  //     leaf Dialer {
-  //       status deprecated;
-  //       description
-  //         "Dialer Interface";
-  //       type string;
-  //     }
-  //     leaf Serial {
-  //       status deprecated;
-  //       description
-  //         "Serial interface";
-  //       type string;
-  //     }
-  //     leaf Async {
-  //       status deprecated;
-  //       description
-  //         "Async serial interface";
-  //       type string;
-  //     }
-  //     leaf TenGigabitEthernet {
-  //       status deprecated;
-  //       description
-  //         "Ten Gigabit Ethernet";
-  //       type string;
-  //     }
-  //     leaf Tunnel {
-  //       status deprecated;
-  //       description
-  //         "Tunnel interface";
-  //       type uint32;
-  //     }
-  //     leaf Virtual-Template {
-  //       status deprecated;
-  //       description
-  //         "Virtual Template interface";
-  //       type uint16;
-  //     }
-  //     leaf Vlan {
-  //       status deprecated;
-  //       description
-  //         "Iosxr Vlans";
-  //       type uint16;
-  //     }
-  //     leaf VirtualPortGroup {
-  //       status deprecated;
-  //       description
-  //         "Virtual Port Group";
-  //       type uint16;
-  //     }
-  //     leaf vasileft {
-  //       status deprecated;
-  //       description
-  //         "vasileft";
-  //       type uint16;
-  //     }
-  //     leaf vasiright {
-  //       status deprecated;
-  //       description
-  //         "vasiright";
-  //       type uint16;
-  //     }
-  //     leaf BD-VIF {
-  //       status deprecated;
-  //       description
-  //         "Bridge-Domain Virtual IP interface";
-  //       type string;
-  //     }
-  //     leaf TwentyFiveGigabitEthernet {
-  //       status obsolete;
-  //       description
-  //         "Twenty Five GigabitEthernet ";
-  //       type string;
-  //     }
-  //     leaf MFR {
-  //       description
-  //         "MFR interface";
-  //       status deprecated;
-  //       type uint32 {
-  //         range "0..2147483647";
-  //       }
-  //     }
-  //     container Serial-subinterface {
-  //       status deprecated;
-  //       leaf Serial {
-  //         status deprecated;
-  //         type string;
-  //       }
-  //     }
-  //   }
-  // }
+  grouping interface-deprecated-grouping {
+    choice interface-choice {
+      leaf AppNav-Compress {
+        status deprecated;
+        description
+          "Service-Context Virtual Interface Compress";
+        type uint16;
+      }
+      leaf AppNav-UnCompress {
+        status deprecated;
+        description
+          "Service-Context Virtual Interface UnCompress";
+        type uint16;
+      }
+      leaf ATM {
+        status deprecated;
+        description
+          "ATM interface";
+        type string;
+      }
+      container ATM-subinterface {
+        status deprecated;
+        leaf ATM {
+          status deprecated;
+          type string;
+        }
+      }
+      leaf ATM-ACR {
+        status deprecated;
+        description
+          "ATM-ACR interface";
+        type string {
+          pattern '[0-9]';
+        }
+      }
+      container ATM-ACRsubinterface {
+        status deprecated;
+        leaf ATM-ACR {
+          status deprecated;
+          type string {
+            pattern '[0-9]\.([0-9]/){3}[0-9]';
+          }
+        }
+      }
+      leaf BDI {
+        status deprecated;
+        description
+          "Bridge-Domain interface";
+        type string;
+      }
+      leaf CEM {
+        status deprecated;
+        description
+          "CEM interface";
+        type string {
+          pattern '([0-9]/){2}[0-9]';
+        }
+      }
+      leaf CEM-ACR {
+        status deprecated;
+        description
+          "CEM-ACR interface";
+        type uint8 {
+          range "0..255";
+        }
+      }
+      leaf Embedded-Service-Engine {
+        status deprecated;
+        description
+          "cisco embedded service engine module";
+        type string;
+      }
+      leaf Ethernet {
+        status deprecated;
+        description
+          "IEEE 802.3";
+        type string;
+      }
+      leaf FastEthernet {
+        status deprecated;
+        description
+          "FastEthernet IEEE 802.3";
+        type string;
+      }
+      leaf GigabitEthernet {
+        status deprecated;
+        description
+          "GigabitEthernet IEEE 802.3z";
+        type string;
+      }
+      leaf FiveGigabitEthernet {
+        status deprecated;
+        description
+          "Five GigabitEthernet ";
+        type string;
+      }
+      leaf AppGigabitEthernet {
+        status deprecated;
+        description
+          "App-hosting Gigabit Ethernet IEEE 802.3z";
+        type string;
+      }
+      leaf TwentyFiveGigE {
+        status deprecated;
+        description
+          "Twenty Five GigabitEthernet ";
+        type string;
+      }
+      leaf TwoGigabitEthernet {
+        status deprecated;
+        description
+          "Two GigabitEthernet ";
+        type string;
+      }
+      leaf FortyGigabitEthernet {
+        status deprecated;
+        description
+          "Forty GigabitEthernet ";
+        type string;
+      }
+      leaf HundredGigE {
+        status deprecated;
+        description
+          "Hundred GigabitEthernet";
+        type string;
+      }
+      leaf L2LISP {
+        description
+          "L2 Locator/ID Separation Protocol Virtual Interface";
+        status deprecated;
+        type string;
+      }
+      container L2LISP-subinterface {
+        description
+          "L2 Locator/ID Separation Protocol Virtual Interface";
+        leaf L2LISP {
+          status deprecated;
+          type string {
+            pattern '[0-9]*(. ?[1-9][0-9]*)*';
+          }
+        }
+      }
+      leaf LISP {
+        status deprecated;
+        description
+          "Locator/ID Separation Protocol Virtual Interface";
+        type string;
+      }
+      container LISP-subinterface {
+        status deprecated;
+        description
+          "Locator/ID Separation Protocol Virtual Interface";
+        leaf LISP {
+          status deprecated;
+          type string {
+            pattern '[0-9]*(. ?[1-9][0-9]*)*';
+          }
+        }
+      }
+      leaf Loopback {
+        status deprecated;
+        description
+          "Loopback interface";
+        type uint32;
+      }
+      leaf Multilink {
+        status deprecated;
+        description
+          "Multilink-group interface";
+        type uint16;
+      }
+      leaf nve {
+        status deprecated;
+        description
+          "Network virtualization endpoint interface";
+        type uint16;
+      }
+      leaf overlay {
+        status deprecated;
+        description
+          "Overlay interface";
+        type uint16;
+      }
+      leaf Port-channel {
+        status deprecated;
+        description
+          "Ethernet Channel of interfaces";
+        type uint32;
+      }
+      container Port-channel-subinterface {
+        status deprecated;
+        leaf Port-channel {
+          status deprecated;
+          type string;
+        }
+      }
+      leaf pseudowire {
+        status deprecated;
+        description
+          "Pseudowire Interface";
+        type uint32;
+      }
+      leaf SM {
+        status deprecated;
+        description
+          "SM Interface";
+        type string;
+      }
+      leaf Cellular {
+        status deprecated;
+        description
+          "Cellular Interface";
+        type string;
+      }
+      leaf Dialer {
+        status deprecated;
+        description
+          "Dialer Interface";
+        type string;
+      }
+      leaf Serial {
+        status deprecated;
+        description
+          "Serial interface";
+        type string;
+      }
+      leaf Async {
+        status deprecated;
+        description
+          "Async serial interface";
+        type string;
+      }
+      leaf TenGigabitEthernet {
+        status deprecated;
+        description
+          "Ten Gigabit Ethernet";
+        type string;
+      }
+      leaf Tunnel {
+        status deprecated;
+        description
+          "Tunnel interface";
+        type uint32;
+      }
+      leaf Virtual-Template {
+        status deprecated;
+        description
+          "Virtual Template interface";
+        type uint16;
+      }
+      leaf Vlan {
+        status deprecated;
+        description
+          "Iosxr Vlans";
+        type uint16;
+      }
+      leaf VirtualPortGroup {
+        status deprecated;
+        description
+          "Virtual Port Group";
+        type uint16;
+      }
+      leaf vasileft {
+        status deprecated;
+        description
+          "vasileft";
+        type uint16;
+      }
+      leaf vasiright {
+        status deprecated;
+        description
+          "vasiright";
+        type uint16;
+      }
+      leaf BD-VIF {
+        status deprecated;
+        description
+          "Bridge-Domain Virtual IP interface";
+        type string;
+      }
+      leaf TwentyFiveGigabitEthernet {
+        status obsolete;
+        description
+          "Twenty Five GigabitEthernet ";
+        type string;
+      }
+      leaf MFR {
+        description
+          "MFR interface";
+        status deprecated;
+        type uint32 {
+          range "0..2147483647";
+        }
+      }
+      container Serial-subinterface {
+        status deprecated;
+        leaf Serial {
+          status deprecated;
+          type string;
+        }
+      }
+    }
+  }
 
-  // grouping interface-obsolete-grouping {
-  //   choice interface-choice {
-  //     status obsolete;
-  //     leaf AppNav-Compress {
-  //       status obsolete;
-  //       description
-  //         "Service-Context Virtual Interface Compress";
-  //       type uint16;
-  //     }
-  //     leaf AppNav-UnCompress {
-  //       description
-  //         "Service-Context Virtual Interface UnCompress";
-  //       status obsolete;
-  //       type uint16;
-  //     }
-  //     leaf ATM {
-  //       description
-  //         "ATM interface";
-  //       status obsolete;
-  //       type string;
-  //     }
-  //     container ATM-subinterface {
-  //       status obsolete;
-  //       leaf ATM {
-  //         status obsolete;
-  //         type string;
-  //       }
-  //     }
-  //     leaf ATM-ACR {
-  //       description
-  //         "ATM-ACR interface";
-  //       status obsolete;
-  //       type string {
-  //         pattern '[0-9]';
-  //       }
-  //     }
-  //     container ATM-ACRsubinterface {
-  //       status obsolete;
-  //       leaf ATM-ACR {
-  //         status obsolete;
-  //         type string {
-  //           pattern '[0-9]\.([0-9]/){3}[0-9]';
-  //         }
-  //       }
-  //     }
-  //     leaf BDI {
-  //       description
-  //         "Bridge-Domain interface";
-  //       status obsolete;
-  //       type string;
-  //     }
-  //     leaf CEM {
-  //       description
-  //         "CEM interface";
-  //       status obsolete;
-  //       type string {
-  //         pattern '([0-9]/){2}[0-9]';
-  //       }
-  //     }
-  //     leaf CEM-ACR {
-  //       description
-  //         "CEM-ACR interface";
-  //       status obsolete;
-  //       type uint8 {
-  //         range "0..255";
-  //       }
-  //     }
-  //     leaf Embedded-Service-Engine {
-  //       description
-  //         "cisco embedded service engine module";
-  //       status obsolete;
-  //       type string;
-  //     }
-  //     leaf Ethernet {
-  //       description
-  //         "IEEE 802.3";
-  //       status obsolete;
-  //       type string;
-  //     }
-  //     leaf FastEthernet {
-  //       description
-  //         "FastEthernet IEEE 802.3";
-  //       status obsolete;
-  //       type string;
-  //     }
-  //     leaf GigabitEthernet {
-  //       description
-  //         "GigabitEthernet IEEE 802.3z";
-  //       status obsolete;
-  //       type string;
-  //     }
-  //     leaf FiveGigabitEthernet {
-  //       description
-  //         "Five GigabitEthernet ";
-  //       status obsolete;
-  //       type string;
-  //     }
-  //     leaf AppGigabitEthernet {
-  //       description
-  //         "App-hosting Gigabit Ethernet IEEE 802.3z";
-  //       status obsolete;
-  //       type string;
-  //     }
-  //     leaf TwentyFiveGigabitEthernet {
-  //       status obsolete;
-  //       description
-  //         "Twenty Five GigabitEthernet ";
-  //       type string;
-  //     }
-  //     leaf TwentyFiveGigE {
-  //       description
-  //         "Twenty Five GigabitEthernet ";
-  //       status obsolete;
-  //       type string;
-  //     }
-  //     leaf TwoGigabitEthernet {
-  //       description
-  //         "Two GigabitEthernet ";
-  //       status obsolete;
-  //       type string;
-  //     }
-  //     leaf FortyGigabitEthernet {
-  //       description
-  //         "Forty GigabitEthernet ";
-  //       status obsolete;
-  //       type string;
-  //     }
-  //     leaf HundredGigE {
-  //       description
-  //         "Hundred GigabitEthernet";
-  //       status obsolete;
-  //       type string;
-  //     }
-  //     leaf L2LISP {
-  //       description
-  //         "L2 Locator/ID Separation Protocol Virtual Interface";
-  //       status obsolete;
-  //       type string;
-  //     }
-  //     container L2LISP-subinterface {
-  //       description
-  //         "L2 Locator/ID Separation Protocol Virtual Interface";
-  //       status obsolete;
-  //       leaf L2LISP {
-  //         status obsolete;
-  //         type string {
-  //           pattern '[0-9]*(. ?[1-9][0-9]*)*';
-  //         }
-  //       }
-  //     }
-  //     leaf LISP {
-  //       description
-  //         "Locator/ID Separation Protocol Virtual Interface";
-  //       status obsolete;
-  //       type string;
-  //     }
-  //     container LISP-subinterface {
-  //       description
-  //         "Locator/ID Separation Protocol Virtual Interface";
-  //       status obsolete;
-  //       leaf LISP {
-  //         status obsolete;
-  //         type string {
-  //           pattern '[0-9]*(. ?[1-9][0-9]*)*';
-  //         }
-  //       }
-  //     }
-  //     leaf Loopback {
-  //       description
-  //         "Loopback interface";
-  //       status obsolete;
-  //       type uint32;
-  //     }
-  //     leaf Multilink {
-  //       description
-  //         "Multilink-group interface";
-  //       status obsolete;
-  //       type uint16;
-  //     }
-  //     leaf nve {
-  //       description
-  //         "Network virtualization endpoint interface";
-  //       status obsolete;
-  //       type uint16;
-  //     }
-  //     leaf overlay {
-  //       description
-  //         "Overlay interface";
-  //       status obsolete;
-  //       type uint16;
-  //     }
-  //     leaf Port-channel {
-  //       description
-  //         "Ethernet Channel of interfaces";
-  //       status obsolete;
-  //       type uint32;
-  //     }
-  //     container Port-channel-subinterface {
-  //       status obsolete;
-  //       leaf Port-channel {
-  //         status obsolete;
-  //         type string;
-  //       }
-  //     }
-  //     leaf pseudowire {
-  //       description
-  //         "Pseudowire Interface";
-  //       status obsolete;
-  //       type uint32;
-  //     }
-  //     leaf SM {
-  //       description
-  //         "SM Interface";
-  //       status obsolete;
-  //       type string;
-  //     }
-  //     leaf Cellular {
-  //       description
-  //         "Cellular Interface";
-  //       status obsolete;
-  //       type string;
-  //     }
-  //     leaf Dialer {
-  //       description
-  //         "Dialer Interface";
-  //       status obsolete;
-  //       type string;
-  //     }
-  //     leaf Serial {
-  //       description
-  //         "Serial interface";
-  //       status obsolete;
-  //       type string;
-  //     }
-  //     leaf Async {
-  //       description
-  //         "Async serial interface";
-  //       status obsolete;
-  //       type string;
-  //     }
-  //     leaf TenGigabitEthernet {
-  //       description
-  //         "Ten Gigabit Ethernet";
-  //       status obsolete;
-  //       type string;
-  //     }
-  //     leaf Tunnel {
-  //       description
-  //         "Tunnel interface";
-  //       status obsolete;
-  //       type uint32;
-  //     }
-  //     leaf Virtual-Template {
-  //       description
-  //         "Virtual Template interface";
-  //       status obsolete;
-  //       type uint16;
-  //     }
-  //     leaf Vlan {
-  //       description
-  //         "Iosxr Vlans";
-  //       status obsolete;
-  //       type uint16;
-  //     }
-  //     leaf VirtualPortGroup {
-  //       description
-  //         "Virtual Port Group";
-  //       status obsolete;
-  //       type uint16;
-  //     }
-  //     leaf vasileft {
-  //       description
-  //         "vasileft";
-  //       status obsolete;
-  //       type uint16;
-  //     }
-  //     leaf vasiright {
-  //       description
-  //         "vasiright";
-  //       status obsolete;
-  //       type uint16;
-  //     }
-  //     leaf BD-VIF {
-  //       description
-  //         "Bridge-Domain Virtual IP interface";
-  //       status obsolete;
-  //       type string;
-  //     }
-  //     leaf MFR {
-  //       description
-  //         "MFR interface";
-  //       status obsolete;
-  //       type uint32 {
-  //         range "0..2147483647";
-  //       }
-  //     }
-  //     container Serial-subinterface {
-  //       status obsolete;
-  //       leaf Serial {
-  //         status obsolete;
-  //         type string;
-  //       }
-  //     }
-  //   }
-  // }
+  grouping interface-obsolete-grouping {
+    choice interface-choice {
+      status obsolete;
+      leaf AppNav-Compress {
+        status obsolete;
+        description
+          "Service-Context Virtual Interface Compress";
+        type uint16;
+      }
+      leaf AppNav-UnCompress {
+        description
+          "Service-Context Virtual Interface UnCompress";
+        status obsolete;
+        type uint16;
+      }
+      leaf ATM {
+        description
+          "ATM interface";
+        status obsolete;
+        type string;
+      }
+      container ATM-subinterface {
+        status obsolete;
+        leaf ATM {
+          status obsolete;
+          type string;
+        }
+      }
+      leaf ATM-ACR {
+        description
+          "ATM-ACR interface";
+        status obsolete;
+        type string {
+          pattern '[0-9]';
+        }
+      }
+      container ATM-ACRsubinterface {
+        status obsolete;
+        leaf ATM-ACR {
+          status obsolete;
+          type string {
+            pattern '[0-9]\.([0-9]/){3}[0-9]';
+          }
+        }
+      }
+      leaf BDI {
+        description
+          "Bridge-Domain interface";
+        status obsolete;
+        type string;
+      }
+      leaf CEM {
+        description
+          "CEM interface";
+        status obsolete;
+        type string {
+          pattern '([0-9]/){2}[0-9]';
+        }
+      }
+      leaf CEM-ACR {
+        description
+          "CEM-ACR interface";
+        status obsolete;
+        type uint8 {
+          range "0..255";
+        }
+      }
+      leaf Embedded-Service-Engine {
+        description
+          "cisco embedded service engine module";
+        status obsolete;
+        type string;
+      }
+      leaf Ethernet {
+        description
+          "IEEE 802.3";
+        status obsolete;
+        type string;
+      }
+      leaf FastEthernet {
+        description
+          "FastEthernet IEEE 802.3";
+        status obsolete;
+        type string;
+      }
+      leaf GigabitEthernet {
+        description
+          "GigabitEthernet IEEE 802.3z";
+        status obsolete;
+        type string;
+      }
+      leaf FiveGigabitEthernet {
+        description
+          "Five GigabitEthernet ";
+        status obsolete;
+        type string;
+      }
+      leaf AppGigabitEthernet {
+        description
+          "App-hosting Gigabit Ethernet IEEE 802.3z";
+        status obsolete;
+        type string;
+      }
+      leaf TwentyFiveGigabitEthernet {
+        status obsolete;
+        description
+          "Twenty Five GigabitEthernet ";
+        type string;
+      }
+      leaf TwentyFiveGigE {
+        description
+          "Twenty Five GigabitEthernet ";
+        status obsolete;
+        type string;
+      }
+      leaf TwoGigabitEthernet {
+        description
+          "Two GigabitEthernet ";
+        status obsolete;
+        type string;
+      }
+      leaf FortyGigabitEthernet {
+        description
+          "Forty GigabitEthernet ";
+        status obsolete;
+        type string;
+      }
+      leaf HundredGigE {
+        description
+          "Hundred GigabitEthernet";
+        status obsolete;
+        type string;
+      }
+      leaf L2LISP {
+        description
+          "L2 Locator/ID Separation Protocol Virtual Interface";
+        status obsolete;
+        type string;
+      }
+      container L2LISP-subinterface {
+        description
+          "L2 Locator/ID Separation Protocol Virtual Interface";
+        status obsolete;
+        leaf L2LISP {
+          status obsolete;
+          type string {
+            pattern '[0-9]*(. ?[1-9][0-9]*)*';
+          }
+        }
+      }
+      leaf LISP {
+        description
+          "Locator/ID Separation Protocol Virtual Interface";
+        status obsolete;
+        type string;
+      }
+      container LISP-subinterface {
+        description
+          "Locator/ID Separation Protocol Virtual Interface";
+        status obsolete;
+        leaf LISP {
+          status obsolete;
+          type string {
+            pattern '[0-9]*(. ?[1-9][0-9]*)*';
+          }
+        }
+      }
+      leaf Loopback {
+        description
+          "Loopback interface";
+        status obsolete;
+        type uint32;
+      }
+      leaf Multilink {
+        description
+          "Multilink-group interface";
+        status obsolete;
+        type uint16;
+      }
+      leaf nve {
+        description
+          "Network virtualization endpoint interface";
+        status obsolete;
+        type uint16;
+      }
+      leaf overlay {
+        description
+          "Overlay interface";
+        status obsolete;
+        type uint16;
+      }
+      leaf Port-channel {
+        description
+          "Ethernet Channel of interfaces";
+        status obsolete;
+        type uint32;
+      }
+      container Port-channel-subinterface {
+        status obsolete;
+        leaf Port-channel {
+          status obsolete;
+          type string;
+        }
+      }
+      leaf pseudowire {
+        description
+          "Pseudowire Interface";
+        status obsolete;
+        type uint32;
+      }
+      leaf SM {
+        description
+          "SM Interface";
+        status obsolete;
+        type string;
+      }
+      leaf Cellular {
+        description
+          "Cellular Interface";
+        status obsolete;
+        type string;
+      }
+      leaf Dialer {
+        description
+          "Dialer Interface";
+        status obsolete;
+        type string;
+      }
+      leaf Serial {
+        description
+          "Serial interface";
+        status obsolete;
+        type string;
+      }
+      leaf Async {
+        description
+          "Async serial interface";
+        status obsolete;
+        type string;
+      }
+      leaf TenGigabitEthernet {
+        description
+          "Ten Gigabit Ethernet";
+        status obsolete;
+        type string;
+      }
+      leaf Tunnel {
+        description
+          "Tunnel interface";
+        status obsolete;
+        type uint32;
+      }
+      leaf Virtual-Template {
+        description
+          "Virtual Template interface";
+        status obsolete;
+        type uint16;
+      }
+      leaf Vlan {
+        description
+          "Iosxr Vlans";
+        status obsolete;
+        type uint16;
+      }
+      leaf VirtualPortGroup {
+        description
+          "Virtual Port Group";
+        status obsolete;
+        type uint16;
+      }
+      leaf vasileft {
+        description
+          "vasileft";
+        status obsolete;
+        type uint16;
+      }
+      leaf vasiright {
+        description
+          "vasiright";
+        status obsolete;
+        type uint16;
+      }
+      leaf BD-VIF {
+        description
+          "Bridge-Domain Virtual IP interface";
+        status obsolete;
+        type string;
+      }
+      leaf MFR {
+        description
+          "MFR interface";
+        status obsolete;
+        type uint32 {
+          range "0..2147483647";
+        }
+      }
+      container Serial-subinterface {
+        status obsolete;
+        leaf Serial {
+          status obsolete;
+          type string;
+        }
+      }
+    }
+  }
 }

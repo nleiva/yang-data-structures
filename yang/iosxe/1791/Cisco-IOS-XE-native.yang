@@ -24,7 +24,7 @@ module Cisco-IOS-XE-native {
   include Cisco-IOS-XE-ip;
   include Cisco-IOS-XE-ipv6;
   include Cisco-IOS-XE-interfaces;
-  include Cisco-IOS-XE-hsrp;
+  //include Cisco-IOS-XE-hsrp;
   include Cisco-IOS-XE-location;
   //include Cisco-IOS-XE-transceiver-monitor;
 
@@ -360,11 +360,11 @@ module Cisco-IOS-XE-native {
         "Version";
       type string;
     }
-    // container stackwise-virtual {
-    //   description
-    //     "Enter stackwise-virtual configuration mode";
-    //   presence "true";
-    // }
+    container stackwise-virtual {
+      description
+        "Enter stackwise-virtual configuration mode";
+      presence "true";
+    }
     leaf boot-start-marker {
       type empty;
     }
@@ -463,326 +463,326 @@ module Cisco-IOS-XE-native {
         uses banner-grouping;
       }
     }
-    // leaf captive-portal-bypass {
-    //   description
-    //     "Enable Captive portal bypass for apple devices";
-    //   type empty;
-    // }
-    // container memory {
-    //   description
-    //     "Configure memory management";
-    //   container statistics {
-    //     description
-    //       "Configure statistics history table";
-    //     container history {
-    //       description
-    //         "Configure statistics history table";
-    //       leaf table {
-    //         description
-    //           "Configure statistics history table";
-    //         type uint8 {
-    //           range "12..72";
-    //         }
-    //       }
-    //     }
-    //   }
-    //   container chunk {
-    //     description
-    //       "chunk related configuration";
-    //     container siblings {
-    //       description
-    //         "chunk siblings related configuration";
-    //       leaf threshold {
-    //         description
-    //           "Default is platform dependent";
-    //         type uint32 {
-    //           range "2..4294967295";
-    //         }
-    //       }
-    //     }
-    //   }
-    //   container free {
-    //     description
-    //       "free memory low water mark";
-    //     container low-watermark {
-    //       description
-    //         "low water mark for notifications";
-    //       leaf IO {
-    //         description
-    //           "low water mark of memory in KB";
-    //         type uint32 {
-    //           range "1..3994575";
-    //         }
-    //       }
-    //       leaf processor {
-    //         description
-    //           "low water mark of memory in KB";
-    //         type uint32 {
-    //           range "1..3994575";
-    //         }
-    //       }
-    //     }
-    //   }
-    //   leaf lite {
-    //     description
-    //       "Enable/disable memory lite";
-    //     type empty;
-    //   }
-    //   container reserve {
-    //     description
-    //       "reserve memory";
-    //     container critical {
-    //       description
-    //         "Reserve Critical Memory";
-    //       presence "true";
-    //       leaf memory-range {
-    //         description
-    //           "total amount of memory to be reserved in kilobytes";
-    //         type uint32 {
-    //           range "1..4294967295";
-    //         }
-    //       }
-    //     }
-    //   }
-    //   container sanity {
-    //     description
-    //       "Enable memory sanity";
-    //     presence "true";
-    //     leaf all {
-    //       description
-    //         "Enable memory sanity all";
-    //       type empty;
-    //     }
-    //     leaf buffer {
-    //       description
-    //         "Enable memory sanity buffer";
-    //       type empty;
-    //     }
-    //     leaf queue {
-    //       type empty;
-    //     }
-    //   }
-    // }
+    leaf captive-portal-bypass {
+      description
+        "Enable Captive portal bypass for apple devices";
+      type empty;
+    }
+    container memory {
+      description
+        "Configure memory management";
+      container statistics {
+        description
+          "Configure statistics history table";
+        container history {
+          description
+            "Configure statistics history table";
+          leaf table {
+            description
+              "Configure statistics history table";
+            type uint8 {
+              range "12..72";
+            }
+          }
+        }
+      }
+      container chunk {
+        description
+          "chunk related configuration";
+        container siblings {
+          description
+            "chunk siblings related configuration";
+          leaf threshold {
+            description
+              "Default is platform dependent";
+            type uint32 {
+              range "2..4294967295";
+            }
+          }
+        }
+      }
+      container free {
+        description
+          "free memory low water mark";
+        container low-watermark {
+          description
+            "low water mark for notifications";
+          leaf IO {
+            description
+              "low water mark of memory in KB";
+            type uint32 {
+              range "1..3994575";
+            }
+          }
+          leaf processor {
+            description
+              "low water mark of memory in KB";
+            type uint32 {
+              range "1..3994575";
+            }
+          }
+        }
+      }
+      leaf lite {
+        description
+          "Enable/disable memory lite";
+        type empty;
+      }
+      container reserve {
+        description
+          "reserve memory";
+        container critical {
+          description
+            "Reserve Critical Memory";
+          presence "true";
+          leaf memory-range {
+            description
+              "total amount of memory to be reserved in kilobytes";
+            type uint32 {
+              range "1..4294967295";
+            }
+          }
+        }
+      }
+      container sanity {
+        description
+          "Enable memory sanity";
+        presence "true";
+        leaf all {
+          description
+            "Enable memory sanity all";
+          type empty;
+        }
+        leaf buffer {
+          description
+            "Enable memory sanity buffer";
+          type empty;
+        }
+        leaf queue {
+          type empty;
+        }
+      }
+    }
     uses config-location-grouping;
     container call-home {
       description
         "Enter call-home configuration mode";
     }
-    // container hw-module {
-    //   description
-    //     "Control of individual components in the system";
-    //   container uplink {
-    //     description
-    //       "Uplink control";
-    //     leaf select {
-    //       description
-    //         "Select uplink interface";
-    //       type string;
-    //     }
-    //     leaf mode {
-    //       description
-    //         "Uplink mode";
-    //       type enumeration {
-    //         enum shared-backplane;
-    //       }
-    //     }
-    //   }
-    //   list breakout {
-    //     description
-    //       "Configure a native port into four breakout ports";
-    //     key "port-number";
-    //     leaf port-number {
-    //       description
-    //         "Port Number to be converted in to breakout ports";
-    //       type uint8 {
-    //         range "1..32";
-    //       }
-    //     }
-    //   }
-    //   list switch {
-    //     description
-    //       "Switch in the system";
-    //     key "switch-number";
-    //     leaf switch-number {
-    //       description
-    //         "Switch number in the Stack (Refer to show switch CLI)";
-    //       type uint8 {
-    //         range "1..8";
-    //       }
-    //     }
-    //     leaf usbflash1-password1 {
-    //       description
-    //         "USB SSD Security";
-    //       type string;
-    //     }
-    //     list usbflash1-password {
-    //       status deprecated;
-    //       description
-    //         "USB SSD Security";
-    //       key "usbflash1-password-string";
-    //       leaf usbflash1-password-string {
-    //         status deprecated;
-    //         description
-    //           "USB SSD Security";
-    //         type string;
-    //       }
-    //     }
-    //   }
-    //   list slot {
-    //     description
-    //       "Control a component in a slot";
-    //     key "name";
-    //     leaf name {
-    //       description
-    //         "Slot of LC";
-    //       type string;
-    //     }
-    //     leaf shutdown {
-    //       description
-    //         "Shutdown a fru";
-    //       type empty;
-    //     }
-    //   }
-    //   list subslot {
-    //     description
-    //       "Control a component in a subslot";
-    //     key "subslot-number";
-    //     leaf subslot-number {
-    //       description
-    //         "Line card subslot number in the range of <0-1>/<0-2> for mode change";
-    //       type string {
-    //         length "1..3";
-    //         pattern '[0-2/0-2]*';
-    //       }
-    //     }
-    //     leaf mode {
-    //       description
-    //         "subslot mode value, for which valid mode values are 10, 40 & 100 Gig";
-    //       type enumeration {
-    //         enum 10G {
-    //           value 10;
-    //         }
-    //         enum 40G {
-    //           value 40;
-    //         }
-    //         enum 100G {
-    //           value 100;
-    //         }
-    //       }
-    //       must "not((../subslot-number = '0/2') and (current() = '10G'))" {
-    //         error-message "10G mode is not supported on bay2";
-    //       }
-    //     }
-    //     container breakout {
-    //       description
-    //         "configure breakout mode";
-    //       choice breakout-choice {
-    //         default "none";
-    //         case mode-case {
-    //           list breakout-mode {
-    //             description
-    //               "Breakout mode for native ports";
-    //             key "id";
-    //             leaf id {
-    //               type enumeration {
-    //                 enum 10g;
-    //               }
-    //               must "not(current() and (current()/../../../mode = '100G'))" {
-    //                 error-app-tag "Invalid-mode";
-    //                 error-message "Either EPA is in 100G mode or it has some native ports with active breakout configurations before switching to 100G mode. Please note 10G Breakout is supported only in 40G mode";
-    //               }
-    //             }
-    //             container port {
-    //               description
-    //                 "Native port";
-    //               choice port-mode {
-    //                 case all {
-    //                   leaf all {
-    //                     description
-    //                       "Configure all native ports in breakout mode";
-    //                     type empty;
-    //                   }
-    //                 }
-    //                 case native_port {
-    //                   leaf native_port_0 {
-    //                     description
-    //                       "Configure native port 0 in breakout mode";
-    //                     type empty;
-    //                   }
-    //                   leaf native_port_4 {
-    //                     description
-    //                       "Configure native port 4 in breakout mode";
-    //                     type empty;
-    //                   }
-    //                   leaf native_port_8 {
-    //                     description
-    //                       "Configure native port 8 in breakout mode";
-    //                     type empty;
-    //                   }
-    //                 }
-    //               }
-    //             }
-    //           }
-    //         }
-    //         case none {
-    //           container none {
-    //             description
-    //               "Remove breakout configuration from all native ports";
-    //             container port {
-    //               description
-    //                 "Native port";
-    //               leaf all {
-    //                 description
-    //                   "Remove breakout configuration from all native ports";
-    //                 type enumeration {
-    //                   enum all;
-    //                 }
-    //                 default "all";
-    //               }
-    //             }
-    //           }
-    //         }
-    //       }
-    //     }
-    //     container shutdown {
-    //       description
-    //         "Shutdown the target subslot";
-    //       leaf unpowered {
-    //         description
-    //           "Power-off the target subslot";
-    //         type empty;
-    //       }
-    //     }
-    //     container ethernet {
-    //       description
-    //         "Configure ethernet";
-    //       leaf mode {
-    //         description
-    //           "configure mode for front-panel module ports 0/0/<4-5>";
-    //         type enumeration {
-    //           enum GE;
-    //           enum TE;
-    //         }
-    //         default "TE";
-    //       }
-    //     }
-    //   }
-    //   leaf sm {
-    //     type uint8;
-    //   }
-    //   leaf pvdm {
-    //     type string;
-    //   }
-    // }
-    // container cisp {
-    //   description
-    //     "Set CISP parameters";
-    //   leaf enable {
-    //     description
-    //       "Enable CISP";
-    //     type empty;
-    //   }
-    // }
+    container hw-module {
+      description
+        "Control of individual components in the system";
+      container uplink {
+        description
+          "Uplink control";
+        leaf select {
+          description
+            "Select uplink interface";
+          type string;
+        }
+        leaf mode {
+          description
+            "Uplink mode";
+          type enumeration {
+            enum shared-backplane;
+          }
+        }
+      }
+      list breakout {
+        description
+          "Configure a native port into four breakout ports";
+        key "port-number";
+        leaf port-number {
+          description
+            "Port Number to be converted in to breakout ports";
+          type uint8 {
+            range "1..32";
+          }
+        }
+      }
+      list switch {
+        description
+          "Switch in the system";
+        key "switch-number";
+        leaf switch-number {
+          description
+            "Switch number in the Stack (Refer to show switch CLI)";
+          type uint8 {
+            range "1..8";
+          }
+        }
+        leaf usbflash1-password1 {
+          description
+            "USB SSD Security";
+          type string;
+        }
+        list usbflash1-password {
+          status deprecated;
+          description
+            "USB SSD Security";
+          key "usbflash1-password-string";
+          leaf usbflash1-password-string {
+            status deprecated;
+            description
+              "USB SSD Security";
+            type string;
+          }
+        }
+      }
+      list slot {
+        description
+          "Control a component in a slot";
+        key "name";
+        leaf name {
+          description
+            "Slot of LC";
+          type string;
+        }
+        leaf shutdown {
+          description
+            "Shutdown a fru";
+          type empty;
+        }
+      }
+      list subslot {
+        description
+          "Control a component in a subslot";
+        key "subslot-number";
+        leaf subslot-number {
+          description
+            "Line card subslot number in the range of <0-1>/<0-2> for mode change";
+          type string {
+            length "1..3";
+            pattern '[0-2/0-2]*';
+          }
+        }
+        leaf mode {
+          description
+            "subslot mode value, for which valid mode values are 10, 40 & 100 Gig";
+          type enumeration {
+            enum 10G {
+              value 10;
+            }
+            enum 40G {
+              value 40;
+            }
+            enum 100G {
+              value 100;
+            }
+          }
+          must "not((../subslot-number = '0/2') and (current() = '10G'))" {
+            error-message "10G mode is not supported on bay2";
+          }
+        }
+        container breakout {
+          description
+            "configure breakout mode";
+          choice breakout-choice {
+            default "none";
+            case mode-case {
+              list breakout-mode {
+                description
+                  "Breakout mode for native ports";
+                key "id";
+                leaf id {
+                  type enumeration {
+                    enum 10g;
+                  }
+                  must "not(current() and (current()/../../../mode = '100G'))" {
+                    error-app-tag "Invalid-mode";
+                    error-message "Either EPA is in 100G mode or it has some native ports with active breakout configurations before switching to 100G mode. Please note 10G Breakout is supported only in 40G mode";
+                  }
+                }
+                container port {
+                  description
+                    "Native port";
+                  choice port-mode {
+                    case all {
+                      leaf all {
+                        description
+                          "Configure all native ports in breakout mode";
+                        type empty;
+                      }
+                    }
+                    case native_port {
+                      leaf native_port_0 {
+                        description
+                          "Configure native port 0 in breakout mode";
+                        type empty;
+                      }
+                      leaf native_port_4 {
+                        description
+                          "Configure native port 4 in breakout mode";
+                        type empty;
+                      }
+                      leaf native_port_8 {
+                        description
+                          "Configure native port 8 in breakout mode";
+                        type empty;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            case none {
+              container none {
+                description
+                  "Remove breakout configuration from all native ports";
+                container port {
+                  description
+                    "Native port";
+                  leaf all {
+                    description
+                      "Remove breakout configuration from all native ports";
+                    type enumeration {
+                      enum all;
+                    }
+                    default "all";
+                  }
+                }
+              }
+            }
+          }
+        }
+        container shutdown {
+          description
+            "Shutdown the target subslot";
+          leaf unpowered {
+            description
+              "Power-off the target subslot";
+            type empty;
+          }
+        }
+        container ethernet {
+          description
+            "Configure ethernet";
+          leaf mode {
+            description
+              "configure mode for front-panel module ports 0/0/<4-5>";
+            type enumeration {
+              enum GE;
+              enum TE;
+            }
+            default "TE";
+          }
+        }
+      }
+      leaf sm {
+        type uint8;
+      }
+      leaf pvdm {
+        type string;
+      }
+    }
+    container cisp {
+      description
+        "Set CISP parameters";
+      leaf enable {
+        description
+          "Enable CISP";
+        type empty;
+      }
+    }
     container module {
       description
         "Module";
@@ -1144,124 +1144,124 @@ module Cisco-IOS-XE-native {
       }
     }
 
-    // grouping identity-policy-grouping {
-    //   leaf absolute-timer {
-    //     description
-    //       "Absolute timeout value in seconds";
-    //     type uint16 {
-    //       range "1..65535";
-    //     }
-    //   }
-    //   leaf access-group {
-    //     description
-    //       "Access list to be applied";
-    //     type string;
-    //   }
-    //   leaf description {
-    //     description
-    //       "Enter a description";
-    //     type string;
-    //   }
-    //   leaf inactivity-timer {
-    //     description
-    //       "Inactivity timeout value in seconds";
-    //     type uint16 {
-    //       range "0..65535";
-    //     }
-    //   }
-    //   leaf interface-template {
-    //     description
-    //       "Interface template to be applied";
-    //     type string;
-    //   }
-    //   container linksec {
-    //     description
-    //       "Configure link security parameters";
-    //     leaf policy {
-    //       description
-    //         "Set the link security policy";
-    //       type enumeration {
-    //         enum must-not-secure;
-    //         enum must-secure;
-    //         enum should-secure;
-    //       }
-    //     }
-    //   }
-    //   container redirect {
-    //     description
-    //       "Redirect clients to a particular location";
-    //     leaf url {
-    //       description
-    //         "URL where clients should be redirected";
-    //       type string;
-    //     }
-    //   }
-    //   container service-policy {
-    //     description
-    //       "Configure service policy";
-    //     list qos {
-    //       description
-    //         "Configure qos policies for client";
-    //       key "direction";
-    //       leaf direction {
-    //         type enumeration {
-    //           enum input;
-    //           enum output;
-    //         }
-    //       }
-    //       leaf name {
-    //         type string;
-    //       }
-    //     }
-    //   }
-    //   leaf sgt {
-    //     description
-    //       "SGT tag";
-    //     type uint16 {
-    //       range "2..65519";
-    //     }
-    //   }
-    //   leaf tag {
-    //     description
-    //       "tag name";
-    //     type string;
-    //   }
-    //   container tunnel {
-    //     description
-    //       "tunnel for wired client access";
-    //     container type {
-    //       description
-    //         "tunnel type";
-    //       container capwap {
-    //         description
-    //           "capwap tunnel type";
-    //         leaf name {
-    //           description
-    //             "tunnel profile name";
-    //           type string;
-    //         }
-    //       }
-    //     }
-    //   }
-    //   leaf vlan {
-    //     description
-    //       "Enter a VlanId";
-    //     type uint16 {
-    //       range "1..4094";
-    //     }
-    //   }
-    //   container voice {
-    //     description
-    //       "Voice feature";
-    //     leaf vlan {
-    //       description
-    //         "Critical voice vlan";
-    //       type empty;
-    //     }
-    //   }
-    // }
+    grouping identity-policy-grouping {
+      leaf absolute-timer {
+        description
+          "Absolute timeout value in seconds";
+        type uint16 {
+          range "1..65535";
+        }
+      }
+      leaf access-group {
+        description
+          "Access list to be applied";
+        type string;
+      }
+      leaf description {
+        description
+          "Enter a description";
+        type string;
+      }
+      leaf inactivity-timer {
+        description
+          "Inactivity timeout value in seconds";
+        type uint16 {
+          range "0..65535";
+        }
+      }
+      leaf interface-template {
+        description
+          "Interface template to be applied";
+        type string;
+      }
+      container linksec {
+        description
+          "Configure link security parameters";
+        leaf policy {
+          description
+            "Set the link security policy";
+          type enumeration {
+            enum must-not-secure;
+            enum must-secure;
+            enum should-secure;
+          }
+        }
+      }
+      container redirect {
+        description
+          "Redirect clients to a particular location";
+        leaf url {
+          description
+            "URL where clients should be redirected";
+          type string;
+        }
+      }
+      container service-policy {
+        description
+          "Configure service policy";
+        list qos {
+          description
+            "Configure qos policies for client";
+          key "direction";
+          leaf direction {
+            type enumeration {
+              enum input;
+              enum output;
+            }
+          }
+          leaf name {
+            type string;
+          }
+        }
+      }
+      leaf sgt {
+        description
+          "SGT tag";
+        type uint16 {
+          range "2..65519";
+        }
+      }
+      leaf tag {
+        description
+          "tag name";
+        type string;
+      }
+      container tunnel {
+        description
+          "tunnel for wired client access";
+        container type {
+          description
+            "tunnel type";
+          container capwap {
+            description
+              "capwap tunnel type";
+            leaf name {
+              description
+                "tunnel profile name";
+              type string;
+            }
+          }
+        }
+      }
+      leaf vlan {
+        description
+          "Enter a VlanId";
+        type uint16 {
+          range "1..4094";
+        }
+      }
+      container voice {
+        description
+          "Voice feature";
+        leaf vlan {
+          description
+            "Critical voice vlan";
+          type empty;
+        }
+      }
+    }
 
-    // uses config-parser-grouping;
+    uses config-parser-grouping;
     container service {
       description
         "Modify use of network based services";
@@ -1270,59 +1270,59 @@ module Cisco-IOS-XE-native {
           "Enable/Disable Internal commands";
         type empty;
       }
-      // container pad-conf {
-      //   leaf pad {
-      //     description
-      //       "Enable PAD commands";
-      //     type boolean;
-      //     default "false";
-      //   }
-      // }
-      // container pad-config-more {
-      //   container pad-config {
-      //     description
-      //       "Enable PAD commands";
-      //     leaf cmns {
-      //       description
-      //         "Enable PAD over CMNS connections";
-      //       type empty;
-      //     }
-      //     leaf from-xot {
-      //       description
-      //         "Accept XOT to PAD connections";
-      //       type empty;
-      //     }
-      //     leaf to-xot {
-      //       description
-      //         "Allow outgoing PAD over XOT connections";
-      //       type empty;
-      //     }
-      //   }
-      // }
-      // container pad {
-      //   description
-      //     "Enable PAD commands";
-      //   status deprecated;
-      //   presence "true";
-      //   leaf cmns {
-      //     description
-      //       "Enable PAD over CMNS connections";
-      //     status deprecated;
-      //     type empty;
-      //   }
-      //   leaf from-xot {
-      //     description
-      //       "Accept XOT to PAD connections";
-      //     status deprecated;
-      //     type empty;
-      //   }
-      //   leaf to-xot {
-      //     description
-      //       "Allow outgoing PAD over XOT connections";
-      //     status deprecated;
-      //     type empty;
-      //   }
-      // }
+      container pad-conf {
+        leaf pad {
+          description
+            "Enable PAD commands";
+          type boolean;
+          default "false";
+        }
+      }
+      container pad-config-more {
+        container pad-config {
+          description
+            "Enable PAD commands";
+          leaf cmns {
+            description
+              "Enable PAD over CMNS connections";
+            type empty;
+          }
+          leaf from-xot {
+            description
+              "Accept XOT to PAD connections";
+            type empty;
+          }
+          leaf to-xot {
+            description
+              "Allow outgoing PAD over XOT connections";
+            type empty;
+          }
+        }
+      }
+      container pad {
+        description
+          "Enable PAD commands";
+        status deprecated;
+        presence "true";
+        leaf cmns {
+          description
+            "Enable PAD over CMNS connections";
+          status deprecated;
+          type empty;
+        }
+        leaf from-xot {
+          description
+            "Accept XOT to PAD connections";
+          status deprecated;
+          type empty;
+        }
+        leaf to-xot {
+          description
+            "Allow outgoing PAD over XOT connections";
+          status deprecated;
+          type empty;
+        }
+      }
       leaf password-encryption {
         description
           "Encrypt system passwords";
@@ -1817,373 +1817,373 @@ module Cisco-IOS-XE-native {
         }
       }
     }
-    // container eap {
-    //   description
-    //     "Configure EAP authenticator parameters";
-    //   container key-name {
-    //     description
-    //       "EAP Key-name";
-    //     leaf compliance {
-    //       description
-    //         "Turn on compliance for EAP key-name";
-    //       type empty;
-    //     }
-    //   }
-    //   container method {
-    //     description
-    //       "Configure EAP authentication method profiles";
-    //     container fast {
-    //       description
-    //         "EAP-FAST method configuration";
-    //       list profile {
-    //         description
-    //           "Set the authentication method profile name";
-    //         key "name";
-    //         leaf name {
-    //           description
-    //             "Specify the name of the method profile
-    //              (max 63 characters)";
-    //           type string;
-    //         }
-    //         leaf accept-on-auth-prov {
-    //           description
-    //             "Accept client on authenticated provisioning,
-    //              default: on";
-    //           type boolean;
-    //           default "true";
-    //         }
-    //         leaf allow-anon-prov {
-    //           description
-    //             "Allow anonymous provisioning, default: on";
-    //           type boolean;
-    //           default "true";
-    //         }
-    //         leaf allow-auth-prov {
-    //           description
-    //             "Allow authenticated provisioning,default: on";
-    //           type boolean;
-    //           default "true";
-    //         }
-    //         container authority-id {
-    //           description
-    //             "Configure the authority ID";
-    //           leaf identity {
-    //             description
-    //               "Specify the authority ID identity";
-    //             type string;
-    //           }
-    //           leaf information {
-    //             description
-    //               "Specify the authority ID information";
-    //             type string;
-    //           }
-    //         }
-    //         leaf client-cert-required {
-    //           description
-    //             "Use a client certificate if present,
-    //              default: on";
-    //           type boolean;
-    //           default "true";
-    //         }
-    //         leaf description {
-    //           description
-    //             "Description for this EAP-FAST profile";
-    //           type string;
-    //         }
-    //         leaf local-cert-required {
-    //           description
-    //             "Use a local (server) certificate if present,
-    //              default: on";
-    //           type boolean;
-    //           default "true";
-    //         }
-    //         container local-key {
-    //           description
-    //             "Configure the local (server) key";
-    //           leaf type {
-    //             description
-    //               "type of local-key";
-    //             type enumeration {
-    //               enum 0;
-    //               enum 7;
-    //             }
-    //           }
-    //           leaf secret {
-    //             description
-    //               "define local-key";
-    //             type string {
-    //               pattern '.*';
-    //             }
-    //           }
-    //         }
-    //         container pac-password {
-    //           description
-    //             "Default password for manual PAC provisioning";
-    //           leaf type {
-    //             description
-    //               "type of pac-password";
-    //             type enumeration {
-    //               enum 0;
-    //               enum 7;
-    //             }
-    //           }
-    //           leaf secret {
-    //             description
-    //               "define pac-password";
-    //             type string {
-    //               pattern '.*';
-    //             }
-    //           }
-    //         }
-    //         leaf pac-ttl {
-    //           description
-    //             "PAC Time to live in seconds, default: 86400";
-    //           type uint32 {
-    //             range "1..700000000";
-    //           }
-    //           default "86400";
-    //         }
-    //       }
-    //     }
-    //   }
-    //   list profile {
-    //     description
-    //       "Configure EAP profiles";
-    //     key "name";
-    //     leaf name {
-    //       description
-    //         "Specify a profile name (max 63 characters)";
-    //       type string;
-    //     }
-    //     leaf description {
-    //       description
-    //         "Provide a description for the EAP profile";
-    //       type string;
-    //     }
-    //     container method {
-    //       description
-    //         "Add an allowed method";
-    //       container fast-config {
-    //         description
-    //           "EAP-FAST method allowed";
-    //         presence "true";
-    //         leaf profile {
-    //           description
-    //             "Set the authenticator profile for this method";
-    //           type string;
-    //         }
-    //       }
-    //       leaf fast {
-    //         status deprecated;
-    //         description
-    //           "Deprecated: Use fast-config";
-    //         type empty;
-    //       }
-    //       leaf gtc {
-    //         description
-    //           "EAP-GTC method allowed";
-    //         type empty;
-    //       }
-    //       leaf leap {
-    //         description
-    //           "EAP-LEAP method allowed";
-    //         type empty;
-    //       }
-    //       leaf mschapv2 {
-    //         description
-    //           "EAP-MSCHAPV2 method allowed";
-    //         type empty;
-    //       }
-    //       leaf peap {
-    //         description
-    //           "EAP-PEAP method allowed";
-    //         type empty;
-    //       }
-    //       leaf md5 {
-    //         description
-    //           "EAP-MD5 method allowed";
-    //         type empty;
-    //       }
-    //       leaf tls {
-    //         description
-    //           "EAP-TLS method allowed";
-    //         type empty;
-    //       }
-    //     }
-    //     container ciphersuite {
-    //       description
-    //         "Add an allowed ciphersuite";
-    //       leaf aes128-sha {
-    //         description
-    //           "Encryption Type tls_rsa_with_aes_128_cbc_sha";
-    //         type empty;
-    //       }
-    //       leaf aes256-sha {
-    //         description
-    //           "Encryption Type tls_rsa_with_aes_256_cbc_sha";
-    //         type empty;
-    //       }
-    //       leaf dhe-rsa-aes-gcm-sha2 {
-    //         description
-    //           "Encryption Type tls_dhe_rsa_with_aes_128_gcm_sha256 and tls_dhe_rsa_with_aes_256_gcm_sha384(TLS 1.2 and above)";
-    //         type empty;
-    //       }
-    //       leaf dhe-rsa-aes-sha2 {
-    //         description
-    //           "Encryption Type tls_dhe_rsa_with_aes_128_cbc_sha256 and tls_dhe_rsa_with_aes_256_cbc_sha256 (TLS 1.2 and above)";
-    //         type empty;
-    //       }
-    //       leaf dhe-rsa-aes128-sha {
-    //         description
-    //           "Encryption Type tls_dhe_rsa_with_aes_128_cbc_sha";
-    //         type empty;
-    //       }
-    //       leaf dhe-rsa-aes256-sha {
-    //         description
-    //           "Encryption Type  tls_dhe_rsa_with_aes_256_cbc_sha";
-    //         type empty;
-    //       }
-    //       leaf ecdhe-ecdsa-aes-gcm-sha2 {
-    //         description
-    //           "Encryption Type tls_ecdhe_ecdsa_with_aes_128_gcm_sha256 and tls_ecdhe_ecdsa_with_aes_256_gcm_sha384(TLS 1.2 and above)";
-    //         type empty;
-    //       }
-    //       leaf ecdhe-ecdsa-aes-sha {
-    //         description
-    //           "Encryption Type tls_ecdhe_ecdsa_with_aes_128_cbc_sha and tls_ecdhe_ecdsa_with_aes_256_cbc_sha";
-    //         type empty;
-    //       }
-    //       leaf ecdhe-ecdsa-aes-sha2 {
-    //         description
-    //           "Encryption Type tls_ecdhe_ecdsa_with_aes_128_cbc_sha256 and tls_ecdhe_ecdsa_with_aes_256_cbc_sha384(TLS 1.2 and above)";
-    //         type empty;
-    //       }
-    //       leaf ecdhe-rsa-aes-gcm-sha2 {
-    //         description
-    //           "Encryption Type tls_ecdhe_rsa_with_aes_128_gcm_sha256 and tls_ecdhe_rsa_with_aes_256_gcm_sha384(TLS 1.2 and above)";
-    //         type empty;
-    //       }
-    //       leaf ecdhe-rsa-aes-sha {
-    //         description
-    //           "Encryption Type tls_ecdhe_rsa_with_aes_128_cbc_sha and tls_ecdhe_rsa_with_aes_256_cbc_sha";
-    //         type empty;
-    //       }
-    //       leaf ecdhe-rsa-aes-sha2 {
-    //         description
-    //           "Encryption Type tls_ecdhe_rsa_with_aes_128_cbc_sha256 and tls_ecdhe_rsa_with_aes_256_cbc_sha384(TLS 1.2 and above)";
-    //         type empty;
-    //       }
-    //     }
-    //     leaf pki-trustpoint {
-    //       description
-    //         "Set the default pki trustpoint";
-    //       type string;
-    //     }
-    //   }
-    // }
-    // container archive {
-    //   description
-    //     "Archive the configuration";
-    //   container log {
-    //     description
-    //       "Logging commands";
-    //     container config {
-    //       description
-    //         "Logging changes to the running configuration";
-    //       leaf hidekeys {
-    //         description
-    //           "suppress output (e.g. passwords) when displaying logged commands";
-    //         type empty;
-    //       }
-    //       container logging {
-    //         description
-    //           "Modify config logging parameters";
-    //         leaf enable {
-    //           description
-    //             "Enable the config logger";
-    //           type empty;
-    //         }
-    //         leaf size {
-    //           description
-    //             "Maximum number of logged commands that will be kept by the config log";
-    //           type uint16 {
-    //             range "1..1000";
-    //           }
-    //         }
-    //         container persistent {
-    //           description
-    //             "Log configuration persistent";
-    //           presence "true";
-    //           leaf auto {
-    //             description
-    //               "Log configuration commands automatically";
-    //             type empty;
-    //           }
-    //           leaf reload {
-    //             description
-    //               "Apply persisted commands on reload";
-    //             type empty;
-    //           }
-    //         }
-    //       }
-    //       container notify {
-    //         description
-    //           "Send logged commands to target applications";
-    //         container syslog {
-    //           description
-    //             "Send logged commands as syslog messages";
-    //           presence "true";
-    //           leaf contenttype {
-    //             description
-    //               "Type of the syslog message content";
-    //             type enumeration {
-    //               enum plaintext;
-    //               enum xml;
-    //             }
-    //           }
-    //         }
-    //       }
-    //     }
-    //   }
-    //   leaf path {
-    //     description
-    //       "path for backups";
-    //     type union {
-    //       type enumeration {
-    //         enum bootflash:;
-    //         enum flash:;
-    //         enum ftp:;
-    //         enum harddisk:;
-    //         enum http:;
-    //         enum https:;
-    //         enum pram:;
-    //         enum rcp:;
-    //         enum scp:;
-    //         enum tftp:;
-    //       }
-    //       type string;
-    //     }
-    //   }
-    //   leaf maximum {
-    //     description
-    //       "maximum number of backup copies";
-    //     type uint8 {
-    //       range "1..14";
-    //     }
-    //   }
-    //   leaf write-memory {
-    //     description
-    //       "Enable automatic backup generation during write memory";
-    //     type empty;
-    //   }
-    //   leaf time-period {
-    //     description
-    //       "Period of time in minutes to automatically archive the running-config";
-    //     type uint32 {
-    //       range "1..525600";
-    //     }
-    //   }
-    // }
+    container eap {
+      description
+        "Configure EAP authenticator parameters";
+      container key-name {
+        description
+          "EAP Key-name";
+        leaf compliance {
+          description
+            "Turn on compliance for EAP key-name";
+          type empty;
+        }
+      }
+      container method {
+        description
+          "Configure EAP authentication method profiles";
+        container fast {
+          description
+            "EAP-FAST method configuration";
+          list profile {
+            description
+              "Set the authentication method profile name";
+            key "name";
+            leaf name {
+              description
+                "Specify the name of the method profile
+                 (max 63 characters)";
+              type string;
+            }
+            leaf accept-on-auth-prov {
+              description
+                "Accept client on authenticated provisioning,
+                 default: on";
+              type boolean;
+              default "true";
+            }
+            leaf allow-anon-prov {
+              description
+                "Allow anonymous provisioning, default: on";
+              type boolean;
+              default "true";
+            }
+            leaf allow-auth-prov {
+              description
+                "Allow authenticated provisioning,default: on";
+              type boolean;
+              default "true";
+            }
+            container authority-id {
+              description
+                "Configure the authority ID";
+              leaf identity {
+                description
+                  "Specify the authority ID identity";
+                type string;
+              }
+              leaf information {
+                description
+                  "Specify the authority ID information";
+                type string;
+              }
+            }
+            leaf client-cert-required {
+              description
+                "Use a client certificate if present,
+                 default: on";
+              type boolean;
+              default "true";
+            }
+            leaf description {
+              description
+                "Description for this EAP-FAST profile";
+              type string;
+            }
+            leaf local-cert-required {
+              description
+                "Use a local (server) certificate if present,
+                 default: on";
+              type boolean;
+              default "true";
+            }
+            container local-key {
+              description
+                "Configure the local (server) key";
+              leaf type {
+                description
+                  "type of local-key";
+                type enumeration {
+                  enum 0;
+                  enum 7;
+                }
+              }
+              leaf secret {
+                description
+                  "define local-key";
+                type string {
+                  pattern '.*';
+                }
+              }
+            }
+            container pac-password {
+              description
+                "Default password for manual PAC provisioning";
+              leaf type {
+                description
+                  "type of pac-password";
+                type enumeration {
+                  enum 0;
+                  enum 7;
+                }
+              }
+              leaf secret {
+                description
+                  "define pac-password";
+                type string {
+                  pattern '.*';
+                }
+              }
+            }
+            leaf pac-ttl {
+              description
+                "PAC Time to live in seconds, default: 86400";
+              type uint32 {
+                range "1..700000000";
+              }
+              default "86400";
+            }
+          }
+        }
+      }
+      list profile {
+        description
+          "Configure EAP profiles";
+        key "name";
+        leaf name {
+          description
+            "Specify a profile name (max 63 characters)";
+          type string;
+        }
+        leaf description {
+          description
+            "Provide a description for the EAP profile";
+          type string;
+        }
+        container method {
+          description
+            "Add an allowed method";
+          container fast-config {
+            description
+              "EAP-FAST method allowed";
+            presence "true";
+            leaf profile {
+              description
+                "Set the authenticator profile for this method";
+              type string;
+            }
+          }
+          leaf fast {
+            status deprecated;
+            description
+              "Deprecated: Use fast-config";
+            type empty;
+          }
+          leaf gtc {
+            description
+              "EAP-GTC method allowed";
+            type empty;
+          }
+          leaf leap {
+            description
+              "EAP-LEAP method allowed";
+            type empty;
+          }
+          leaf mschapv2 {
+            description
+              "EAP-MSCHAPV2 method allowed";
+            type empty;
+          }
+          leaf peap {
+            description
+              "EAP-PEAP method allowed";
+            type empty;
+          }
+          leaf md5 {
+            description
+              "EAP-MD5 method allowed";
+            type empty;
+          }
+          leaf tls {
+            description
+              "EAP-TLS method allowed";
+            type empty;
+          }
+        }
+        container ciphersuite {
+          description
+            "Add an allowed ciphersuite";
+          leaf aes128-sha {
+            description
+              "Encryption Type tls_rsa_with_aes_128_cbc_sha";
+            type empty;
+          }
+          leaf aes256-sha {
+            description
+              "Encryption Type tls_rsa_with_aes_256_cbc_sha";
+            type empty;
+          }
+          leaf dhe-rsa-aes-gcm-sha2 {
+            description
+              "Encryption Type tls_dhe_rsa_with_aes_128_gcm_sha256 and tls_dhe_rsa_with_aes_256_gcm_sha384(TLS 1.2 and above)";
+            type empty;
+          }
+          leaf dhe-rsa-aes-sha2 {
+            description
+              "Encryption Type tls_dhe_rsa_with_aes_128_cbc_sha256 and tls_dhe_rsa_with_aes_256_cbc_sha256 (TLS 1.2 and above)";
+            type empty;
+          }
+          leaf dhe-rsa-aes128-sha {
+            description
+              "Encryption Type tls_dhe_rsa_with_aes_128_cbc_sha";
+            type empty;
+          }
+          leaf dhe-rsa-aes256-sha {
+            description
+              "Encryption Type  tls_dhe_rsa_with_aes_256_cbc_sha";
+            type empty;
+          }
+          leaf ecdhe-ecdsa-aes-gcm-sha2 {
+            description
+              "Encryption Type tls_ecdhe_ecdsa_with_aes_128_gcm_sha256 and tls_ecdhe_ecdsa_with_aes_256_gcm_sha384(TLS 1.2 and above)";
+            type empty;
+          }
+          leaf ecdhe-ecdsa-aes-sha {
+            description
+              "Encryption Type tls_ecdhe_ecdsa_with_aes_128_cbc_sha and tls_ecdhe_ecdsa_with_aes_256_cbc_sha";
+            type empty;
+          }
+          leaf ecdhe-ecdsa-aes-sha2 {
+            description
+              "Encryption Type tls_ecdhe_ecdsa_with_aes_128_cbc_sha256 and tls_ecdhe_ecdsa_with_aes_256_cbc_sha384(TLS 1.2 and above)";
+            type empty;
+          }
+          leaf ecdhe-rsa-aes-gcm-sha2 {
+            description
+              "Encryption Type tls_ecdhe_rsa_with_aes_128_gcm_sha256 and tls_ecdhe_rsa_with_aes_256_gcm_sha384(TLS 1.2 and above)";
+            type empty;
+          }
+          leaf ecdhe-rsa-aes-sha {
+            description
+              "Encryption Type tls_ecdhe_rsa_with_aes_128_cbc_sha and tls_ecdhe_rsa_with_aes_256_cbc_sha";
+            type empty;
+          }
+          leaf ecdhe-rsa-aes-sha2 {
+            description
+              "Encryption Type tls_ecdhe_rsa_with_aes_128_cbc_sha256 and tls_ecdhe_rsa_with_aes_256_cbc_sha384(TLS 1.2 and above)";
+            type empty;
+          }
+        }
+        leaf pki-trustpoint {
+          description
+            "Set the default pki trustpoint";
+          type string;
+        }
+      }
+    }
+    container archive {
+      description
+        "Archive the configuration";
+      container log {
+        description
+          "Logging commands";
+        container config {
+          description
+            "Logging changes to the running configuration";
+          leaf hidekeys {
+            description
+              "suppress output (e.g. passwords) when displaying logged commands";
+            type empty;
+          }
+          container logging {
+            description
+              "Modify config logging parameters";
+            leaf enable {
+              description
+                "Enable the config logger";
+              type empty;
+            }
+            leaf size {
+              description
+                "Maximum number of logged commands that will be kept by the config log";
+              type uint16 {
+                range "1..1000";
+              }
+            }
+            container persistent {
+              description
+                "Log configuration persistent";
+              presence "true";
+              leaf auto {
+                description
+                  "Log configuration commands automatically";
+                type empty;
+              }
+              leaf reload {
+                description
+                  "Apply persisted commands on reload";
+                type empty;
+              }
+            }
+          }
+          container notify {
+            description
+              "Send logged commands to target applications";
+            container syslog {
+              description
+                "Send logged commands as syslog messages";
+              presence "true";
+              leaf contenttype {
+                description
+                  "Type of the syslog message content";
+                type enumeration {
+                  enum plaintext;
+                  enum xml;
+                }
+              }
+            }
+          }
+        }
+      }
+      leaf path {
+        description
+          "path for backups";
+        type union {
+          type enumeration {
+            enum bootflash:;
+            enum flash:;
+            enum ftp:;
+            enum harddisk:;
+            enum http:;
+            enum https:;
+            enum pram:;
+            enum rcp:;
+            enum scp:;
+            enum tftp:;
+          }
+          type string;
+        }
+      }
+      leaf maximum {
+        description
+          "maximum number of backup copies";
+        type uint8 {
+          range "1..14";
+        }
+      }
+      leaf write-memory {
+        description
+          "Enable automatic backup generation during write memory";
+        type empty;
+      }
+      leaf time-period {
+        description
+          "Period of time in minutes to automatically archive the running-config";
+        type uint32 {
+          range "1..525600";
+        }
+      }
+    }
     list username {
       description
         "Establish User Name Authentication";
@@ -2421,23 +2421,23 @@ module Cisco-IOS-XE-native {
         }
       }
     }
-    // container card {
-    //   description
-    //     "Configure T1/E1 SPA";
-    // }
-    // container controller {
-    //   description
-    //     "Configure controller";
-    // }
-    // container frame-relay {
-    //   description
-    //     "global frame relay configuration commands";
-    // }
-    // leaf aqm-register-fnf {
-    //   description
-    //     "Export audio/video stats to flow record";
-    //   type empty;
-    // }
+    container card {
+      description
+        "Configure T1/E1 SPA";
+    }
+    container controller {
+      description
+        "Configure controller";
+    }
+    container frame-relay {
+      description
+        "global frame relay configuration commands";
+    }
+    leaf aqm-register-fnf {
+      description
+        "Export audio/video stats to flow record";
+      type empty;
+    }
     uses config-vrf-definition-grouping;
     uses config-global-address-family;
     container rmon {
@@ -2526,53 +2526,53 @@ module Cisco-IOS-XE-native {
         "Global Flow configuration subcommands";
     }
     uses config-ip-grouping;
-    // container mka {
-    //   description
-    //     "MACsec Key Agreement (MKA) configuration";
-    // }
-    // container macro {
-    //   description
-    //     "Macro configuration";
-    //   container global {
-    //     description
-    //       "Enter global macro configuration";
-    //     leaf description {
-    //       description
-    //         "Macro description of this device";
-    //       type string;
-    //     }
-    //   }
-    //   container auto {
-    //     description
-    //       "Macro autoexecution settings";
-    //   }
-    // }
+    container mka {
+      description
+        "MACsec Key Agreement (MKA) configuration";
+    }
+    container macro {
+      description
+        "Macro configuration";
+      container global {
+        description
+          "Enter global macro configuration";
+        leaf description {
+          description
+            "Macro description of this device";
+          type string;
+        }
+      }
+      container auto {
+        description
+          "Macro autoexecution settings";
+      }
+    }
     uses config-ipv6-grouping;
     container vlan {
       description
         "Global vlan configuration";
     }
-    // container mvrp {
-    //   description
-    //     "Global MVRP";
-    // }
-    // container avb {
-    //   description
-    //     "Global AVB";
-    //   presence "true";
-    // }
-    // container ptp {
-    //   description
-    //     "Global PTP";
-    // }
+    container mvrp {
+      description
+        "Global MVRP";
+    }
+    container avb {
+      description
+        "Global AVB";
+      presence "true";
+    }
+    container ptp {
+      description
+        "Global PTP";
+    }
     container cdp {
       description
         "Global CDP configuration subcommands";
     }
-    // container avc {
-    //   description
-    //     "Application visibility and control";
-    // }
+    container avc {
+      description
+        "Application visibility and control";
+    }
     container policy;
     uses config-interface-grouping;
     list route-map {
@@ -2586,44 +2586,44 @@ module Cisco-IOS-XE-native {
       }
     }
     container route-tag;
-    // list table-map {
-    //   description
-    //     "Configure Table Map";
-    //   key "name";
-    //   leaf name {
-    //     type string;
-    //   }
-    // }
-    // container sdm {
-    //   description
-    //     "Switch database management";
-    // }
-    // container mls {
-    //   description
-    //     "mls global commands";
-    // }
+    list table-map {
+      description
+        "Configure Table Map";
+      key "name";
+      leaf name {
+        type string;
+      }
+    }
+    container sdm {
+      description
+        "Switch database management";
+    }
+    container mls {
+      description
+        "mls global commands";
+    }
     container object-group {
       description
         "Configure Object group";
     }
-    // list pseudowire-class {
-    //   description
-    //     "Pseudowire-class configuration";
-    //   key "name";
-    //   leaf name {
-    //     type string;
-    //   }
-    // }
-    // list l2tp-class {
-    //   description
-    //     "l2tp-class configuration";
-    //   key "name";
-    //   leaf name {
-    //     description
-    //       "l2tp-class name";
-    //     type string;
-    //   }
-    // }
+    list pseudowire-class {
+      description
+        "Pseudowire-class configuration";
+      key "name";
+      leaf name {
+        type string;
+      }
+    }
+    list l2tp-class {
+      description
+        "l2tp-class configuration";
+      key "name";
+      leaf name {
+        description
+          "l2tp-class name";
+        type string;
+      }
+    }
     container control-plane {
       description
         "Configure control plane services";
@@ -2849,7 +2849,7 @@ module Cisco-IOS-XE-native {
       description
         "Authentication, Authorization and Accounting.";
     }
-    // uses config-privilege-grouping;
+    uses config-privilege-grouping;
     container login {
       description
         "Enable secure login checking";
@@ -2935,649 +2935,649 @@ module Cisco-IOS-XE-native {
         }
       }
     }
-    // container multilink {
-    //   description
-    //     "PPP multilink global configuration";
-    // }
-    // container mac-address-table {
-    //   description
-    //     "Configure the MAC address table";
-    //   container evc-xconnect {
-    //     description
-    //       "All ethernet virtual connections xconnect";
-    //     leaf l2pt-forward-all {
-    //       description
-    //         "Layer 2 Protocol Forward All";
-    //       type empty;
-    //     }
-    //   }
-    //   container limit {
-    //     description
-    //       "Enter parameters for mac limit feature";
-    //     list bdomain {
-    //       description
-    //         "bdomain number for  mac limit feature";
-    //       key "number";
-    //       leaf number {
-    //         type uint16 {
-    //           range "1..4095";
-    //         }
-    //       }
-    //       leaf action {
-    //         description
-    //           "Enter action";
-    //         type enumeration {
-    //           enum warning;
-    //           enum limit;
-    //           enum shutdown;
-    //         }
-    //       }
-    //       leaf maximum {
-    //         description
-    //           "Enter max allowed entries";
-    //         type uint32 {
-    //           range "0..16000";
-    //         }
-    //       }
-    //     }
-    //   }
-    //   container learning {
-    //     description
-    //       "Enable a MAC table learning feature";
-    //     list vlan {
-    //       description
-    //         "Layer 2 table learning per VLAN";
-    //       key "id";
-    //       leaf id {
-    //         type uint16 {
-    //           range "1..4094";
-    //         }
-    //       }
-    //       leaf module {
-    //         description
-    //           "Layer 2 table learning per VLAN per module";
-    //         type uint8 {
-    //           range "1..9";
-    //         }
-    //       }
-    //     }
-    //   }
-    // }
-    // container redundancy {
-    //   description
-    //     "Enter redundancy mode";
-    //   presence "true";
-    //   container application {
-    //     description
-    //       "Enter application redundancy group mode";
-    //     container redundancy {
-    //       description
-    //         "Enter application redundancy group mode";
-    //       presence "true";
-    //       list group {
-    //         description
-    //           "Enter rg group mode";
-    //         key "id";
-    //         leaf id {
-    //           description
-    //             "rg group id";
-    //           type uint8 {
-    //             range "1..2";
-    //           }
-    //         }
-    //         container name {
-    //           description
-    //             "RG group name string";
-    //           leaf group-name {
-    //             description
-    //               "name string (25 chars. max)";
-    //             type string {
-    //               length "1..25";
-    //             }
-    //           }
-    //         }
-    //         container control {
-    //           description
-    //             "RG group control interface";
-    //           leaf interface {
-    //             description
-    //               "Interface to be used as RG control interface";
-    //             type string;
-    //           }
-    //           leaf protocol {
-    //             description
-    //               "RG group protocol media";
-    //             when '../interface';
-    //             type uint8 {
-    //               range "1..8";
-    //             }
-    //           }
-    //         }
-    //         leaf data {
-    //           description
-    //             "RG group data interface";
-    //           type string;
-    //         }
-    //         leaf preempt {
-    //           description
-    //             "RG group preempt";
-    //           type empty;
-    //         }
-    //         container timers {
-    //           description
-    //             "RG group timers";
-    //           leaf delay {
-    //             description
-    //               "RG group delay timer. value in seconds";
-    //             type uint16 {
-    //               range "0..10000";
-    //             }
-    //           }
-    //           leaf reload {
-    //             description
-    //               "RG group reload timer. Value in seconds";
-    //             when '../delay';
-    //             type uint16 {
-    //               range "0..10000";
-    //             }
-    //           }
-    //         }
-    //         container priority {
-    //           description
-    //             "RG group Priority";
-    //           leaf value {
-    //             description
-    //               "Priority value";
-    //             type uint8 {
-    //               range "1..255";
-    //             }
-    //           }
-    //           container failover {
-    //             description
-    //               "Failover Threshold";
-    //             when '../value';
-    //             leaf threshold {
-    //               description
-    //                 "Failover Threshold";
-    //               type uint8 {
-    //                 range "1..255";
-    //               }
-    //             }
-    //           }
-    //           leaf failover-threshold {
-    //             status deprecated;
-    //             description
-    //               "Failover Threshold";
-    //             when '../value';
-    //             type uint8 {
-    //               range "1..255";
-    //             }
-    //           }
-    //         }
-    //       }
-    //     }
-    //   }
-    //   leaf maintenance-mode {
-    //     description
-    //       "Enable/Disable maintenance mode ";
-    //     type empty;
-    //   }
-    //   container main-cpu {
-    //     description
-    //       "Enter main-cpu mode";
-    //     presence "true";
-    //     container auto-sync {
-    //       leaf running-config {
-    //         type empty;
-    //       }
-    //       leaf config-register {
-    //         type empty;
-    //       }
-    //       leaf bootvar {
-    //         type empty;
-    //       }
-    //       leaf standard {
-    //         type empty;
-    //       }
-    //     }
-    //     container standby {
-    //       description
-    //         "Standby";
-    //       container console {
-    //         description
-    //           "Console";
-    //         leaf enable {
-    //           description
-    //             "Enable";
-    //           type empty;
-    //         }
-    //       }
-    //       container initialization {
-    //         description
-    //           "Initialization";
-    //         container delay {
-    //           description
-    //             "Delay";
-    //           leaf second {
-    //             description
-    //               "Delay value in seconds";
-    //             type uint16 {
-    //               range "30..1800";
-    //             }
-    //           }
-    //           leaf boot-only {
-    //             description
-    //               "Delay effective only on system boot";
-    //             type empty;
-    //           }
-    //         }
-    //       }
-    //     }
-    //   }
-    //   leaf mode {
-    //     description
-    //       "redundancy mode for this chassis";
-    //     type enumeration {
-    //       enum rpr;
-    //       enum rpr-plus;
-    //       enum sso;
-    //       enum none;
-    //     }
-    //   }
-    //   container policy {
-    //     description
-    //       "redundancy policy enforcement";
-    //     container config-sync {
-    //       description
-    //         "config sync parameters";
-    //       container bulk {
-    //         description
-    //           "bulk configuration mode";
-    //         container prc {
-    //           description
-    //             "prc policy enforcement";
-    //           leaf reload {
-    //             description
-    //               "reload standby";
-    //             type boolean;
-    //           }
-    //         }
-    //       }
-    //       container lbl {
-    //         description
-    //           "line-by-line configuration mode";
-    //         container prc {
-    //           description
-    //             "prc policy enforcement";
-    //           leaf reload {
-    //             description
-    //               "reload standby";
-    //             type boolean;
-    //           }
-    //         }
-    //       }
-    //     }
-    //   }
-    //   container timer {
-    //     description
-    //       "Select a timer to configure";
-    //     leaf rpso {
-    //       description
-    //         "Delay value in seconds";
-    //       type uint16 {
-    //         range "120..1200";
-    //       }
-    //     }
-    //   }
-    //   container interchassis {
-    //     description
-    //       "Enter interchassis mode";
-    //     list group {
-    //       description
-    //         "Enter the redundancy group number";
-    //       key "group-number";
-    //       leaf group-number {
-    //         type uint64 {
-    //           range "1..4294967295";
-    //         }
-    //       }
-    //       container monitor {
-    //         description
-    //           "define the peer monitoring method";
-    //         leaf peer {
-    //           description
-    //             "the peer method";
-    //           type empty;
-    //         }
-    //         leaf bfd {
-    //           description
-    //             "set peer monitoring method to bfd";
-    //           type empty;
-    //         }
-    //       }
-    //       container member {
-    //         description
-    //           "specify a redundancy group member";
-    //         leaf ip {
-    //           description
-    //             "specify the redundancy group member using an ip address";
-    //           type inet:ipv4-address;
-    //         }
-    //       }
-    //       container backbone {
-    //         description
-    //           "specify a redundancy group member";
-    //         leaf-list interface-list {
-    //           ordered-by user;
-    //           type string;
-    //         }
-    //         container interface {
-    //           status deprecated;
-    //           uses ios-ifc:interface-deprecated-grouping;
-    //         }
-    //       }
-    //     }
-    //   }
-    // }
-    // container scheduler {
-    //   description
-    //     "Scheduler parameters";
-    //   container runtime {
-    //     description
-    //       "Process runtime controls";
-    //     leaf netinput {
-    //       description
-    //         "Process-switching run time (in milliseconds)";
-    //       type uint16 {
-    //         range "100..40000";
-    //       }
-    //     }
-    //   }
-    //   container allocate {
-    //     description
-    //       "Guarantee CPU time for processes";
-    //     leaf interrupt-time {
-    //       type uint16 {
-    //         range "400..60000";
-    //       }
-    //     }
-    //     leaf process-time {
-    //       type uint16 {
-    //         range "100..4000";
-    //       }
-    //     }
-    //   }
-    // }
-    // container epm {
-    //   description
-    //     "EPM Global Configuration Commands";
-    //   leaf logging {
-    //     description
-    //       "Enable EPM logging";
-    //     type empty;
-    //   }
-    // }
+    container multilink {
+      description
+        "PPP multilink global configuration";
+    }
+    container mac-address-table {
+      description
+        "Configure the MAC address table";
+      container evc-xconnect {
+        description
+          "All ethernet virtual connections xconnect";
+        leaf l2pt-forward-all {
+          description
+            "Layer 2 Protocol Forward All";
+          type empty;
+        }
+      }
+      container limit {
+        description
+          "Enter parameters for mac limit feature";
+        list bdomain {
+          description
+            "bdomain number for  mac limit feature";
+          key "number";
+          leaf number {
+            type uint16 {
+              range "1..4095";
+            }
+          }
+          leaf action {
+            description
+              "Enter action";
+            type enumeration {
+              enum warning;
+              enum limit;
+              enum shutdown;
+            }
+          }
+          leaf maximum {
+            description
+              "Enter max allowed entries";
+            type uint32 {
+              range "0..16000";
+            }
+          }
+        }
+      }
+      container learning {
+        description
+          "Enable a MAC table learning feature";
+        list vlan {
+          description
+            "Layer 2 table learning per VLAN";
+          key "id";
+          leaf id {
+            type uint16 {
+              range "1..4094";
+            }
+          }
+          leaf module {
+            description
+              "Layer 2 table learning per VLAN per module";
+            type uint8 {
+              range "1..9";
+            }
+          }
+        }
+      }
+    }
+    container redundancy {
+      description
+        "Enter redundancy mode";
+      presence "true";
+      container application {
+        description
+          "Enter application redundancy group mode";
+        container redundancy {
+          description
+            "Enter application redundancy group mode";
+          presence "true";
+          list group {
+            description
+              "Enter rg group mode";
+            key "id";
+            leaf id {
+              description
+                "rg group id";
+              type uint8 {
+                range "1..2";
+              }
+            }
+            container name {
+              description
+                "RG group name string";
+              leaf group-name {
+                description
+                  "name string (25 chars. max)";
+                type string {
+                  length "1..25";
+                }
+              }
+            }
+            container control {
+              description
+                "RG group control interface";
+              leaf interface {
+                description
+                  "Interface to be used as RG control interface";
+                type string;
+              }
+              leaf protocol {
+                description
+                  "RG group protocol media";
+                when '../interface';
+                type uint8 {
+                  range "1..8";
+                }
+              }
+            }
+            leaf data {
+              description
+                "RG group data interface";
+              type string;
+            }
+            leaf preempt {
+              description
+                "RG group preempt";
+              type empty;
+            }
+            container timers {
+              description
+                "RG group timers";
+              leaf delay {
+                description
+                  "RG group delay timer. value in seconds";
+                type uint16 {
+                  range "0..10000";
+                }
+              }
+              leaf reload {
+                description
+                  "RG group reload timer. Value in seconds";
+                when '../delay';
+                type uint16 {
+                  range "0..10000";
+                }
+              }
+            }
+            container priority {
+              description
+                "RG group Priority";
+              leaf value {
+                description
+                  "Priority value";
+                type uint8 {
+                  range "1..255";
+                }
+              }
+              container failover {
+                description
+                  "Failover Threshold";
+                when '../value';
+                leaf threshold {
+                  description
+                    "Failover Threshold";
+                  type uint8 {
+                    range "1..255";
+                  }
+                }
+              }
+              leaf failover-threshold {
+                status deprecated;
+                description
+                  "Failover Threshold";
+                when '../value';
+                type uint8 {
+                  range "1..255";
+                }
+              }
+            }
+          }
+        }
+      }
+      leaf maintenance-mode {
+        description
+          "Enable/Disable maintenance mode ";
+        type empty;
+      }
+      container main-cpu {
+        description
+          "Enter main-cpu mode";
+        presence "true";
+        container auto-sync {
+          leaf running-config {
+            type empty;
+          }
+          leaf config-register {
+            type empty;
+          }
+          leaf bootvar {
+            type empty;
+          }
+          leaf standard {
+            type empty;
+          }
+        }
+        container standby {
+          description
+            "Standby";
+          container console {
+            description
+              "Console";
+            leaf enable {
+              description
+                "Enable";
+              type empty;
+            }
+          }
+          container initialization {
+            description
+              "Initialization";
+            container delay {
+              description
+                "Delay";
+              leaf second {
+                description
+                  "Delay value in seconds";
+                type uint16 {
+                  range "30..1800";
+                }
+              }
+              leaf boot-only {
+                description
+                  "Delay effective only on system boot";
+                type empty;
+              }
+            }
+          }
+        }
+      }
+      leaf mode {
+        description
+          "redundancy mode for this chassis";
+        type enumeration {
+          enum rpr;
+          enum rpr-plus;
+          enum sso;
+          enum none;
+        }
+      }
+      container policy {
+        description
+          "redundancy policy enforcement";
+        container config-sync {
+          description
+            "config sync parameters";
+          container bulk {
+            description
+              "bulk configuration mode";
+            container prc {
+              description
+                "prc policy enforcement";
+              leaf reload {
+                description
+                  "reload standby";
+                type boolean;
+              }
+            }
+          }
+          container lbl {
+            description
+              "line-by-line configuration mode";
+            container prc {
+              description
+                "prc policy enforcement";
+              leaf reload {
+                description
+                  "reload standby";
+                type boolean;
+              }
+            }
+          }
+        }
+      }
+      container timer {
+        description
+          "Select a timer to configure";
+        leaf rpso {
+          description
+            "Delay value in seconds";
+          type uint16 {
+            range "120..1200";
+          }
+        }
+      }
+      container interchassis {
+        description
+          "Enter interchassis mode";
+        list group {
+          description
+            "Enter the redundancy group number";
+          key "group-number";
+          leaf group-number {
+            type uint64 {
+              range "1..4294967295";
+            }
+          }
+          container monitor {
+            description
+              "define the peer monitoring method";
+            leaf peer {
+              description
+                "the peer method";
+              type empty;
+            }
+            leaf bfd {
+              description
+                "set peer monitoring method to bfd";
+              type empty;
+            }
+          }
+          container member {
+            description
+              "specify a redundancy group member";
+            leaf ip {
+              description
+                "specify the redundancy group member using an ip address";
+              type inet:ipv4-address;
+            }
+          }
+          container backbone {
+            description
+              "specify a redundancy group member";
+            leaf-list interface-list {
+              ordered-by user;
+              type string;
+            }
+            container interface {
+              status deprecated;
+              uses ios-ifc:interface-deprecated-grouping;
+            }
+          }
+        }
+      }
+    }
+    container scheduler {
+      description
+        "Scheduler parameters";
+      container runtime {
+        description
+          "Process runtime controls";
+        leaf netinput {
+          description
+            "Process-switching run time (in milliseconds)";
+          type uint16 {
+            range "100..40000";
+          }
+        }
+      }
+      container allocate {
+        description
+          "Guarantee CPU time for processes";
+        leaf interrupt-time {
+          type uint16 {
+            range "400..60000";
+          }
+        }
+        leaf process-time {
+          type uint16 {
+            range "100..4000";
+          }
+        }
+      }
+    }
+    container epm {
+      description
+        "EPM Global Configuration Commands";
+      leaf logging {
+        description
+          "Enable EPM logging";
+        type empty;
+      }
+    }
     container spanning-tree {
       description
         "Spanning Tree Subsystem";
     }
-    // container subscriber {
-    //   description
-    //     "Subscriber configuration";
-    //   leaf templating {
-    //     description
-    //       "Configure subscriber templating";
-    //     type empty;
-    //   }
-    // }
-    // container track {
-    //   description
-    //     "Object tracking configuration commands";
-    // }
+    container subscriber {
+      description
+        "Subscriber configuration";
+      leaf templating {
+        description
+          "Configure subscriber templating";
+        type empty;
+      }
+    }
+    container track {
+      description
+        "Object tracking configuration commands";
+    }
     container dot1x {
       description
         "IEEE 802.1X Global Configuration Commands";
     }
-    // container mab {
-    //   description
-    //     "mab Configuration Commands";
-    //   container logging {
-    //     description
-    //       "Set logging parameters";
-    //     leaf verbose {
-    //       description
-    //         "Show verbose messages in system logs";
-    //       type empty;
-    //     }
-    //   }
-    //   container request {
-    //     description
-    //       "Customize MAB request";
-    //     container format {
-    //       description
-    //         "Configure the customized MAB request format";
-    //       container attribute {
-    //         description
-    //           "Format selected attributes";
-    //         container one {
-    //           description
-    //             "Username format used for MAB requests";
-    //           container groupsize {
-    //             description
-    //               "Specify how may hex digits per group";
-    //             leaf size {
-    //               description
-    //                 "specify how many digits per group";
-    //               type uint8 {
-    //                 range "1|2|4|6|12";
-    //               }
-    //             }
-    //             leaf separator {
-    //               description
-    //                 "Specify how to separate groups";
-    //               type enumeration {
-    //                 enum -;
-    //                 enum .;
-    //                 enum :;
-    //               }
-    //             }
-    //             leaf case {
-    //               description
-    //                 "Username will be sent in lower-case/upper-case format";
-    //               type enumeration {
-    //                 enum lowercase;
-    //                 enum uppercase;
-    //               }
-    //             }
-    //           }
-    //         }
-    //         container two {
-    //           description
-    //             "Global Password used for all MAB requests";
-    //           leaf type {
-    //             description
-    //               "0 Specifies an UNENCRYPTED password will follow 
-    //                7 Specifies a HIDDEN password will follow";
-    //             type enumeration {
-    //               enum 0;
-    //               enum 7;
-    //             }
-    //           }
-    //           leaf LINE {
-    //             description
-    //               "The UNENCRYPTED (cleartext) password";
-    //             type string;
-    //           }
-    //         }
-    //         container thirty-two {
-    //           description
-    //             "NAS-Identifier attribute";
-    //           container vlan {
-    //             description
-    //               "Add the vlan";
-    //             leaf access-vlan {
-    //               description
-    //                 "Add the configured access vlan";
-    //               type empty;
-    //             }
-    //           }
-    //         }
-    //       }
-    //     }
-    //   }
-    // }
-    // container fallback {
-    //   description
-    //     "Fallback configuration commands";
-    // }
-    // container parameter-map {
-    //   description
-    //     "parameter map";
-    //   container type {
-    //     description
-    //       "parameter map type";
-    //   }
-    // }
-    // container ppp {
-    //   description
-    //     "PPP global configuration";
-    // }
-    // container mac {
-    //   description
-    //     "Global MAC configuration subcommands";
-    //   container address-table {
-    //     description
-    //       "Configure the MAC address table";
-    //     container aging-time {
-    //       description
-    //         "Set MAC address table entry maximum age";
-    //       leaf val {
-    //         type uint32 {
-    //           range "0 | 10..1000000";
-    //         }
-    //       }
-    //       leaf routed-mac {
-    //         description
-    //           "Set RM Aging interval";
-    //         type empty;
-    //       }
-    //       leaf vlan {
-    //         description
-    //           "VLAN Keyword";
-    //         type uint16 {
-    //           range "1..4094";
-    //         }
-    //       }
-    //     }
-    //     leaf control-packet-learn {
-    //       description
-    //         "Enable/Disable learning from Control Packets";
-    //       type empty;
-    //     }
-    //     container learning {
-    //       description
-    //         "Enable MAC table learning feature";
-    //       leaf vlan {
-    //         description
-    //           "<1-4094>,VLAN id to enable MAC Address learning";
-    //         type uint16 {
-    //           range "1..4094";
-    //         }
-    //       }
-    //     }
-    //     container notification {
-    //       description
-    //         "Enable/Disable MAC Notification on the switch";
-    //       container change {
-    //         description
-    //           "Enable/Disable MAC Notification feature on the switch";
-    //         presence "true";
-    //         leaf history-size {
-    //           description
-    //             "Number of entries in history table (0-500)";
-    //           type uint16 {
-    //             range "0..500";
-    //           }
-    //         }
-    //         leaf interval {
-    //           description
-    //             "Notification interval in seconds (0-2147483647)";
-    //           type uint32 {
-    //             range "0..2147483647";
-    //           }
-    //         }
-    //       }
-    //       leaf mac-move {
-    //         description
-    //           "Enable Mac Move Notification";
-    //         type empty;
-    //       }
-    //       container threshold {
-    //         description
-    //           "Configure L2 Table monitoring";
-    //         presence "true";
-    //         leaf interval {
-    //           description
-    //             "<120-1000000> Interval time in seconds";
-    //           type uint32 {
-    //             range "120..1000000";
-    //           }
-    //         }
-    //         container limit {
-    //           description
-    //             "Limit percentage";
-    //           leaf percentage {
-    //             description
-    //               "Percentage (0-100)";
-    //             type uint8 {
-    //               range "0..100";
-    //             }
-    //           }
-    //           leaf interval {
-    //             description
-    //               "<120-1000000> Interval time in seconds";
-    //             type uint32 {
-    //               range "120..1000000";
-    //             }
-    //           }
-    //         }
-    //       }
-    //     }
-    //     list static {
-    //       description
-    //         "Static MAC entry";
-    //       key "mac-address vlan";
-    //       leaf mac-address {
-    //         description
-    //           "xxxx.xxxx.xxxx 48 bit mac address";
-    //         type ios-types:cisco-mac-address-type;
-    //       }
-    //       leaf vlan {
-    //         description
-    //           "<1-4094> VLAN id of mac address table (1-4094)";
-    //         type uint16 {
-    //           range "1..4094";
-    //         }
-    //       }
-    //       choice static-mac-choice {
-    //         case drop-case {
-    //           leaf drop {
-    //             description
-    //               "drop frames";
-    //             type empty;
-    //           }
-    //         }
-    //         case interface-case {
-    //           leaf-list interface {
-    //             description
-    //               "Output interface exact long name";
-    //             type string;
-    //           }
-    //         }
-    //       }
-    //     }
-    //   }
-    // }
+    container mab {
+      description
+        "mab Configuration Commands";
+      container logging {
+        description
+          "Set logging parameters";
+        leaf verbose {
+          description
+            "Show verbose messages in system logs";
+          type empty;
+        }
+      }
+      container request {
+        description
+          "Customize MAB request";
+        container format {
+          description
+            "Configure the customized MAB request format";
+          container attribute {
+            description
+              "Format selected attributes";
+            container one {
+              description
+                "Username format used for MAB requests";
+              container groupsize {
+                description
+                  "Specify how may hex digits per group";
+                leaf size {
+                  description
+                    "specify how many digits per group";
+                  type uint8 {
+                    range "1|2|4|6|12";
+                  }
+                }
+                leaf separator {
+                  description
+                    "Specify how to separate groups";
+                  type enumeration {
+                    enum -;
+                    enum .;
+                    enum :;
+                  }
+                }
+                leaf case {
+                  description
+                    "Username will be sent in lower-case/upper-case format";
+                  type enumeration {
+                    enum lowercase;
+                    enum uppercase;
+                  }
+                }
+              }
+            }
+            container two {
+              description
+                "Global Password used for all MAB requests";
+              leaf type {
+                description
+                  "0 Specifies an UNENCRYPTED password will follow 
+                   7 Specifies a HIDDEN password will follow";
+                type enumeration {
+                  enum 0;
+                  enum 7;
+                }
+              }
+              leaf LINE {
+                description
+                  "The UNENCRYPTED (cleartext) password";
+                type string;
+              }
+            }
+            container thirty-two {
+              description
+                "NAS-Identifier attribute";
+              container vlan {
+                description
+                  "Add the vlan";
+                leaf access-vlan {
+                  description
+                    "Add the configured access vlan";
+                  type empty;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    container fallback {
+      description
+        "Fallback configuration commands";
+    }
+    container parameter-map {
+      description
+        "parameter map";
+      container type {
+        description
+          "parameter map type";
+      }
+    }
+    container ppp {
+      description
+        "PPP global configuration";
+    }
+    container mac {
+      description
+        "Global MAC configuration subcommands";
+      container address-table {
+        description
+          "Configure the MAC address table";
+        container aging-time {
+          description
+            "Set MAC address table entry maximum age";
+          leaf val {
+            type uint32 {
+              range "0 | 10..1000000";
+            }
+          }
+          leaf routed-mac {
+            description
+              "Set RM Aging interval";
+            type empty;
+          }
+          leaf vlan {
+            description
+              "VLAN Keyword";
+            type uint16 {
+              range "1..4094";
+            }
+          }
+        }
+        leaf control-packet-learn {
+          description
+            "Enable/Disable learning from Control Packets";
+          type empty;
+        }
+        container learning {
+          description
+            "Enable MAC table learning feature";
+          leaf vlan {
+            description
+              "<1-4094>,VLAN id to enable MAC Address learning";
+            type uint16 {
+              range "1..4094";
+            }
+          }
+        }
+        container notification {
+          description
+            "Enable/Disable MAC Notification on the switch";
+          container change {
+            description
+              "Enable/Disable MAC Notification feature on the switch";
+            presence "true";
+            leaf history-size {
+              description
+                "Number of entries in history table (0-500)";
+              type uint16 {
+                range "0..500";
+              }
+            }
+            leaf interval {
+              description
+                "Notification interval in seconds (0-2147483647)";
+              type uint32 {
+                range "0..2147483647";
+              }
+            }
+          }
+          leaf mac-move {
+            description
+              "Enable Mac Move Notification";
+            type empty;
+          }
+          container threshold {
+            description
+              "Configure L2 Table monitoring";
+            presence "true";
+            leaf interval {
+              description
+                "<120-1000000> Interval time in seconds";
+              type uint32 {
+                range "120..1000000";
+              }
+            }
+            container limit {
+              description
+                "Limit percentage";
+              leaf percentage {
+                description
+                  "Percentage (0-100)";
+                type uint8 {
+                  range "0..100";
+                }
+              }
+              leaf interval {
+                description
+                  "<120-1000000> Interval time in seconds";
+                type uint32 {
+                  range "120..1000000";
+                }
+              }
+            }
+          }
+        }
+        list static {
+          description
+            "Static MAC entry";
+          key "mac-address vlan";
+          leaf mac-address {
+            description
+              "xxxx.xxxx.xxxx 48 bit mac address";
+            type ios-types:cisco-mac-address-type;
+          }
+          leaf vlan {
+            description
+              "<1-4094> VLAN id of mac address table (1-4094)";
+            type uint16 {
+              range "1..4094";
+            }
+          }
+          choice static-mac-choice {
+            case drop-case {
+              leaf drop {
+                description
+                  "drop frames";
+                type empty;
+              }
+            }
+            case interface-case {
+              leaf-list interface {
+                description
+                  "Output interface exact long name";
+                type string;
+              }
+            }
+          }
+        }
+      }
+    }
     container tacacs {
       description
         "TACACS server configuration command";
@@ -3604,69 +3604,69 @@ module Cisco-IOS-XE-native {
         }
       }
     }
-    // container upgrade {
-    //   description
-    //     "Global upgrade configuration subcommands";
-    //   container fpd {
-    //     description
-    //       "Configure field programmable devices upgrade options";
-    //     leaf auto {
-    //       description
-    //         "Auto upgrade all FPD images";
-    //       type empty;
-    //     }
-    //     leaf path {
-    //       description
-    //         "Set path to locate the FPD image package file for auto upgrade";
-    //       type string;
-    //     }
-    //   }
-    // }
+    container upgrade {
+      description
+        "Global upgrade configuration subcommands";
+      container fpd {
+        description
+          "Configure field programmable devices upgrade options";
+        leaf auto {
+          description
+            "Auto upgrade all FPD images";
+          type empty;
+        }
+        leaf path {
+          description
+            "Set path to locate the FPD image package file for auto upgrade";
+          type string;
+        }
+      }
+    }
     container vtp {
       description
         "Configure global VTP state";
     }
     container xconnect;
-    // container fabric {
-    //   description
-    //     "Catalyst 6000 crossbar fabric configuration commands";
-    //   container switching-mode {
-    //     description
-    //       "Switching mode settings";
-    //     container allow {
-    //       description
-    //         "Allow settings";
-    //       choice allow-choice {
-    //         leaf bus-mode {
-    //           description
-    //             "Allow switching in bus mode for modules";
-    //           type empty;
-    //         }
-    //         container truncated {
-    //           description
-    //             "Truncated switching mode";
-    //           presence "true";
-    //           leaf threshold {
-    //             description
-    //               "Number of SFM-capable modules for truncated switching mode. Switch applies the threshold only when the mode is disallowed. Switch ignores the threshold when the truncated mode is allowed";
-    //             type uint8 {
-    //               range "1..9";
-    //             }
-    //           }
-    //         }
-    //       }
-    //     }
-    //     container force {
-    //       description
-    //         "Force modules to different switching modes";
-    //       leaf bus-mode {
-    //         description
-    //           "Switching mode of service modules will be forced to bus-mode by powercycling it.";
-    //         type empty;
-    //       }
-    //     }
-    //   }
-    // }
+    container fabric {
+      description
+        "Catalyst 6000 crossbar fabric configuration commands";
+      container switching-mode {
+        description
+          "Switching mode settings";
+        container allow {
+          description
+            "Allow settings";
+          choice allow-choice {
+            leaf bus-mode {
+              description
+                "Allow switching in bus mode for modules";
+              type empty;
+            }
+            container truncated {
+              description
+                "Truncated switching mode";
+              presence "true";
+              leaf threshold {
+                description
+                  "Number of SFM-capable modules for truncated switching mode. Switch applies the threshold only when the mode is disallowed. Switch ignores the threshold when the truncated mode is allowed";
+                type uint8 {
+                  range "1..9";
+                }
+              }
+            }
+          }
+        }
+        container force {
+          description
+            "Force modules to different switching modes";
+          leaf bus-mode {
+            description
+              "Switching mode of service modules will be forced to bus-mode by powercycling it.";
+            type empty;
+          }
+        }
+      }
+    }
     container lacp {
       description
         "LACP interface subcommands";
@@ -3698,326 +3698,326 @@ module Cisco-IOS-XE-native {
       description
         "Set the system configuration";
     }
-    // container errdisable {
-    //   description
-    //     "Error disable";
-    //   container detect {
-    //     description
-    //       "Error disable detection";
-    //     container cause {
-    //       description
-    //         "Enable error disable detection for application";
-    //       leaf all {
-    //         description
-    //           "Enable error detection on all cases";
-    //         type empty;
-    //       }
-    //       leaf arp-inspection {
-    //         description
-    //           "Enable error detection for arp inspection";
-    //         type empty;
-    //       }
-    //       leaf bpduguard {
-    //         description
-    //           "Enable error detection on bpdu-guard";
-    //         type empty;
-    //       }
-    //       leaf dhcp-rate-limit {
-    //         description
-    //           "Enable error detection on dhcp-rate-limit";
-    //         type empty;
-    //       }
-    //       leaf dtp-flap {
-    //         description
-    //           "Enable error detection on dtp-flapping";
-    //         type empty;
-    //       }
-    //       leaf gbic-invalid {
-    //         description
-    //           "Enable error detection on gbic-invalid";
-    //         type empty;
-    //       }
-    //       leaf inline-power {
-    //         description
-    //           "Enable error detection for inline-power";
-    //         type empty;
-    //       }
-    //       leaf l2ptguard {
-    //         description
-    //           "Enable timer to recover from l2protocol-tunnel error disable state";
-    //         type empty;
-    //       }
-    //       leaf link-flap {
-    //         description
-    //           "Enable error detection on linkstate-flapping";
-    //         type empty;
-    //       }
-    //       leaf loopback {
-    //         description
-    //           "Enable error detection on loopback";
-    //         type empty;
-    //       }
-    //       leaf mlacp-minlink {
-    //         type empty;
-    //       }
-    //       leaf pagp-flap {
-    //         description
-    //           "Enable error detection on pagp-flapping";
-    //         type empty;
-    //       }
-    //       leaf pppoe-ia-rate-limit {
-    //         description
-    //           "Enable error detection on PPPoE IA rate-limit";
-    //         type empty;
-    //       }
-    //       container security-violation {
-    //         description
-    //           "Enable error detection on 802.1x-guard";
-    //         container shutdown {
-    //           description
-    //             "Specify error disable shutdown mode for 802.1x-guard";
-    //           leaf vlan {
-    //             description
-    //               "Shutdown vlan on 802.1x-guard violation";
-    //             type empty;
-    //           }
-    //         }
-    //       }
-    //       leaf sfp-config-mismatch {
-    //         description
-    //           "Enable error detection on SFP config mismatch";
-    //         type empty;
-    //       }
-    //       leaf small-frame {
-    //         description
-    //           "Enable error detection on small_frame";
-    //         type empty;
-    //       }
-    //       leaf loopdetect {
-    //         description
-    //           "Enable error detection on loop detect";
-    //         type boolean;
-    //         default "true";
-    //       }
-    //     }
-    //   }
-    //   container flap-setting {
-    //     description
-    //       "Error disable flap detection setting";
-    //     container cause {
-    //       description
-    //         "Set error disable flap parameters for application";
-    //       container dtp-flap {
-    //         description
-    //           "Set the variables related to detection of dtp flaps";
-    //         leaf max-flaps {
-    //           description
-    //             "maximum flaps allowed before setting to errdisable";
-    //           type uint8 {
-    //             range "1..100";
-    //           }
-    //         }
-    //         leaf time {
-    //           description
-    //             "time period the flaps are counted";
-    //           type uint8 {
-    //             range "1..120";
-    //           }
-    //         }
-    //       }
-    //       container link-flap {
-    //         description
-    //           "Set the variables related to detection of link flaps";
-    //         leaf max-flaps {
-    //           description
-    //             "maximum flaps allowed before setting to errdisable";
-    //           type uint8 {
-    //             range "1..100";
-    //           }
-    //         }
-    //         leaf time {
-    //           description
-    //             "time period the flaps are counted";
-    //           type uint8 {
-    //             range "1..120";
-    //           }
-    //         }
-    //       }
-    //       container pagp-flap {
-    //         description
-    //           "Set the variables related to detection of pagp flaps";
-    //         leaf max-flaps {
-    //           description
-    //             "maximum flaps allowed before setting to errdisable";
-    //           type uint8 {
-    //             range "1..100";
-    //           }
-    //         }
-    //         leaf time {
-    //           description
-    //             "time period the flaps are counted";
-    //           type uint8 {
-    //             range "1..120";
-    //           }
-    //         }
-    //       }
-    //     }
-    //   }
-    //   container recovery {
-    //     description
-    //       "Error disable recovery";
-    //     container cause {
-    //       description
-    //         "Enable error disable recovery for application";
-    //       leaf all {
-    //         description
-    //           "Enable timer to recover from all error causes";
-    //         type empty;
-    //       }
-    //       leaf arp-inspection {
-    //         description
-    //           "Enable timer to recover from arp inspection error disable state";
-    //         type empty;
-    //       }
-    //       leaf bpduguard {
-    //         description
-    //           "Enable timer to recover from BPDU Guard error";
-    //         type empty;
-    //       }
-    //       leaf channel-misconfig {
-    //         description
-    //           "(STP)  Enable timer to recover from channel misconfiguration error";
-    //         type empty;
-    //       }
-    //       leaf dhcp-rate-limit {
-    //         description
-    //           "Enable timer to recover from dhcp-rate-limit error";
-    //         type empty;
-    //       }
-    //       leaf dtp-flap {
-    //         description
-    //           "Enable timer to recover from dtp-flap error";
-    //         type empty;
-    //       }
-    //       leaf gbic-invalid {
-    //         description
-    //           "Enable timer to recover from invalid GBIC error";
-    //         type empty;
-    //       }
-    //       leaf inline-power {
-    //         description
-    //           "Enable timer to recover from inline-power error";
-    //         type empty;
-    //       }
-    //       leaf l2ptguard {
-    //         description
-    //           "Enable timer to recover from l2protocol-tunnel error disable state";
-    //         type empty;
-    //       }
-    //       leaf link-flap {
-    //         description
-    //           "Enable timer to recover from link-flap error";
-    //         type empty;
-    //       }
-    //       leaf link-monitor-failure {
-    //         type empty;
-    //       }
-    //       leaf loopback {
-    //         description
-    //           "Enable timer to recover from loopback error";
-    //         type empty;
-    //       }
-    //       leaf mac-limit {
-    //         description
-    //           "Enable timer to recover from mac limit disable state";
-    //         type empty;
-    //       }
-    //       leaf mlacp-minlink {
-    //         type empty;
-    //       }
-    //       container oam-remote-failure {
-    //         presence "true";
-    //         leaf critical-event {
-    //           type empty;
-    //         }
-    //         leaf dying-gasp {
-    //           type empty;
-    //         }
-    //         leaf link-fault {
-    //           type empty;
-    //         }
-    //       }
-    //       leaf pagp-flap {
-    //         description
-    //           "Enable timer to recover from pagp-flap error";
-    //         type empty;
-    //       }
-    //       leaf port-mode-failure {
-    //         description
-    //           "Enable timer to recover from port mode change failure";
-    //         type empty;
-    //       }
-    //       leaf pppoe-ia-rate-limit {
-    //         description
-    //           "Enable timer to recover from PPPoE IA rate-limit error";
-    //         type empty;
-    //       }
-    //       leaf psp {
-    //         type empty;
-    //       }
-    //       leaf psecure-violation {
-    //         description
-    //           "Enable timer to recover from psecure violation error";
-    //         type empty;
-    //       }
-    //       leaf security-violation {
-    //         description
-    //           "Enable timer to recover from 802.1x violation error";
-    //         type empty;
-    //       }
-    //       leaf sfp-config-mismatch {
-    //         description
-    //           "Enable timer to recover from SFP config mismatch error";
-    //         type empty;
-    //       }
-    //       leaf small-frame {
-    //         description
-    //           "Enable timer to recover from small frame error";
-    //         type empty;
-    //       }
-    //       leaf storm-control {
-    //         description
-    //           "Enable timer to recover from storm-control error";
-    //         type empty;
-    //       }
-    //       leaf udld {
-    //         description
-    //           "Enable timer to recover from udld error";
-    //         type empty;
-    //       }
-    //       leaf unicast-flood {
-    //         type empty;
-    //       }
-    //       leaf vmps {
-    //         description
-    //           "Enable timer to recover from vmps shutdown error";
-    //         type empty;
-    //       }
-    //       leaf loopdetect {
-    //         description
-    //           "Enable timer to recover from loop detect error";
-    //         type empty;
-    //       }
-    //     }
-    //     leaf interval {
-    //       description
-    //         "Error disable recovery timer value";
-    //       type uint32 {
-    //         range "30..86400";
-    //       }
-    //     }
-    //   }
-    // }
+    container errdisable {
+      description
+        "Error disable";
+      container detect {
+        description
+          "Error disable detection";
+        container cause {
+          description
+            "Enable error disable detection for application";
+          leaf all {
+            description
+              "Enable error detection on all cases";
+            type empty;
+          }
+          leaf arp-inspection {
+            description
+              "Enable error detection for arp inspection";
+            type empty;
+          }
+          leaf bpduguard {
+            description
+              "Enable error detection on bpdu-guard";
+            type empty;
+          }
+          leaf dhcp-rate-limit {
+            description
+              "Enable error detection on dhcp-rate-limit";
+            type empty;
+          }
+          leaf dtp-flap {
+            description
+              "Enable error detection on dtp-flapping";
+            type empty;
+          }
+          leaf gbic-invalid {
+            description
+              "Enable error detection on gbic-invalid";
+            type empty;
+          }
+          leaf inline-power {
+            description
+              "Enable error detection for inline-power";
+            type empty;
+          }
+          leaf l2ptguard {
+            description
+              "Enable timer to recover from l2protocol-tunnel error disable state";
+            type empty;
+          }
+          leaf link-flap {
+            description
+              "Enable error detection on linkstate-flapping";
+            type empty;
+          }
+          leaf loopback {
+            description
+              "Enable error detection on loopback";
+            type empty;
+          }
+          leaf mlacp-minlink {
+            type empty;
+          }
+          leaf pagp-flap {
+            description
+              "Enable error detection on pagp-flapping";
+            type empty;
+          }
+          leaf pppoe-ia-rate-limit {
+            description
+              "Enable error detection on PPPoE IA rate-limit";
+            type empty;
+          }
+          container security-violation {
+            description
+              "Enable error detection on 802.1x-guard";
+            container shutdown {
+              description
+                "Specify error disable shutdown mode for 802.1x-guard";
+              leaf vlan {
+                description
+                  "Shutdown vlan on 802.1x-guard violation";
+                type empty;
+              }
+            }
+          }
+          leaf sfp-config-mismatch {
+            description
+              "Enable error detection on SFP config mismatch";
+            type empty;
+          }
+          leaf small-frame {
+            description
+              "Enable error detection on small_frame";
+            type empty;
+          }
+          leaf loopdetect {
+            description
+              "Enable error detection on loop detect";
+            type boolean;
+            default "true";
+          }
+        }
+      }
+      container flap-setting {
+        description
+          "Error disable flap detection setting";
+        container cause {
+          description
+            "Set error disable flap parameters for application";
+          container dtp-flap {
+            description
+              "Set the variables related to detection of dtp flaps";
+            leaf max-flaps {
+              description
+                "maximum flaps allowed before setting to errdisable";
+              type uint8 {
+                range "1..100";
+              }
+            }
+            leaf time {
+              description
+                "time period the flaps are counted";
+              type uint8 {
+                range "1..120";
+              }
+            }
+          }
+          container link-flap {
+            description
+              "Set the variables related to detection of link flaps";
+            leaf max-flaps {
+              description
+                "maximum flaps allowed before setting to errdisable";
+              type uint8 {
+                range "1..100";
+              }
+            }
+            leaf time {
+              description
+                "time period the flaps are counted";
+              type uint8 {
+                range "1..120";
+              }
+            }
+          }
+          container pagp-flap {
+            description
+              "Set the variables related to detection of pagp flaps";
+            leaf max-flaps {
+              description
+                "maximum flaps allowed before setting to errdisable";
+              type uint8 {
+                range "1..100";
+              }
+            }
+            leaf time {
+              description
+                "time period the flaps are counted";
+              type uint8 {
+                range "1..120";
+              }
+            }
+          }
+        }
+      }
+      container recovery {
+        description
+          "Error disable recovery";
+        container cause {
+          description
+            "Enable error disable recovery for application";
+          leaf all {
+            description
+              "Enable timer to recover from all error causes";
+            type empty;
+          }
+          leaf arp-inspection {
+            description
+              "Enable timer to recover from arp inspection error disable state";
+            type empty;
+          }
+          leaf bpduguard {
+            description
+              "Enable timer to recover from BPDU Guard error";
+            type empty;
+          }
+          leaf channel-misconfig {
+            description
+              "(STP)  Enable timer to recover from channel misconfiguration error";
+            type empty;
+          }
+          leaf dhcp-rate-limit {
+            description
+              "Enable timer to recover from dhcp-rate-limit error";
+            type empty;
+          }
+          leaf dtp-flap {
+            description
+              "Enable timer to recover from dtp-flap error";
+            type empty;
+          }
+          leaf gbic-invalid {
+            description
+              "Enable timer to recover from invalid GBIC error";
+            type empty;
+          }
+          leaf inline-power {
+            description
+              "Enable timer to recover from inline-power error";
+            type empty;
+          }
+          leaf l2ptguard {
+            description
+              "Enable timer to recover from l2protocol-tunnel error disable state";
+            type empty;
+          }
+          leaf link-flap {
+            description
+              "Enable timer to recover from link-flap error";
+            type empty;
+          }
+          leaf link-monitor-failure {
+            type empty;
+          }
+          leaf loopback {
+            description
+              "Enable timer to recover from loopback error";
+            type empty;
+          }
+          leaf mac-limit {
+            description
+              "Enable timer to recover from mac limit disable state";
+            type empty;
+          }
+          leaf mlacp-minlink {
+            type empty;
+          }
+          container oam-remote-failure {
+            presence "true";
+            leaf critical-event {
+              type empty;
+            }
+            leaf dying-gasp {
+              type empty;
+            }
+            leaf link-fault {
+              type empty;
+            }
+          }
+          leaf pagp-flap {
+            description
+              "Enable timer to recover from pagp-flap error";
+            type empty;
+          }
+          leaf port-mode-failure {
+            description
+              "Enable timer to recover from port mode change failure";
+            type empty;
+          }
+          leaf pppoe-ia-rate-limit {
+            description
+              "Enable timer to recover from PPPoE IA rate-limit error";
+            type empty;
+          }
+          leaf psp {
+            type empty;
+          }
+          leaf psecure-violation {
+            description
+              "Enable timer to recover from psecure violation error";
+            type empty;
+          }
+          leaf security-violation {
+            description
+              "Enable timer to recover from 802.1x violation error";
+            type empty;
+          }
+          leaf sfp-config-mismatch {
+            description
+              "Enable timer to recover from SFP config mismatch error";
+            type empty;
+          }
+          leaf small-frame {
+            description
+              "Enable timer to recover from small frame error";
+            type empty;
+          }
+          leaf storm-control {
+            description
+              "Enable timer to recover from storm-control error";
+            type empty;
+          }
+          leaf udld {
+            description
+              "Enable timer to recover from udld error";
+            type empty;
+          }
+          leaf unicast-flood {
+            type empty;
+          }
+          leaf vmps {
+            description
+              "Enable timer to recover from vmps shutdown error";
+            type empty;
+          }
+          leaf loopdetect {
+            description
+              "Enable timer to recover from loop detect error";
+            type empty;
+          }
+        }
+        leaf interval {
+          description
+            "Error disable recovery timer value";
+          type uint32 {
+            range "30..86400";
+          }
+        }
+      }
+    }
     container nat {
       description
         "nat scale support";
@@ -4027,694 +4027,694 @@ module Cisco-IOS-XE-native {
         type boolean;
       }
     }
-    // container identity {
-    //   description
-    //     "Identity Configuration Commands";
-    //   list policy {
-    //     description
-    //       "Create an Identity policy";
-    //     key "name";
-    //     leaf name {
-    //       description
-    //         "Specify a policy name";
-    //       type string;
-    //     }
-    //     container no {
-    //       description
-    //         "Negate a command or set its defaults";
-    //       uses identity-policy-grouping;
-    //     }
-    //     uses identity-policy-grouping;
-    //   }
-    //   container profile {
-    //     description
-    //       "Create an Identity profile";
-    //     leaf dot1x {
-    //       description
-    //         "Service type for 802.1x";
-    //       type empty;
-    //     }
-    //     leaf default {
-    //       description
-    //         "Service type default";
-    //       type empty;
-    //     }
-    //   }
-    // }
-    // grouping monitor-event-trace-enable-disable-grouping {
-    //   leaf enable {
-    //     status obsolete;
-    //     type empty;
-    //   }
-    //   leaf disable {
-    //     status obsolete;
-    //     type empty;
-    //   }
-    // }
+    container identity {
+      description
+        "Identity Configuration Commands";
+      list policy {
+        description
+          "Create an Identity policy";
+        key "name";
+        leaf name {
+          description
+            "Specify a policy name";
+          type string;
+        }
+        container no {
+          description
+            "Negate a command or set its defaults";
+          uses identity-policy-grouping;
+        }
+        uses identity-policy-grouping;
+      }
+      container profile {
+        description
+          "Create an Identity profile";
+        leaf dot1x {
+          description
+            "Service type for 802.1x";
+          type empty;
+        }
+        leaf default {
+          description
+            "Service type default";
+          type empty;
+        }
+      }
+    }
+    grouping monitor-event-trace-enable-disable-grouping {
+      leaf enable {
+        status obsolete;
+        type empty;
+      }
+      leaf disable {
+        status obsolete;
+        type empty;
+      }
+    }
 
-    // container monitor {
-    //   description
-    //     "Monitoring different system events";
-    //   container event-trace {
-    //     description
-    //       "Tracing of system events";
-    //     container timestamps {
-    //       presence "true";
-    //       description
-    //         "Format of event trace timestamps";
-    //       leaf uptime {
-    //         description
-    //           "Timestamp with system uptime";
-    //         type empty;
-    //       }
-    //     }
-    //     container atom {
-    //       description
-    //         "AToM traces";
-    //       container error {
-    //         description
-    //           "This buffer stores only error logs by default.";
-    //         uses monitor-event-trace-enable-disable-grouping;
-    //         leaf-list include {
-    //           description
-    //             "Include a subset of debug types";
-    //           type monitor-event-type;
-    //         }
-    //       }
-    //       container event {
-    //         description
-    //           "This buffer stores all logs by default.";
-    //         uses monitor-event-trace-enable-disable-grouping;
-    //         leaf size {
-    //           type uint32;
-    //         }
-    //         leaf-list exclude {
-    //           description
-    //             "Include a subset of debug types";
-    //           type monitor-event-type;
-    //         }
-    //       }
-    //       container major {
-    //         description
-    //           "This buffer stores only major logs and error logs by default.";
-    //         uses monitor-event-trace-enable-disable-grouping;
-    //         leaf-list include {
-    //           description
-    //             "Include a subset of debug types";
-    //           type monitor-event-type;
-    //         }
-    //       }
-    //     }
-    //     leaf sequence-number {
-    //       description
-    //         "Display event trace entries with sequence number";
-    //       type empty;
-    //     }
-    //   }
-    //   list session {
-    //     description
-    //       "Configure a SPAN session";
-    //     key "id";
-    //     leaf id {
-    //       type uint8 {
-    //         range "1..66";
-    //       }
-    //     }
-    //     container destination {
-    //       description
-    //         "SPAN destination interface or VLAN";
-    //       list interface {
-    //         description
-    //           "SPAN destination interface";
-    //         key "name";
-    //         leaf name {
-    //           description
-    //             "Interface Name";
-    //           type string;
-    //         }
-    //         leaf encapsulation {
-    //           description
-    //             "Set encapsulation for destination interface";
-    //           type enumeration {
-    //             enum dot1q;
-    //             enum isl;
-    //             enum replicate;
-    //           }
-    //         }
-    //         leaf ingress {
-    //           description
-    //             "Enable ingress traffic forwarding";
-    //           type empty;
-    //         }
-    //         leaf ingress-encap {
-    //           when '../ingress';
-    //           type enumeration {
-    //             enum dot1q;
-    //             enum isl;
-    //             enum untagged;
-    //           }
-    //         }
-    //         leaf vlan {
-    //           description
-    //             "Set default VLAN for untagged ingress traffic";
-    //           when '../ingress';
-    //           type uint16 {
-    //             range "1..4094";
-    //           }
-    //         }
-    //       }
-    //       container remote {
-    //         description
-    //           "SPAN destination Remote";
-    //         leaf vlan {
-    //           description
-    //             "Remote SPAN destination RSPAN VLAN";
-    //           type uint16 {
-    //             range "1006..4094";
-    //           }
-    //         }
-    //       }
-    //     }
-    //     container filter {
-    //       description
-    //         "SPAN filter VLAN";
-    //       container packet-type {
-    //         leaf status {
-    //           type enumeration {
-    //             enum good;
-    //             enum bad;
-    //           }
-    //         }
-    //         leaf direction {
-    //           type enumeration {
-    //             enum rx;
-    //             enum tx;
-    //           }
-    //         }
-    //       }
-    //       container ip {
-    //         description
-    //           "Specify IP Access control rules";
-    //         container access-group {
-    //           description
-    //             "Specify access control group";
-    //           leaf acl-name {
-    //             description
-    //               "Access-list name";
-    //             type string;
-    //           }
-    //         }
-    //       }
-    //     }
-    //     container source {
-    //       description
-    //         "SPAN source interface, VLAN ";
-    //       list interface {
-    //         description
-    //           "SPAN source interface";
-    //         key "name";
-    //         leaf name {
-    //           description
-    //             "Interface Name";
-    //           type string;
-    //         }
-    //         leaf direction {
-    //           type enumeration {
-    //             enum both;
-    //             enum rx;
-    //             enum tx;
-    //           }
-    //         }
-    //       }
-    //       container vlan {
-    //         description
-    //           "SPAN source VLAN";
-    //         leaf vlan {
-    //           type uint16 {
-    //             range "1..4094";
-    //           }
-    //         }
-    //         leaf direction {
-    //           type enumeration {
-    //             enum both;
-    //             enum rx;
-    //             enum tx;
-    //           }
-    //         }
-    //       }
-    //       container remote {
-    //         description
-    //           "SPAN source Remote";
-    //         leaf vlan {
-    //           description
-    //             "Remote SPAN source RSPAN VLAN <1-1001>|<1006-4094>";
-    //           type uint16 {
-    //             range "1..1001 | 1006..4094";
-    //           }
-    //         }
-    //       }
-    //     }
-    //     container type {
-    //       description
-    //         "Type of monitor session";
-    //       container erspan-source {
-    //         description
-    //           "Encapsulated RSPAN Source Session";
-    //         presence "true";
-    //         leaf description {
-    //           description
-    //             "Description for this session";
-    //           type string;
-    //         }
-    //         container source {
-    //           description
-    //             "SPAN source interface, VLAN ";
-    //           list interface {
-    //             description
-    //               "SPAN source interface";
-    //             key "name";
-    //             leaf name {
-    //               description
-    //                 "Interface Name";
-    //               type string;
-    //             }
-    //             leaf direction {
-    //               type enumeration {
-    //                 enum both;
-    //                 enum rx;
-    //                 enum tx;
-    //               }
-    //             }
-    //           }
-    //           list vlan {
-    //             description
-    //               "SPAN source VLAN";
-    //             key "vlan1";
-    //             leaf vlan1 {
-    //               type uint16 {
-    //                 range "1..4094";
-    //               }
-    //             }
-    //             leaf direction {
-    //               type enumeration {
-    //                 enum both;
-    //                 enum rx;
-    //                 enum tx;
-    //               }
-    //             }
-    //           }
-    //         }
-    //         container filter {
-    //           description
-    //             "SPAN filter VLAN";
-    //           list vlan {
-    //             key "vlan1";
-    //             leaf vlan1 {
-    //               type uint16 {
-    //                 range "1..4094";
-    //               }
-    //             }
-    //           }
-    //           container ip {
-    //             description
-    //               "Specify IP Access control rules";
-    //             container access-group {
-    //               description
-    //                 "Specify access control group";
-    //               leaf acl-name {
-    //                 description
-    //                   "Access-list name";
-    //                 type string;
-    //               }
-    //             }
-    //           }
-    //           container ipv6 {
-    //             description
-    //               "Specify IPv6 Access control rules";
-    //             container access-group {
-    //               description
-    //                 "Specify access control group";
-    //               leaf acl-name {
-    //                 description
-    //                   "Access-list name";
-    //                 type string;
-    //               }
-    //             }
-    //           }
-    //           container mac {
-    //             description
-    //               "Specify MAC Access control rules";
-    //             container access-group {
-    //               description
-    //                 "Specify access control group";
-    //               leaf acl-name {
-    //                 description
-    //                   "Access-list name";
-    //                 type string;
-    //               }
-    //             }
-    //           }
-    //           leaf sgt {
-    //             description
-    //               "SPAN source SGT";
-    //             type uint16 {
-    //               range "0..65535";
-    //             }
-    //           }
-    //         }
-    //         leaf header-type {
-    //           description
-    //             "ERSPAN header-type for encapsulation. Default is type 2";
-    //           type uint8 {
-    //             range "2..3";
-    //           }
-    //         }
-    //         leaf shutdown-source {
-    //           description
-    //             "Take the Service Instance out of Service";
-    //           type boolean;
-    //           default "true";
-    //         }
-    //         leaf shutdown {
-    //           description
-    //             "Take the Service Instance out of Service";
-    //           status obsolete;
-    //           type empty;
-    //         }
-    //         container destination {
-    //           description
-    //             "Specify Destination and their properties";
-    //           presence "true";
-    //           container ip {
-    //             description
-    //               "IP Properties";
-    //             leaf address {
-    //               description
-    //                 "Enter IP Address";
-    //               type inet:ipv4-address;
-    //             }
-    //             leaf ttl {
-    //               description
-    //                 "IP TTL";
-    //               type uint16 {
-    //                 range "2..255";
-    //               }
-    //             }
-    //             leaf dscp {
-    //               description
-    //                 "IP QOS DSCP";
-    //               type uint16 {
-    //                 range "0..63";
-    //               }
-    //             }
-    //           }
-    //           leaf erspan-id {
-    //             description
-    //               "Enter ERSPAN Identifier";
-    //             type uint16 {
-    //               range "1..1023";
-    //             }
-    //           }
-    //           leaf mtu {
-    //             description
-    //               "ERSpan MTU";
-    //             type uint16 {
-    //               range "176..9000";
-    //             }
-    //           }
-    //           leaf vrf {
-    //             description
-    //               "Enter VRF number";
-    //             type string;
-    //           }
-    //           container origin {
-    //             description
-    //               "Origin IP Properties";
-    //             container ip {
-    //               description
-    //                 "origin IP Properties";
-    //               leaf address {
-    //                 description
-    //                   "Enter IP Address";
-    //                 type inet:ipv4-address;
-    //               }
-    //             }
-    //           }
-    //         }
-    //       }
-    //       container erspan-destination {
-    //         description
-    //           "Encapsulated RSPAN Destination Session";
-    //         presence "true";
-    //         leaf description {
-    //           description
-    //             "Properties for this session";
-    //           type string;
-    //         }
-    //         container destination {
-    //           description
-    //             "SPAN destination interface, VLAN ";
-    //           list interface {
-    //             description
-    //               "SPAN destination interface";
-    //             key "name";
-    //             leaf name {
-    //               description
-    //                 "Interface Name";
-    //               type string;
-    //             }
-    //           }
-    //           leaf vlan {
-    //             description
-    //               "Remote SPAN destination RSPAN VLAN <1-1001>|<1006-4094>";
-    //             type uint16 {
-    //               range "1..1001 | 1006..4094";
-    //             }
-    //           }
-    //         }
-    //         leaf shutdown-destination {
-    //           description
-    //             "Shutdown this session";
-    //           type boolean;
-    //           default "true";
-    //         }
-    //         leaf shutdown {
-    //           description
-    //             "Shutdown this session";
-    //           status obsolete;
-    //           type empty;
-    //         }
-    //         container source {
-    //           description
-    //             "Specify Source and their properties";
-    //           presence "true";
-    //           container ip {
-    //             description
-    //               "IP Address";
-    //             leaf address {
-    //               description
-    //                 "Enter IP Address";
-    //               type inet:ipv4-address;
-    //             }
-    //           }
-    //           leaf erspan-id {
-    //             description
-    //               "Enter ERSPAN Identifier";
-    //             type uint16 {
-    //               range "1..1023";
-    //             }
-    //           }
-    //         }
-    //       }
-    //       container local {
-    //         description
-    //           "Local SPAN Session";
-    //         presence "true";
-    //         leaf description {
-    //           description
-    //             "Description for this session";
-    //           type string;
-    //         }
-    //         container source {
-    //           description
-    //             "SPAN source Interface/VLAN/CPU";
-    //           list interface {
-    //             description
-    //               "SPAN source interface";
-    //             key "name";
-    //             leaf name {
-    //               description
-    //                 "Interface Name";
-    //               type string;
-    //             }
-    //             leaf direction {
-    //               type enumeration {
-    //                 enum both;
-    //                 enum rx;
-    //                 enum tx;
-    //               }
-    //             }
-    //           }
-    //           list vlan {
-    //             description
-    //               "SPAN source VLAN";
-    //             key "vlan1";
-    //             leaf vlan1 {
-    //               type uint16 {
-    //                 range "1..4094";
-    //               }
-    //             }
-    //             leaf direction {
-    //               type enumeration {
-    //                 enum both;
-    //                 enum rx;
-    //                 enum tx;
-    //               }
-    //             }
-    //           }
-    //         }
-    //         container destination {
-    //           description
-    //             "SPAN destination interface or VLAN";
-    //           list interface {
-    //             description
-    //               "SPAN destination interface";
-    //             key "name";
-    //             leaf name {
-    //               description
-    //                 "Interface Name";
-    //               type string;
-    //             }
-    //           }
-    //         }
-    //         container filter {
-    //           description
-    //             "SPAN filter VLAN";
-    //           list vlan {
-    //             key "vlan1";
-    //             leaf vlan1 {
-    //               type uint16 {
-    //                 range "1..4094";
-    //               }
-    //             }
-    //           }
-    //         }
-    //         leaf shutdown {
-    //           description
-    //             "Take the Service Instance out of Service";
-    //           type empty;
-    //         }
-    //       }
-    //     }
-    //   }
-    // }
-    // list md-list {
-    //   description
-    //     "Provide md list";
-    //   key "ipaddr mask";
-    //   leaf ipaddr {
-    //     type inet:ipv4-address;
-    //   }
-    //   leaf mask {
-    //     type inet:ipv4-address;
-    //   }
-    // }
-    // grouping tftp-alias-acl-number-grouping {
-    //   leaf alias {
-    //     description
-    //       "file alias";
-    //     type string;
-    //   }
-    //   leaf acl-number {
-    //     description
-    //       "IP access list of requesting hosts";
-    //     type ios-types:default-access-list-standard-id-type;
-    //   }
-    // }
+    container monitor {
+      description
+        "Monitoring different system events";
+      container event-trace {
+        description
+          "Tracing of system events";
+        container timestamps {
+          presence "true";
+          description
+            "Format of event trace timestamps";
+          leaf uptime {
+            description
+              "Timestamp with system uptime";
+            type empty;
+          }
+        }
+        container atom {
+          description
+            "AToM traces";
+          container error {
+            description
+              "This buffer stores only error logs by default.";
+            uses monitor-event-trace-enable-disable-grouping;
+            leaf-list include {
+              description
+                "Include a subset of debug types";
+              type monitor-event-type;
+            }
+          }
+          container event {
+            description
+              "This buffer stores all logs by default.";
+            uses monitor-event-trace-enable-disable-grouping;
+            leaf size {
+              type uint32;
+            }
+            leaf-list exclude {
+              description
+                "Include a subset of debug types";
+              type monitor-event-type;
+            }
+          }
+          container major {
+            description
+              "This buffer stores only major logs and error logs by default.";
+            uses monitor-event-trace-enable-disable-grouping;
+            leaf-list include {
+              description
+                "Include a subset of debug types";
+              type monitor-event-type;
+            }
+          }
+        }
+        leaf sequence-number {
+          description
+            "Display event trace entries with sequence number";
+          type empty;
+        }
+      }
+      list session {
+        description
+          "Configure a SPAN session";
+        key "id";
+        leaf id {
+          type uint8 {
+            range "1..66";
+          }
+        }
+        container destination {
+          description
+            "SPAN destination interface or VLAN";
+          list interface {
+            description
+              "SPAN destination interface";
+            key "name";
+            leaf name {
+              description
+                "Interface Name";
+              type string;
+            }
+            leaf encapsulation {
+              description
+                "Set encapsulation for destination interface";
+              type enumeration {
+                enum dot1q;
+                enum isl;
+                enum replicate;
+              }
+            }
+            leaf ingress {
+              description
+                "Enable ingress traffic forwarding";
+              type empty;
+            }
+            leaf ingress-encap {
+              when '../ingress';
+              type enumeration {
+                enum dot1q;
+                enum isl;
+                enum untagged;
+              }
+            }
+            leaf vlan {
+              description
+                "Set default VLAN for untagged ingress traffic";
+              when '../ingress';
+              type uint16 {
+                range "1..4094";
+              }
+            }
+          }
+          container remote {
+            description
+              "SPAN destination Remote";
+            leaf vlan {
+              description
+                "Remote SPAN destination RSPAN VLAN";
+              type uint16 {
+                range "1006..4094";
+              }
+            }
+          }
+        }
+        container filter {
+          description
+            "SPAN filter VLAN";
+          container packet-type {
+            leaf status {
+              type enumeration {
+                enum good;
+                enum bad;
+              }
+            }
+            leaf direction {
+              type enumeration {
+                enum rx;
+                enum tx;
+              }
+            }
+          }
+          container ip {
+            description
+              "Specify IP Access control rules";
+            container access-group {
+              description
+                "Specify access control group";
+              leaf acl-name {
+                description
+                  "Access-list name";
+                type string;
+              }
+            }
+          }
+        }
+        container source {
+          description
+            "SPAN source interface, VLAN ";
+          list interface {
+            description
+              "SPAN source interface";
+            key "name";
+            leaf name {
+              description
+                "Interface Name";
+              type string;
+            }
+            leaf direction {
+              type enumeration {
+                enum both;
+                enum rx;
+                enum tx;
+              }
+            }
+          }
+          container vlan {
+            description
+              "SPAN source VLAN";
+            leaf vlan {
+              type uint16 {
+                range "1..4094";
+              }
+            }
+            leaf direction {
+              type enumeration {
+                enum both;
+                enum rx;
+                enum tx;
+              }
+            }
+          }
+          container remote {
+            description
+              "SPAN source Remote";
+            leaf vlan {
+              description
+                "Remote SPAN source RSPAN VLAN <1-1001>|<1006-4094>";
+              type uint16 {
+                range "1..1001 | 1006..4094";
+              }
+            }
+          }
+        }
+        container type {
+          description
+            "Type of monitor session";
+          container erspan-source {
+            description
+              "Encapsulated RSPAN Source Session";
+            presence "true";
+            leaf description {
+              description
+                "Description for this session";
+              type string;
+            }
+            container source {
+              description
+                "SPAN source interface, VLAN ";
+              list interface {
+                description
+                  "SPAN source interface";
+                key "name";
+                leaf name {
+                  description
+                    "Interface Name";
+                  type string;
+                }
+                leaf direction {
+                  type enumeration {
+                    enum both;
+                    enum rx;
+                    enum tx;
+                  }
+                }
+              }
+              list vlan {
+                description
+                  "SPAN source VLAN";
+                key "vlan1";
+                leaf vlan1 {
+                  type uint16 {
+                    range "1..4094";
+                  }
+                }
+                leaf direction {
+                  type enumeration {
+                    enum both;
+                    enum rx;
+                    enum tx;
+                  }
+                }
+              }
+            }
+            container filter {
+              description
+                "SPAN filter VLAN";
+              list vlan {
+                key "vlan1";
+                leaf vlan1 {
+                  type uint16 {
+                    range "1..4094";
+                  }
+                }
+              }
+              container ip {
+                description
+                  "Specify IP Access control rules";
+                container access-group {
+                  description
+                    "Specify access control group";
+                  leaf acl-name {
+                    description
+                      "Access-list name";
+                    type string;
+                  }
+                }
+              }
+              container ipv6 {
+                description
+                  "Specify IPv6 Access control rules";
+                container access-group {
+                  description
+                    "Specify access control group";
+                  leaf acl-name {
+                    description
+                      "Access-list name";
+                    type string;
+                  }
+                }
+              }
+              container mac {
+                description
+                  "Specify MAC Access control rules";
+                container access-group {
+                  description
+                    "Specify access control group";
+                  leaf acl-name {
+                    description
+                      "Access-list name";
+                    type string;
+                  }
+                }
+              }
+              leaf sgt {
+                description
+                  "SPAN source SGT";
+                type uint16 {
+                  range "0..65535";
+                }
+              }
+            }
+            leaf header-type {
+              description
+                "ERSPAN header-type for encapsulation. Default is type 2";
+              type uint8 {
+                range "2..3";
+              }
+            }
+            leaf shutdown-source {
+              description
+                "Take the Service Instance out of Service";
+              type boolean;
+              default "true";
+            }
+            leaf shutdown {
+              description
+                "Take the Service Instance out of Service";
+              status obsolete;
+              type empty;
+            }
+            container destination {
+              description
+                "Specify Destination and their properties";
+              presence "true";
+              container ip {
+                description
+                  "IP Properties";
+                leaf address {
+                  description
+                    "Enter IP Address";
+                  type inet:ipv4-address;
+                }
+                leaf ttl {
+                  description
+                    "IP TTL";
+                  type uint16 {
+                    range "2..255";
+                  }
+                }
+                leaf dscp {
+                  description
+                    "IP QOS DSCP";
+                  type uint16 {
+                    range "0..63";
+                  }
+                }
+              }
+              leaf erspan-id {
+                description
+                  "Enter ERSPAN Identifier";
+                type uint16 {
+                  range "1..1023";
+                }
+              }
+              leaf mtu {
+                description
+                  "ERSpan MTU";
+                type uint16 {
+                  range "176..9000";
+                }
+              }
+              leaf vrf {
+                description
+                  "Enter VRF number";
+                type string;
+              }
+              container origin {
+                description
+                  "Origin IP Properties";
+                container ip {
+                  description
+                    "origin IP Properties";
+                  leaf address {
+                    description
+                      "Enter IP Address";
+                    type inet:ipv4-address;
+                  }
+                }
+              }
+            }
+          }
+          container erspan-destination {
+            description
+              "Encapsulated RSPAN Destination Session";
+            presence "true";
+            leaf description {
+              description
+                "Properties for this session";
+              type string;
+            }
+            container destination {
+              description
+                "SPAN destination interface, VLAN ";
+              list interface {
+                description
+                  "SPAN destination interface";
+                key "name";
+                leaf name {
+                  description
+                    "Interface Name";
+                  type string;
+                }
+              }
+              leaf vlan {
+                description
+                  "Remote SPAN destination RSPAN VLAN <1-1001>|<1006-4094>";
+                type uint16 {
+                  range "1..1001 | 1006..4094";
+                }
+              }
+            }
+            leaf shutdown-destination {
+              description
+                "Shutdown this session";
+              type boolean;
+              default "true";
+            }
+            leaf shutdown {
+              description
+                "Shutdown this session";
+              status obsolete;
+              type empty;
+            }
+            container source {
+              description
+                "Specify Source and their properties";
+              presence "true";
+              container ip {
+                description
+                  "IP Address";
+                leaf address {
+                  description
+                    "Enter IP Address";
+                  type inet:ipv4-address;
+                }
+              }
+              leaf erspan-id {
+                description
+                  "Enter ERSPAN Identifier";
+                type uint16 {
+                  range "1..1023";
+                }
+              }
+            }
+          }
+          container local {
+            description
+              "Local SPAN Session";
+            presence "true";
+            leaf description {
+              description
+                "Description for this session";
+              type string;
+            }
+            container source {
+              description
+                "SPAN source Interface/VLAN/CPU";
+              list interface {
+                description
+                  "SPAN source interface";
+                key "name";
+                leaf name {
+                  description
+                    "Interface Name";
+                  type string;
+                }
+                leaf direction {
+                  type enumeration {
+                    enum both;
+                    enum rx;
+                    enum tx;
+                  }
+                }
+              }
+              list vlan {
+                description
+                  "SPAN source VLAN";
+                key "vlan1";
+                leaf vlan1 {
+                  type uint16 {
+                    range "1..4094";
+                  }
+                }
+                leaf direction {
+                  type enumeration {
+                    enum both;
+                    enum rx;
+                    enum tx;
+                  }
+                }
+              }
+            }
+            container destination {
+              description
+                "SPAN destination interface or VLAN";
+              list interface {
+                description
+                  "SPAN destination interface";
+                key "name";
+                leaf name {
+                  description
+                    "Interface Name";
+                  type string;
+                }
+              }
+            }
+            container filter {
+              description
+                "SPAN filter VLAN";
+              list vlan {
+                key "vlan1";
+                leaf vlan1 {
+                  type uint16 {
+                    range "1..4094";
+                  }
+                }
+              }
+            }
+            leaf shutdown {
+              description
+                "Take the Service Instance out of Service";
+              type empty;
+            }
+          }
+        }
+      }
+    }
+    list md-list {
+      description
+        "Provide md list";
+      key "ipaddr mask";
+      leaf ipaddr {
+        type inet:ipv4-address;
+      }
+      leaf mask {
+        type inet:ipv4-address;
+      }
+    }
+    grouping tftp-alias-acl-number-grouping {
+      leaf alias {
+        description
+          "file alias";
+        type string;
+      }
+      leaf acl-number {
+        description
+          "IP access list of requesting hosts";
+        type ios-types:default-access-list-standard-id-type;
+      }
+    }
 
-    // container tftp-server-config {
-    //   description
-    //     "Provide TFTP service for netload requests";
-    //   list flash {
-    //     description
-    //       "Allow URL file TFTP load requests";
-    //     key "flash-name";
-    //     leaf flash-name {
-    //       type string;
-    //     }
-    //     uses tftp-alias-acl-number-grouping;
-    //   }
-    //   container rom {
-    //     description
-    //       "Allow ROM image TFTP load requests";
-    //     list alias {
-    //       description
-    //         "file alias";
-    //       key "alias-name";
-    //       leaf alias-name {
-    //         type string;
-    //       }
-    //       leaf acl-number {
-    //         type ios-types:default-access-list-standard-id-type;
-    //       }
-    //     }
-    //   }
-    //   list bootflash {
-    //     description
-    //       "Allow URL file TFTP load requests";
-    //     key "bootflash-name";
-    //     leaf bootflash-name {
-    //       type string;
-    //     }
-    //     uses tftp-alias-acl-number-grouping;
-    //   }
-    //   list null {
-    //     description
-    //       "Allow URL file TFTP load requests";
-    //     key "null-name";
-    //     leaf null-name {
-    //       type string;
-    //     }
-    //     uses tftp-alias-acl-number-grouping;
-    //   }
-    //   list system {
-    //     description
-    //       "Allow URL file TFTP load requests";
-    //     key "system-name";
-    //     leaf system-name {
-    //       type string;
-    //     }
-    //     uses tftp-alias-acl-number-grouping;
-    //   }
-    //   list tmpsys {
-    //     description
-    //       "Allow URL file TFTP load requests";
-    //     key "tmpsys-name";
-    //     leaf tmpsys-name {
-    //       type string;
-    //     }
-    //     uses tftp-alias-acl-number-grouping;
-    //   }
-    //   list nvram {
-    //     description
-    //       "Allow URL file TFTP load requests";
-    //     key "nvram-name";
-    //     leaf nvram-name {
-    //       type string;
-    //     }
-    //     uses tftp-alias-acl-number-grouping;
-    //   }
-    // }
-    // list tftp-server {
-    //   status deprecated;
-    //   description
-    //     "Provide TFTP service for netload requests";
-    //   key "name";
-    //   leaf name {
-    //     type string;
-    //   }
-    //   uses tftp-alias-acl-number-grouping;
-    // }
+    container tftp-server-config {
+      description
+        "Provide TFTP service for netload requests";
+      list flash {
+        description
+          "Allow URL file TFTP load requests";
+        key "flash-name";
+        leaf flash-name {
+          type string;
+        }
+        uses tftp-alias-acl-number-grouping;
+      }
+      container rom {
+        description
+          "Allow ROM image TFTP load requests";
+        list alias {
+          description
+            "file alias";
+          key "alias-name";
+          leaf alias-name {
+            type string;
+          }
+          leaf acl-number {
+            type ios-types:default-access-list-standard-id-type;
+          }
+        }
+      }
+      list bootflash {
+        description
+          "Allow URL file TFTP load requests";
+        key "bootflash-name";
+        leaf bootflash-name {
+          type string;
+        }
+        uses tftp-alias-acl-number-grouping;
+      }
+      list null {
+        description
+          "Allow URL file TFTP load requests";
+        key "null-name";
+        leaf null-name {
+          type string;
+        }
+        uses tftp-alias-acl-number-grouping;
+      }
+      list system {
+        description
+          "Allow URL file TFTP load requests";
+        key "system-name";
+        leaf system-name {
+          type string;
+        }
+        uses tftp-alias-acl-number-grouping;
+      }
+      list tmpsys {
+        description
+          "Allow URL file TFTP load requests";
+        key "tmpsys-name";
+        leaf tmpsys-name {
+          type string;
+        }
+        uses tftp-alias-acl-number-grouping;
+      }
+      list nvram {
+        description
+          "Allow URL file TFTP load requests";
+        key "nvram-name";
+        leaf nvram-name {
+          type string;
+        }
+        uses tftp-alias-acl-number-grouping;
+      }
+    }
+    list tftp-server {
+      status deprecated;
+      description
+        "Provide TFTP service for netload requests";
+      key "name";
+      leaf name {
+        type string;
+      }
+      uses tftp-alias-acl-number-grouping;
+    }
     container radius-server {
       description
         "Modify RADIUS query parameters";
@@ -4739,32 +4739,32 @@ module Cisco-IOS-XE-native {
       description
         "Zone pair command";
     }
-    // list alarm-contact {
-    //   key "name";
-    //   leaf name {
-    //     type uint8 {
-    //       range "1..4";
-    //     }
-    //   }
-    //   leaf description {
-    //     type string {
-    //       length "1..80";
-    //     }
-    //   }
-    //   leaf severity {
-    //     type enumeration {
-    //       enum critical;
-    //       enum major;
-    //       enum minor;
-    //     }
-    //   }
-    //   leaf trigger {
-    //     type enumeration {
-    //       enum open;
-    //       enum closed;
-    //     }
-    //   }
-    // }
+    list alarm-contact {
+      key "name";
+      leaf name {
+        type uint8 {
+          range "1..4";
+        }
+      }
+      leaf description {
+        type string {
+          length "1..80";
+        }
+      }
+      leaf severity {
+        type enumeration {
+          enum critical;
+          enum major;
+          enum minor;
+        }
+      }
+      leaf trigger {
+        type enumeration {
+          enum open;
+          enum closed;
+        }
+      }
+    }
     container ethernet {
       description
         "Ethernet configuration";
@@ -4785,20 +4785,20 @@ module Cisco-IOS-XE-native {
       description
         "BFD-template";
     }
-    // container pfr {
-    //   description
-    //     "Performance Routing configuration submodes";
-    // }
-    // list pfr-map {
-    //   description
-    //     "Create pfr-map and enter pfr-map command mode";
-    //   key "pfr-tg";
-    //   leaf pfr-tg {
-    //     description
-    //       "pfr-map tag";
-    //     type string;
-    //   }
-    // }
+    container pfr {
+      description
+        "Performance Routing configuration submodes";
+    }
+    list pfr-map {
+      description
+        "Create pfr-map and enter pfr-map command mode";
+      key "pfr-tg";
+      leaf pfr-tg {
+        description
+          "pfr-map tag";
+        type string;
+      }
+    }
     container facility-alarm {
       description
         "Configure facility alarms";
@@ -4819,149 +4819,149 @@ module Cisco-IOS-XE-native {
       description
         "Configure setup options";
     }
-    // container tod-clock {
-    //   description
-    //     "Tod clock config commands";
-    //   container input-source {
-    //     description
-    //       "Synchronization Input Source";
-    //     status deprecated;
-    //     leaf priority {
-    //       status deprecated;
-    //       type uint8 {
-    //         range "1..250";
-    //       }
-    //     }
-    //     container ptp {
-    //       status deprecated;
-    //       leaf domain {
-    //         type uint8;
-    //       }
-    //     }
-    //   }
-    // }
-    // container network-clock {
-    //   description
-    //     "Network clock config commands";
-    //   container synchronization {
-    //     description
-    //       "Network clock synchronization selection process";
-    //     status deprecated;
-    //     leaf automatic {
-    //       description
-    //         "ITU-T G.781/Telcordia standard based";
-    //       status deprecated;
-    //       type empty;
-    //     }
-    //     leaf mode {
-    //       description
-    //         "synchronization networking mode";
-    //       status deprecated;
-    //       type enumeration {
-    //         enum QL-enabled;
-    //       }
-    //     }
-    //     leaf-list participate {
-    //       description
-    //         "network clock participate, input line card slot number";
-    //       status deprecated;
-    //       type string;
-    //     }
-    //   }
-    //   leaf revertive {
-    //     description
-    //       "Network clock revertive mode";
-    //     status deprecated;
-    //     type empty;
-    //   }
-    //   container wait-to-restore {
-    //     description
-    //       "Wait-to-Restore timer";
-    //     status deprecated;
-    //     leaf time {
-    //       description
-    //         "Wait-to-Restore time";
-    //       status deprecated;
-    //       type uint32 {
-    //         range "0..86400";
-    //       }
-    //       default "300";
-    //     }
-    //     leaf global {
-    //       description
-    //         "Global";
-    //       status obsolete;
-    //       type empty;
-    //     }
-    //   }
-    //   list input-source-list {
-    //     description
-    //       "Synchronization Input Source";
-    //     status deprecated;
-    //     key "priority";
-    //     leaf priority {
-    //       status deprecated;
-    //       type uint8 {
-    //         range "1..250";
-    //       }
-    //     }
-    //     container interface {
-    //       status deprecated;
-    //       uses ios-ifc:interface-grouping;
-    //     }
-    //     container ptp {
-    //       status deprecated;
-    //       leaf domain {
-    //         type uint8;
-    //       }
-    //     }
-    //     container controller {
-    //       description
-    //         "T1/E1 controller";
-    //       status deprecated;
-    //       leaf name {
-    //         status deprecated;
-    //         type enumeration {
-    //           enum T1;
-    //           enum E1;
-    //           enum t1;
-    //           enum e1;
-    //         }
-    //       }
-    //       leaf number {
-    //         status deprecated;
-    //         type string;
-    //       }
-    //     }
-    //   }
-    //   container input-source {
-    //     description
-    //       "Synchronization Input Source";
-    //     status deprecated;
-    //     leaf priority {
-    //       status deprecated;
-    //       type uint8 {
-    //         range "1..250";
-    //       }
-    //     }
-    //     container interface {
-    //       status deprecated;
-    //       uses ios-ifc:interface-grouping;
-    //     }
-    //     container ptp {
-    //       status deprecated;
-    //       leaf domain {
-    //         status deprecated;
-    //         type uint8;
-    //       }
-    //     }
-    //   }
-    // }
-    // container l2vpn {
-    //   description
-    //     "Layer2 VPN commands";
-    // }
-    // container l2vpn-config;
+    container tod-clock {
+      description
+        "Tod clock config commands";
+      container input-source {
+        description
+          "Synchronization Input Source";
+        status deprecated;
+        leaf priority {
+          status deprecated;
+          type uint8 {
+            range "1..250";
+          }
+        }
+        container ptp {
+          status deprecated;
+          leaf domain {
+            type uint8;
+          }
+        }
+      }
+    }
+    container network-clock {
+      description
+        "Network clock config commands";
+      container synchronization {
+        description
+          "Network clock synchronization selection process";
+        status deprecated;
+        leaf automatic {
+          description
+            "ITU-T G.781/Telcordia standard based";
+          status deprecated;
+          type empty;
+        }
+        leaf mode {
+          description
+            "synchronization networking mode";
+          status deprecated;
+          type enumeration {
+            enum QL-enabled;
+          }
+        }
+        leaf-list participate {
+          description
+            "network clock participate, input line card slot number";
+          status deprecated;
+          type string;
+        }
+      }
+      leaf revertive {
+        description
+          "Network clock revertive mode";
+        status deprecated;
+        type empty;
+      }
+      container wait-to-restore {
+        description
+          "Wait-to-Restore timer";
+        status deprecated;
+        leaf time {
+          description
+            "Wait-to-Restore time";
+          status deprecated;
+          type uint32 {
+            range "0..86400";
+          }
+          default "300";
+        }
+        leaf global {
+          description
+            "Global";
+          status obsolete;
+          type empty;
+        }
+      }
+      list input-source-list {
+        description
+          "Synchronization Input Source";
+        status deprecated;
+        key "priority";
+        leaf priority {
+          status deprecated;
+          type uint8 {
+            range "1..250";
+          }
+        }
+        container interface {
+          status deprecated;
+          uses ios-ifc:interface-grouping;
+        }
+        container ptp {
+          status deprecated;
+          leaf domain {
+            type uint8;
+          }
+        }
+        container controller {
+          description
+            "T1/E1 controller";
+          status deprecated;
+          leaf name {
+            status deprecated;
+            type enumeration {
+              enum T1;
+              enum E1;
+              enum t1;
+              enum e1;
+            }
+          }
+          leaf number {
+            status deprecated;
+            type string;
+          }
+        }
+      }
+      container input-source {
+        description
+          "Synchronization Input Source";
+        status deprecated;
+        leaf priority {
+          status deprecated;
+          type uint8 {
+            range "1..250";
+          }
+        }
+        container interface {
+          status deprecated;
+          uses ios-ifc:interface-grouping;
+        }
+        container ptp {
+          status deprecated;
+          leaf domain {
+            status deprecated;
+            type uint8;
+          }
+        }
+      }
+    }
+    container l2vpn {
+      description
+        "Layer2 VPN commands";
+    }
+    container l2vpn-config;
     container l3vpn {
       description
         "l3vpn encapsulation ip commands";
@@ -4983,34 +4983,34 @@ module Cisco-IOS-XE-native {
       description
         "Configure OTV information";
     }
-    // container remote-management {
-    //   description
-    //     "Enable the remote managment";
-    //   leaf dmi {
-    //     description
-    //       "data-model-interface";
-    //     type empty;
-    //   }
-    //   leaf restful-api {
-    //     description
-    //       "RESTful API";
-    //     type boolean;
-    //   }
-    // }
-    // list virtual-service {
-    //   description
-    //     "Configure virtual service";
-    //   key "name";
-    //   leaf name {
-    //     type string {
-    //       length "1..63";
-    //     }
-    //   }
-    // }
-    // container vxlan {
-    //   description
-    //     "VXLAN configuration commands";
-    // }
+    container remote-management {
+      description
+        "Enable the remote managment";
+      leaf dmi {
+        description
+          "data-model-interface";
+        type empty;
+      }
+      leaf restful-api {
+        description
+          "RESTful API";
+        type boolean;
+      }
+    }
+    list virtual-service {
+      description
+        "Configure virtual service";
+      key "name";
+      leaf name {
+        type string {
+          length "1..63";
+        }
+      }
+    }
+    container vxlan {
+      description
+        "VXLAN configuration commands";
+    }
     container snmp {
       description
         "Modify SNMP interface parameters";
@@ -5019,68 +5019,68 @@ module Cisco-IOS-XE-native {
       description
         "Modify SNMP engine parameters";
     }
-    // container segment-routing {
-    //   description
-    //     "Enter Segment Routing Mode";
-    // }
-    // container performance-measurement {
-    //   description
-    //     "Enter Performance Measurement Mode";
-    //   presence "true";
-    // }
-    // uses config-license-grouping;
+    container segment-routing {
+      description
+        "Enter Segment Routing Mode";
+    }
+    container performance-measurement {
+      description
+        "Enter Performance Measurement Mode";
+      presence "true";
+    }
+    uses config-license-grouping;
     leaf disable-eadi {
       type empty;
     }
-    // container memory-size {
-    //   if-feature "ios-features:mem-size";
-    //   description
-    //     "Adjust memory size by percentage";
-    //   leaf iomem {
-    //     description
-    //       "I/O memory";
-    //     type uint8 {
-    //       range "5..25";
-    //     }
-    //   }
-    // }
-    // container transceiver {
-    //   status obsolete;
-    //   if-feature "ios-features:transceiver";
-    //   description
-    //     "Select from transceiver configuration commands";
-    //   container type {
-    //     status obsolete;
-    //     description
-    //       "type keyword";
-    //     container all {
-    //       status obsolete;
-    //       container monitoring {
-    //         status obsolete;
-    //         description
-    //           "Enable/disable monitoring";
-    //         presence "true";
-    //         leaf interval {
-    //           status obsolete;
-    //           description
-    //             "Set interval for monitoring";
-    //           type uint16 {
-    //             range "300..3600";
-    //           }
-    //         }
-    //       }
-    //     }
-    //   }
-    // }
-    //uses config-transceiver-grouping;
-    // container service-insertion {
-    //   description
-    //     "Service Insertion mode";
-    // }
-    // container udld {
-    //   description
-    //     "Configure global UDLD setting";
-    // }
+    container memory-size {
+      if-feature "ios-features:mem-size";
+      description
+        "Adjust memory size by percentage";
+      leaf iomem {
+        description
+          "I/O memory";
+        type uint8 {
+          range "5..25";
+        }
+      }
+    }
+    container transceiver {
+      status obsolete;
+      if-feature "ios-features:transceiver";
+      description
+        "Select from transceiver configuration commands";
+      container type {
+        status obsolete;
+        description
+          "type keyword";
+        container all {
+          status obsolete;
+          container monitoring {
+            status obsolete;
+            description
+              "Enable/disable monitoring";
+            presence "true";
+            leaf interval {
+              status obsolete;
+              description
+                "Set interval for monitoring";
+              type uint16 {
+                range "300..3600";
+              }
+            }
+          }
+        }
+      }
+    }
+    // uses config-transceiver-grouping;
+    container service-insertion {
+      description
+        "Service Insertion mode";
+    }
+    container udld {
+      description
+        "Configure global UDLD setting";
+    }
     container qos {
       description
         "Global QoS configuration commands";
@@ -5127,131 +5127,131 @@ module Cisco-IOS-XE-native {
       description
         "Device tracking configuration commands";
     }
-    // container fhrp {
-    //   description
-    //     "Configure First Hop Redundancy Protocols";
-    //   container version {
-    //     description
-    //       "Configure which FHRP version is allowed to run";
-    //     leaf vrrp {
-    //       description
-    //         "Configure Virtual Router Redundancy Protocol";
-    //       type enumeration {
-    //         enum v2;
-    //         enum v3;
-    //       }
-    //       default "v2";
-    //     }
-    //   }
-    //   leaf bfd {
-    //     description
-    //       "Allows VRRPv3 BFD configuration";
-    //     default "false";
-    //     type boolean;
-    //   }
-    //   leaf sso {
-    //     if-feature "ios-features:fhrp-sso";
-    //     description
-    //       "Enable VRRPv3 Stateful switchover";
-    //     default "false";
-    //     type boolean;
-    //   }
-    // }
-    // container standby {
-    //   description
-    //     "Configure Hot Standby Redundancy Protocol";
-    //   container bfd {
-    //     description
-    //       "Configure HSRP BFD";
-    //     leaf all-interfaces {
-    //       description
-    //         "Enable HSRP BFD on all interfaces";
-    //       default "true";
-    //       type boolean;
-    //     }
-    //   }
-    //   container redirects-config {
-    //     description
-    //       "Configure sending ICMP Redirects with HSRP VIP as gateway IP";
-    //     choice redirect_choice {
-    //       default "redirects";
-    //       leaf redirects {
-    //         type boolean;
-    //         default "true";
-    //       }
-    //       container redirect-enable-disable {
-    //         leaf redirects {
-    //           type enumeration {
-    //             enum enable;
-    //             enum disable;
-    //           }
-    //         }
-    //       }
-    //     }
-    //   }
-    //   leaf redirects {
-    //     status deprecated;
-    //     description
-    //       "Configure sending ICMP Redirects with HSRP VIP as gateway IP";
-    //     default "true";
-    //     type boolean;
-    //   }
-    //   leaf sso {
-    //     description
-    //       "Enable Stateful switchover";
-    //     default "true";
-    //     type boolean;
-    //   }
-    // }
-    // container metadata {
-    //   description
-    //     "Metadata Application";
-    //   container flow {
-    //     description
-    //       "Enable Metadata Flow Handling";
-    //     presence "true";
-    //     leaf transmit {
-    //       description
-    //         "Enable Metadata Flow Transmit ";
-    //       type empty;
-    //     }
-    //   }
-    // }
-    // container profile {
-    //   description
-    //     "MSP Profile";
-    //   leaf flow {
-    //     description
-    //       "MSP Profile Flow";
-    //     type empty;
-    //   }
-    // }
-    // container alias {
-    //   description
-    //     "Create command alias";
-    //   list exec {
-    //     description
-    //       "Exec mode";
-    //     key "alias-name";
-    //     leaf alias-name {
-    //       type string;
-    //     }
-    //     leaf new-alias-name {
-    //       type string;
-    //     }
-    //   }
-    //   list configure {
-    //     description
-    //       "Global configuration mode";
-    //     key "alias-name";
-    //     leaf alias-name {
-    //       type string;
-    //     }
-    //     leaf new-alias-name {
-    //       type string;
-    //     }
-    //   }
-    // }
+    container fhrp {
+      description
+        "Configure First Hop Redundancy Protocols";
+      container version {
+        description
+          "Configure which FHRP version is allowed to run";
+        leaf vrrp {
+          description
+            "Configure Virtual Router Redundancy Protocol";
+          type enumeration {
+            enum v2;
+            enum v3;
+          }
+          default "v2";
+        }
+      }
+      leaf bfd {
+        description
+          "Allows VRRPv3 BFD configuration";
+        default "false";
+        type boolean;
+      }
+      leaf sso {
+        if-feature "ios-features:fhrp-sso";
+        description
+          "Enable VRRPv3 Stateful switchover";
+        default "false";
+        type boolean;
+      }
+    }
+    container standby {
+      description
+        "Configure Hot Standby Redundancy Protocol";
+      container bfd {
+        description
+          "Configure HSRP BFD";
+        leaf all-interfaces {
+          description
+            "Enable HSRP BFD on all interfaces";
+          default "true";
+          type boolean;
+        }
+      }
+      container redirects-config {
+        description
+          "Configure sending ICMP Redirects with HSRP VIP as gateway IP";
+        choice redirect_choice {
+          default "redirects";
+          leaf redirects {
+            type boolean;
+            default "true";
+          }
+          container redirect-enable-disable {
+            leaf redirects {
+              type enumeration {
+                enum enable;
+                enum disable;
+              }
+            }
+          }
+        }
+      }
+      leaf redirects {
+        status deprecated;
+        description
+          "Configure sending ICMP Redirects with HSRP VIP as gateway IP";
+        default "true";
+        type boolean;
+      }
+      leaf sso {
+        description
+          "Enable Stateful switchover";
+        default "true";
+        type boolean;
+      }
+    }
+    container metadata {
+      description
+        "Metadata Application";
+      container flow {
+        description
+          "Enable Metadata Flow Handling";
+        presence "true";
+        leaf transmit {
+          description
+            "Enable Metadata Flow Transmit ";
+          type empty;
+        }
+      }
+    }
+    container profile {
+      description
+        "MSP Profile";
+      leaf flow {
+        description
+          "MSP Profile Flow";
+        type empty;
+      }
+    }
+    container alias {
+      description
+        "Create command alias";
+      list exec {
+        description
+          "Exec mode";
+        key "alias-name";
+        leaf alias-name {
+          type string;
+        }
+        leaf new-alias-name {
+          type string;
+        }
+      }
+      list configure {
+        description
+          "Global configuration mode";
+        key "alias-name";
+        leaf alias-name {
+          type string;
+        }
+        leaf new-alias-name {
+          type string;
+        }
+      }
+    }
     uses config-line-grouping;
     container ntp {
       description
@@ -5405,109 +5405,109 @@ module Cisco-IOS-XE-native {
       }
     }
 
-    // container process {
-    //   description
-    //     "Configure process";
-    //   container cpu {
-    //     description
-    //       "Configure cpu parameters";
-    //     container threshold {
-    //       description
-    //         "cpu threshold parameters";
-    //       container type {
-    //         description
-    //           "cpu threshold type";
-    //         container interrupt {
-    //           description
-    //             "interrupt level utilization";
-    //           uses process-rising-grouping;
-    //         }
-    //         container process {
-    //           description
-    //             "process level utilization";
-    //           uses process-rising-grouping;
-    //         }
-    //         container total {
-    //           description
-    //             "total cpu utilization";
-    //           uses process-rising-grouping;
-    //         }
-    //       }
-    //     }
-    //   }
-    // }
-    // container exception {
-    //   description
-    //     "help";
-    //   container crashinfo {
-    //     description
-    //       "Crash info collection";
-    //     presence "true";
-    //     leaf buffersize {
-    //       description
-    //         "buffer size in Kbytes 256K or less (default is 32K)";
-    //       type uint16 {
-    //         range "32..256";
-    //       }
-    //     }
-    //   }
-    // }
-    // container iox {
-    //   description
-    //     "Configure IOx services";
-    //   presence "true";
-    //   leaf switch {
-    //     description
-    //       "Configure switch number for IOx media";
-    //     type uint8 {
-    //       range "1..16";
-    //     }
-    //   }
-    // }
-    // grouping transport-map-type-persistent-webui-list {
-    //   leaf secure-server {
-    //     description
-    //       "Enable HTTP secure server";
-    //     type empty;
-    //   }
-    //   leaf server {
-    //     description
-    //       "Enable HTTP server";
-    //     type empty;
-    //   }
-    // }
+    container process {
+      description
+        "Configure process";
+      container cpu {
+        description
+          "Configure cpu parameters";
+        container threshold {
+          description
+            "cpu threshold parameters";
+          container type {
+            description
+              "cpu threshold type";
+            container interrupt {
+              description
+                "interrupt level utilization";
+              uses process-rising-grouping;
+            }
+            container process {
+              description
+                "process level utilization";
+              uses process-rising-grouping;
+            }
+            container total {
+              description
+                "total cpu utilization";
+              uses process-rising-grouping;
+            }
+          }
+        }
+      }
+    }
+    container exception {
+      description
+        "help";
+      container crashinfo {
+        description
+          "Crash info collection";
+        presence "true";
+        leaf buffersize {
+          description
+            "buffer size in Kbytes 256K or less (default is 32K)";
+          type uint16 {
+            range "32..256";
+          }
+        }
+      }
+    }
+    container iox {
+      description
+        "Configure IOx services";
+      presence "true";
+      leaf switch {
+        description
+          "Configure switch number for IOx media";
+        type uint8 {
+          range "1..16";
+        }
+      }
+    }
+    grouping transport-map-type-persistent-webui-list {
+      leaf secure-server {
+        description
+          "Enable HTTP secure server";
+        type empty;
+      }
+      leaf server {
+        description
+          "Enable HTTP server";
+        type empty;
+      }
+    }
 
-    // container transport-map {
-    //   description
-    //     "Configure transport map";
-    //   container type {
-    //     description
-    //       "Specify transport map type";
-    //     container persistent {
-    //       description
-    //         "Persistent transport types";
-    //       list persistent-type-name {
-    //         key "tm-name";
-    //         leaf tm-name {
-    //           type string;
-    //         }
-    //         leaf persistent-type {
-    //           type enumeration {
-    //             enum webui {
-    //               description
-    //                 "Persistent webui transport type";
-    //             }
-    //           }
-    //         }
-    //         uses transport-map-type-persistent-webui-list;
-    //       }
-    //     }
-    //   }
-    // }
-    // container redun-management {
-    //   description
-    //     "Redundancy Management Interface configuration";
-    // }
+    container transport-map {
+      description
+        "Configure transport map";
+      container type {
+        description
+          "Specify transport map type";
+        container persistent {
+          description
+            "Persistent transport types";
+          list persistent-type-name {
+            key "tm-name";
+            leaf tm-name {
+              type string;
+            }
+            leaf persistent-type {
+              type enumeration {
+                enum webui {
+                  description
+                    "Persistent webui transport type";
+                }
+              }
+            }
+            uses transport-map-type-persistent-webui-list;
+          }
+        }
+      }
+    }
+    container redun-management {
+      description
+        "Redundancy Management Interface configuration";
+    }
     container management {
       description
         "Management Gateway-failover configuration";

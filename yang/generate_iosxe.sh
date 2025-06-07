@@ -19,4 +19,6 @@ generator -path=. \
   iosxe/1791/Cisco-IOS-XE-snmp.yang \
   iosxe/1791/Cisco-IOS-XE-interfaces.yang \
   iosxe/1791/Cisco-IOS-XE-ntp.yang \
+  iosxe/1791/Cisco-IOS-XE-multicast.yang \
+  iosxe/1791/Cisco-IOS-XE-igmp.yang \
   iosxe/1791/not-supported.yang 

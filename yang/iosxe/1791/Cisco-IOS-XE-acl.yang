@@ -1048,33 +1048,33 @@ module Cisco-IOS-XE-acl {
           type ios-types:ipv4-host;
         }
       }
-    //   case fqdn-group-case {
-    //     leaf src-fqdn-group {
-    //       description
-    //         "Source FQDN group";
-    //       type leafref {
-    //         path "/ios:native/ios:object-group/ios-og:fqdn/ios-og:name";
-    //       }
-    //     }
-    //   }
-    //   case geo-group-case {
-    //     leaf src-geo-group {
-    //       description
-    //         "Source geolocation group name";
-    //       type leafref {
-    //         path "/ios:native/ios:object-group/ios-og:geo/ios-og:name";
-    //       }
-    //     }
-    //   }
-    //   case object-group-case {
-    //     leaf object-group {
-    //       description
-    //         "Source network object group";
-    //       type leafref {
-    //         path "/ios:native/ios:object-group/ios-og:network/ios-og:name";
-    //       }
-    //     }
-    //   }
+      // case fqdn-group-case {
+      //   leaf src-fqdn-group {
+      //     description
+      //       "Source FQDN group";
+      //     type leafref {
+      //       path "/ios:native/ios:object-group/ios-og:fqdn/ios-og:name";
+      //     }
+      //   }
+      // }
+      // case geo-group-case {
+      //   leaf src-geo-group {
+      //     description
+      //       "Source geolocation group name";
+      //     type leafref {
+      //       path "/ios:native/ios:object-group/ios-og:geo/ios-og:name";
+      //     }
+      //   }
+      // }
+      // case object-group-case {
+      //   leaf object-group {
+      //     description
+      //       "Source network object group";
+      //     type leafref {
+      //       path "/ios:native/ios:object-group/ios-og:network/ios-og:name";
+      //     }
+      //   }
+      // }
     }
     choice src-port-choice {
       case src-eq-case {
@@ -1203,33 +1203,33 @@ module Cisco-IOS-XE-acl {
           type ios-types:ipv4-host;
         }
       }
-    //   case fqdn-group-case {
-    //     leaf dst-fqdn-group {
-    //       description
-    //         "Destination FQDN group";
-    //       type leafref {
-    //         path "/ios:native/ios:object-group/ios-og:fqdn/ios-og:name";
-    //       }
-    //     }
-    //   }
-    //   case geo-group-case {
-    //     leaf dst-geo-group {
-    //       description
-    //         "Destination geolocation group name";
-    //       type leafref {
-    //         path "/ios:native/ios:object-group/ios-og:geo/ios-og:name";
-    //       }
-    //     }
-    //   }
-    //   case object-group-case {
-    //     leaf dst-object-group {
-    //       description
-    //         "Destination network object group";
-    //       type leafref {
-    //         path "/ios:native/ios:object-group/ios-og:network/ios-og:name";
-    //       }
-    //     }
-    //   }
+      // case fqdn-group-case {
+      //   leaf dst-fqdn-group {
+      //     description
+      //       "Destination FQDN group";
+      //     type leafref {
+      //       path "/ios:native/ios:object-group/ios-og:fqdn/ios-og:name";
+      //     }
+      //   }
+      // }
+      // case geo-group-case {
+      //   leaf dst-geo-group {
+      //     description
+      //       "Destination geolocation group name";
+      //     type leafref {
+      //       path "/ios:native/ios:object-group/ios-og:geo/ios-og:name";
+      //     }
+      //   }
+      // }
+      // case object-group-case {
+      //   leaf dst-object-group {
+      //     description
+      //       "Destination network object group";
+      //     type leafref {
+      //       path "/ios:native/ios:object-group/ios-og:network/ios-og:name";
+      //     }
+      //   }
+      // }
     }
     choice dst-port-choice {
       case dst-eq-case {
@@ -1336,24 +1336,24 @@ module Cisco-IOS-XE-acl {
           type ios-types:ip-host;
         }
       }
-      case fqdn-group-case {
-        leaf source-fqdn-group {
-          description
-            "Source FQDN group";
-          type leafref {
-            path "/ios:native/ios:object-group/ios-og:fqdn/ios-og:name";
-          }
-        }
-      }
-      case geo-group-case {
-        leaf source-geo-group {
-          description
-            "Source geolocation group name";
-          type leafref {
-            path "/ios:native/ios:object-group/ios-og:geo/ios-og:name";
-          }
-        }
-      }
+      // case fqdn-group-case {
+      //   leaf source-fqdn-group {
+      //     description
+      //       "Source FQDN group";
+      //     type leafref {
+      //       path "/ios:native/ios:object-group/ios-og:fqdn/ios-og:name";
+      //     }
+      //   }
+      // }
+      // case geo-group-case {
+      //   leaf source-geo-group {
+      //     description
+      //       "Source geolocation group name";
+      //     type leafref {
+      //       path "/ios:native/ios:object-group/ios-og:geo/ios-og:name";
+      //     }
+      //   }
+      // }
       case address-case {
         leaf source-address {
           type inet:ipv6-address;
@@ -1367,15 +1367,15 @@ module Cisco-IOS-XE-acl {
           type ios-types:ipv6-prefix;
         }
       }
-      case object-group-case {
-        leaf source-object-group {
-          description
-            "Source IPv6 network object group";
-          type leafref {
-            path "/ios:native/ios:object-group/ios-og:v6-network/ios-og:name";
-          }
-        }
-      }
+      // case object-group-case {
+      //   leaf source-object-group {
+      //     description
+      //       "Source IPv6 network object group";
+      //     type leafref {
+      //       path "/ios:native/ios:object-group/ios-og:v6-network/ios-og:name";
+      //     }
+      //   }
+      // }
       case any-case {
         leaf any {
           type empty;
@@ -1484,24 +1484,24 @@ module Cisco-IOS-XE-acl {
           type ios-types:ip-host;
         }
       }
-      case fqdn-group-case {
-        leaf destination-fqdn-group {
-          description
-            "Destination FQDN group";
-          type leafref {
-            path "/ios:native/ios:object-group/ios-og:fqdn/ios-og:name";
-          }
-        }
-      }
-      case geo-group-case {
-        leaf destination-geo-group {
-          description
-            "Destination geolocation group name";
-          type leafref {
-            path "/ios:native/ios:object-group/ios-og:geo/ios-og:name";
-          }
-        }
-      }
+      // case fqdn-group-case {
+      //   leaf destination-fqdn-group {
+      //     description
+      //       "Destination FQDN group";
+      //     type leafref {
+      //       path "/ios:native/ios:object-group/ios-og:fqdn/ios-og:name";
+      //     }
+      //   }
+      // }
+      // case geo-group-case {
+      //   leaf destination-geo-group {
+      //     description
+      //       "Destination geolocation group name";
+      //     type leafref {
+      //       path "/ios:native/ios:object-group/ios-og:geo/ios-og:name";
+      //     }
+      //   }
+      // }
       case address-case {
         leaf destination-address {
           type inet:ipv6-address;
@@ -1515,15 +1515,15 @@ module Cisco-IOS-XE-acl {
           type ios-types:ipv6-prefix;
         }
       }
-      case object-group-case {
-        leaf destination-object-group {
-          description
-            "Destination IPv6 network object group";
-          type leafref {
-            path "/ios:native/ios:object-group/ios-og:v6-network/ios-og:name";
-          }
-        }
-      }
+      // case object-group-case {
+      //   leaf destination-object-group {
+      //     description
+      //       "Destination IPv6 network object group";
+      //     type leafref {
+      //       path "/ios:native/ios:object-group/ios-og:v6-network/ios-og:name";
+      //     }
+      //   }
+      // }
       case any-case {
         leaf destination-any {
           type empty;
@@ -1954,51 +1954,51 @@ module Cisco-IOS-XE-acl {
     }
   }
 
-//   grouping ipv4-fqdn-address-choice-grouping {
-//     choice address-choice {
-//       case ipv4-prefix-case {
-//         leaf ipv4-address {
-//           description
-//             "Host ipv4 address";
-//           type inet:ipv4-address;
-//         }
-//         leaf mask {
-//           description
-//             "Host ipv4 mask";
-//           type inet:ipv4-address;
-//         }
-//       }
-//       case any-case {
-//         leaf any {
-//           description
-//             "Any host";
-//           type empty;
-//         }
-//       }
-//       case host-case {
-//         container host {
-//           choice host-case {
-//             case host-case {
-//               leaf host-address {
-//                 description
-//                   "A single host";
-//                 type inet:ipv4-address;
-//               }
-//             }
-//             case dynamic-case {
-//               leaf dynamic {
-//                 description
-//                   "FQDN of a single host";
-//                 type string {
-//                   pattern '(([a-zA-Z0-9-]|[*])*\.)*([a-zA-Z0-9-]*).([a-zA-Z0-9-]*)';
-//                 }
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
+  grouping ipv4-fqdn-address-choice-grouping {
+    choice address-choice {
+      case ipv4-prefix-case {
+        leaf ipv4-address {
+          description
+            "Host ipv4 address";
+          type inet:ipv4-address;
+        }
+        leaf mask {
+          description
+            "Host ipv4 mask";
+          type inet:ipv4-address;
+        }
+      }
+      case any-case {
+        leaf any {
+          description
+            "Any host";
+          type empty;
+        }
+      }
+      case host-case {
+        container host {
+          choice host-case {
+            case host-case {
+              leaf host-address {
+                description
+                  "A single host";
+                type inet:ipv4-address;
+              }
+            }
+            case dynamic-case {
+              leaf dynamic {
+                description
+                  "FQDN of a single host";
+                type string {
+                  pattern '(([a-zA-Z0-9-]|[*])*\.)*([a-zA-Z0-9-]*).([a-zA-Z0-9-]*)';
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 
   grouping ipv6-fqdn-address-choice-grouping {
     choice address-choice {
@@ -2058,12 +2058,12 @@ module Cisco-IOS-XE-acl {
       description
         "Source port conditions";
       uses ipv4-acl-src-addr-port-grouping;
-    //   container dst {
-    //     status deprecated;
-    //     description
-    //       "Destination port conditions";
-    //     uses ipv4-acl-dst-addr-port-grouping-deprecated;
-    //   }
+      container dst {
+        status deprecated;
+        description
+          "Destination port conditions";
+        uses ipv4-acl-dst-addr-port-grouping-deprecated;
+      }
     }
     container dst {
       description
@@ -2440,137 +2440,137 @@ module Cisco-IOS-XE-acl {
     }
   }
 
-//   grouping ipv4-fqdn-acl-grouping {
-//     list access-list-seq-rule {
-//       key "sequence";
-//       leaf sequence {
-//         description
-//           "Sequence number for this entry";
-//         type uint64 {
-//           range "1..32767";
-//         }
-//       }
-//       container ace-rule {
-//         leaf action {
-//           description
-//             "Specifying packets to forward/reject";
-//           type enumeration {
-//             enum deny;
-//             enum permit;
-//           }
-//         }
-//         choice protocol-choice {
-//           case icmp-case {
-//             leaf icmp {
-//               description
-//                 "ICMP protocol";
-//               type empty;
-//             }
-//             container icmp-src-address {
-//               uses ipv4-fqdn-address-choice-grouping;
-//             }
-//             container icmp-dst-address {
-//               uses ipv4-fqdn-address-choice-grouping;
-//             }
-//           }
-//           case igmp-case {
-//             leaf igmp {
-//               description
-//                 "IGMP protocol";
-//               type empty;
-//             }
-//             container igmp-src-address {
-//               uses ipv4-fqdn-address-choice-grouping;
-//             }
-//             container igmp-dst-address {
-//               uses ipv4-fqdn-address-choice-grouping;
-//             }
-//           }
-//           case other-protocol-case {
-//             leaf other-protocol {
-//               description
-//                 "other protocols";
-//               type union {
-//                 type uint8 {
-//                   range "0|3|5|7..16|18..46|48|49|52..87|90..93|95..102|104..107|109..255";
-//                 }
-//                 type enumeration {
-//                   enum ipinip {
-//                     value 4;
-//                   }
-//                   enum gre {
-//                     value 47;
-//                   }
-//                   enum esp {
-//                     value 50;
-//                   }
-//                   enum ahp {
-//                     value 51;
-//                   }
-//                   enum eigrp {
-//                     value 88;
-//                   }
-//                   enum ospf {
-//                     value 89;
-//                   }
-//                   enum nos {
-//                     value 94;
-//                   }
-//                   enum pim {
-//                     value 103;
-//                   }
-//                   enum pcp {
-//                     value 108;
-//                   }
-//                   enum ip {
-//                     value 256;
-//                   }
-//                 }
-//               }
-//             }
-//             container src-address {
-//               uses ipv4-fqdn-address-choice-grouping;
-//             }
-//             container dst-address {
-//               uses ipv4-fqdn-address-choice-grouping;
-//             }
-//           }
-//           case udp-case {
-//             leaf udp {
-//               description
-//                 "UDP protocol";
-//               type empty;
-//             }
-//             container udp-src-address {
-//               uses ipv4-fqdn-address-choice-grouping;
-//             }
-//             uses udp-src-multi-port-grouping;
-//             container udp-dst-address {
-//               uses ipv4-fqdn-address-choice-grouping;
-//             }
-//             uses udp-dst-multi-port-grouping;
-//           }
-//           case tcp-case {
-//             leaf tcp {
-//               description
-//                 "TCP protocol";
-//               type empty;
-//             }
-//             container tcp-src-address {
-//               uses ipv4-fqdn-address-choice-grouping;
-//             }
-//             uses tcp-src-multi-port-grouping;
-//             container tcp-dst-address {
-//               uses ipv4-fqdn-address-choice-grouping;
-//             }
-//             uses tcp-dst-multi-port-grouping;
-//           }
-//         }
-//         uses ipv4-acl-match-common-attribute-new;
-//       }
-//       uses acl-remark-grouping;
-//     }
-//   }
+  grouping ipv4-fqdn-acl-grouping {
+    list access-list-seq-rule {
+      key "sequence";
+      leaf sequence {
+        description
+          "Sequence number for this entry";
+        type uint64 {
+          range "1..32767";
+        }
+      }
+      container ace-rule {
+        leaf action {
+          description
+            "Specifying packets to forward/reject";
+          type enumeration {
+            enum deny;
+            enum permit;
+          }
+        }
+        choice protocol-choice {
+          case icmp-case {
+            leaf icmp {
+              description
+                "ICMP protocol";
+              type empty;
+            }
+            container icmp-src-address {
+              uses ipv4-fqdn-address-choice-grouping;
+            }
+            container icmp-dst-address {
+              uses ipv4-fqdn-address-choice-grouping;
+            }
+          }
+          case igmp-case {
+            leaf igmp {
+              description
+                "IGMP protocol";
+              type empty;
+            }
+            container igmp-src-address {
+              uses ipv4-fqdn-address-choice-grouping;
+            }
+            container igmp-dst-address {
+              uses ipv4-fqdn-address-choice-grouping;
+            }
+          }
+          case other-protocol-case {
+            leaf other-protocol {
+              description
+                "other protocols";
+              type union {
+                type uint8 {
+                  range "0|3|5|7..16|18..46|48|49|52..87|90..93|95..102|104..107|109..255";
+                }
+                type enumeration {
+                  enum ipinip {
+                    value 4;
+                  }
+                  enum gre {
+                    value 47;
+                  }
+                  enum esp {
+                    value 50;
+                  }
+                  enum ahp {
+                    value 51;
+                  }
+                  enum eigrp {
+                    value 88;
+                  }
+                  enum ospf {
+                    value 89;
+                  }
+                  enum nos {
+                    value 94;
+                  }
+                  enum pim {
+                    value 103;
+                  }
+                  enum pcp {
+                    value 108;
+                  }
+                  enum ip {
+                    value 256;
+                  }
+                }
+              }
+            }
+            container src-address {
+              uses ipv4-fqdn-address-choice-grouping;
+            }
+            container dst-address {
+              uses ipv4-fqdn-address-choice-grouping;
+            }
+          }
+          case udp-case {
+            leaf udp {
+              description
+                "UDP protocol";
+              type empty;
+            }
+            container udp-src-address {
+              uses ipv4-fqdn-address-choice-grouping;
+            }
+            uses udp-src-multi-port-grouping;
+            container udp-dst-address {
+              uses ipv4-fqdn-address-choice-grouping;
+            }
+            uses udp-dst-multi-port-grouping;
+          }
+          case tcp-case {
+            leaf tcp {
+              description
+                "TCP protocol";
+              type empty;
+            }
+            container tcp-src-address {
+              uses ipv4-fqdn-address-choice-grouping;
+            }
+            uses tcp-src-multi-port-grouping;
+            container tcp-dst-address {
+              uses ipv4-fqdn-address-choice-grouping;
+            }
+            uses tcp-dst-multi-port-grouping;
+          }
+        }
+        uses ipv4-acl-match-common-attribute-new;
+      }
+      uses acl-remark-grouping;
+    }
+  }
 
   grouping ipv4-role-acl-grouping {
     list access-list-seq-rule {
@@ -2674,19 +2674,19 @@ module Cisco-IOS-XE-acl {
         uses ipv4-ext-acl-grouping;
       }
     }
-    // list fqdn {
-    //   description
-    //     "FQDN Access List";
-    //   if-feature "ios-features:fqdn-acl";
-    //   key "name";
-    //   leaf name {
-    //     type string {
-    //       length "1..200";
-    //       pattern '[a-zA-Z].*';
-    //     }
-    //   }
-    //   uses ipv4-fqdn-acl-grouping;
-    // }
+    list fqdn {
+      description
+        "FQDN Access List";
+      if-feature "ios-features:fqdn-acl";
+      key "name";
+      leaf name {
+        type string {
+          length "1..200";
+          pattern '[a-zA-Z].*';
+        }
+      }
+      uses ipv4-fqdn-acl-grouping;
+    }
     container helper {
       description
         "Access List acts on helper-address";
@@ -2767,12 +2767,12 @@ module Cisco-IOS-XE-acl {
         type string;
       }
       uses ipv6-acl-grouping;
-      // container default {
-      //   status deprecated;
-      //   description
-      //     "Set a command to its defaults";
-      //   uses ipv6-acl-grouping-deprecated;
-      // }
+      container default {
+        status deprecated;
+        description
+          "Set a command to its defaults";
+        uses ipv6-acl-grouping-deprecated;
+      }
     }
     list role-based {
       key "name";
@@ -2781,27 +2781,27 @@ module Cisco-IOS-XE-acl {
       }
       uses ipv6-role-acl-grouping;
     }
-    // list named-rb-acl {
-    //   status deprecated;
-    //   key "name";
-    //   leaf name {
-    //     status deprecated;
-    //     type string;
-    //   }
-    //   leaf role-based {
-    //     status deprecated;
-    //     description
-    //       "Role-based Access List";
-    //     type empty;
-    //   }
-    //   uses ipv6-acl-grouping-deprecated;
-    //   container default {
-    //     status deprecated;
-    //     description
-    //       "Set a command to its defaults";
-    //     uses ipv6-acl-grouping-deprecated;
-    //   }
-    // }
+    list named-rb-acl {
+      status deprecated;
+      key "name";
+      leaf name {
+        status deprecated;
+        type string;
+      }
+      leaf role-based {
+        status deprecated;
+        description
+          "Role-based Access List";
+        type empty;
+      }
+      uses ipv6-acl-grouping-deprecated;
+      container default {
+        status deprecated;
+        description
+          "Set a command to its defaults";
+        uses ipv6-acl-grouping-deprecated;
+      }
+    }
     list fqdn {
       description
         "FQDN Access List";
@@ -2917,947 +2917,947 @@ module Cisco-IOS-XE-acl {
     }
   }
 
-//   grouping access-mac-any-cos-vlan-grouping {
-//     list cos {
-//       key "cos-value";
-//       leaf cos-value {
-//         description
-//           "CoS value";
-//         type uint16 {
-//           range "0..7";
-//         }
-//       }
-//       list vlan {
-//         key "vlan-value";
-//         leaf vlan-value {
-//           description
-//             "Vlan Id";
-//           type uint16 {
-//             range "1..4095";
-//           }
-//         }
-//       }
-//     }
-//     list vlan {
-//       key "vlan-value";
-//       leaf vlan-value {
-//         description
-//           "Vlan Id";
-//         type uint16 {
-//           range "1..4095";
-//         }
-//       }
-//     }
-//   }
+  grouping access-mac-any-cos-vlan-grouping {
+    list cos {
+      key "cos-value";
+      leaf cos-value {
+        description
+          "CoS value";
+        type uint16 {
+          range "0..7";
+        }
+      }
+      list vlan {
+        key "vlan-value";
+        leaf vlan-value {
+          description
+            "Vlan Id";
+          type uint16 {
+            range "1..4095";
+          }
+        }
+      }
+    }
+    list vlan {
+      key "vlan-value";
+      leaf vlan-value {
+        description
+          "Vlan Id";
+        type uint16 {
+          range "1..4095";
+        }
+      }
+    }
+  }
 
-//   grouping access-mac-protocol-options-grouping {
-//     list EtherType {
-//       description
-//         "EtherType";
-//       key "EtherType-options";
-//       leaf EtherType-options {
-//         type enumeration {
-//           enum aarp;
-//           enum amber;
-//           enum appletalk;
-//           enum dec-spanning;
-//           enum decnet-iv;
-//           enum diagnostic;
-//           enum dsm;
-//           enum etype-6000;
-//           enum etype-8042;
-//           enum lat;
-//           enum lavc-sca;
-//           enum mop-console;
-//           enum mop-dump;
-//           enum msdos;
-//           enum mumps;
-//           enum netbios;
-//           enum vines-echo;
-//           enum vines-ip;
-//         }
-//       }
-//       uses access-mac-any-cos-vlan-grouping;
-//     }
-//     list protocol-family {
-//       description
-//         "An Ethernet protocol family";
-//       key "protocol-family-options";
-//       leaf protocol-family-options {
-//         description
-//           "An Ethernet protocol family options";
-//         type enumeration {
-//           enum appletalk;
-//           enum arp-non-ipv4;
-//           enum decnet;
-//           enum ipv6;
-//           enum ipx;
-//           enum rarp-ipv4;
-//           enum rarp-non-ipv4;
-//           enum vines;
-//           enum xns;
-//         }
-//       }
-//       uses access-mac-any-cos-vlan-grouping;
-//     }
-//     list arbitrary-ethertype {
-//       key "ethertype ethertype-mask";
-//       leaf ethertype {
-//         description
-//           "An arbitrary EtherType in decimal or hex";
-//         type uint64 {
-//           range "0..65535";
-//         }
-//       }
-//       leaf ethertype-mask {
-//         description
-//           "An arbitrary EtherType mask in decimal or hex";
-//         type uint64 {
-//           range "0..65535";
-//         }
-//       }
-//       uses access-mac-any-cos-vlan-grouping;
-//     }
-//     list lsap {
-//       key "lsap lsap-mask";
-//       leaf lsap {
-//         description
-//           "LSAP value";
-//         type uint64 {
-//           range "0..65535";
-//         }
-//       }
-//       leaf lsap-mask {
-//         description
-//           "LSAP mask in decimal, hex, or octal";
-//         type uint64 {
-//           range "0..65535";
-//         }
-//       }
-//       uses access-mac-any-cos-vlan-grouping;
-//     }
-//     uses access-mac-any-cos-vlan-grouping;
-//   }
+  grouping access-mac-protocol-options-grouping {
+    list EtherType {
+      description
+        "EtherType";
+      key "EtherType-options";
+      leaf EtherType-options {
+        type enumeration {
+          enum aarp;
+          enum amber;
+          enum appletalk;
+          enum dec-spanning;
+          enum decnet-iv;
+          enum diagnostic;
+          enum dsm;
+          enum etype-6000;
+          enum etype-8042;
+          enum lat;
+          enum lavc-sca;
+          enum mop-console;
+          enum mop-dump;
+          enum msdos;
+          enum mumps;
+          enum netbios;
+          enum vines-echo;
+          enum vines-ip;
+        }
+      }
+      uses access-mac-any-cos-vlan-grouping;
+    }
+    list protocol-family {
+      description
+        "An Ethernet protocol family";
+      key "protocol-family-options";
+      leaf protocol-family-options {
+        description
+          "An Ethernet protocol family options";
+        type enumeration {
+          enum appletalk;
+          enum arp-non-ipv4;
+          enum decnet;
+          enum ipv6;
+          enum ipx;
+          enum rarp-ipv4;
+          enum rarp-non-ipv4;
+          enum vines;
+          enum xns;
+        }
+      }
+      uses access-mac-any-cos-vlan-grouping;
+    }
+    list arbitrary-ethertype {
+      key "ethertype ethertype-mask";
+      leaf ethertype {
+        description
+          "An arbitrary EtherType in decimal or hex";
+        type uint64 {
+          range "0..65535";
+        }
+      }
+      leaf ethertype-mask {
+        description
+          "An arbitrary EtherType mask in decimal or hex";
+        type uint64 {
+          range "0..65535";
+        }
+      }
+      uses access-mac-any-cos-vlan-grouping;
+    }
+    list lsap {
+      key "lsap lsap-mask";
+      leaf lsap {
+        description
+          "LSAP value";
+        type uint64 {
+          range "0..65535";
+        }
+      }
+      leaf lsap-mask {
+        description
+          "LSAP mask in decimal, hex, or octal";
+        type uint64 {
+          range "0..65535";
+        }
+      }
+      uses access-mac-any-cos-vlan-grouping;
+    }
+    uses access-mac-any-cos-vlan-grouping;
+  }
 
-//   grouping source-mac-address-grouping {
-//     leaf source-mac-address {
-//       description
-//         "48-bit source MAC address";
-//       type string {
-//         pattern '([0-9a-f]{4}[.][0-9a-f]{4}[.][0-9a-f]{4})';
-//       }
-//     }
-//     leaf source-mac-address-mask {
-//       description
-//         "48-bit source MAC address mask";
-//       type string {
-//         pattern '([0-9a-f]{4}[.][0-9a-f]{4}[.][0-9a-f]{4})';
-//       }
-//     }
-//   }
+  grouping source-mac-address-grouping {
+    leaf source-mac-address {
+      description
+        "48-bit source MAC address";
+      type string {
+        pattern '([0-9a-f]{4}[.][0-9a-f]{4}[.][0-9a-f]{4})';
+      }
+    }
+    leaf source-mac-address-mask {
+      description
+        "48-bit source MAC address mask";
+      type string {
+        pattern '([0-9a-f]{4}[.][0-9a-f]{4}[.][0-9a-f]{4})';
+      }
+    }
+  }
 
-//   grouping source-mac-address-options-grouping {
-//     list mac-address {
-//       key "source-mac-address source-mac-address-mask";
-//       uses source-mac-address-grouping;
-//       uses access-mac-protocol-options-grouping;
-//     }
-//   }
+  grouping source-mac-address-options-grouping {
+    list mac-address {
+      key "source-mac-address source-mac-address-mask";
+      uses source-mac-address-grouping;
+      uses access-mac-protocol-options-grouping;
+    }
+  }
 
-//   grouping source-mac-host-options-grouping {
-//     container host {
-//       list mac-address {
-//         key "source-mac-address";
-//         leaf source-mac-address {
-//           description
-//             "48-bit source MAC address";
-//           type string {
-//             pattern '([0-9a-f]{4}[.][0-9a-f]{4}[.][0-9a-f]{4})';
-//           }
-//         }
-//         uses access-mac-protocol-options-grouping;
-//       }
-//     }
-//   }
+  grouping source-mac-host-options-grouping {
+    container host {
+      list mac-address {
+        key "source-mac-address";
+        leaf source-mac-address {
+          description
+            "48-bit source MAC address";
+          type string {
+            pattern '([0-9a-f]{4}[.][0-9a-f]{4}[.][0-9a-f]{4})';
+          }
+        }
+        uses access-mac-protocol-options-grouping;
+      }
+    }
+  }
 
-//   grouping access-any-grouping {
-//     container any {
-//       description
-//         "any source MAC address";
-//       uses source-mac-address-options-grouping;
-//       container any {
-//         presence "true";
-//         description
-//           "any destination MAC address";
-//         uses access-mac-protocol-options-grouping;
-//       }
-//       uses source-mac-host-options-grouping;
-//     }
-//   }
+  grouping access-any-grouping {
+    container any {
+      description
+        "any source MAC address";
+      uses source-mac-address-options-grouping;
+      container any {
+        presence "true";
+        description
+          "any destination MAC address";
+        uses access-mac-protocol-options-grouping;
+      }
+      uses source-mac-host-options-grouping;
+    }
+  }
 
-//   grouping access-mac-grouping {
-//     list mac-address {
-//       key "source-mac-address source-mac-address-mask";
-//       uses source-mac-address-grouping;
-//       list mac-address {
-//         key "source-mac-address source-mac-address-mask";
-//         uses source-mac-address-grouping;
-//         uses access-mac-protocol-options-grouping;
-//       }
-//       container any {
-//         presence "true";
-//         uses access-mac-protocol-options-grouping;
-//       }
-//       uses source-mac-host-options-grouping;
-//     }
-//   }
+  grouping access-mac-grouping {
+    list mac-address {
+      key "source-mac-address source-mac-address-mask";
+      uses source-mac-address-grouping;
+      list mac-address {
+        key "source-mac-address source-mac-address-mask";
+        uses source-mac-address-grouping;
+        uses access-mac-protocol-options-grouping;
+      }
+      container any {
+        presence "true";
+        uses access-mac-protocol-options-grouping;
+      }
+      uses source-mac-host-options-grouping;
+    }
+  }
 
-//   grouping access-host-grouping {
-//     container host {
-//       list mac-address {
-//         key "source-mac-address";
-//         leaf source-mac-address {
-//           description
-//             "48-bit source MAC address";
-//           type string {
-//             pattern '([0-9a-f]{4}[.][0-9a-f]{4}[.][0-9a-f]{4})';
-//           }
-//         }
-//         uses source-mac-address-options-grouping;
-//         container any {
-//           presence "true";
-//           uses access-mac-protocol-options-grouping;
-//         }
-//         uses source-mac-host-options-grouping;
-//       }
-//     }
-//   }
+  grouping access-host-grouping {
+    container host {
+      list mac-address {
+        key "source-mac-address";
+        leaf source-mac-address {
+          description
+            "48-bit source MAC address";
+          type string {
+            pattern '([0-9a-f]{4}[.][0-9a-f]{4}[.][0-9a-f]{4})';
+          }
+        }
+        uses source-mac-address-options-grouping;
+        container any {
+          presence "true";
+          uses access-mac-protocol-options-grouping;
+        }
+        uses source-mac-host-options-grouping;
+      }
+    }
+  }
 
-//   grouping config-mac-access-list-grouping {
-//     container access-list {
-//       description
-//         "Named access-list";
-//       list extended {
-//         description
-//           "Extended Access List";
-//         key "id";
-//         leaf id {
-//           type string;
-//         }
-//         list entry {
-//           key "action values";
-//           leaf action {
-//             type enumeration {
-//               enum deny;
-//               enum permit;
-//             }
-//           }
-//           leaf values {
-//             type string {
-//               pattern '(any|(([0-9a-f]{4}[.][0-9a-f]{4}[.][0-9a-f]{4}|host) [0-9a-f]{4}[.][0-9a-f]{4}[.][0-9a-f]{4})) (any|(([0-9a-f]{4}[.][0-9a-f]{4}[.][0-9a-f]{4}|host) [0-9a-f]{4}[.][0-9a-f]{4}[.][0-9a-f]{4}))( (0x0|0x[1-9A-F][0-9A-F]{,3}) (0x0|0x[1-9A-F][0-9A-F]{,3}))?';
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
+  grouping config-mac-access-list-grouping {
+    container access-list {
+      description
+        "Named access-list";
+      list extended {
+        description
+          "Extended Access List";
+        key "id";
+        leaf id {
+          type string;
+        }
+        list entry {
+          key "action values";
+          leaf action {
+            type enumeration {
+              enum deny;
+              enum permit;
+            }
+          }
+          leaf values {
+            type string {
+              pattern '(any|(([0-9a-f]{4}[.][0-9a-f]{4}[.][0-9a-f]{4}|host) [0-9a-f]{4}[.][0-9a-f]{4}[.][0-9a-f]{4})) (any|(([0-9a-f]{4}[.][0-9a-f]{4}[.][0-9a-f]{4}|host) [0-9a-f]{4}[.][0-9a-f]{4}[.][0-9a-f]{4}))( (0x0|0x[1-9A-F][0-9A-F]{,3}) (0x0|0x[1-9A-F][0-9A-F]{,3}))?';
+            }
+          }
+        }
+      }
+    }
+  }
 
-  // grouping config-access-list-limit-grouping {
-  //   container access-list {
-  //     description
-  //       "the max configurable acl limit";
-  //     leaf acl-limit {
-  //       description
-  //         "Max ACL Limit";
-  //       type uint64 {
-  //         range "1..65535";
-  //       }
-  //     }
-  //   }
-  // }
+  grouping config-access-list-limit-grouping {
+    container access-list {
+      description
+        "the max configurable acl limit";
+      leaf acl-limit {
+        description
+          "Max ACL Limit";
+        type uint64 {
+          range "1..65535";
+        }
+      }
+    }
+  }
 
-//   grouping ipv4-acl-dst-addr-port-grouping-deprecated {
-//     choice destination-choice {
-//       case host-case {
-//         leaf destination-host {
-//           status obsolete;
-//           type ios-types:ip-host;
-//         }
-//       }
-//       case address-case {
-//         leaf destination-address {
-//           status obsolete;
-//           type inet:ipv6-address;
-//         }
-//         leaf destination-wildcard-bits {
-//           status obsolete;
-//           type inet:ipv6-address;
-//         }
-//       }
-//       case prefix-case {
-//         leaf destination-prefix {
-//           status obsolete;
-//           type ios-types:ipv6-prefix;
-//         }
-//       }
-//       case any-case {
-//         leaf destination-any {
-//           status obsolete;
-//           type empty;
-//         }
-//       }
-//     }
-//     // choice dst-port-choice {
-//     //   case dst-eq-case {
-//     //     leaf dst-eq {
-//     //       status deprecated;
-//     //       description
-//     //         "Match only packets on a given port number";
-//     //       type acl-port-type;
-//     //     }
-//     //   }
-//     //   case dst-gt-case {
-//     //     leaf dst-gt {
-//     //       status deprecated;
-//     //       description
-//     //         "Match only packets with a greater port number";
-//     //       type acl-port-type;
-//     //     }
-//     //   }
-//     //   case dst-lt-case {
-//     //     leaf dst-lt {
-//     //       status deprecated;
-//     //       description
-//     //         "Match only packets with a lower port number";
-//     //       type acl-port-type;
-//     //     }
-//     //   }
-//     //   case dst-neq-case {
-//     //     leaf dst-neq {
-//     //       status deprecated;
-//     //       description
-//     //         "Match only packets not on a given port number";
-//     //       type acl-port-type;
-//     //     }
-//     //   }
-//     //   case dst-range-case {
-//     //     leaf dst-range1 {
-//     //       status deprecated;
-//     //       description
-//     //         "Match only packets in the range of port numbers";
-//     //       type acl-port-type;
-//     //     }
-//     //     leaf dst-range2 {
-//     //       status deprecated;
-//     //       description
-//     //         "Match only packets in the range of port numbers";
-//     //       type acl-port-type;
-//     //     }
-//     //   }
-//     // }
-//   }
+  grouping ipv4-acl-dst-addr-port-grouping-deprecated {
+    choice destination-choice {
+      case host-case {
+        leaf destination-host {
+          status obsolete;
+          type ios-types:ip-host;
+        }
+      }
+      case address-case {
+        leaf destination-address {
+          status obsolete;
+          type inet:ipv6-address;
+        }
+        leaf destination-wildcard-bits {
+          status obsolete;
+          type inet:ipv6-address;
+        }
+      }
+      case prefix-case {
+        leaf destination-prefix {
+          status obsolete;
+          type ios-types:ipv6-prefix;
+        }
+      }
+      case any-case {
+        leaf destination-any {
+          status obsolete;
+          type empty;
+        }
+      }
+    }
+    choice dst-port-choice {
+      case dst-eq-case {
+        leaf dst-eq {
+          status deprecated;
+          description
+            "Match only packets on a given port number";
+          type acl-port-type;
+        }
+      }
+      case dst-gt-case {
+        leaf dst-gt {
+          status deprecated;
+          description
+            "Match only packets with a greater port number";
+          type acl-port-type;
+        }
+      }
+      case dst-lt-case {
+        leaf dst-lt {
+          status deprecated;
+          description
+            "Match only packets with a lower port number";
+          type acl-port-type;
+        }
+      }
+      case dst-neq-case {
+        leaf dst-neq {
+          status deprecated;
+          description
+            "Match only packets not on a given port number";
+          type acl-port-type;
+        }
+      }
+      case dst-range-case {
+        leaf dst-range1 {
+          status deprecated;
+          description
+            "Match only packets in the range of port numbers";
+          type acl-port-type;
+        }
+        leaf dst-range2 {
+          status deprecated;
+          description
+            "Match only packets in the range of port numbers";
+          type acl-port-type;
+        }
+      }
+    }
+  }
 
-//   grouping ipv6-acl-grouping-deprecated {
-//     list access-list-seq-rule {
-//       status deprecated;
-//       key "sequence";
-//       leaf sequence {
-//         status deprecated;
-//         description
-//           "Sequence number for this entry";
-//         type uint64 {
-//           range "1..4294967294";
-//         }
-//       }
-//       choice ace-rule-remark-choice {
-//         case ace-rule-case {
-//           container ace-rule {
-//             status deprecated;
-//             leaf action {
-//               status deprecated;
-//               type enumeration {
-//                 enum deny;
-//                 enum permit;
-//               }
-//             }
-//             leaf protocol {
-//               status deprecated;
-//               type union {
-//                 type uint8 {
-//                   range "0..255";
-//                 }
-//                 type enumeration {
-//                   enum ahp;
-//                   enum esp;
-//                   enum hbh;
-//                   enum icmp;
-//                   enum ipv6;
-//                   enum pcp;
-//                   enum sctp;
-//                   enum tcp;
-//                   enum udp;
-//                 }
-//               }
-//             }
-//             uses ipv6-acl-src-dst-addr-port-grouping-deprecated;
-//             uses acl-tcp-common-match-deprecated;
-//             uses ipv6-acl-match-common-attribute-deprecated;
-//             uses ipv6-acl-icmp-match-deprecated;
-//           }
-//         }
-//         case remark-case {
-//           uses acl-remark-grouping-deprecated;
-//         }
-//       }
-//     }
-//   }
+  grouping ipv6-acl-grouping-deprecated {
+    list access-list-seq-rule {
+      status deprecated;
+      key "sequence";
+      leaf sequence {
+        status deprecated;
+        description
+          "Sequence number for this entry";
+        type uint64 {
+          range "1..4294967294";
+        }
+      }
+      choice ace-rule-remark-choice {
+        case ace-rule-case {
+          container ace-rule {
+            status deprecated;
+            leaf action {
+              status deprecated;
+              type enumeration {
+                enum deny;
+                enum permit;
+              }
+            }
+            leaf protocol {
+              status deprecated;
+              type union {
+                type uint8 {
+                  range "0..255";
+                }
+                type enumeration {
+                  enum ahp;
+                  enum esp;
+                  enum hbh;
+                  enum icmp;
+                  enum ipv6;
+                  enum pcp;
+                  enum sctp;
+                  enum tcp;
+                  enum udp;
+                }
+              }
+            }
+            uses ipv6-acl-src-dst-addr-port-grouping-deprecated;
+            uses acl-tcp-common-match-deprecated;
+            uses ipv6-acl-match-common-attribute-deprecated;
+            uses ipv6-acl-icmp-match-deprecated;
+          }
+        }
+        case remark-case {
+          uses acl-remark-grouping-deprecated;
+        }
+      }
+    }
+  }
 
-//   grouping ipv6-acl-src-dst-addr-port-grouping-deprecated {
-//     choice source-choice {
-//       case host-case {
-//         leaf source-host {
-//           status deprecated;
-//           type ios-types:ip-host;
-//         }
-//       }
-//       case fqdn-group-case {
-//         leaf source-fqdn-group {
-//           status deprecated;
-//           description
-//             "Source FQDN group";
-//           type leafref {
-//             path "/ios:native/ios:object-group/ios-og:fqdn/ios-og:name";
-//           }
-//         }
-//       }
-//       case geo-group-case {
-//         leaf source-geo-group {
-//           status deprecated;
-//           description
-//             "Source geolocation group name";
-//           type leafref {
-//             path "/ios:native/ios:object-group/ios-og:geo/ios-og:name";
-//           }
-//         }
-//       }
-//       case address-case {
-//         leaf source-address {
-//           status deprecated;
-//           type inet:ipv6-address;
-//         }
-//         leaf source-wildcard-bits {
-//           status deprecated;
-//           type inet:ipv6-address;
-//         }
-//       }
-//       case prefix-case {
-//         leaf source-prefix {
-//           status deprecated;
-//           type ios-types:ipv6-prefix;
-//         }
-//       }
-//       case object-group-case {
-//         leaf source-object-group {
-//           status deprecated;
-//           description
-//             "Source IPv6 network object group";
-//           type leafref {
-//             path "/ios:native/ios:object-group/ios-og:v6-network/ios-og:name";
-//           }
-//         }
-//       }
-//       case any-case {
-//         leaf any {
-//           status deprecated;
-//           type empty;
-//         }
-//       }
-//     }
-//     choice src-port-choice {
-//       case src-eq-case {
-//         leaf src-eq {
-//           status deprecated;
-//           description
-//             "Match only packets on a given port number up to 10 ports";
-//           type acl-port-type;
-//         }
-//         leaf src-eq-port2 {
-//           status deprecated;
-//           type acl-port-type;
-//         }
-//         leaf src-eq-port3 {
-//           status deprecated;
-//           type acl-port-type;
-//         }
-//         leaf src-eq-port4 {
-//           status deprecated;
-//           type acl-port-type;
-//         }
-//         leaf src-eq-port5 {
-//           status deprecated;
-//           type acl-port-type;
-//         }
-//         leaf src-eq-port6 {
-//           status deprecated;
-//           type acl-port-type;
-//         }
-//         leaf src-eq-port7 {
-//           status deprecated;
-//           type acl-port-type;
-//         }
-//         leaf src-eq-port8 {
-//           status deprecated;
-//           type acl-port-type;
-//         }
-//         leaf src-eq-port9 {
-//           status deprecated;
-//           type acl-port-type;
-//         }
-//         leaf src-eq-port10 {
-//           status deprecated;
-//           type acl-port-type;
-//         }
-//       }
-//       case src-gt-case {
-//         leaf src-gt {
-//           status deprecated;
-//           description
-//             "Match only packets with a greater port number";
-//           type acl-port-type;
-//         }
-//       }
-//       case src-lt-case {
-//         leaf src-lt {
-//           status deprecated;
-//           description
-//             "Match only packets with a lower port number";
-//           type acl-port-type;
-//         }
-//       }
-//       case src-neq-case {
-//         leaf src-neq {
-//           status deprecated;
-//           description
-//             "Match only packets not on a given port number up to 10 ports";
-//           type acl-port-type;
-//         }
-//         leaf src-neq-port2 {
-//           status deprecated;
-//           type acl-port-type;
-//         }
-//         leaf src-neq-port3 {
-//           status deprecated;
-//           type acl-port-type;
-//         }
-//         leaf src-neq-port4 {
-//           status deprecated;
-//           type acl-port-type;
-//         }
-//         leaf src-neq-port5 {
-//           status deprecated;
-//           type acl-port-type;
-//         }
-//         leaf src-neq-port6 {
-//           status deprecated;
-//           type acl-port-type;
-//         }
-//         leaf src-neq-port7 {
-//           status deprecated;
-//           type acl-port-type;
-//         }
-//         leaf src-neq-port8 {
-//           status deprecated;
-//           type acl-port-type;
-//         }
-//         leaf src-neq-port9 {
-//           status deprecated;
-//           type acl-port-type;
-//         }
-//         leaf src-neq-port10 {
-//           status deprecated;
-//           type acl-port-type;
-//         }
-//       }
-//       case src-range-case {
-//         leaf src-range1 {
-//           status deprecated;
-//           description
-//             "Match only packets in the range of port numbers";
-//           type acl-port-type;
-//         }
-//         leaf src-range2 {
-//           status deprecated;
-//           description
-//             "Match only packets in the range of port numbers";
-//           type acl-port-type;
-//         }
-//       }
-//     }
-//     choice destination-choice {
-//       case host-case {
-//         leaf destination-host {
-//           status deprecated;
-//           type ios-types:ip-host;
-//         }
-//       }
-//       case fqdn-group-case {
-//         leaf destination-fqdn-group {
-//           status deprecated;
-//           description
-//             "Destination FQDN group";
-//           type leafref {
-//             path "/ios:native/ios:object-group/ios-og:fqdn/ios-og:name";
-//           }
-//         }
-//       }
-//       case geo-group-case {
-//         leaf destination-geo-group {
-//           status deprecated;
-//           description
-//             "Destination geolocation group name";
-//           type leafref {
-//             path "/ios:native/ios:object-group/ios-og:geo/ios-og:name";
-//           }
-//         }
-//       }
-//       case address-case {
-//         leaf destination-address {
-//           status deprecated;
-//           type inet:ipv6-address;
-//         }
-//         leaf destination-wildcard-bits {
-//           status deprecated;
-//           type inet:ipv6-address;
-//         }
-//       }
-//       case prefix-case {
-//         leaf destination-prefix {
-//           status deprecated;
-//           type ios-types:ipv6-prefix;
-//         }
-//       }
-//       case object-group-case {
-//         leaf destination-object-group {
-//           status deprecated;
-//           description
-//             "Destination IPv6 network object group";
-//           type leafref {
-//             path "/ios:native/ios:object-group/ios-og:v6-network/ios-og:name";
-//           }
-//         }
-//       }
-//       case any-case {
-//         leaf destination-any {
-//           status deprecated;
-//           type empty;
-//         }
-//       }
-//     }
-//     choice dst-port-choice {
-//       case dst-eq-case {
-//         leaf dst-eq {
-//           status deprecated;
-//           description
-//             "Match only packets on a given port number up to 10 ports";
-//           type acl-port-type;
-//         }
-//         leaf dst-eq-port2 {
-//           status deprecated;
-//           type acl-port-type;
-//         }
-//         leaf dst-eq-port3 {
-//           status deprecated;
-//           type acl-port-type;
-//         }
-//         leaf dst-eq-port4 {
-//           status deprecated;
-//           type acl-port-type;
-//         }
-//         leaf dst-eq-port5 {
-//           status deprecated;
-//           type acl-port-type;
-//         }
-//         leaf dst-eq-port6 {
-//           status deprecated;
-//           type acl-port-type;
-//         }
-//         leaf dst-eq-port7 {
-//           status deprecated;
-//           type acl-port-type;
-//         }
-//         leaf dst-eq-port8 {
-//           status deprecated;
-//           type acl-port-type;
-//         }
-//         leaf dst-eq-port9 {
-//           status deprecated;
-//           type acl-port-type;
-//         }
-//         leaf dst-eq-port10 {
-//           status deprecated;
-//           type acl-port-type;
-//         }
-//       }
-//       case dst-gt-case {
-//         leaf dst-gt {
-//           status deprecated;
-//           description
-//             "Match only packets with a greater port number";
-//           type acl-port-type;
-//         }
-//       }
-//       case dst-lt-case {
-//         leaf dst-lt {
-//           status deprecated;
-//           description
-//             "Match only packets with a lower port number";
-//           type acl-port-type;
-//         }
-//       }
-//       case dst-neq-case {
-//         leaf dst-neq {
-//           status deprecated;
-//           description
-//             "Match only packets not on a given port number up to 10 ports";
-//           type acl-port-type;
-//         }
-//         leaf dst-neq-port2 {
-//           status deprecated;
-//           type acl-port-type;
-//         }
-//         leaf dst-neq-port3 {
-//           status deprecated;
-//           type acl-port-type;
-//         }
-//         leaf dst-neq-port4 {
-//           status deprecated;
-//           type acl-port-type;
-//         }
-//         leaf dst-neq-port5 {
-//           status deprecated;
-//           type acl-port-type;
-//         }
-//         leaf dst-neq-port6 {
-//           status deprecated;
-//           type acl-port-type;
-//         }
-//         leaf dst-neq-port7 {
-//           status deprecated;
-//           type acl-port-type;
-//         }
-//         leaf dst-neq-port8 {
-//           status deprecated;
-//           type acl-port-type;
-//         }
-//         leaf dst-neq-port9 {
-//           status deprecated;
-//           type acl-port-type;
-//         }
-//         leaf dst-neq-port10 {
-//           status deprecated;
-//           type acl-port-type;
-//         }
-//       }
-//       case dst-range-case {
-//         leaf dst-range1 {
-//           status deprecated;
-//           description
-//             "Match only packets in the range of port numbers";
-//           type acl-port-type;
-//         }
-//         leaf dst-range2 {
-//           status deprecated;
-//           description
-//             "Match only packets in the range of port numbers";
-//           type acl-port-type;
-//         }
-//       }
-//     }
-//   }
+  grouping ipv6-acl-src-dst-addr-port-grouping-deprecated {
+    choice source-choice {
+      case host-case {
+        leaf source-host {
+          status deprecated;
+          type ios-types:ip-host;
+        }
+      }
+      // case fqdn-group-case {
+      //   leaf source-fqdn-group {
+      //     status deprecated;
+      //     description
+      //       "Source FQDN group";
+      //     type leafref {
+      //       path "/ios:native/ios:object-group/ios-og:fqdn/ios-og:name";
+      //     }
+      //   }
+      // }
+      // case geo-group-case {
+      //   leaf source-geo-group {
+      //     status deprecated;
+      //     description
+      //       "Source geolocation group name";
+      //     type leafref {
+      //       path "/ios:native/ios:object-group/ios-og:geo/ios-og:name";
+      //     }
+      //   }
+      // }
+      case address-case {
+        leaf source-address {
+          status deprecated;
+          type inet:ipv6-address;
+        }
+        leaf source-wildcard-bits {
+          status deprecated;
+          type inet:ipv6-address;
+        }
+      }
+      case prefix-case {
+        leaf source-prefix {
+          status deprecated;
+          type ios-types:ipv6-prefix;
+        }
+      }
+      // case object-group-case {
+      //   leaf source-object-group {
+      //     status deprecated;
+      //     description
+      //       "Source IPv6 network object group";
+      //     type leafref {
+      //       path "/ios:native/ios:object-group/ios-og:v6-network/ios-og:name";
+      //     }
+      //   }
+      // }
+      case any-case {
+        leaf any {
+          status deprecated;
+          type empty;
+        }
+      }
+    }
+    choice src-port-choice {
+      case src-eq-case {
+        leaf src-eq {
+          status deprecated;
+          description
+            "Match only packets on a given port number up to 10 ports";
+          type acl-port-type;
+        }
+        leaf src-eq-port2 {
+          status deprecated;
+          type acl-port-type;
+        }
+        leaf src-eq-port3 {
+          status deprecated;
+          type acl-port-type;
+        }
+        leaf src-eq-port4 {
+          status deprecated;
+          type acl-port-type;
+        }
+        leaf src-eq-port5 {
+          status deprecated;
+          type acl-port-type;
+        }
+        leaf src-eq-port6 {
+          status deprecated;
+          type acl-port-type;
+        }
+        leaf src-eq-port7 {
+          status deprecated;
+          type acl-port-type;
+        }
+        leaf src-eq-port8 {
+          status deprecated;
+          type acl-port-type;
+        }
+        leaf src-eq-port9 {
+          status deprecated;
+          type acl-port-type;
+        }
+        leaf src-eq-port10 {
+          status deprecated;
+          type acl-port-type;
+        }
+      }
+      case src-gt-case {
+        leaf src-gt {
+          status deprecated;
+          description
+            "Match only packets with a greater port number";
+          type acl-port-type;
+        }
+      }
+      case src-lt-case {
+        leaf src-lt {
+          status deprecated;
+          description
+            "Match only packets with a lower port number";
+          type acl-port-type;
+        }
+      }
+      case src-neq-case {
+        leaf src-neq {
+          status deprecated;
+          description
+            "Match only packets not on a given port number up to 10 ports";
+          type acl-port-type;
+        }
+        leaf src-neq-port2 {
+          status deprecated;
+          type acl-port-type;
+        }
+        leaf src-neq-port3 {
+          status deprecated;
+          type acl-port-type;
+        }
+        leaf src-neq-port4 {
+          status deprecated;
+          type acl-port-type;
+        }
+        leaf src-neq-port5 {
+          status deprecated;
+          type acl-port-type;
+        }
+        leaf src-neq-port6 {
+          status deprecated;
+          type acl-port-type;
+        }
+        leaf src-neq-port7 {
+          status deprecated;
+          type acl-port-type;
+        }
+        leaf src-neq-port8 {
+          status deprecated;
+          type acl-port-type;
+        }
+        leaf src-neq-port9 {
+          status deprecated;
+          type acl-port-type;
+        }
+        leaf src-neq-port10 {
+          status deprecated;
+          type acl-port-type;
+        }
+      }
+      case src-range-case {
+        leaf src-range1 {
+          status deprecated;
+          description
+            "Match only packets in the range of port numbers";
+          type acl-port-type;
+        }
+        leaf src-range2 {
+          status deprecated;
+          description
+            "Match only packets in the range of port numbers";
+          type acl-port-type;
+        }
+      }
+    }
+    choice destination-choice {
+      case host-case {
+        leaf destination-host {
+          status deprecated;
+          type ios-types:ip-host;
+        }
+      }
+      // case fqdn-group-case {
+      //   leaf destination-fqdn-group {
+      //     status deprecated;
+      //     description
+      //       "Destination FQDN group";
+      //     type leafref {
+      //       path "/ios:native/ios:object-group/ios-og:fqdn/ios-og:name";
+      //     }
+      //   }
+      // }
+      // case geo-group-case {
+      //   leaf destination-geo-group {
+      //     status deprecated;
+      //     description
+      //       "Destination geolocation group name";
+      //     type leafref {
+      //       path "/ios:native/ios:object-group/ios-og:geo/ios-og:name";
+      //     }
+      //   }
+      // }
+      case address-case {
+        leaf destination-address {
+          status deprecated;
+          type inet:ipv6-address;
+        }
+        leaf destination-wildcard-bits {
+          status deprecated;
+          type inet:ipv6-address;
+        }
+      }
+      case prefix-case {
+        leaf destination-prefix {
+          status deprecated;
+          type ios-types:ipv6-prefix;
+        }
+      }
+      // case object-group-case {
+      //   leaf destination-object-group {
+      //     status deprecated;
+      //     description
+      //       "Destination IPv6 network object group";
+      //     type leafref {
+      //       path "/ios:native/ios:object-group/ios-og:v6-network/ios-og:name";
+      //     }
+      //   }
+      // }
+      case any-case {
+        leaf destination-any {
+          status deprecated;
+          type empty;
+        }
+      }
+    }
+    choice dst-port-choice {
+      case dst-eq-case {
+        leaf dst-eq {
+          status deprecated;
+          description
+            "Match only packets on a given port number up to 10 ports";
+          type acl-port-type;
+        }
+        leaf dst-eq-port2 {
+          status deprecated;
+          type acl-port-type;
+        }
+        leaf dst-eq-port3 {
+          status deprecated;
+          type acl-port-type;
+        }
+        leaf dst-eq-port4 {
+          status deprecated;
+          type acl-port-type;
+        }
+        leaf dst-eq-port5 {
+          status deprecated;
+          type acl-port-type;
+        }
+        leaf dst-eq-port6 {
+          status deprecated;
+          type acl-port-type;
+        }
+        leaf dst-eq-port7 {
+          status deprecated;
+          type acl-port-type;
+        }
+        leaf dst-eq-port8 {
+          status deprecated;
+          type acl-port-type;
+        }
+        leaf dst-eq-port9 {
+          status deprecated;
+          type acl-port-type;
+        }
+        leaf dst-eq-port10 {
+          status deprecated;
+          type acl-port-type;
+        }
+      }
+      case dst-gt-case {
+        leaf dst-gt {
+          status deprecated;
+          description
+            "Match only packets with a greater port number";
+          type acl-port-type;
+        }
+      }
+      case dst-lt-case {
+        leaf dst-lt {
+          status deprecated;
+          description
+            "Match only packets with a lower port number";
+          type acl-port-type;
+        }
+      }
+      case dst-neq-case {
+        leaf dst-neq {
+          status deprecated;
+          description
+            "Match only packets not on a given port number up to 10 ports";
+          type acl-port-type;
+        }
+        leaf dst-neq-port2 {
+          status deprecated;
+          type acl-port-type;
+        }
+        leaf dst-neq-port3 {
+          status deprecated;
+          type acl-port-type;
+        }
+        leaf dst-neq-port4 {
+          status deprecated;
+          type acl-port-type;
+        }
+        leaf dst-neq-port5 {
+          status deprecated;
+          type acl-port-type;
+        }
+        leaf dst-neq-port6 {
+          status deprecated;
+          type acl-port-type;
+        }
+        leaf dst-neq-port7 {
+          status deprecated;
+          type acl-port-type;
+        }
+        leaf dst-neq-port8 {
+          status deprecated;
+          type acl-port-type;
+        }
+        leaf dst-neq-port9 {
+          status deprecated;
+          type acl-port-type;
+        }
+        leaf dst-neq-port10 {
+          status deprecated;
+          type acl-port-type;
+        }
+      }
+      case dst-range-case {
+        leaf dst-range1 {
+          status deprecated;
+          description
+            "Match only packets in the range of port numbers";
+          type acl-port-type;
+        }
+        leaf dst-range2 {
+          status deprecated;
+          description
+            "Match only packets in the range of port numbers";
+          type acl-port-type;
+        }
+      }
+    }
+  }
 
-//   grouping acl-tcp-common-match-deprecated {
-//     leaf ack {
-//       status deprecated;
-//       description
-//         "Match on the ACK bit";
-//       type empty;
-//     }
-//     leaf fin {
-//       status deprecated;
-//       description
-//         "Match on the FIN bit";
-//       type empty;
-//     }
-//     leaf psh {
-//       status deprecated;
-//       description
-//         "Match on the PSH bit";
-//       type empty;
-//     }
-//     leaf rst {
-//       status deprecated;
-//       description
-//         "Match on the RST bit";
-//       type empty;
-//     }
-//     leaf syn {
-//       status deprecated;
-//       description
-//         "Match on the SYN bit";
-//       type empty;
-//     }
-//     leaf urg {
-//       status deprecated;
-//       description
-//         "Match on the URG bit";
-//       type empty;
-//     }
-//     leaf established {
-//       status deprecated;
-//       description
-//         "Match established connections";
-//       type empty;
-//     }
-//   }
+  grouping acl-tcp-common-match-deprecated {
+    leaf ack {
+      status deprecated;
+      description
+        "Match on the ACK bit";
+      type empty;
+    }
+    leaf fin {
+      status deprecated;
+      description
+        "Match on the FIN bit";
+      type empty;
+    }
+    leaf psh {
+      status deprecated;
+      description
+        "Match on the PSH bit";
+      type empty;
+    }
+    leaf rst {
+      status deprecated;
+      description
+        "Match on the RST bit";
+      type empty;
+    }
+    leaf syn {
+      status deprecated;
+      description
+        "Match on the SYN bit";
+      type empty;
+    }
+    leaf urg {
+      status deprecated;
+      description
+        "Match on the URG bit";
+      type empty;
+    }
+    leaf established {
+      status deprecated;
+      description
+        "Match established connections";
+      type empty;
+    }
+  }
 
-//   grouping ipv6-acl-icmp-match-deprecated {
-//     choice icmp_choice {
-//       case msg-type-code {
-//         leaf msg-type-case {
-//           status deprecated;
-//           type uint8;
-//         }
-//         leaf msg-code {
-//           status deprecated;
-//           type uint8;
-//         }
-//       }
-//       case named-msg-type-case {
-//         leaf named-msg-type {
-//           status deprecated;
-//           type enumeration {
-//             enum beyond-scope;
-//             enum destination-unreachable;
-//             enum dhaad-reply;
-//             enum dhaad-request;
-//             enum echo-reply;
-//             enum echo-request;
-//             enum header;
-//             enum hop-limit;
-//             enum mld-query;
-//             enum mld-reduction;
-//             enum mld-report;
-//             enum mpd-advertisement;
-//             enum mpd-solicitation;
-//             enum nd-na;
-//             enum nd-ns;
-//             enum next-header;
-//             enum no-admin;
-//             enum no-route;
-//             enum packet-too-big;
-//             enum parameter-option;
-//             enum parameter-problem;
-//             enum port-unreachable;
-//             enum reassembly-timeout;
-//             enum redirect;
-//             enum reject-route;
-//             enum renum-command;
-//             enum renum-result;
-//             enum renum-seq-number;
-//             enum router-advertisement;
-//             enum router-renumbering;
-//             enum router-solicitation;
-//             enum source-policy;
-//             enum time-exceeded;
-//             enum unreachable;
-//           }
-//         }
-//       }
-//     }
-//   }
+  grouping ipv6-acl-icmp-match-deprecated {
+    choice icmp_choice {
+      case msg-type-code {
+        leaf msg-type-case {
+          status deprecated;
+          type uint8;
+        }
+        leaf msg-code {
+          status deprecated;
+          type uint8;
+        }
+      }
+      case named-msg-type-case {
+        leaf named-msg-type {
+          status deprecated;
+          type enumeration {
+            enum beyond-scope;
+            enum destination-unreachable;
+            enum dhaad-reply;
+            enum dhaad-request;
+            enum echo-reply;
+            enum echo-request;
+            enum header;
+            enum hop-limit;
+            enum mld-query;
+            enum mld-reduction;
+            enum mld-report;
+            enum mpd-advertisement;
+            enum mpd-solicitation;
+            enum nd-na;
+            enum nd-ns;
+            enum next-header;
+            enum no-admin;
+            enum no-route;
+            enum packet-too-big;
+            enum parameter-option;
+            enum parameter-problem;
+            enum port-unreachable;
+            enum reassembly-timeout;
+            enum redirect;
+            enum reject-route;
+            enum renum-command;
+            enum renum-result;
+            enum renum-seq-number;
+            enum router-advertisement;
+            enum router-renumbering;
+            enum router-solicitation;
+            enum source-policy;
+            enum time-exceeded;
+            enum unreachable;
+          }
+        }
+      }
+    }
+  }
 
-//   grouping ipv6-acl-match-common-attribute-deprecated {
-//     leaf auth {
-//       status deprecated;
-//       description
-//         "Match on authentication header";
-//       type empty;
-//     }
-//     leaf dest-option {
-//       status deprecated;
-//       description
-//         "Destination Option header (all types)";
-//       type empty;
-//     }
-//     leaf dscp {
-//       status deprecated;
-//       description
-//         "Match packets with given dscp value";
-//       type ios-types:dscp-type;
-//     }
-//     leaf flow-label {
-//       status deprecated;
-//       description
-//         "Flow label";
-//       type uint32 {
-//         range "0..1048575";
-//       }
-//     }
-//     leaf fragments {
-//       status deprecated;
-//       description
-//         "Check non-initial fragments";
-//       type empty;
-//     }
-//     leaf hbh {
-//       status deprecated;
-//       description
-//         "Match on hop-by-hop option";
-//       type empty;
-//     }
-//     leaf log {
-//       status deprecated;
-//       description
-//         "Log matches against this entry";
-//       type empty;
-//     }
-//     leaf log-input {
-//       status deprecated;
-//       description
-//         "Log matches against this entry, including input";
-//       type empty;
-//     }
-//     leaf mobility {
-//       status deprecated;
-//       description
-//         "Mobility header (all types)";
-//       type empty;
-//     }
-//     leaf mobility-type {
-//       status deprecated;
-//       description
-//         "Mobility header with type";
-//       type ios-types:mobility-type;
-//     }
-//     leaf routing {
-//       status deprecated;
-//       description
-//         "Routing header (all types)";
-//       type empty;
-//     }
-//     leaf routing-type {
-//       status deprecated;
-//       description
-//         "Routing header with type";
-//       type uint8;
-//     }
-//     leaf time-range {
-//       status deprecated;
-//       description
-//         "Specify a time-range";
-//       type string;
-//     }
-//   }
+  grouping ipv6-acl-match-common-attribute-deprecated {
+    leaf auth {
+      status deprecated;
+      description
+        "Match on authentication header";
+      type empty;
+    }
+    leaf dest-option {
+      status deprecated;
+      description
+        "Destination Option header (all types)";
+      type empty;
+    }
+    leaf dscp {
+      status deprecated;
+      description
+        "Match packets with given dscp value";
+      type ios-types:dscp-type;
+    }
+    leaf flow-label {
+      status deprecated;
+      description
+        "Flow label";
+      type uint32 {
+        range "0..1048575";
+      }
+    }
+    leaf fragments {
+      status deprecated;
+      description
+        "Check non-initial fragments";
+      type empty;
+    }
+    leaf hbh {
+      status deprecated;
+      description
+        "Match on hop-by-hop option";
+      type empty;
+    }
+    leaf log {
+      status deprecated;
+      description
+        "Log matches against this entry";
+      type empty;
+    }
+    leaf log-input {
+      status deprecated;
+      description
+        "Log matches against this entry, including input";
+      type empty;
+    }
+    leaf mobility {
+      status deprecated;
+      description
+        "Mobility header (all types)";
+      type empty;
+    }
+    leaf mobility-type {
+      status deprecated;
+      description
+        "Mobility header with type";
+      type ios-types:mobility-type;
+    }
+    leaf routing {
+      status deprecated;
+      description
+        "Routing header (all types)";
+      type empty;
+    }
+    leaf routing-type {
+      status deprecated;
+      description
+        "Routing header with type";
+      type uint8;
+    }
+    leaf time-range {
+      status deprecated;
+      description
+        "Specify a time-range";
+      type string;
+    }
+  }
 
   grouping acl-remark-grouping-deprecated {
     leaf remark {
@@ -3870,9 +3870,9 @@ module Cisco-IOS-XE-acl {
     }
   }
 
-//   augment "/ios:native/ios:mac" {
-//     uses config-mac-access-list-grouping;
-//   }
+  augment "/ios:native/ios:mac" {
+    uses config-mac-access-list-grouping;
+  }
 
   augment "/ios:native/ios:ip/ios:access-list" {
     uses config-ipv4-acl-grouping;
@@ -3882,7 +3882,7 @@ module Cisco-IOS-XE-acl {
     uses config-ipv6-acl-grouping;
   }
 
-  // augment "/ios:native" {
-  //  uses config-access-list-limit-grouping;
-  // }
+  augment "/ios:native" {
+    uses config-access-list-limit-grouping;
+  }
 }

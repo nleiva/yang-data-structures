@@ -14,14 +14,26 @@ module Cisco-IOS-XE-skip {
   import Cisco-IOS-XE-bgp {
     prefix ios-bgp;
   }
+  import Cisco-IOS-XE-acl {
+    prefix ios-acl;
+  }
+  import Cisco-IOS-XE-snmp {
+    prefix ios-snmp;
+  }
+  import Cisco-IOS-XE-object-group {
+    prefix ios-og;
+  }
+  import Cisco-IOS-XE-multicast {
+    prefix ios-mc;
+  }  
 
   organization
     "Bloomberg LP";
 
-  revision 2025-06-04 {
+  revision 2025-06-06 {
     description
-      "Added prefix deviation";
-    cisco-semver:module-version "0.1.0";
+      "First not-supported list";
+    cisco-semver:module-version "0.2.0";
   }
 
   //============================= Interfaces ==================================
@@ -190,6 +202,14 @@ module Cisco-IOS-XE-skip {
     deviate not-supported;
   }
 
+  deviation "/ios:native/ios:ntp/ios-ntp:source" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:ntp/ios-ntp:peer" {
+    deviate not-supported;
+  }
+
   //============================= BGP ==================================
   deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:bmp" {
     deviate not-supported;
@@ -235,11 +255,6 @@ module Cisco-IOS-XE-skip {
     deviate not-supported;
   } 
 
-  //============================= IP ==================================
-  // deviation "/ios:native/ios:ip/ios:domain/ios:lookup-settings/" {
-  //   deviate not-supported;
-  // }   
-
   //============================= NAT ==================================
   deviation "/ios:native/ios:nat64" {
     deviate not-supported;
@@ -247,9 +262,13 @@ module Cisco-IOS-XE-skip {
 
   deviation "/ios:native/ios:nat66" {
     deviate not-supported;
-  }  
+  }
 
   //============================= Object Group ==================================
+  deviation "/ios:native/ios:object-group/ios-og:fqdn/ios-og:name" {
+    deviate not-supported;
+  }
+
   deviation "/ios:native/ios:object-group" {
     deviate not-supported;
   }
@@ -259,8 +278,351 @@ module Cisco-IOS-XE-skip {
     deviate not-supported;
   }
 
+  deviation "/ios:native/ios-acl:access-list/ios-acl:acl-limit" {
+    deviate not-supported;
+  }
+  
+  deviation "/ios:native/ios:ip/ios-acl:access-list/ios-acl:fqdn" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:ip/ios-acl:access-list/ios-acl:role-based" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:ip/ios-acl:access-list/ios-acl:helper" {
+    deviate not-supported;
+  }
+
   //============================= IPv6 ==================================
   deviation "/ios:native/ios:ipv6" {
     deviate not-supported;
-  }  
+  } 
+
+  //============================= MAC ==================================
+  deviation "/ios:native/ios:mac" {
+    deviate not-supported;
+  } 
+
+  //============================= Root ==================================
+  deviation "/ios:native/ios:alarm-contact" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:archive" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:clock" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:control-plane" {
+    deviate not-supported;
+  } 
+
+  deviation "/ios:native/ios:domain" {
+    deviate not-supported;
+  } 
+
+  deviation "/ios:native/ios:eap" {
+    deviate not-supported;
+  } 
+
+  deviation "/ios:native/ios:enable" {
+    deviate not-supported;
+  } 
+
+  deviation "/ios:native/ios:errdisable" {
+    deviate not-supported;
+  } 
+
+  deviation "/ios:native/ios:fabric" {
+    deviate not-supported;
+  } 
+
+  deviation "/ios:native/ios:hw-module" {
+    deviate not-supported;
+  } 
+
+  deviation "/ios:native/ios:identity" {
+    deviate not-supported;
+  } 
+
+  deviation "/ios:native/ios:lacp" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:license" {
+    deviate not-supported;
+  } 
+
+  deviation "/ios:native/ios:location" {
+    deviate not-supported;
+  } 
+
+  deviation "/ios:native/ios:mab" {
+    deviate not-supported;
+  } 
+
+  deviation "/ios:native/ios:mac-address-table" {
+    deviate not-supported;
+  } 
+
+  deviation "/ios:native/ios:macro" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:memory" {
+    deviate not-supported;
+  } 
+
+  deviation "/ios:native/ios:memory-size" {
+    deviate not-supported;
+  } 
+
+  deviation "/ios:native/ios:monitor" {
+    deviate not-supported;
+  } 
+
+  deviation "/ios:native/ios:mpls" {
+    deviate not-supported;
+  } 
+
+  deviation "/ios:native/ios:parser" {
+    deviate not-supported;
+  } 
+
+  deviation "/ios:native/ios:pfr" {
+    deviate not-supported;
+  } 
+
+  deviation "/ios:native/ios:pfr-map" {
+    deviate not-supported;
+  } 
+
+  deviation "/ios:native/ios:process" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:privilege" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:redundancy" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:scheduler" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:service/ios:alignment" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:service/ios:heartbeat" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:service/ios:pad" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:service/ios:timestamps/ios:debug" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:standby" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:time-range" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:transceiver" {
+    deviate not-supported;
+  } 
+
+  deviation "/ios:native/ios:transport-map" {
+    deviate not-supported;
+  } 
+
+  deviation "/ios:native/ios:tftp-server-config" {
+    deviate not-supported;
+  }
+
+  //============================= LINE ==================================
+  deviation "/ios:native/ios:line/ios:aux" {
+    deviate not-supported;
+  } 
+
+  deviation "/ios:native/ios:line/ios:line-list" {
+    deviate not-supported;
+  } 
+
+  deviation "/ios:native/ios:line/ios:async-line" {
+    deviate not-supported;
+  } 
+
+  deviation "/ios:native/ios:line/ios:async-line-single" {
+    deviate not-supported;
+  } 
+
+  deviation "/ios:native/ios:line/ios:async-line-range" {
+    deviate not-supported;
+  } 
+
+  //============================= IP ==================================
+  deviation "/ios:native/ios:ip/ios:domain/ios:lookup-settings" {
+    deviate not-supported;
+  } 
+
+  deviation "/ios:native/ios:ip/ios-mc:mroute" {
+    deviate not-supported;
+  } 
+
+  deviation "/ios:native/ios:ip/ios-mc:msdp" {
+    deviate not-supported;
+  } 
+
+  deviation "/ios:native/ios:ip/ios:explicit-path" {
+    deviate not-supported;
+  } 
+
+  deviation "/ios:native/ios:ip/ios:forward-protocol" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:ip/ios:sdwan" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:ip/ios:arp" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:ip/ios:prefix-list" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:ip/ios:admission" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:ip/ios:ftp" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:ip/ios:tftp" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:ip/ios:local" {
+    deviate not-supported;
+  }
+
+  //============================= RMON ==================================
+  deviation "/ios:native/ios:rmon" {
+    deviate not-supported;
+  }
+
+  //============================= SNMP ==================================
+  deviation "/ios:native/ios:snmp" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:snmp-server/ios-snmp:engineID" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:snmp-server/ios-snmp:group" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:snmp-server/ios-snmp:source-interface" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:snmp-server/ios-snmp:user" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:snmp-server/ios-snmp:trap" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:snmp-server/ios-snmp:trap-source" {
+    deviate not-supported;
+  }
+
+  //============================= ROUTE-MAP ==================================
+  deviation "/ios:native/ios-route-map:route-map/ios-route-map:route-map-without-order-seq" {
+    deviate not-supported;
+  } 
+
+  deviation "/ios:native/ios-route-map:route-map/ios-route-map:route-map-seq/ios-route-map:match/ios-route-map:additional-paths" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios-route-map:route-map/ios-route-map:route-map-seq/ios-route-map:match/ios-route-map:as-path" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios-route-map:route-map/ios-route-map:route-map-seq/ios-route-map:match/ios-route-map:community" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios-route-map:route-map/ios-route-map:route-map-seq/ios-route-map:match/ios-route-map:extcommunity" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios-route-map:route-map/ios-route-map:route-map-seq/ios-route-map:match/ios-route-map:ipv6" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios-route-map:route-map/ios-route-map:route-map-seq/ios-route-map:match/ios-route-map:rpki" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios-route-map:route-map/ios-route-map:route-map-seq/ios-route-map:match/ios-route-map:source-protocol" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios-route-map:route-map/ios-route-map:route-map-seq/ios-route-map:match/ios-route-map:route-type" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios-route-map:route-map/ios-route-map:route-map-seq/ios-route-map:set/ios-route-map:as-path" {
+    deviate not-supported;
+  } 
+
+  deviation "/ios:native/ios-route-map:route-map/ios-route-map:route-map-seq/ios-route-map:set/ios-route-map:comm-list" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios-route-map:route-map/ios-route-map:route-map-seq/ios-route-map:set/ios-route-map:community" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios-route-map:route-map/ios-route-map:route-map-seq/ios-route-map:set/ios-route-map:extcomm-list" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios-route-map:route-map/ios-route-map:route-map-seq/ios-route-map:set/ios-route-map:extcommunity" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios-route-map:route-map/ios-route-map:route-map-seq/ios-route-map:set/ios-route-map:interface" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios-route-map:route-map/ios-route-map:route-map-seq/ios-route-map:set/ios-route-map:ipv6" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios-route-map:route-map/ios-route-map:route-map-seq/ios-route-map:set/ios-route-map:dampening" {
+    deviate not-supported;
+  }
 }

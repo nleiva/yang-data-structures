@@ -2506,73 +2506,73 @@ submodule Cisco-IOS-XE-interfaces {
         error-message "Load interval must be in increments of 30 seconds ";
       }
     }
-    container logging {
-      description
-        "Configure logging for interface";
-      container event {
-        description
-          "Interface events";
-        leaf bundle-status {
-          description
-            "BUNDLE/UNBUNDLE messages";
-          type empty;
-        }
-        leaf link-status-enable {
-          description
-            "UPDOWN and CHANGE messages";
-          when "not(contains(../../../ios:name,'.'))";
-          type boolean;
-          default "true";
-        }
-        leaf link-status {
-          description
-            "UPDOWN and CHANGE messages";
-          when "not(contains(../../../ios:name,'.'))";
-          status deprecated;
-          type empty;
-        }
-        leaf trunk-status {
-          description
-            "TRUNK status messages";
-          type empty;
-        }
-        leaf nfas-status {
-          description
-            "NFAS D-channel status messages";
-          type empty;
-        }
-        leaf power-inline-status {
-          description
-            "Inline power messages";
-          type empty;
-        }
-        leaf status {
-          description
-            "Spanning-tree state change messages";
-          type empty;
-        }
-        container spanning-tree {
-          description
-            "Spanning-tree Interface events";
-          presence "true";
-          leaf status {
-            description
-              "Spanning-tree state change messages";
-            type empty;
-          }
-        }
-        container subif-link-status {
-          description
-            "Sub-interface UPDOWN and CHANGE messages";
-          presence "true";
-          leaf ignore-bulk {
-            description
-              "Do not log messages when the main interface is transitioning";
-            type empty;
-          }
-        }
-      }
-    }
+    // container logging {
+    //   description
+    //     "Configure logging for interface";
+    //   container event {
+    //     description
+    //       "Interface events";
+    //     leaf bundle-status {
+    //       description
+    //         "BUNDLE/UNBUNDLE messages";
+    //       type empty;
+    //     }
+    //     leaf link-status-enable {
+    //       description
+    //         "UPDOWN and CHANGE messages";
+    //       when "not(contains(../../../ios:name,'.'))";
+    //       type boolean;
+    //       default "true";
+    //     }
+    //     leaf link-status {
+    //       description
+    //         "UPDOWN and CHANGE messages";
+    //       when "not(contains(../../../ios:name,'.'))";
+    //       status deprecated;
+    //       type empty;
+    //     }
+    //     leaf trunk-status {
+    //       description
+    //         "TRUNK status messages";
+    //       type empty;
+    //     }
+    //     leaf nfas-status {
+    //       description
+    //         "NFAS D-channel status messages";
+    //       type empty;
+    //     }
+    //     leaf power-inline-status {
+    //       description
+    //         "Inline power messages";
+    //       type empty;
+    //     }
+    //     leaf status {
+    //       description
+    //         "Spanning-tree state change messages";
+    //       type empty;
+    //     }
+    //     container spanning-tree {
+    //       description
+    //         "Spanning-tree Interface events";
+    //       presence "true";
+    //       leaf status {
+    //         description
+    //           "Spanning-tree state change messages";
+    //         type empty;
+    //       }
+    //     }
+    //     container subif-link-status {
+    //       description
+    //         "Sub-interface UPDOWN and CHANGE messages";
+    //       presence "true";
+    //       leaf ignore-bulk {
+    //         description
+    //           "Do not log messages when the main interface is transitioning";
+    //         type empty;
+    //       }
+    //     }
+    //   }
+    // }
     // container mdix {
     //   description
     //     "Set Media Dependent Interface with Crossover";
