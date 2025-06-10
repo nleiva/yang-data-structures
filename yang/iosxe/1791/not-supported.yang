@@ -309,9 +309,49 @@ module Cisco-IOS-XE-skip {
     deviate not-supported;
   }
 
+   deviation "/ios:native/ios:alias" {
+    deviate not-supported;
+  } 
+
   deviation "/ios:native/ios:archive" {
     deviate not-supported;
   }
+
+  deviation "/ios:native/ios:aqm-register-fnf" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:avb" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:avc" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:bfd-template" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:bridge-domain" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:call-home" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:captive-portal-bypass" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:card" {
+    deviate not-supported;
+  } 
+
+   deviation "/ios:native/ios:cisp" {
+    deviate not-supported;
+  } 
 
   deviation "/ios:native/ios:clock" {
     deviate not-supported;
@@ -319,8 +359,23 @@ module Cisco-IOS-XE-skip {
 
   deviation "/ios:native/ios:control-plane" {
     deviate not-supported;
+  }  
+
+  deviation "/ios:native/ios:control-plane-host" {
+    deviate not-supported;
+  } 
+  deviation "/ios:native/ios:controller" {
+    deviate not-supported;
   } 
 
+  deviation "/ios:native/ios:cts" {
+    deviate not-supported;
+  } 
+
+  deviation "/ios:native/ios:device-tracking" {
+    deviate not-supported;
+  }     
+  
   deviation "/ios:native/ios:domain" {
     deviate not-supported;
   } 
@@ -329,17 +384,57 @@ module Cisco-IOS-XE-skip {
     deviate not-supported;
   } 
 
-  deviation "/ios:native/ios:enable" {
+  deviation "/ios:native/ios:disable-eadi" {
     deviate not-supported;
   } 
 
+  deviation "/ios:native/ios:dot1x" {
+    deviate not-supported;
+  } 
+  
+  deviation "/ios:native/ios:endpoint-tracker" {
+    deviate not-supported;
+  } 
+  
+  deviation "/ios:native/ios:epm" {
+    deviate not-supported;
+  } 
+
+  deviation "/ios:native/ios:event" {
+    deviate not-supported;
+  }  
+
   deviation "/ios:native/ios:errdisable" {
+    deviate not-supported;
+  } 
+
+  deviation "/ios:native/ios:exception" {
     deviate not-supported;
   } 
 
   deviation "/ios:native/ios:fabric" {
     deviate not-supported;
   } 
+
+  deviation "/ios:native/ios:facility-alarm" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:fallback" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:flow" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:frame-relay" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:global-address-family" {
+    deviate not-supported;
+  }
 
   deviation "/ios:native/ios:hw-module" {
     deviate not-supported;
@@ -349,9 +444,37 @@ module Cisco-IOS-XE-skip {
     deviate not-supported;
   } 
 
+  deviation "/ios:native/ios:iox" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:l2" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:l2tp-class" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:l2vpn" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:l2vpn-config" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:l3vpn" {
+    deviate not-supported;
+  }
+
   deviation "/ios:native/ios:lacp" {
     deviate not-supported;
   }
+
+  deviation "/ios:native/ios:ldap" {
+    deviate not-supported;
+  }  
 
   deviation "/ios:native/ios:license" {
     deviate not-supported;
@@ -373,6 +496,14 @@ module Cisco-IOS-XE-skip {
     deviate not-supported;
   }
 
+  deviation "/ios:native/ios:management" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:md-list" {
+    deviate not-supported;
+  }
+
   deviation "/ios:native/ios:memory" {
     deviate not-supported;
   } 
@@ -380,6 +511,22 @@ module Cisco-IOS-XE-skip {
   deviation "/ios:native/ios:memory-size" {
     deviate not-supported;
   } 
+
+  deviation "/ios:native/ios:metadata" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:mka" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:mls" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:module" {
+    deviate not-supported;
+  }
 
   deviation "/ios:native/ios:monitor" {
     deviate not-supported;
@@ -389,9 +536,41 @@ module Cisco-IOS-XE-skip {
     deviate not-supported;
   } 
 
+  deviation "/ios:native/ios:multilink" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:mvrp" {
+    deviate not-supported;
+  } 
+
+  deviation "/ios:native/ios:named-ordering-route-map" {
+    deviate not-supported;
+  } 
+
+  deviation "/ios:native/ios:network-clock" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:otv" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:parameter-map" {
+    deviate not-supported;
+  }
+
   deviation "/ios:native/ios:parser" {
     deviate not-supported;
   } 
+
+  deviation "/ios:native/ios:performance" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:performance-measurement" {
+    deviate not-supported;
+  }
 
   deviation "/ios:native/ios:pfr" {
     deviate not-supported;
@@ -399,13 +578,49 @@ module Cisco-IOS-XE-skip {
 
   deviation "/ios:native/ios:pfr-map" {
     deviate not-supported;
-  } 
+  }
+
+  deviation "/ios:native/ios:platform" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:policy" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:port-channel" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:ppp" {
+    deviate not-supported;
+  }
 
   deviation "/ios:native/ios:process" {
     deviate not-supported;
   }
 
-  deviation "/ios:native/ios:privilege" {
+  deviation "/ios:native/ios:profile" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:pseudowire-class" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:ptp" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:radius" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:radius-server" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:redun-management" {
     deviate not-supported;
   }
 
@@ -413,7 +628,27 @@ module Cisco-IOS-XE-skip {
     deviate not-supported;
   }
 
+  deviation "/ios:native/ios:remote-management" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:sampler" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:scada-gw" {
+    deviate not-supported;
+  }
+
   deviation "/ios:native/ios:scheduler" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:sdm" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:segment-routing" {
     deviate not-supported;
   }
 
@@ -433,7 +668,59 @@ module Cisco-IOS-XE-skip {
     deviate not-supported;
   }
 
+  deviation "/ios:native/ios:service-chain" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:service-insertion" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:setup" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:software" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:stackwise-virtual" {
+    deviate not-supported;
+  }
+
   deviation "/ios:native/ios:standby" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:subscriber" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:system" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:table-map" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:tacacs" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:tacacs-server" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:template" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:tftp-server" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:tftp-server-config" {
     deviate not-supported;
   }
 
@@ -441,6 +728,14 @@ module Cisco-IOS-XE-skip {
     deviate not-supported;
   }
 
+  deviation "/ios:native/ios:tod-clock" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:track" {
+    deviate not-supported;
+  }
+ 
   deviation "/ios:native/ios:transceiver" {
     deviate not-supported;
   } 
@@ -449,7 +744,47 @@ module Cisco-IOS-XE-skip {
     deviate not-supported;
   } 
 
-  deviation "/ios:native/ios:tftp-server-config" {
+  deviation "/ios:native/ios:udld" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:upgrade" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:user-name" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:virtual-service" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:vrf" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:vtp" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:vxlan" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:wsma" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:xconnect" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:zone" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:zone-pair" {
     deviate not-supported;
   }
 

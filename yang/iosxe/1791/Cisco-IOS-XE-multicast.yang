@@ -1632,15 +1632,15 @@ module Cisco-IOS-XE-multicast {
     //     }
     //   }
     // }
-    // leaf pim-mode {
-    //   status deprecated;
-    //   type enumeration {
-    //     enum passive;
-    //     enum dense-mode;
-    //     enum sparse-mode;
-    //     enum sparse-dense-mode;
-    //   }
-    // }
+    leaf pim-mode {
+      status deprecated;
+      type enumeration {
+        enum passive;
+        enum dense-mode;
+        enum sparse-mode;
+        enum sparse-dense-mode;
+      }
+    }
     // leaf nbma-mode {
     //   description
     //     "Enable PIM nbma-mode operation";
