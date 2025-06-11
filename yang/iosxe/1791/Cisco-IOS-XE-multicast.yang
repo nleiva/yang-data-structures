@@ -3057,93 +3057,93 @@ module Cisco-IOS-XE-multicast {
     uses config-ip-mcast-grouping;
   }
 
-//   augment "/ios:native/ios:interface/ios:FastEthernet/ios:ip" {
-//     uses config-interface-ip-mcast-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:FastEthernet/ios:ip" {
+    uses config-interface-ip-mcast-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:GigabitEthernet/ios:ip" {
-//     uses config-interface-ip-mcast-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:GigabitEthernet/ios:ip" {
+    uses config-interface-ip-mcast-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:TwoGigabitEthernet/ios:ip" {
-//     uses config-interface-ip-mcast-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet/ios:ip" {
+    uses config-interface-ip-mcast-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:FiveGigabitEthernet/ios:ip" {
-//     uses config-interface-ip-mcast-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet/ios:ip" {
+    uses config-interface-ip-mcast-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:AppGigabitEthernet/ios:ip" {
-//     uses config-interface-ip-mcast-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:AppGigabitEthernet/ios:ip" {
+    uses config-interface-ip-mcast-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:ip" {
-//     uses config-interface-ip-mcast-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:ip" {
+    uses config-interface-ip-mcast-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:ip" {
-//     uses config-interface-ip-mcast-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:ip" {
+    uses config-interface-ip-mcast-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:FortyGigabitEthernet/ios:ip" {
-//     uses config-interface-ip-mcast-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet/ios:ip" {
+    uses config-interface-ip-mcast-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:HundredGigE/ios:ip" {
-//     uses config-interface-ip-mcast-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:HundredGigE/ios:ip" {
+    uses config-interface-ip-mcast-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:Port-channel/ios:ip" {
-//     uses config-interface-ip-mcast-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:Port-channel/ios:ip" {
+    uses config-interface-ip-mcast-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:Loopback/ios:ip" {
-//     uses config-interface-ip-mcast-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:Loopback/ios:ip" {
+    uses config-interface-ip-mcast-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:Tunnel/ios:ip" {
-//     uses config-interface-ip-mcast-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:Tunnel/ios:ip" {
+    uses config-interface-ip-mcast-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:Virtual-Template/ios:ip" {
-//     uses config-interface-ip-mcast-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:Virtual-Template/ios:ip" {
+    uses config-interface-ip-mcast-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:VirtualPortGroup/ios:ip" {
-//     uses config-interface-ip-mcast-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:VirtualPortGroup/ios:ip" {
+    uses config-interface-ip-mcast-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:Vlan/ios:ip" {
-//     uses config-interface-ip-mcast-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:Vlan/ios:ip" {
+    uses config-interface-ip-mcast-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:Port-channel-subinterface/ios:Port-channel/ios:ip" {
-//     uses config-interface-ip-mcast-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:Port-channel-subinterface/ios:Port-channel/ios:ip" {
+    uses config-interface-ip-mcast-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:LISP/ios:ip" {
-//     uses config-interface-ip-mcast-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:LISP/ios:ip" {
+    uses config-interface-ip-mcast-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:LISP-subinterface/ios:LISP/ios:ip" {
-//     uses config-interface-ip-mcast-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:LISP-subinterface/ios:LISP/ios:ip" {
+    uses config-interface-ip-mcast-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:Vif/ios:ip" {
-//     uses config-interface-ip-mcast-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:Vif/ios:ip" {
+    uses config-interface-ip-mcast-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:Multilink/ios:ip" {
-//     uses config-interface-ip-mcast-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:Multilink/ios:ip" {
+    uses config-interface-ip-mcast-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:Cellular/ios:ip" {
-//     uses config-interface-ip-mcast-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:Cellular/ios:ip" {
+    uses config-interface-ip-mcast-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:BDI/ios:ip" {
-//     uses config-interface-ip-mcast-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:BDI/ios:ip" {
+    uses config-interface-ip-mcast-grouping;
+  }
 
 //   augment "/ios:native/ios:ipv6/ios:multicast" {
 //     uses config-ipv6-mcast-grouping;
@@ -3225,15 +3225,15 @@ module Cisco-IOS-XE-multicast {
     uses config-interface-ip-pim-grouping;
   }
 
-//   augment "/ios:native/ios:interface/ios:LISP/ios:ip/ios:pim" {
-//     uses config-interface-ip-pim-grouping;
-//     uses config-interface-lisp-ip-pim-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:LISP/ios:ip/ios:pim" {
+    uses config-interface-ip-pim-grouping;
+    uses config-interface-lisp-ip-pim-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:LISP-subinterface/ios:LISP/ios:ip/ios:pim" {
-//     uses config-interface-ip-pim-grouping;
-//     uses config-interface-lisp-ip-pim-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:LISP-subinterface/ios:LISP/ios:ip/ios:pim" {
+    uses config-interface-ip-pim-grouping;
+    uses config-interface-lisp-ip-pim-grouping;
+  }
 
   augment "/ios:native/ios:interface/ios:Vif/ios:ip/ios:pim" {
     uses config-interface-ip-pim-grouping;

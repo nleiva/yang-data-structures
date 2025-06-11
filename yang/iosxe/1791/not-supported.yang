@@ -25,6 +25,10 @@ module Cisco-IOS-XE-skip {
   }
   import Cisco-IOS-XE-multicast {
     prefix ios-mc;
+  }
+
+  import Cisco-IOS-XE-nat {
+    prefix ios-nat;
   }  
 
   organization
@@ -37,35 +41,9 @@ module Cisco-IOS-XE-skip {
   }
 
   //============================= Interfaces ==================================
-  deviation "/ios:native/ios:interface/ios:FastEthernet" {
-    deviate not-supported;
-  }
 
-  deviation "/ios:native/ios:interface/ios:FiveGigabitEthernet" {
-    deviate not-supported;
-  }
 
   deviation "/ios:native/ios:interface/ios:AppGigabitEthernet" {
-    deviate not-supported;
-  }
-
-  deviation "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet" {
-    deviate not-supported;
-  }
-
-  deviation "/ios:native/ios:interface/ios:TwoGigabitEthernet" {
-    deviate not-supported;
-  }
-
-  deviation "/ios:native/ios:interface/ios:Tunnel" {
-    deviate not-supported;
-  }
-
-  deviation "/ios:native/ios:interface/ios:Virtual-Template" {
-    deviate not-supported;
-  }
-
-  deviation "/ios:native/ios:interface/ios:Dialer" {
     deviate not-supported;
   }
 
@@ -85,6 +63,14 @@ module Cisco-IOS-XE-skip {
     deviate not-supported;
   }
 
+  deviation "/ios:native/ios:interface/ios:ATM-ACR" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:ATM-ACRsubinterface" {
+    deviate not-supported;
+  }
+
   deviation "/ios:native/ios:interface/ios:Async" {
     deviate not-supported;
   }
@@ -97,9 +83,21 @@ module Cisco-IOS-XE-skip {
     deviate not-supported;
   }
 
+  deviation "/ios:native/ios:interface/ios:CEM" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:CEM-ACR" {
+    deviate not-supported;
+  }
+
   deviation "/ios:native/ios:interface/ios:Cellular" {
     deviate not-supported;
   }
+
+  deviation "/ios:native/ios:interface/ios:Dialer" {
+    deviate not-supported;
+  }  
 
   deviation "/ios:native/ios:interface/ios:Embedded-Service-Engine" {
     deviate not-supported;
@@ -109,71 +107,19 @@ module Cisco-IOS-XE-skip {
     deviate not-supported;
   }
 
-  deviation "/ios:native/ios:interface/ios:LISP" {
-    deviate not-supported;
-  }
-
-  deviation "/ios:native/ios:interface/ios:Multilink" {
-    deviate not-supported;
-  }
-
-  deviation "/ios:native/ios:interface/ios:Port-channel" {
-    deviate not-supported;
-  }
-
-  deviation "/ios:native/ios:interface/ios:SM" {
-    deviate not-supported;
-  }
-
-  deviation "/ios:native/ios:interface/ios:Serial" {
-    deviate not-supported;
-  }
-
-  deviation "/ios:native/ios:interface/ios:VirtualPortGroup" {
-    deviate not-supported;
-  }
-
-  deviation "/ios:native/ios:interface/ios:nve" {
-    deviate not-supported;
-  }
-
-  deviation "/ios:native/ios:interface/ios:Vif" {
-    deviate not-supported;
-  }
-
-  deviation "/ios:native/ios:interface/ios:Wlan-GigabitEthernet" {
-    deviate not-supported;
-  }
-
-  deviation "/ios:native/ios:interface/ios:MFR" {
-    deviate not-supported;
-  }
-
-  deviation "/ios:native/ios:interface/ios:MFR-subinterface" {
-    deviate not-supported;
-  }
-
-  deviation "/ios:native/ios:interface/ios:Serial-subinterface" {
-    deviate not-supported;
-  }
-
-  deviation "/ios:native/ios:interface/ios:ucse" {
-    deviate not-supported;
-  }
-
   deviation "/ios:native/ios:interface/ios:Ethernet-Internal" {
     deviate not-supported;
   }
 
-  deviation "/ios:native/ios:interface/ios:Service-Engine" {
+  deviation "/ios:native/ios:interface/ios:FastEthernet" {
     deviate not-supported;
   }
 
-  deviation "/ios:native/ios:interface/ios:LISP-subinterface" {
+  deviation "/ios:native/ios:interface/ios:FiftyGigabitEthernet" {
     deviate not-supported;
   }
 
-  deviation "/ios:native/ios:interface/ios:Port-channel-subinterface" {
+  deviation "/ios:native/ios:interface/ios:FiveGigabitEthernet" {
     deviate not-supported;
   }
 
@@ -185,7 +131,87 @@ module Cisco-IOS-XE-skip {
     deviate not-supported;
   }
 
-  deviation "/ios:native/ios:interface/ios:Virtual-PPP" {
+  deviation "/ios:native/ios:interface/ios:LISP" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:LISP-subinterface" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:L2LISP" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:L2LISP-subinterface" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:MFR" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:MFR-subinterface" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Multilink" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:nve" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:overlay" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Port-channel" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Port-channel-subinterface" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:pseudowire" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:PRP-channel" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:SM" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Serial" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Serial-subinterface" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Service-Engine" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Tunnel" {
+    deviate not-supported;
+  }  
+
+  deviation "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TwoGigabitEthernet" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:ucse" {
     deviate not-supported;
   }
 
@@ -194,6 +220,30 @@ module Cisco-IOS-XE-skip {
   }
 
   deviation "/ios:native/ios:interface/ios:vasiright" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Vif" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:vmi" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Virtual-PPP" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:VirtualPortGroup" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Virtual-Template" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Wlan-GigabitEthernet" {
     deviate not-supported;
   }
 
@@ -253,7 +303,7 @@ module Cisco-IOS-XE-skip {
 
   deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:address-family/ios-bgp:no-vrf/ios-bgp:vpnv6" {
     deviate not-supported;
-  } 
+  }  
 
   //============================= NAT ==================================
   deviation "/ios:native/ios:nat64" {
@@ -263,6 +313,42 @@ module Cisco-IOS-XE-skip {
   deviation "/ios:native/ios:nat66" {
     deviate not-supported;
   }
+
+  deviation "/ios:native/ios:ip/ios-nat:nat/ios-nat:inside/ios-nat:source/ios-nat:list-interface" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:ip/ios-nat:nat/ios-nat:inside/ios-nat:source/ios-nat:list-pool" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:ip/ios-nat:nat/ios-nat:inside/ios-nat:source/ios-nat:static/ios-nat:nat-static-transport-interface-list" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:ip/ios-nat:nat/ios-nat:inside/ios-nat:source/ios-nat:static/ios-nat:nat-static-transport-list-port-fwd" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:ip/ios-nat:nat/ios-nat:inside/ios-nat:source/ios-nat:static/ios-nat:nat-static-transport-list-with-vrf-port-fwd" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:ip/ios-nat:nat/ios-nat:inside/ios-nat:source/ios-nat:static/ios-nat:nat-static-transport-list-with-vrf" {
+    deviate not-supported;
+  }  
+
+  deviation "/ios:native/ios:ip/ios-nat:nat/ios-nat:inside/ios-nat:source/ios-nat:static/ios-nat:nat-static-proto-transport-interface-list" {
+    deviate not-supported;
+  }  
+
+  deviation "/ios:native/ios:ip/ios-nat:nat/ios-nat:inside/ios-nat:source/ios-nat:static/ios-nat:nat-static-transport-list/ios-nat:egress-interface" {
+    deviate not-supported;
+  }  
+
+  deviation "/ios:native/ios:ip/ios-nat:nat/ios-nat:log" {
+    deviate not-supported;
+  }  
 
   //============================= Object Group ==================================
   deviation "/ios:native/ios:object-group/ios-og:fqdn/ios-og:name" {
@@ -809,18 +895,43 @@ module Cisco-IOS-XE-skip {
     deviate not-supported;
   } 
 
-  //============================= IP ==================================
-  deviation "/ios:native/ios:ip/ios:domain/ios:lookup-settings" {
-    deviate not-supported;
-  } 
-
+  //============================= Multicast ==================================
   deviation "/ios:native/ios:ip/ios-mc:mroute" {
     deviate not-supported;
   } 
 
   deviation "/ios:native/ios:ip/ios-mc:msdp" {
     deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:ip/ios-mc:pim/ios-mc:mpls" {
+    deviate not-supported;
   } 
+
+  deviation "/ios:native/ios:ip/ios-mc:pim/ios-mc:bsr-candidate" {
+    deviate not-supported;
+  } 
+
+  deviation "/ios:native/ios:ip/ios-mc:pim/ios-mc:register-source" {
+    deviate not-supported;
+  } 
+
+  deviation "/ios:native/ios:ip/ios-mc:pim/ios-mc:send-rp-discovery" {
+    deviate not-supported;
+  } 
+  
+  deviation "/ios:native/ios:ip/ios-mc:pim/ios-mc:vrf" {
+    deviate not-supported;
+  } 
+
+  //============================= IP ==================================
+  deviation "/ios:native/ios:ip/ios:domain/ios:lookup-settings" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:ip/ios:domain-lookup/ios:source-interface" {
+    deviate not-supported;
+  }
 
   deviation "/ios:native/ios:ip/ios:explicit-path" {
     deviate not-supported;
@@ -855,6 +966,10 @@ module Cisco-IOS-XE-skip {
   }
 
   deviation "/ios:native/ios:ip/ios:local" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:ip/ios:ssh/ios:source-interface-config" {
     deviate not-supported;
   }
 
@@ -958,6 +1073,10 @@ module Cisco-IOS-XE-skip {
   }
 
   deviation "/ios:native/ios-route-map:route-map/ios-route-map:route-map-seq/ios-route-map:set/ios-route-map:dampening" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios-route-map:route-map/ios-route-map:route-map-seq/ios-route-map:set/ios-route-map:default" {
     deviate not-supported;
   }
 }

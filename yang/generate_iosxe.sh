@@ -9,6 +9,7 @@ generator -path=. \
   -generate_getters \
   -structs_split_files_count=4 \
   -compress_paths=false \
+  -yangpresence \
   -shorten_enum_leaf_names=true \
   -trim_enum_openconfig_prefix=false \
   iosxe/1791/Cisco-IOS-XE-native.yang \

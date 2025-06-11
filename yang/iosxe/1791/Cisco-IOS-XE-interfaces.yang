@@ -551,21 +551,21 @@ submodule Cisco-IOS-XE-interfaces {
           "Five Gigabit Ethernet ";
         type string;
       }
-      // leaf AppGigabitEthernet {
-      //   description
-      //     "App-hosting Gigabit Ethernet IEEE 802.3z";
-      //   type string;
-      // }
+      leaf AppGigabitEthernet {
+        description
+          "App-hosting Gigabit Ethernet IEEE 802.3z";
+        type string;
+      }
       leaf Port-channel {
         description
           "Ethernet Channel of interfaces";
         type uint32;
       }
-      // leaf PRP-channel {
-      //   description
-      //     "prp-channel virtual interface";
-      //   type uint8;
-      // }
+      leaf PRP-channel {
+        description
+          "prp-channel virtual interface";
+        type uint8;
+      }
       leaf TenGigabitEthernet {
         description
           "Ten Gigabit Ethernet";
