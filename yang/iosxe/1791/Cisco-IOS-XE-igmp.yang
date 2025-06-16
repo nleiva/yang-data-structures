@@ -754,35 +754,35 @@ module Cisco-IOS-XE-igmp {
           type inet:ipv4-address;
         }
       }
-    //   list join-group {
-    //     description
-    //       "IGMP join multicast group
-    //        (OBSOLETE: Use lists igmp-join-group or igmpv3-join-group instead)";
-    //     status obsolete;
-    //     key "ip-group-address";
-    //     leaf ip-group-address {
-    //       description
-    //         "IP group address";
-    //       status obsolete;
-    //       type inet:ipv4-address;
-    //     }
-    //     leaf source {
-    //       description
-    //         "IP source address";
-    //       status obsolete;
-    //       type inet:ipv4-address;
-    //     }
-    //   }
-    //   list igmp-join-group {
-    //     description
-    //       "IGMP join multicast group";
-    //     key "join-group";
-    //     leaf join-group {
-    //       description
-    //         "IP group address";
-    //       type inet:ipv4-address;
-    //     }
-    //   }
+      list join-group {
+        description
+          "IGMP join multicast group
+           (OBSOLETE: Use lists igmp-join-group or igmpv3-join-group instead)";
+        status obsolete;
+        key "ip-group-address";
+        leaf ip-group-address {
+          description
+            "IP group address";
+          status obsolete;
+          type inet:ipv4-address;
+        }
+        leaf source {
+          description
+            "IP source address";
+          status obsolete;
+          type inet:ipv4-address;
+        }
+      }
+      list igmp-join-group {
+        description
+          "IGMP join multicast group";
+        key "join-group";
+        leaf join-group {
+          description
+            "IP group address";
+          type inet:ipv4-address;
+        }
+      }
       leaf version {
         description
           "IGMP version";
@@ -791,263 +791,263 @@ module Cisco-IOS-XE-igmp {
           range "1..3";
         }
       }
-    //   leaf access-group {
-    //     description
-    //       "IGMP group access group";
-    //     type ios-types:exp-acl-type;
-    //   }
-    //   leaf explicit-tracking-leaf {
-    //     description
-    //       "IGMP explicit-tracking";
-    //     type empty;
-    //   }
-    //   leaf explicit-tracking {
-    //     status obsolete;
-    //     description
-    //       "IGMP explicit-tracking";
-    //     type boolean;
-    //   }
-    //   container helper-address {
-    //     description
-    //       "IGMP helper address";
-    //     leaf name {
-    //       type inet:ipv4-address;
-    //     }
-    //     container udl {
-    //       description
-    //         "Unidirectional link to forward the report";
-    //       uses ios-ifc:interface-grouping;
-    //     }
-    //   }
-    //   container immediate-leave {
-    //     description
-    //       "Leave groups immediately without sending last member query,
-    //        use for one host network only";
-    //     leaf group-list {
-    //       description
-    //         "IP Access list";
-    //       type union {
-    //         type uint16 {
-    //           range "1..99";
-    //         }
-    //         type uint16 {
-    //           range "1300..1999";
-    //         }
-    //         type string;
-    //       }
-    //     }
-    //   }
-    //   leaf last-member-query-count {
-    //     description
-    //       "IGMP last member query count";
-    //     default "2";
-    //     type uint8 {
-    //       range "1..7";
-    //     }
-    //   }
-    //   leaf last-member-query-interval {
-    //     description
-    //       "IGMP last member query interval";
-    //     default "1000";
-    //     type uint16 {
-    //       range "100..25500";
-    //     }
-    //   }
-    //   container limit-container {
-    //     leaf limit {
-    //       description
-    //         "IGMP Max Allowed State on this interface";
-    //       type uint16 {
-    //         range "1..64000";
-    //       }
-    //     }
-    //     leaf except {
-    //       description
-    //         "Groups not to be counted";
-    //       must '../ios-igmp:limit' {
-    //         error-message "IGMP limit should be specified";
-    //       }
-    //       type union {
-    //         type uint16 {
-    //           range "1..199";
-    //         }
-    //         type string;
-    //       }
-    //     }
-    //   }
-    //   leaf limit {
-    //     description
-    //       "IGMP Max Allowed State on this interface
-    //        (DEPRECATED: Use leaf 'limit' under container 'limit-container')";
-    //     status obsolete;
-    //     type uint16 {
-    //       range "1..64000";
-    //     }
-    //   }
-    //   container mroute-proxy {
-    //     description
-    //       "Mroute to IGMP proxy";
-    //     uses ios-ifc:interface-grouping;
-    //   }
-    //   leaf proxy-service-leaf {
-    //     description
-    //       "Enable IGMP mroute proxy service";
-    //     type empty;
-    //   }
-    //   leaf proxy-service {
-    //     status obsolete;
-    //     description
-    //       "Enable IGMP mroute proxy service";
-    //     type boolean;
-    //   }
-    //   leaf querier-timeout {
-    //     description
-    //       "IGMP previous querier timeout";
-    //     type uint16 {
-    //       range "60..300";
-    //     }
-    //   }
-    //   leaf query-interval {
-    //     description
-    //       "IGMP host query interval";
-    //     default "60";
-    //     type uint16 {
-    //       range "1..18000";
-    //     }
-    //   }
-    //   leaf query-max-response-time {
-    //     description
-    //       "IGMP max query response value";
-    //     default "10";
-    //     type uint16 {
-    //       range "1..25";
-    //     }
-    //   }
-    //   container tcn {
-    //     description
-    //       "IGMP TCN configuration";
-    //     container query {
-    //       description
-    //         "IGMP tcn query configuration";
-    //       leaf count {
-    //         description
-    //           "IGMP general query count";
-    //         default "2";
-    //         type uint16 {
-    //           range "1..10";
-    //         }
-    //       }
-    //       leaf interval {
-    //         description
-    //           "IGMP general query interval";
-    //         default "10";
-    //         type uint16 {
-    //           range "1..255";
-    //         }
-    //       }
-    //     }
-    //   }
-    //   leaf unidirectional-link-leaf {
-    //     description
-    //       "IGMP unidirectional link multicast routing";
-    //     type empty;
-    //   }
-    //   leaf unidirectional-link {
-    //     status obsolete;
-    //     description
-    //       "IGMP unidirectional link multicast routing";
-    //     type boolean;
-    //   }
-    //   leaf v3-query-max-response-time {
-    //     description
-    //       "IGMP v3 max query response value";
-    //     default "10";
-    //     type uint16 {
-    //       range "1..3175";
-    //     }
-    //   }
-    //   leaf v3lite-leaf {
-    //     description
-    //       "IGMPv3 Lite";
-    //     type empty;
-    //   }
-    //   leaf v3lite {
-    //     status obsolete;
-    //     description
-    //       "IGMPv3 Lite";
-    //     type boolean;
-    //   }
-    //   leaf filter {
-    //     description
-    //       "IGMP Filter Enable";
-    //     if-feature "ios-features:switching-guard";
-    //     type uint64 {
-    //       range "1..4294967295";
-    //     }
-    //   }
-    //   container max-groups {
-    //     description
-    //       "Maximum number of IGMP groups that can be joined";
-    //     if-feature "ios-features:switching-guard";
-    //     leaf count {
-    //       type uint64 {
-    //         range "1..4294967295";
-    //       }
-    //     }
-    //     container action {
-    //       description
-    //         "Action taken on exceeding the limit";
-    //       leaf deny {
-    //         description
-    //           "Do not allow any more groups";
-    //         type boolean;
-    //       }
-    //       leaf replace {
-    //         description
-    //           "Replace existing group with new";
-    //         type boolean;
-    //       }
-    //     }
-    //   }
-    //   container snooping {
-    //     description
-    //       "IGMP snooping configuration";
-    //     container tcn {
-    //       description
-    //         "STP Topology Change Notification behavior";
-    //       leaf flood {
-    //         description
-    //           "Flood when a TCN is seen";
-    //         type boolean;
-    //       }
-    //     }
-    //   }
-    //   leaf upstream-proxy {
-    //     description
-    //       "IGMP proxy upstream interface config";
-    //     type string;
-    //   }
-    //   leaf iif-starg {
-    //     description
-    //       "IGMP proxy IIF update";
-    //     type empty;
-    //   }
-    //   leaf proxy-report-interval {
-    //     description
-    //       "IGMP proxy report interval";
-    //     type uint16 {
-    //       range "1..18000";
-    //     }
-    //     default "60";
-    //   }
-    //   leaf robustness-variable {
-    //     description
-    //       "IGMP Robustness Variable";
-    //     type uint8 {
-    //       range "1..7";
-    //     }
-    //     default "2";
-    //   }
+      leaf access-group {
+        description
+          "IGMP group access group";
+        type ios-types:exp-acl-type;
+      }
+      leaf explicit-tracking-leaf {
+        description
+          "IGMP explicit-tracking";
+        type empty;
+      }
+      leaf explicit-tracking {
+        status obsolete;
+        description
+          "IGMP explicit-tracking";
+        type boolean;
+      }
+      container helper-address {
+        description
+          "IGMP helper address";
+        leaf name {
+          type inet:ipv4-address;
+        }
+        container udl {
+          description
+            "Unidirectional link to forward the report";
+          uses ios-ifc:interface-grouping;
+        }
+      }
+      container immediate-leave {
+        description
+          "Leave groups immediately without sending last member query,
+           use for one host network only";
+        leaf group-list {
+          description
+            "IP Access list";
+          type union {
+            type uint16 {
+              range "1..99";
+            }
+            type uint16 {
+              range "1300..1999";
+            }
+            type string;
+          }
+        }
+      }
+      leaf last-member-query-count {
+        description
+          "IGMP last member query count";
+        default "2";
+        type uint8 {
+          range "1..7";
+        }
+      }
+      leaf last-member-query-interval {
+        description
+          "IGMP last member query interval";
+        default "1000";
+        type uint16 {
+          range "100..25500";
+        }
+      }
+      container limit-container {
+        leaf limit {
+          description
+            "IGMP Max Allowed State on this interface";
+          type uint16 {
+            range "1..64000";
+          }
+        }
+        leaf except {
+          description
+            "Groups not to be counted";
+          must '../ios-igmp:limit' {
+            error-message "IGMP limit should be specified";
+          }
+          type union {
+            type uint16 {
+              range "1..199";
+            }
+            type string;
+          }
+        }
+      }
+      leaf limit {
+        description
+          "IGMP Max Allowed State on this interface
+           (DEPRECATED: Use leaf 'limit' under container 'limit-container')";
+        status obsolete;
+        type uint16 {
+          range "1..64000";
+        }
+      }
+      container mroute-proxy {
+        description
+          "Mroute to IGMP proxy";
+        uses ios-ifc:interface-grouping;
+      }
+      leaf proxy-service-leaf {
+        description
+          "Enable IGMP mroute proxy service";
+        type empty;
+      }
+      leaf proxy-service {
+        status obsolete;
+        description
+          "Enable IGMP mroute proxy service";
+        type boolean;
+      }
+      leaf querier-timeout {
+        description
+          "IGMP previous querier timeout";
+        type uint16 {
+          range "60..300";
+        }
+      }
+      leaf query-interval {
+        description
+          "IGMP host query interval";
+        default "60";
+        type uint16 {
+          range "1..18000";
+        }
+      }
+      leaf query-max-response-time {
+        description
+          "IGMP max query response value";
+        default "10";
+        type uint16 {
+          range "1..25";
+        }
+      }
+      container tcn {
+        description
+          "IGMP TCN configuration";
+        container query {
+          description
+            "IGMP tcn query configuration";
+          leaf count {
+            description
+              "IGMP general query count";
+            default "2";
+            type uint16 {
+              range "1..10";
+            }
+          }
+          leaf interval {
+            description
+              "IGMP general query interval";
+            default "10";
+            type uint16 {
+              range "1..255";
+            }
+          }
+        }
+      }
+      leaf unidirectional-link-leaf {
+        description
+          "IGMP unidirectional link multicast routing";
+        type empty;
+      }
+      leaf unidirectional-link {
+        status obsolete;
+        description
+          "IGMP unidirectional link multicast routing";
+        type boolean;
+      }
+      leaf v3-query-max-response-time {
+        description
+          "IGMP v3 max query response value";
+        default "10";
+        type uint16 {
+          range "1..3175";
+        }
+      }
+      leaf v3lite-leaf {
+        description
+          "IGMPv3 Lite";
+        type empty;
+      }
+      leaf v3lite {
+        status obsolete;
+        description
+          "IGMPv3 Lite";
+        type boolean;
+      }
+      leaf filter {
+        description
+          "IGMP Filter Enable";
+        if-feature "ios-features:switching-guard";
+        type uint64 {
+          range "1..4294967295";
+        }
+      }
+      container max-groups {
+        description
+          "Maximum number of IGMP groups that can be joined";
+        if-feature "ios-features:switching-guard";
+        leaf count {
+          type uint64 {
+            range "1..4294967295";
+          }
+        }
+        container action {
+          description
+            "Action taken on exceeding the limit";
+          leaf deny {
+            description
+              "Do not allow any more groups";
+            type boolean;
+          }
+          leaf replace {
+            description
+              "Replace existing group with new";
+            type boolean;
+          }
+        }
+      }
+      container snooping {
+        description
+          "IGMP snooping configuration";
+        container tcn {
+          description
+            "STP Topology Change Notification behavior";
+          leaf flood {
+            description
+              "Flood when a TCN is seen";
+            type boolean;
+          }
+        }
+      }
+      leaf upstream-proxy {
+        description
+          "IGMP proxy upstream interface config";
+        type string;
+      }
+      leaf iif-starg {
+        description
+          "IGMP proxy IIF update";
+        type empty;
+      }
+      leaf proxy-report-interval {
+        description
+          "IGMP proxy report interval";
+        type uint16 {
+          range "1..18000";
+        }
+        default "60";
+      }
+      leaf robustness-variable {
+        description
+          "IGMP Robustness Variable";
+        type uint8 {
+          range "1..7";
+        }
+        default "2";
+      }
     }
   }
 

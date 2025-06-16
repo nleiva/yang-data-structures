@@ -283,26 +283,26 @@ submodule Cisco-IOS-XE-hsrp {
             }
           }
         }
-        // container ipv6-config {
-        //   description
-        //     "Enable HSRP IPv6 and set the virtual IP address";
-        //   leaf ipv6-link-local {
-        //     description
-        //       "IPv6 link-local address";
-        //     type union {
-        //       type inet:ipv6-address;
-        //       type enumeration {
-        //         enum autoconfig;
-        //       }
-        //     }
-        //   }
-        //   list ipv6_prefix {
-        //     key "prefix";
-        //     leaf prefix {
-        //       type ios-types:ipv6-prefix;
-        //     }
-        //   }
-        // }
+        container ipv6-config {
+          description
+            "Enable HSRP IPv6 and set the virtual IP address";
+          leaf ipv6-link-local {
+            description
+              "IPv6 link-local address";
+            type union {
+              type inet:ipv6-address;
+              type enumeration {
+                enum autoconfig;
+              }
+            }
+          }
+          list ipv6_prefix {
+            key "prefix";
+            leaf prefix {
+              type ios-types:ipv6-prefix;
+            }
+          }
+        }
         container ip {
           description
             "Enable HSRP and set the virtual IP address";
@@ -319,18 +319,18 @@ submodule Cisco-IOS-XE-hsrp {
             type empty;
           }
         }
-        // leaf ipv6 {
-        //   status deprecated;
-        //   description
-        //     "Enable HSRP IPv6";
-        //   type union {
-        //     type inet:ipv6-address;
-        //     type ios-types:ipv6-prefix;
-        //     type enumeration {
-        //       enum autoconfig;
-        //     }
-        //   }
-        // }
+        leaf ipv6 {
+          status deprecated;
+          description
+            "Enable HSRP IPv6";
+          type union {
+            type inet:ipv6-address;
+            type ios-types:ipv6-prefix;
+            type enumeration {
+              enum autoconfig;
+            }
+          }
+        }
         leaf mac-address {
           description
             "Virtual MAC address";
@@ -377,79 +377,79 @@ submodule Cisco-IOS-XE-hsrp {
           type uint8;
           default "100";
         }
-        // container redirect {
-        //   status obsolete;
-        //   description
-        //     "Configure sending of ICMP Redirect messages with an HSRP virtual IP address as the gateway IP address";
-        //   container advertisement {
-        //     status obsolete;
-        //     description
-        //       "Redirect advertisement messages";
-        //     container authentication {
-        //       status obsolete;
-        //       description
-        //         "Authentication";
-        //       container md5 {
-        //         status obsolete;
-        //         description
-        //           "Use MD5 authentication";
-        //         leaf key-chain {
-        //           status obsolete;
-        //           description
-        //             "Set key chain";
-        //           type string;
-        //         }
-        //         container key-string {
-        //           status obsolete;
-        //           description
-        //             "Set key string";
-        //           leaf encrypt {
-        //             status obsolete;
-        //             type enumeration {
-        //               enum 0;
-        //               enum 7;
-        //             }
-        //           }
-        //           leaf string {
-        //             status obsolete;
-        //             type string;
-        //           }
-        //           leaf timeout {
-        //             status obsolete;
-        //             description
-        //               "Set timeout";
-        //             type uint16 {
-        //               range "0..32767";
-        //             }
-        //           }
-        //         }
-        //       }
-        //     }
-        //   }
-        //   container timers {
-        //     status obsolete;
-        //     description
-        //       "Adjust redirect timers";
-        //     leaf advertisement {
-        //       status obsolete;
-        //       type uint16 {
-        //         range "10..180";
-        //       }
-        //     }
-        //     leaf holddown {
-        //       status obsolete;
-        //       type uint16 {
-        //         range "30..3600";
-        //       }
-        //     }
-        //   }
-        //   leaf unknown {
-        //     status obsolete;
-        //     description
-        //       "Redirect to non-HSRP routers";
-        //     type empty;
-        //   }
-        // }
+        container redirect {
+          status obsolete;
+          description
+            "Configure sending of ICMP Redirect messages with an HSRP virtual IP address as the gateway IP address";
+          container advertisement {
+            status obsolete;
+            description
+              "Redirect advertisement messages";
+            container authentication {
+              status obsolete;
+              description
+                "Authentication";
+              container md5 {
+                status obsolete;
+                description
+                  "Use MD5 authentication";
+                leaf key-chain {
+                  status obsolete;
+                  description
+                    "Set key chain";
+                  type string;
+                }
+                container key-string {
+                  status obsolete;
+                  description
+                    "Set key string";
+                  leaf encrypt {
+                    status obsolete;
+                    type enumeration {
+                      enum 0;
+                      enum 7;
+                    }
+                  }
+                  leaf string {
+                    status obsolete;
+                    type string;
+                  }
+                  leaf timeout {
+                    status obsolete;
+                    description
+                      "Set timeout";
+                    type uint16 {
+                      range "0..32767";
+                    }
+                  }
+                }
+              }
+            }
+          }
+          container timers {
+            status obsolete;
+            description
+              "Adjust redirect timers";
+            leaf advertisement {
+              status obsolete;
+              type uint16 {
+                range "10..180";
+              }
+            }
+            leaf holddown {
+              status obsolete;
+              type uint16 {
+                range "30..3600";
+              }
+            }
+          }
+          leaf unknown {
+            status obsolete;
+            description
+              "Redirect to non-HSRP routers";
+            type empty;
+          }
+        }
         container timers {
           description
             "Hello and hold timers";

@@ -26,9 +26,11 @@ module Cisco-IOS-XE-skip {
   import Cisco-IOS-XE-multicast {
     prefix ios-mc;
   }
-
   import Cisco-IOS-XE-nat {
     prefix ios-nat;
+  }
+  import Cisco-IOS-XE-igmp {
+    prefix ios-igmp;
   }  
 
   organization
@@ -123,6 +125,14 @@ module Cisco-IOS-XE-skip {
     deviate not-supported;
   }
 
+  deviation "/ios:native/ios:interface/ios:FourHundredGigE" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:FortyGigabitEthernet" {
+    deviate not-supported;
+  }
+
   deviation "/ios:native/ios:interface/ios:GMPLS" {
     deviate not-supported;
   }
@@ -211,6 +221,10 @@ module Cisco-IOS-XE-skip {
     deviate not-supported;
   }
 
+  deviation "/ios:native/ios:interface/ios:TwoHundredGigE" {
+    deviate not-supported;
+  }
+  
   deviation "/ios:native/ios:interface/ios:ucse" {
     deviate not-supported;
   }
@@ -244,6 +258,306 @@ module Cisco-IOS-XE-skip {
   }
 
   deviation "/ios:native/ios:interface/ios:Wlan-GigabitEthernet" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:arp" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:GigabitEthernet/ios:arp" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:HundredGigE/ios:arp" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:arp" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Vlan/ios:arp" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:backup" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:GigabitEthernet/ios:backup" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:HundredGigE/ios:backup" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:backup" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Vlan/ios:backup" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:bandwidth" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:GigabitEthernet/ios:bandwidth" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:HundredGigE/ios:bandwidth" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:bandwidth" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Vlan/ios:bandwidth" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:l2protocol" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:GigabitEthernet/ios:l2protocol" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:HundredGigE/ios:l2protocol" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:l2protocol" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Vlan/ios:l2protocol" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:l2protocol-tunnel" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:GigabitEthernet/ios:l2protocol-tunnel" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:HundredGigE/ios:l2protocol-tunnel" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:l2protocol-tunnel" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Vlan/ios:l2protocol-tunnel" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:logging" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:GigabitEthernet/ios:logging" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:HundredGigE/ios:logging" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:logging" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Vlan/ios:logging" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:peer" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:GigabitEthernet/ios:peer" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:HundredGigE/ios:peer" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:peer" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Vlan/ios:peer" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:redundancy" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:GigabitEthernet/ios:redundancy" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:HundredGigE/ios:redundancy" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:redundancy" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Vlan/ios:redundancy" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:standby" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:GigabitEthernet/ios:standby" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:HundredGigE/ios:standby" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:standby" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Vlan/ios:standby" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:storm-control" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:GigabitEthernet/ios:storm-control" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:HundredGigE/ios:storm-control" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:storm-control" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Vlan/ios:storm-control" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:subscriber" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:GigabitEthernet/ios:subscriber" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:HundredGigE/ios:subscriber" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:subscriber" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Vlan/ios:subscriber" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:ip/ios:arp" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:GigabitEthernet/ios:ip/ios:arp" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:HundredGigE/ios:ip/ios:arp" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:ip/ios:arp" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Vlan/ios:ip/ios:arp" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:ip/ios:authentication" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:GigabitEthernet/ios:ip/ios:authentication" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:HundredGigE/ios:ip/ios:authentication" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:ip/ios:authentication" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Vlan/ios:ip/ios:authentication" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:ip/ios:rip" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:GigabitEthernet/ios:ip/ios:rip" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:HundredGigE/ios:ip/ios:rip" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:ip/ios:rip" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Vlan/ios:ip/ios:rip" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:ip/ios:verify" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:GigabitEthernet/ios:ip/ios:verify" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:HundredGigE/ios:ip/ios:verify" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:ip/ios:verify" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Vlan/ios:ip/ios:verify" {
     deviate not-supported;
   }
 
@@ -351,11 +665,55 @@ module Cisco-IOS-XE-skip {
   }  
 
   //============================= Object Group ==================================
-  deviation "/ios:native/ios:object-group/ios-og:fqdn/ios-og:name" {
+  deviation "/ios:native/ios:object-group/ios-og:fqdn/ios-og:group-object" {
     deviate not-supported;
   }
 
-  deviation "/ios:native/ios:object-group" {
+  deviation "/ios:native/ios:object-group/ios-og:fqdn/ios-og:pattern" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:object-group/ios-og:security" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:object-group/ios-og:service/ios-og:group-objects" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:object-group/ios-og:service/ios-og:icmp-conf" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:object-group/ios-og:service/ios-og:tcp-conf" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:object-group/ios-og:service/ios-og:udp-conf" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:object-group/ios-og:service/ios-og:tcp-udp" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:object-group/ios-og:geo/ios-og:continents" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:object-group/ios-og:geo/ios-og:countries" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:object-group/ios-og:geo/ios-og:group-object" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:object-group/ios-og:network/ios-og:obj-Mode-config-network-group" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:object-group/ios-og:v6-network" {
     deviate not-supported;
   }
 
@@ -383,7 +741,27 @@ module Cisco-IOS-XE-skip {
   //============================= IPv6 ==================================
   deviation "/ios:native/ios:ipv6" {
     deviate not-supported;
-  } 
+  }
+
+  deviation "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:ipv6" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:GigabitEthernet/ios:ipv6" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:HundredGigE/ios:ipv6" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:ipv6" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Vlan/ios:ipv6" {
+    deviate not-supported;
+  }
 
   //============================= MAC ==================================
   deviation "/ios:native/ios:mac" {
@@ -922,7 +1300,71 @@ module Cisco-IOS-XE-skip {
   
   deviation "/ios:native/ios:ip/ios-mc:pim/ios-mc:vrf" {
     deviate not-supported;
-  } 
+  }
+
+  deviation "/ios:native/ios:ip/ios-igmp:igmp" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:ip/ios-igmp:igmp/ios-igmp:mroute-proxy" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:GigabitEthernet/ios:ip/ios-igmp:igmp/ios-igmp:mroute-proxy" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:HundredGigE/ios:ip/ios-igmp:igmp/ios-igmp:mroute-proxy" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:ip/ios-igmp:igmp/ios-igmp:mroute-proxy" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Vlan/ios:ip/ios-igmp:igmp/ios-igmp:mroute-proxy" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:ip/ios-igmp:igmp/ios-igmp:helper-address" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:GigabitEthernet/ios:ip/ios-igmp:igmp/ios-igmp:helper-address" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:HundredGigE/ios:ip/ios-igmp:igmp/ios-igmp:helper-address" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:ip/ios-igmp:igmp/ios-igmp:helper-address" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Vlan/ios:ip/ios-igmp:igmp/ios-igmp:helper-address" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:ip/ios-igmp:igmp/ios-igmp:static-group" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:GigabitEthernet/ios:ip/ios-igmp:igmp/ios-igmp:static-group" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:HundredGigE/ios:ip/ios-igmp:igmp/ios-igmp:static-group" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:ip/ios-igmp:igmp/ios-igmp:static-group" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Vlan/ios:ip/ios-igmp:igmp/ios-igmp:static-group" {
+    deviate not-supported;
+  }
 
   //============================= IP ==================================
   deviation "/ios:native/ios:ip/ios:domain/ios:lookup-settings" {

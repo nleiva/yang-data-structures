@@ -1048,33 +1048,33 @@ module Cisco-IOS-XE-acl {
           type ios-types:ipv4-host;
         }
       }
-      // case fqdn-group-case {
-      //   leaf src-fqdn-group {
-      //     description
-      //       "Source FQDN group";
-      //     type leafref {
-      //       path "/ios:native/ios:object-group/ios-og:fqdn/ios-og:name";
-      //     }
-      //   }
-      // }
-      // case geo-group-case {
-      //   leaf src-geo-group {
-      //     description
-      //       "Source geolocation group name";
-      //     type leafref {
-      //       path "/ios:native/ios:object-group/ios-og:geo/ios-og:name";
-      //     }
-      //   }
-      // }
-      // case object-group-case {
-      //   leaf object-group {
-      //     description
-      //       "Source network object group";
-      //     type leafref {
-      //       path "/ios:native/ios:object-group/ios-og:network/ios-og:name";
-      //     }
-      //   }
-      // }
+      case fqdn-group-case {
+        leaf src-fqdn-group {
+          description
+            "Source FQDN group";
+          type leafref {
+            path "/ios:native/ios:object-group/ios-og:fqdn/ios-og:name";
+          }
+        }
+      }
+      case geo-group-case {
+        leaf src-geo-group {
+          description
+            "Source geolocation group name";
+          type leafref {
+            path "/ios:native/ios:object-group/ios-og:geo/ios-og:name";
+          }
+        }
+      }
+      case object-group-case {
+        leaf object-group {
+          description
+            "Source network object group";
+          type leafref {
+            path "/ios:native/ios:object-group/ios-og:network/ios-og:name";
+          }
+        }
+      }
     }
     choice src-port-choice {
       case src-eq-case {
@@ -1203,33 +1203,33 @@ module Cisco-IOS-XE-acl {
           type ios-types:ipv4-host;
         }
       }
-      // case fqdn-group-case {
-      //   leaf dst-fqdn-group {
-      //     description
-      //       "Destination FQDN group";
-      //     type leafref {
-      //       path "/ios:native/ios:object-group/ios-og:fqdn/ios-og:name";
-      //     }
-      //   }
-      // }
-      // case geo-group-case {
-      //   leaf dst-geo-group {
-      //     description
-      //       "Destination geolocation group name";
-      //     type leafref {
-      //       path "/ios:native/ios:object-group/ios-og:geo/ios-og:name";
-      //     }
-      //   }
-      // }
-      // case object-group-case {
-      //   leaf dst-object-group {
-      //     description
-      //       "Destination network object group";
-      //     type leafref {
-      //       path "/ios:native/ios:object-group/ios-og:network/ios-og:name";
-      //     }
-      //   }
-      // }
+      case fqdn-group-case {
+        leaf dst-fqdn-group {
+          description
+            "Destination FQDN group";
+          type leafref {
+            path "/ios:native/ios:object-group/ios-og:fqdn/ios-og:name";
+          }
+        }
+      }
+      case geo-group-case {
+        leaf dst-geo-group {
+          description
+            "Destination geolocation group name";
+          type leafref {
+            path "/ios:native/ios:object-group/ios-og:geo/ios-og:name";
+          }
+        }
+      }
+      case object-group-case {
+        leaf dst-object-group {
+          description
+            "Destination network object group";
+          type leafref {
+            path "/ios:native/ios:object-group/ios-og:network/ios-og:name";
+          }
+        }
+      }
     }
     choice dst-port-choice {
       case dst-eq-case {
@@ -1336,24 +1336,24 @@ module Cisco-IOS-XE-acl {
           type ios-types:ip-host;
         }
       }
-      // case fqdn-group-case {
-      //   leaf source-fqdn-group {
-      //     description
-      //       "Source FQDN group";
-      //     type leafref {
-      //       path "/ios:native/ios:object-group/ios-og:fqdn/ios-og:name";
-      //     }
-      //   }
-      // }
-      // case geo-group-case {
-      //   leaf source-geo-group {
-      //     description
-      //       "Source geolocation group name";
-      //     type leafref {
-      //       path "/ios:native/ios:object-group/ios-og:geo/ios-og:name";
-      //     }
-      //   }
-      // }
+      case fqdn-group-case {
+        leaf source-fqdn-group {
+          description
+            "Source FQDN group";
+          type leafref {
+            path "/ios:native/ios:object-group/ios-og:fqdn/ios-og:name";
+          }
+        }
+      }
+      case geo-group-case {
+        leaf source-geo-group {
+          description
+            "Source geolocation group name";
+          type leafref {
+            path "/ios:native/ios:object-group/ios-og:geo/ios-og:name";
+          }
+        }
+      }
       case address-case {
         leaf source-address {
           type inet:ipv6-address;
@@ -1367,15 +1367,15 @@ module Cisco-IOS-XE-acl {
           type ios-types:ipv6-prefix;
         }
       }
-      // case object-group-case {
-      //   leaf source-object-group {
-      //     description
-      //       "Source IPv6 network object group";
-      //     type leafref {
-      //       path "/ios:native/ios:object-group/ios-og:v6-network/ios-og:name";
-      //     }
-      //   }
-      // }
+      case object-group-case {
+        leaf source-object-group {
+          description
+            "Source IPv6 network object group";
+          type leafref {
+            path "/ios:native/ios:object-group/ios-og:v6-network/ios-og:name";
+          }
+        }
+      }
       case any-case {
         leaf any {
           type empty;
@@ -1484,24 +1484,24 @@ module Cisco-IOS-XE-acl {
           type ios-types:ip-host;
         }
       }
-      // case fqdn-group-case {
-      //   leaf destination-fqdn-group {
-      //     description
-      //       "Destination FQDN group";
-      //     type leafref {
-      //       path "/ios:native/ios:object-group/ios-og:fqdn/ios-og:name";
-      //     }
-      //   }
-      // }
-      // case geo-group-case {
-      //   leaf destination-geo-group {
-      //     description
-      //       "Destination geolocation group name";
-      //     type leafref {
-      //       path "/ios:native/ios:object-group/ios-og:geo/ios-og:name";
-      //     }
-      //   }
-      // }
+      case fqdn-group-case {
+        leaf destination-fqdn-group {
+          description
+            "Destination FQDN group";
+          type leafref {
+            path "/ios:native/ios:object-group/ios-og:fqdn/ios-og:name";
+          }
+        }
+      }
+      case geo-group-case {
+        leaf destination-geo-group {
+          description
+            "Destination geolocation group name";
+          type leafref {
+            path "/ios:native/ios:object-group/ios-og:geo/ios-og:name";
+          }
+        }
+      }
       case address-case {
         leaf destination-address {
           type inet:ipv6-address;
@@ -1515,15 +1515,15 @@ module Cisco-IOS-XE-acl {
           type ios-types:ipv6-prefix;
         }
       }
-      // case object-group-case {
-      //   leaf destination-object-group {
-      //     description
-      //       "Destination IPv6 network object group";
-      //     type leafref {
-      //       path "/ios:native/ios:object-group/ios-og:v6-network/ios-og:name";
-      //     }
-      //   }
-      // }
+      case object-group-case {
+        leaf destination-object-group {
+          description
+            "Destination IPv6 network object group";
+          type leafref {
+            path "/ios:native/ios:object-group/ios-og:v6-network/ios-og:name";
+          }
+        }
+      }
       case any-case {
         leaf destination-any {
           type empty;
@@ -2423,13 +2423,13 @@ module Cisco-IOS-XE-acl {
             }
           }
         }
-        // leaf object-group-str {
-        //   description
-        //     "Service object group name";
-        //   type leafref {
-        //     path "/ios:native/ios:object-group/ios-og:service/ios-og:name";
-        //   }
-        // }
+        leaf object-group-str {
+          description
+            "Service object group name";
+          type leafref {
+            path "/ios:native/ios:object-group/ios-og:service/ios-og:name";
+          }
+        }
         uses ipv4-acl-src-dst-addr-port-grouping;
         uses acl-tcp-common-match;
         uses ipv4-acl-match-common-attribute;
@@ -2613,14 +2613,14 @@ module Cisco-IOS-XE-acl {
             }
           }
         }
-        // leaf object-group-str {
-        //   status obsolete;
-        //   description
-        //     "Service object group name";
-        //   type leafref {
-        //     path "/ios:native/ios:object-group/ios-og:service/ios-og:name";
-        //   }
-        // }
+        leaf object-group-str {
+          status obsolete;
+          description
+            "Service object group name";
+          type leafref {
+            path "/ios:native/ios:object-group/ios-og:service/ios-og:name";
+          }
+        }
         uses ipv4-acl-icmp-match;
         uses acl-role-src-dst-grouping;
         uses acl-tcp-common-match;
@@ -3320,26 +3320,26 @@ module Cisco-IOS-XE-acl {
           type ios-types:ip-host;
         }
       }
-      // case fqdn-group-case {
-      //   leaf source-fqdn-group {
-      //     status deprecated;
-      //     description
-      //       "Source FQDN group";
-      //     type leafref {
-      //       path "/ios:native/ios:object-group/ios-og:fqdn/ios-og:name";
-      //     }
-      //   }
-      // }
-      // case geo-group-case {
-      //   leaf source-geo-group {
-      //     status deprecated;
-      //     description
-      //       "Source geolocation group name";
-      //     type leafref {
-      //       path "/ios:native/ios:object-group/ios-og:geo/ios-og:name";
-      //     }
-      //   }
-      // }
+      case fqdn-group-case {
+        leaf source-fqdn-group {
+          status deprecated;
+          description
+            "Source FQDN group";
+          type leafref {
+            path "/ios:native/ios:object-group/ios-og:fqdn/ios-og:name";
+          }
+        }
+      }
+      case geo-group-case {
+        leaf source-geo-group {
+          status deprecated;
+          description
+            "Source geolocation group name";
+          type leafref {
+            path "/ios:native/ios:object-group/ios-og:geo/ios-og:name";
+          }
+        }
+      }
       case address-case {
         leaf source-address {
           status deprecated;
@@ -3356,16 +3356,16 @@ module Cisco-IOS-XE-acl {
           type ios-types:ipv6-prefix;
         }
       }
-      // case object-group-case {
-      //   leaf source-object-group {
-      //     status deprecated;
-      //     description
-      //       "Source IPv6 network object group";
-      //     type leafref {
-      //       path "/ios:native/ios:object-group/ios-og:v6-network/ios-og:name";
-      //     }
-      //   }
-      // }
+      case object-group-case {
+        leaf source-object-group {
+          status deprecated;
+          description
+            "Source IPv6 network object group";
+          type leafref {
+            path "/ios:native/ios:object-group/ios-og:v6-network/ios-og:name";
+          }
+        }
+      }
       case any-case {
         leaf any {
           status deprecated;
@@ -3500,26 +3500,26 @@ module Cisco-IOS-XE-acl {
           type ios-types:ip-host;
         }
       }
-      // case fqdn-group-case {
-      //   leaf destination-fqdn-group {
-      //     status deprecated;
-      //     description
-      //       "Destination FQDN group";
-      //     type leafref {
-      //       path "/ios:native/ios:object-group/ios-og:fqdn/ios-og:name";
-      //     }
-      //   }
-      // }
-      // case geo-group-case {
-      //   leaf destination-geo-group {
-      //     status deprecated;
-      //     description
-      //       "Destination geolocation group name";
-      //     type leafref {
-      //       path "/ios:native/ios:object-group/ios-og:geo/ios-og:name";
-      //     }
-      //   }
-      // }
+      case fqdn-group-case {
+        leaf destination-fqdn-group {
+          status deprecated;
+          description
+            "Destination FQDN group";
+          type leafref {
+            path "/ios:native/ios:object-group/ios-og:fqdn/ios-og:name";
+          }
+        }
+      }
+      case geo-group-case {
+        leaf destination-geo-group {
+          status deprecated;
+          description
+            "Destination geolocation group name";
+          type leafref {
+            path "/ios:native/ios:object-group/ios-og:geo/ios-og:name";
+          }
+        }
+      }
       case address-case {
         leaf destination-address {
           status deprecated;
@@ -3536,16 +3536,16 @@ module Cisco-IOS-XE-acl {
           type ios-types:ipv6-prefix;
         }
       }
-      // case object-group-case {
-      //   leaf destination-object-group {
-      //     status deprecated;
-      //     description
-      //       "Destination IPv6 network object group";
-      //     type leafref {
-      //       path "/ios:native/ios:object-group/ios-og:v6-network/ios-og:name";
-      //     }
-      //   }
-      // }
+      case object-group-case {
+        leaf destination-object-group {
+          status deprecated;
+          description
+            "Destination IPv6 network object group";
+          type leafref {
+            path "/ios:native/ios:object-group/ios-og:v6-network/ios-og:name";
+          }
+        }
+      }
       case any-case {
         leaf destination-any {
           status deprecated;
