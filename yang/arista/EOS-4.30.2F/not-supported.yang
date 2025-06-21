@@ -1,0 +1,71 @@
+module EOS-skip {
+  namespace "http://arista.com/yang/EOS-skip";
+  prefix eos-skip;
+
+  import openconfig-system {
+    prefix oc-sys;
+  }
+
+  import openconfig-extensions {
+    prefix oc-ext;
+  }
+
+  import openconfig-interfaces {
+    prefix oc-if;
+  }
+
+  import openconfig-if-ip {
+    prefix oc-ip;
+  }
+
+  import openconfig-acl {
+    prefix oc-acl;
+  }
+
+  import openconfig-routing-policy {
+    prefix oc-rpol;
+  }
+
+  organization
+    "Bloomberg LP";
+
+  revision 2025-06-17 {
+    description
+      "First not-supported list";
+    oc-ext:openconfig-version "0.1.0";
+  }
+
+  //============================= System ==================================
+  deviation "/oc-sys:system/oc-sys:clock" {
+    deviate not-supported;
+  }
+
+  deviation "/oc-sys:system/oc-sys:cpus" {
+    deviate not-supported;
+  }
+
+  deviation "/oc-sys:system/oc-sys:mac-address" {
+    deviate not-supported;
+  }
+
+  //============================= Interfaces ==================================
+  deviation "/oc-if:interfaces/oc-if:interface/oc-if:aggregation" {
+    deviate not-supported;
+  }
+
+  deviation "/oc-if:interfaces/oc-if:interface/oc-if:state" {
+    deviate not-supported;
+  }
+
+  deviation "/oc-if:interfaces/oc-if:interface/oc-if:subinterfaces/oc-if:subinterface/oc-ip:ipv6" {
+    deviate not-supported;
+  }
+
+  //============================= ACL ==================================
+  deviation "/oc-acl:acl/oc-acl:acl-sets/oc-acl:acl-set/oc-acl:acl-entries/oc-acl:acl-entry/oc-acl:ipv6" {
+    deviate not-supported;
+  }
+
+
+
+}

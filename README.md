@@ -50,26 +50,25 @@ generator -path=yang \
 2. Run the generator for a handful of YANG models.
 
 ```bash
-cd yang
-go install github.com/openconfig/ygot/generator@latest
 generator -path=. \
-  -output_file=../junos/junos.go \
+  -output_file=../juniper/junos.go \
   -shorten_enum_leaf_names \
   -typedef_enum_with_defmod \
   -enum_suffix_for_simple_union_enums \
-  -package_name=junos -generate_fakeroot -fakeroot_name=junos \
+  -package_name=juniper -generate_fakeroot -fakeroot_name=junos \
   -generate_getters \
   -generate_ordered_maps=false \
   -generate_simple_unions \
   -yangpresence \
   -annotations \
-  junos/23.4R2/junos-conf-policy-options@2023-01-01.yang \
-  junos/23.4R2/junos-common-types@2023-01-01.yang \
-  junos/23.4R2/junos-conf-interfaces@2023-01-01.yang \
-  junos/23.4R2/junos-conf-root@2023-01-01.yang \
-  junos/23.4R2/junos-conf-routing-instances@2023-01-01.yang \
-  junos/23.4R2/junos-conf-routing-options@2023-01-01.yang \
-  junos/23.4R2/junos-configuration-metadata.yang
+  juniper/23.4R2/junos-conf-policy-options@2023-01-01.yang \
+  juniper/23.4R2/junos-common-types@2023-01-01.yang \
+  juniper/23.4R2/junos-conf-interfaces@2023-01-01.yang \
+  juniper/23.4R2/junos-conf-root@2023-01-01.yang \
+  juniper/23.4R2/junos-conf-routing-instances@2023-01-01.yang \
+  juniper/23.4R2/junos-conf-routing-options@2023-01-01.yang \
+  juniper/23.4R2/junos-configuration-metadata.yang \
+  juniper/23.4R2/junos-conf-firewall@2023-01-01.yang
 ```
 
 ### IOS XE
@@ -81,13 +80,62 @@ generator -path=. \
 ```bash
 go install github.com/openconfig/ygot/generator@latest
 generator -path=. \
-  -output_file=../iosxe/iosxe.go \
-  -shorten_enum_leaf_names \
+  -output_file=../cisco/iosxe.go \
   -typedef_enum_with_defmod \
   -enum_suffix_for_simple_union_enums \
-  -package_name=iosxe -generate_fakeroot -fakeroot_name=iosxe \
-  -generate_getters \
+  -package_name=cisco -generate_fakeroot -fakeroot_name=iosxe \
   -generate_ordered_maps=false \
   -generate_simple_unions \
-  iosxe/1791/Cisco-IOS-XE-nat.yang
+  -generate_getters \
+  -structs_split_files_count=4 \
+  -compress_paths=false \
+  -yangpresence \
+  -shorten_enum_leaf_names=true \
+  -trim_enum_openconfig_prefix=false \
+  cisco/1791/Cisco-IOS-XE-native.yang \
+  cisco/1791/Cisco-IOS-XE-nat.yang \
+  cisco/1791/Cisco-IOS-XE-acl.yang \
+  cisco/1791/Cisco-IOS-XE-route-map.yang \
+  cisco/1791/Cisco-IOS-XE-bgp.yang \
+  cisco/1791/Cisco-IOS-XE-snmp.yang \
+  cisco/1791/Cisco-IOS-XE-interfaces.yang \
+  cisco/1791/Cisco-IOS-XE-ntp.yang \
+  cisco/1791/Cisco-IOS-XE-multicast.yang \
+  cisco/1791/Cisco-IOS-XE-igmp.yang \
+  cisco/1791/not-supported.yang  
 ```
+
+### Arista
+
+1. Get the models you need from https://github.com/aristanetworks/yang
+
+2. Run the generator for a handful of YANG models.
+
+```bash
+go install github.com/openconfig/ygot/generator@latest
+find arista/EOS-4.30.2F/release/ -name *.yang | generator -path=. \
+  -output_file=../arista/eos.go \
+  -typedef_enum_with_defmod \
+  -enum_suffix_for_simple_union_enums \
+  -package_name=arista -generate_fakeroot -fakeroot_name=eos \
+  -generate_ordered_maps=false \
+  -generate_simple_unions \
+  -generate_getters \
+  -structs_split_files_count=4 \
+  -compress_paths=true \
+  -yangpresence \
+  -exclude_modules=ietf-interfaces \
+  -shorten_enum_leaf_names=true \
+  -trim_enum_openconfig_prefix=false \
+  arista/EOS-4.30.2F/not-supported.yang \
+```
+
+## Resources
+
+- [YANG Explorer (Nokia)](https://yang.srlinux.dev)
+- [YANG Data Model Explorer (Juniper)](https://apps.juniper.net/ydm-explorer/)
+- [YANG Catalog (IETF/Cisco)](https://www.yangcatalog.org/yang-search)
+- [OpenConfig paths](https://openconfig.net/projects/models/paths/)
+- [OpenConfig tree view](https://openconfig.net/projects/models/schemadocs/)
+- [ygot](https://github.com/openconfig/ygot): ygot (YANG Go Tools) is a collection of Go utilities that can be used to generate a set of Go structures and enumerated values for a set of YANG modules, with associated helper methods. Validate the contents of the Go structures against the YANG schema (e.g., validating range and regular expression constraints). Render the Go structures to an output format - such as JSON, or a set of gNMI Notifications for use in a deployment of streaming telemetry.
+- [pyang](https://github.com/mbj4668/pyang): YANG validator, transformer and code generator, written in Python. It can be used to validate YANG modules for correctness, to transform YANG modules into other formats, and to write plugins to generate code from the modules.
