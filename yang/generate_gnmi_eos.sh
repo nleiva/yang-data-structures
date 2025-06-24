@@ -8,7 +8,7 @@ find arista/EOS-4.30.2F/release/ -name *.yang | ygnmi generator \
   --exclude_modules=ietf-interfaces \
   --shorten_enum_leaf_names=true \
   --prefer_operational_state=false \
-  --paths=ietf,$(find arista/EOS-4.30.2F/openconfig/public/release/models -maxdepth 1 -type d | paste -d, -s) \
+  --paths=ietf,$(find arista/EOS-4.30.2F/openconfig/public/release/models -maxdepth 1 -type d | paste -d, -s -) \
   --base_package_path=github.com/nleiva/yang-data-structures/gnmi/arista \
   arista/EOS-4.30.2F/not-supported.yang \
 
