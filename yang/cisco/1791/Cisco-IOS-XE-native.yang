@@ -24,9 +24,9 @@ module Cisco-IOS-XE-native {
   include Cisco-IOS-XE-ip;
   include Cisco-IOS-XE-ipv6;
   include Cisco-IOS-XE-interfaces;
-  //include Cisco-IOS-XE-hsrp;
+  include Cisco-IOS-XE-hsrp;
   include Cisco-IOS-XE-location;
-  //include Cisco-IOS-XE-transceiver-monitor;
+  include Cisco-IOS-XE-transceiver-monitor;
 
   organization
     "Cisco Systems, Inc.";
@@ -5072,7 +5072,7 @@ module Cisco-IOS-XE-native {
         }
       }
     }
-    // uses config-transceiver-grouping;
+    uses config-transceiver-grouping;
     container service-insertion {
       description
         "Service Insertion mode";

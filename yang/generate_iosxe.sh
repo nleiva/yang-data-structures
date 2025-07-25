@@ -10,6 +10,8 @@ generator -path=. \
   -structs_split_files_count=4 \
   -compress_paths=false \
   -yangpresence \
+  -skip_deprecated \
+  -skip_obsolete \
   -shorten_enum_leaf_names=true \
   -trim_enum_openconfig_prefix=false \
   cisco/1791/Cisco-IOS-XE-native.yang \

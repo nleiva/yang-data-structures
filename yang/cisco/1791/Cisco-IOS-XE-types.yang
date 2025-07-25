@@ -853,19 +853,19 @@ module Cisco-IOS-XE-types {
 
   typedef interface-type {
     type enumeration {
-      //enum BDI;
-      //enum FastEthernet;
+      enum BDI;
+      enum FastEthernet;
       enum GigabitEthernet;
       enum Loopback;
       enum Port-channel;
-      //enum Serial;
+      enum Serial;
       enum TenGigabitEthernet;
       enum Vlan;
-      //enum FiveGigabitEthernet;
+      enum FiveGigabitEthernet;
       enum TwentyFiveGigE;
-      //enum TwoGigabitEthernet;
-      //enum AppGigabitEthernet;
-      //enum BD-VIF;
+      enum TwoGigabitEthernet;
+      enum AppGigabitEthernet;
+      enum BD-VIF;
     }
   }
 

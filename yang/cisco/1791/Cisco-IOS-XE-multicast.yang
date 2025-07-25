@@ -1496,33 +1496,33 @@ module Cisco-IOS-XE-multicast {
   }
 
   grouping config-interface-ip-pim-grouping {
-    // container accept-register {
-    //   status obsolete;
-    //   leaf list {
-    //     status obsolete;
-    //     type string;
-    //   }
-    // }
-    // leaf bfd {
-    //   description
-    //     "Configure BFD";
-    //   type empty;
-    // }
-    // leaf bidir-neighbor-filter {
-    //   description
-    //     "PIM bidir capable peering filter";
-    //   type ios-types:mcast-std-acl-type;
-    // }
-    // leaf border {
-    //   description
-    //     "Border of PIM domain";
-    //   type empty;
-    // }
-    // leaf bsr-border {
-    //   description
-    //     "Border of PIM domain";
-    //   type empty;
-    // }
+    container accept-register {
+      status obsolete;
+      leaf list {
+        status obsolete;
+        type string;
+      }
+    }
+    leaf bfd {
+      description
+        "Configure BFD";
+      type empty;
+    }
+    leaf bidir-neighbor-filter {
+      description
+        "PIM bidir capable peering filter";
+      type ios-types:mcast-std-acl-type;
+    }
+    leaf border {
+      description
+        "Border of PIM domain";
+      type empty;
+    }
+    leaf bsr-border {
+      description
+        "Border of PIM domain";
+      type empty;
+    }
     container pim-mode-choice-cfg {
       choice pim-mode-choice {
         case passive-mode {
@@ -1561,13 +1561,13 @@ module Cisco-IOS-XE-multicast {
             container encap-helper {
               description
                 "Configure encap-helper UDLR tunnel";
-            //   leaf Tunnel {
-            //     description
-            //       "Tunnel interface";
-            //     type leafref {
-            //       path "/ios:native/ios:interface/ios:Tunnel/ios:name";
-            //     }
-            //   }
+              leaf Tunnel {
+                description
+                  "Tunnel interface";
+                type leafref {
+                  path "/ios:native/ios:interface/ios:Tunnel/ios:name";
+                }
+              }
             }
           }
         }
@@ -1580,58 +1580,58 @@ module Cisco-IOS-XE-multicast {
         }
       }
     }
-    // choice pim-mode-choice {
-    //   status deprecated;
-    //   case passive-mode {
-    //     leaf passive {
-    //       status deprecated;
-    //       description
-    //         "Enable PIM passive interface operation";
-    //       type empty;
-    //     }
-    //   }
-    //   case dense {
-    //     container dense-mode {
-    //       status deprecated;
-    //       description
-    //         "Enable PIM dense-mode operation";
-    //       presence "true";
-    //       container proxy-register {
-    //         description
-    //           "Send proxy registers";
-    //         status deprecated;
-    //         leaf list {
-    //           description
-    //             "Access list";
-    //           status deprecated;
-    //           type ios-types:ext-acl-type;
-    //         }
-    //         leaf route-map {
-    //           status deprecated;
-    //           description
-    //             "Route-map";
-    //           type string;
-    //         }
-    //       }
-    //     }
-    //   }
-    //   case sparse {
-    //     leaf sparse-mode {
-    //       status deprecated;
-    //       description
-    //         "Enable PIM sparse-mode operation";
-    //       type empty;
-    //     }
-    //   }
-    //   case sparse-dense {
-    //     leaf sparse-dense-mode {
-    //       status deprecated;
-    //       description
-    //         "Enable PIM sparse-dense-mode operation";
-    //       type empty;
-    //     }
-    //   }
-    // }
+    choice pim-mode-choice {
+      status deprecated;
+      case passive-mode {
+        leaf passive {
+          status deprecated;
+          description
+            "Enable PIM passive interface operation";
+          type empty;
+        }
+      }
+      case dense {
+        container dense-mode {
+          status deprecated;
+          description
+            "Enable PIM dense-mode operation";
+          presence "true";
+          container proxy-register {
+            description
+              "Send proxy registers";
+            status deprecated;
+            leaf list {
+              description
+                "Access list";
+              status deprecated;
+              type ios-types:ext-acl-type;
+            }
+            leaf route-map {
+              status deprecated;
+              description
+                "Route-map";
+              type string;
+            }
+          }
+        }
+      }
+      case sparse {
+        leaf sparse-mode {
+          status deprecated;
+          description
+            "Enable PIM sparse-mode operation";
+          type empty;
+        }
+      }
+      case sparse-dense {
+        leaf sparse-dense-mode {
+          status deprecated;
+          description
+            "Enable PIM sparse-dense-mode operation";
+          type empty;
+        }
+      }
+    }
     leaf pim-mode {
       status deprecated;
       type enumeration {
@@ -1641,152 +1641,152 @@ module Cisco-IOS-XE-multicast {
         enum sparse-dense-mode;
       }
     }
-    // leaf nbma-mode {
-    //   description
-    //     "Enable PIM nbma-mode operation";
-    //   type empty;
-    // }
-    // leaf dr-priority {
-    //   description
-    //     "PIM router DR priority";
-    //   default "1";
-    //   type uint32;
-    // }
-    // container drlb {
-    //   description
-    //     "Enable DR Load-balancing operation";
-    //   leaf rp-mask {
-    //     description
-    //       "RP Hash Mask";
-    //     type union {
-    //       type inet:ipv4-address;
-    //       type enumeration {
-    //         enum any;
-    //       }
-    //     }
-    //   }
-    //   leaf grp-mask {
-    //     description
-    //       "Group Hash Mask";
-    //     type union {
-    //       type inet:ipv4-address;
-    //       type enumeration {
-    //         enum any;
-    //       }
-    //     }
-    //   }
-    //   leaf src-mask {
-    //     description
-    //       "Source Mask";
-    //     type union {
-    //       type inet:ipv4-address;
-    //       type enumeration {
-    //         enum any;
-    //       }
-    //     }
-    //   }
-    // }
-    // leaf join-prune-interval {
-    //   description
-    //     "PIM periodic Join-Prune interval";
-    //   default "60";
-    //   type uint16 {
-    //     range "10..600";
-    //   }
-    // }
-    // leaf neighbor-filter {
-    //   description
-    //     "PIM peering filter";
-    //   type ios-types:mcast-std-acl-type;
-    // }
-    // leaf non-dr-join {
-    //   description
-    //     "Enable PIM Non-DR-Join";
-    //   type empty;
-    // }
-    // container query-interval {
-    //   description
-    //     "PIM router query interval";
-    //   choice seconds-milliseconds {
-    //     default "seconds";
-    //     case seconds {
-    //       leaf seconds-interval {
-    //         default "30";
-    //         type uint16 {
-    //           range "1..18725";
-    //         }
-    //       }
-    //     }
-    //     case milliseconds {
-    //       leaf milliseconds-interval {
-    //         type uint16 {
-    //           range "100..65535";
-    //         }
-    //       }
-    //       leaf msec {
-    //         description
-    //           "Query interval in milliseconds";
-    //         mandatory true;
-    //         type empty;
-    //       }
-    //     }
-    //   }
-    //   leaf neighbor-holdtime {
-    //     description
-    //       "PIM hello neighbor holdtime";
-    //     type uint16 {
-    //       range "1..65535";
-    //     }
-    //   }
-    // }
-    // list redundancy {
-    //   description
-    //     "Enable PIM redundancy operation";
-    //   key "group-name";
-    //   leaf group-name {
-    //     description
-    //       "Standby group name";
-    //     type string;
-    //   }
-    //   leaf protocol {
-    //     description
-    //       "\"HSRP\" or \"VRRP\". Default is HSRP";
-    //     default "hsrp";
-    //     type enumeration {
-    //       enum hsrp;
-    //       enum vrrp;
-    //     }
-    //   }
-    //   leaf dr-priority {
-    //     description
-    //       "Redundancy DR priority for active router";
-    //     type uint32 {
-    //       range "0..4294967294";
-    //     }
-    //   }
-    // }
-    // container state-refresh {
-    //   description
-    //     "PIM DM State-Refresh configuration";
-    //   container origination-interval {
-    //     description
-    //       "PIM State-Refresh origination interval";
-    //     presence "true";
-    //     leaf interval {
-    //       description
-    //         "Interval in seconds";
-    //       type uint8 {
-    //         range "1..100";
-    //       }
-    //     }
-    //   }
-    // }
-    // leaf spt-threshold {
-    //   status obsolete;
-    //   type enumeration {
-    //     enum infinity;
-    //   }
-    // }
+    leaf nbma-mode {
+      description
+        "Enable PIM nbma-mode operation";
+      type empty;
+    }
+    leaf dr-priority {
+      description
+        "PIM router DR priority";
+      default "1";
+      type uint32;
+    }
+    container drlb {
+      description
+        "Enable DR Load-balancing operation";
+      leaf rp-mask {
+        description
+          "RP Hash Mask";
+        type union {
+          type inet:ipv4-address;
+          type enumeration {
+            enum any;
+          }
+        }
+      }
+      leaf grp-mask {
+        description
+          "Group Hash Mask";
+        type union {
+          type inet:ipv4-address;
+          type enumeration {
+            enum any;
+          }
+        }
+      }
+      leaf src-mask {
+        description
+          "Source Mask";
+        type union {
+          type inet:ipv4-address;
+          type enumeration {
+            enum any;
+          }
+        }
+      }
+    }
+    leaf join-prune-interval {
+      description
+        "PIM periodic Join-Prune interval";
+      default "60";
+      type uint16 {
+        range "10..600";
+      }
+    }
+    leaf neighbor-filter {
+      description
+        "PIM peering filter";
+      type ios-types:mcast-std-acl-type;
+    }
+    leaf non-dr-join {
+      description
+        "Enable PIM Non-DR-Join";
+      type empty;
+    }
+    container query-interval {
+      description
+        "PIM router query interval";
+      choice seconds-milliseconds {
+        default "seconds";
+        case seconds {
+          leaf seconds-interval {
+            default "30";
+            type uint16 {
+              range "1..18725";
+            }
+          }
+        }
+        case milliseconds {
+          leaf milliseconds-interval {
+            type uint16 {
+              range "100..65535";
+            }
+          }
+          leaf msec {
+            description
+              "Query interval in milliseconds";
+            mandatory true;
+            type empty;
+          }
+        }
+      }
+      leaf neighbor-holdtime {
+        description
+          "PIM hello neighbor holdtime";
+        type uint16 {
+          range "1..65535";
+        }
+      }
+    }
+    list redundancy {
+      description
+        "Enable PIM redundancy operation";
+      key "group-name";
+      leaf group-name {
+        description
+          "Standby group name";
+        type string;
+      }
+      leaf protocol {
+        description
+          "\"HSRP\" or \"VRRP\". Default is HSRP";
+        default "hsrp";
+        type enumeration {
+          enum hsrp;
+          enum vrrp;
+        }
+      }
+      leaf dr-priority {
+        description
+          "Redundancy DR priority for active router";
+        type uint32 {
+          range "0..4294967294";
+        }
+      }
+    }
+    container state-refresh {
+      description
+        "PIM DM State-Refresh configuration";
+      container origination-interval {
+        description
+          "PIM State-Refresh origination interval";
+        presence "true";
+        leaf interval {
+          description
+            "Interval in seconds";
+          type uint8 {
+            range "1..100";
+          }
+        }
+      }
+    }
+    leaf spt-threshold {
+      status obsolete;
+      type enumeration {
+        enum infinity;
+      }
+    }
   }
 
   grouping config-interface-ipv6-pim-grouping {
@@ -3145,17 +3145,17 @@ module Cisco-IOS-XE-multicast {
     uses config-interface-ip-mcast-grouping;
   }
 
-//   augment "/ios:native/ios:ipv6/ios:multicast" {
-//     uses config-ipv6-mcast-grouping;
-//   }
+  augment "/ios:native/ios:ipv6/ios:multicast" {
+    uses config-ipv6-mcast-grouping;
+  }
 
   augment "/ios:native/ios:ip/ios:pim" {
     uses config-ip-pim-grouping;
   }
 
-//   augment "/ios:native/ios:ipv6/ios:pim" {
-//     uses config-ipv6-pim-grouping;
-//   }
+  augment "/ios:native/ios:ipv6/ios:pim" {
+    uses config-ipv6-pim-grouping;
+  }
 
   augment "/ios:native/ios:mpls" {
     uses config-mpls-mldp-grouping;
@@ -3251,93 +3251,93 @@ module Cisco-IOS-XE-multicast {
     uses config-interface-ip-pim-grouping;
   }
 
-//   augment "/ios:native/ios:interface/ios:FastEthernet/ios:ipv6" {
-//     uses config-interface-ipv6-pim-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:FastEthernet/ios:ipv6" {
+    uses config-interface-ipv6-pim-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:GigabitEthernet/ios:ipv6" {
-//     uses config-interface-ipv6-pim-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:GigabitEthernet/ios:ipv6" {
+    uses config-interface-ipv6-pim-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:TwoGigabitEthernet/ios:ipv6" {
-//     uses config-interface-ipv6-pim-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet/ios:ipv6" {
+    uses config-interface-ipv6-pim-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:FiveGigabitEthernet/ios:ipv6" {
-//     uses config-interface-ipv6-pim-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet/ios:ipv6" {
+    uses config-interface-ipv6-pim-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:AppGigabitEthernet/ios:ipv6" {
-//     uses config-interface-ipv6-pim-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:AppGigabitEthernet/ios:ipv6" {
+    uses config-interface-ipv6-pim-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:ipv6" {
-//     uses config-interface-ipv6-pim-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:ipv6" {
+    uses config-interface-ipv6-pim-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:ipv6" {
-//     uses config-interface-ipv6-pim-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:ipv6" {
+    uses config-interface-ipv6-pim-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:FortyGigabitEthernet/ios:ipv6" {
-//     uses config-interface-ipv6-pim-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet/ios:ipv6" {
+    uses config-interface-ipv6-pim-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:HundredGigE/ios:ipv6" {
-//     uses config-interface-ipv6-pim-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:HundredGigE/ios:ipv6" {
+    uses config-interface-ipv6-pim-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:Port-channel/ios:ipv6" {
-//     uses config-interface-ipv6-pim-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:Port-channel/ios:ipv6" {
+    uses config-interface-ipv6-pim-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:Port-channel-subinterface/ios:Port-channel/ios:ipv6" {
-//     uses config-interface-ipv6-pim-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:Port-channel-subinterface/ios:Port-channel/ios:ipv6" {
+    uses config-interface-ipv6-pim-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:Loopback/ios:ipv6" {
-//     uses config-interface-ipv6-pim-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:Loopback/ios:ipv6" {
+    uses config-interface-ipv6-pim-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:Tunnel/ios:ipv6" {
-//     uses config-interface-ipv6-pim-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:Tunnel/ios:ipv6" {
+    uses config-interface-ipv6-pim-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:Virtual-Template/ios:ipv6" {
-//     uses config-interface-ipv6-pim-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:Virtual-Template/ios:ipv6" {
+    uses config-interface-ipv6-pim-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:VirtualPortGroup/ios:ipv6" {
-//     uses config-interface-ipv6-pim-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:VirtualPortGroup/ios:ipv6" {
+    uses config-interface-ipv6-pim-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:Vif/ios:ipv6" {
-//     uses config-interface-ipv6-pim-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:Vif/ios:ipv6" {
+    uses config-interface-ipv6-pim-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:Vlan/ios:ipv6" {
-//     uses config-interface-ipv6-pim-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:Vlan/ios:ipv6" {
+    uses config-interface-ipv6-pim-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:LISP/ios:ipv6" {
-//     uses config-interface-lisp-ipv6-pim-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:LISP/ios:ipv6" {
+    uses config-interface-lisp-ipv6-pim-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:LISP-subinterface/ios:LISP/ios:ipv6" {
-//     uses config-interface-lisp-ipv6-pim-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:LISP-subinterface/ios:LISP/ios:ipv6" {
+    uses config-interface-lisp-ipv6-pim-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:Multilink/ios:ipv6" {
-//     uses config-interface-ipv6-pim-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:Multilink/ios:ipv6" {
+    uses config-interface-ipv6-pim-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:Cellular/ios:ipv6" {
-//     uses config-interface-ipv6-pim-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:Cellular/ios:ipv6" {
+    uses config-interface-ipv6-pim-grouping;
+  }
 
-//   augment "/ios:native/ios:interface/ios:BDI/ios:ipv6" {
-//     uses config-interface-ipv6-pim-grouping;
-//   }
+  augment "/ios:native/ios:interface/ios:BDI/ios:ipv6" {
+    uses config-interface-ipv6-pim-grouping;
+  }
 
   augment "/ios:native/ios:ip" {
     uses config-ip-msdp-grouping;
@@ -3352,10 +3352,10 @@ module Cisco-IOS-XE-multicast {
     uses confif-ip-mroute-grouping;
   }
 
-//   augment "/ios:native/ios:ipv6" {
-//     uses config-ipv6-mcr-conf-grouping;
-//     uses config-ipv6-multicast-routing-grouping;
-//   }
+  augment "/ios:native/ios:ipv6" {
+    uses config-ipv6-mcr-conf-grouping;
+    uses config-ipv6-multicast-routing-grouping;
+  }
 
   augment "/ios:native/ios:interface/ios:Vif/ios:ip" {
     uses config-service-reflect-list-grouping;

@@ -23,6 +23,9 @@ module Cisco-IOS-XE-skip {
   import Cisco-IOS-XE-object-group {
     prefix ios-og;
   }
+  import Cisco-IOS-XE-ospfv3 {
+    prefix ios-ospfv3;
+  }
   import Cisco-IOS-XE-multicast {
     prefix ios-mc;
   }
@@ -43,7 +46,6 @@ module Cisco-IOS-XE-skip {
   }
 
   //============================= Interfaces ==================================
-
 
   deviation "/ios:native/ios:interface/ios:AppGigabitEthernet" {
     deviate not-supported;
@@ -209,10 +211,6 @@ module Cisco-IOS-XE-skip {
     deviate not-supported;
   }
 
-  deviation "/ios:native/ios:interface/ios:Tunnel" {
-    deviate not-supported;
-  }  
-
   deviation "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet" {
     deviate not-supported;
   }
@@ -281,6 +279,14 @@ module Cisco-IOS-XE-skip {
     deviate not-supported;
   }
 
+  deviation "/ios:native/ios:interface/ios:Tunnel/ios:arp" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Loopback/ios:arp" {
+    deviate not-supported;
+  }
+
   deviation "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:backup" {
     deviate not-supported;
   }
@@ -298,6 +304,14 @@ module Cisco-IOS-XE-skip {
   }
 
   deviation "/ios:native/ios:interface/ios:Vlan/ios:backup" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Tunnel/ios:backup" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Loopback/ios:backup" {
     deviate not-supported;
   }
 
@@ -321,6 +335,14 @@ module Cisco-IOS-XE-skip {
     deviate not-supported;
   }
 
+  deviation "/ios:native/ios:interface/ios:Tunnel/ios:bandwidth" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Loopback/ios:bandwidth" {
+    deviate not-supported;
+  }
+
   deviation "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:l2protocol" {
     deviate not-supported;
   }
@@ -338,6 +360,14 @@ module Cisco-IOS-XE-skip {
   }
 
   deviation "/ios:native/ios:interface/ios:Vlan/ios:l2protocol" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Tunnel/ios:l2protocol" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Loopback/ios:l2protocol" {
     deviate not-supported;
   }
 
@@ -361,6 +391,14 @@ module Cisco-IOS-XE-skip {
     deviate not-supported;
   }
 
+  deviation "/ios:native/ios:interface/ios:Tunnel/ios:l2protocol-tunnel" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Loopback/ios:l2protocol-tunnel" {
+    deviate not-supported;
+  }
+
   deviation "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:logging" {
     deviate not-supported;
   }
@@ -378,6 +416,14 @@ module Cisco-IOS-XE-skip {
   }
 
   deviation "/ios:native/ios:interface/ios:Vlan/ios:logging" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Tunnel/ios:logging" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Loopback/ios:logging" {
     deviate not-supported;
   }
 
@@ -401,6 +447,14 @@ module Cisco-IOS-XE-skip {
     deviate not-supported;
   }
 
+  deviation "/ios:native/ios:interface/ios:Tunnel/ios:peer" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Loopback/ios:peer" {
+    deviate not-supported;
+  }
+
   deviation "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:redundancy" {
     deviate not-supported;
   }
@@ -418,6 +472,14 @@ module Cisco-IOS-XE-skip {
   }
 
   deviation "/ios:native/ios:interface/ios:Vlan/ios:redundancy" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Tunnel/ios:redundancy" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Loopback/ios:redundancy" {
     deviate not-supported;
   }
 
@@ -441,6 +503,14 @@ module Cisco-IOS-XE-skip {
     deviate not-supported;
   }
 
+  deviation "/ios:native/ios:interface/ios:Tunnel/ios:standby" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Loopback/ios:standby" {
+    deviate not-supported;
+  }
+
   deviation "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:storm-control" {
     deviate not-supported;
   }
@@ -458,6 +528,14 @@ module Cisco-IOS-XE-skip {
   }
 
   deviation "/ios:native/ios:interface/ios:Vlan/ios:storm-control" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Tunnel/ios:storm-control" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Loopback/ios:storm-control" {
     deviate not-supported;
   }
 
@@ -481,6 +559,14 @@ module Cisco-IOS-XE-skip {
     deviate not-supported;
   }
 
+  deviation "/ios:native/ios:interface/ios:Tunnel/ios:subscriber" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Loopback/ios:subscriber" {
+    deviate not-supported;
+  }
+
   deviation "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:ip/ios:arp" {
     deviate not-supported;
   }
@@ -498,6 +584,14 @@ module Cisco-IOS-XE-skip {
   }
 
   deviation "/ios:native/ios:interface/ios:Vlan/ios:ip/ios:arp" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Tunnel/ios:ip/ios:arp" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Loopback/ios:ip/ios:arp" {
     deviate not-supported;
   }
 
@@ -521,6 +615,14 @@ module Cisco-IOS-XE-skip {
     deviate not-supported;
   }
 
+  deviation "/ios:native/ios:interface/ios:Tunnel/ios:ip/ios:authentication" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Loopback/ios:ip/ios:authentication" {
+    deviate not-supported;
+  }
+
   deviation "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:ip/ios:rip" {
     deviate not-supported;
   }
@@ -538,6 +640,14 @@ module Cisco-IOS-XE-skip {
   }
 
   deviation "/ios:native/ios:interface/ios:Vlan/ios:ip/ios:rip" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Tunnel/ios:ip/ios:rip" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Loopback/ios:ip/ios:rip" {
     deviate not-supported;
   }
 
@@ -561,6 +671,14 @@ module Cisco-IOS-XE-skip {
     deviate not-supported;
   }
 
+  deviation "/ios:native/ios:interface/ios:Tunnel/ios:ip/ios:verify" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Loopback/ios:ip/ios:verify" {
+    deviate not-supported;
+  }
+
   //============================= NTP ==================================
   deviation "/ios:native/ios:ntp/ios-ntp:access-group/ios-ntp:ipv6" {
     deviate not-supported;
@@ -574,8 +692,226 @@ module Cisco-IOS-XE-skip {
     deviate not-supported;
   }
 
+//============================= NHRP ==================================
+   deviation "/ios:native/ios-nhrp:nhrp" {
+    deviate not-supported;
+  }
+ 
+  deviation "/ios:native/ios:router/ios-nhrp:nhrp/ios-nhrp:address-family" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-nhrp:nhrp/ios-nhrp:distance" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-nhrp:nhrp/ios-nhrp:distribute-list" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-nhrp:nhrp/ios-nhrp:neighbor" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-nhrp:nhrp/ios-nhrp:network" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-nhrp:nhrp/ios-nhrp:redistribute" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Tunnel/ios-nhrp:nhrp-tunn" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Tunnel/ios-nhrp:if-state-tunnel" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Tunnel/ios:ip/ios-nhrp:nhrp-v4" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Tunnel/ios-nhrp:llp" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Tunnel/ios:ipv6/ios-nhrp:nhrp" {
+    deviate not-supported;
+  }
+
+  //============================= IS-IS ==================================
+  deviation "/ios:native/ios:router/ios-isis:isis" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-isis:isis-container/ios-isis:isis/ios-isis:distribute" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-isis:isis-container/ios-isis:isis/ios-isis:distribute-list" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-isis:isis-container/ios-isis:isis/ios-isis:fast-reroute" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-isis:isis-container/ios-isis:isis/ios-isis:flex-algo" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-isis:isis-container/ios-isis:isis/ios-isis:lsp-gen-interval" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-isis:isis-container/ios-isis:isis/ios-isis:set-overload-bit" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-isis:isis-container/ios-isis:isis/ios-isis:nsf" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-isis:isis-container/ios-isis:isis/ios-isis:address-family" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-isis:isis-container/ios-isis:isis/ios-isis:redistribute" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-isis:isis-container/ios-isis:isis/ios-isis:mpls" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-isis:isis-container/ios-isis:isis/ios-isis:snmp" {
+    deviate not-supported;
+  }  
+
+  deviation "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:clns" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:GigabitEthernet/ios:clns" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:HundredGigE/ios:clns" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:clns" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Vlan/ios:clns" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Tunnel/ios:clns" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Loopback/ios:clns" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:isis" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:GigabitEthernet/ios:isis" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:HundredGigE/ios:isis" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:isis" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Vlan/ios:isis" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Tunnel/ios:isis" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Loopback/ios:isis" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:ip/ios:router/ios-isis:isis" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:GigabitEthernet/ios:ip/ios:router/ios-isis:isis" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:HundredGigE/ios:ip/ios:router/ios-isis:isis" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:ip/ios:router/ios-isis:isis" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Vlan/ios:ip/ios:router/ios-isis:isis" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Tunnel/ios:ip/ios:router/ios-isis:isis" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Loopback/ios:ip/ios:router/ios-isis:isis" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:ipv6/ios:router/ios-isis:isis" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:GigabitEthernet/ios:ipv6/ios:router/ios-isis:isis" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:HundredGigE/ios:ipv6/ios:router/ios-isis:isis" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:ipv6/ios:router/ios-isis:isis" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Vlan/ios:ipv6/ios:router/ios-isis:isis" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Tunnel/ios:ipv6/ios:router/ios-isis:isis" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Loopback/ios:ipv6/ios:router/ios-isis:isis" {
+    deviate not-supported;
+  }
+
   //============================= BGP ==================================
   deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:bmp" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:bgp/ios-bgp:snmp" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:bgp/ios-bgp:router-id/ios-bgp:id-choice/ios-bgp:interface" {
     deviate not-supported;
   }
 
@@ -583,11 +919,171 @@ module Cisco-IOS-XE-skip {
     deviate not-supported;
   }
 
-  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:template" {
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:neighbor/ios-bgp:update-source" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:peer-group/ios-bgp:neighbor/ios-bgp:update-source" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:peer-group/ios-bgp:neighbor/ios-bgp:ao" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:peer-group/ios-bgp:neighbor/ios-bgp:bmp-activate" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:peer-group/ios-bgp:neighbor/ios-bgp:path-attribute" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:template/ios-bgp:peer-policy/ios-bgp:encap" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:template/ios-bgp:peer-policy/ios-bgp:additional-paths" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:template/ios-bgp:peer-policy/ios-bgp:advertise" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:template/ios-bgp:peer-policy/ios-bgp:aigp" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:template/ios-bgp:peer-session/ios-bgp:ha-mode" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:template/ios-bgp:peer-session/ios-bgp:path-attribute" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:template/ios-bgp:peer-session/ios-bgp:dont-capability-negotiate" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:template/ios-bgp:peer-session/ios-bgp:ao" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:template/ios-bgp:peer-session/ios-bgp:update-source" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:route-server-context" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:scope/ios-bgp:vrf" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:scope/ios-bgp:global/ios-bgp:neighbor/ios-bgp:update-source" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:scope/ios-bgp:global/ios-bgp:peer-group/ios-bgp:neighbor/ios-bgp:update-source" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:scope/ios-bgp:global/ios-bgp:address-family/ios-bgp:no-vrf/ios-bgp:ipv6" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:scope/ios-bgp:global/ios-bgp:address-family/ios-bgp:no-vrf/ios-bgp:nsap" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:scope/ios-bgp:global/ios-bgp:address-family/ios-bgp:no-vrf/ios-bgp:link-state" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:scope/ios-bgp:global/ios-bgp:address-family/ios-bgp:no-vrf/ios-bgp:l2vpn" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:scope/ios-bgp:global/ios-bgp:address-family/ios-bgp:no-vrf/ios-bgp:vpnv4" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:scope/ios-bgp:global/ios-bgp:address-family/ios-bgp:no-vrf/ios-bgp:rtfilter" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:scope/ios-bgp:global/ios-bgp:address-family/ios-bgp:no-vrf/ios-bgp:vpnv6" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:scope/ios-bgp:global/ios-bgp:address-family/ios-bgp:no-vrf/ios-bgp:ipv4/ios-bgp:ipv4-unicast/ios-bgp:distribute-list" {
     deviate not-supported;
   }
 
   deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:address-family/ios-bgp:with-vrf" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:address-family/ios-bgp:no-vrf/ios-bgp:ipv4/ios-bgp:ipv4-unicast/ios-bgp:redistribute/ios-bgp:eigrp" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:address-family/ios-bgp:no-vrf/ios-bgp:ipv4/ios-bgp:ipv4-unicast/ios-bgp:redistribute/ios-bgp:application" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:address-family/ios-bgp:no-vrf/ios-bgp:ipv4/ios-bgp:ipv4-unicast/ios-bgp:redistribute/ios-bgp:ospfv3" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:address-family/ios-bgp:no-vrf/ios-bgp:ipv4/ios-bgp:ipv4-unicast/ios-bgp:snmp" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:address-family/ios-bgp:no-vrf/ios-bgp:ipv4/ios-bgp:ipv4-unicast/ios-bgp:aggregate-address" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:address-family/ios-bgp:no-vrf/ios-bgp:ipv4/ios-bgp:ipv4-unicast/ios-bgp:distribute-list" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:address-family/ios-bgp:no-vrf/ios-bgp:ipv4/ios-bgp:ipv4-unicast/ios-bgp:redistribute/ios-bgp:isis" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:address-family/ios-bgp:no-vrf/ios-bgp:ipv4/ios-bgp:ipv4-unicast/ios-bgp:redistribute/ios-bgp:isis-area-tag" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:address-family/ios-bgp:no-vrf/ios-bgp:ipv4/ios-bgp:ipv4-unicast/ios-bgp:redistribute/ios-bgp:nhrp" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:address-family/ios-bgp:no-vrf/ios-bgp:ipv4/ios-bgp:ipv4-flowspec" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:address-family/ios-bgp:no-vrf/ios-bgp:ipv4/ios-bgp:ipv4-mdt" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:address-family/ios-bgp:no-vrf/ios-bgp:ipv4/ios-bgp:ipv4-mvpn" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:address-family/ios-bgp:no-vrf/ios-bgp:ipv4/ios-bgp:ipv4-sr-policy" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:address-family/ios-bgp:no-vrf/ios-bgp:ipv4/ios-bgp:ipv4-multicast" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:address-family/ios-bgp:no-vrf/ios-bgp:vpnv4/ios-bgp:vpnv4-unicast/ios-bgp:import/ios-bgp:nhrp" {
     deviate not-supported;
   }
 
@@ -617,7 +1113,7 @@ module Cisco-IOS-XE-skip {
 
   deviation "/ios:native/ios:router/ios-bgp:bgp/ios-bgp:address-family/ios-bgp:no-vrf/ios-bgp:vpnv6" {
     deviate not-supported;
-  }  
+  }
 
   //============================= NAT ==================================
   deviation "/ios:native/ios:nat64" {
@@ -763,10 +1259,84 @@ module Cisco-IOS-XE-skip {
     deviate not-supported;
   }
 
+  deviation "/ios:native/ios:interface/ios:Tunnel/ios:ipv6" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Loopback/ios:ipv6" {
+    deviate not-supported;
+  }
+
   //============================= MAC ==================================
   deviation "/ios:native/ios:mac" {
     deviate not-supported;
-  } 
+  }
+
+  //============================= OSPFv3 ==================================
+ 
+  deviation "/ios:native/ios:router/ios-ospfv3:ospfv3/ios-ospfv3:address-family" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-ospfv3:ospfv3/ios-ospfv3:timers" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-ospfv3:ospfv3/ios-ospfv3:area-config" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-ospfv3:ospfv3/ios-ospfv3:max-metric" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-ospfv3:ospfv3/ios-ospfv3:area/ios-ospfv3:ipv4-range" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-ospfv3:ospfv3/ios-ospfv3:area/ios-ospfv3:ipv6-range" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-ospfv3:ospfv3/ios-ospfv3:area/ios-ospfv3:nssa" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-ospfv3:ospfv3/ios-ospfv3:area/ios-ospfv3:sham-link" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:router/ios-ospfv3:ospfv3/ios-ospfv3:area/ios-ospfv3:virtual-link" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TwentyFiveGigE/ios-ospfv3:ospfv3" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:GigabitEthernet/ios-ospfv3:ospfv3" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:HundredGigE/ios-ospfv3:ospfv3" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TenGigabitEthernet/ios-ospfv3:ospfv3" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Vlan/ios-ospfv3:ospfv3" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Tunnel/ios-ospfv3:ospfv3" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Loopback/ios-ospfv3:ospfv3" {
+    deviate not-supported;
+  }
 
   //============================= Root ==================================
   deviation "/ios:native/ios:alarm-contact" {
@@ -1326,6 +1896,42 @@ module Cisco-IOS-XE-skip {
     deviate not-supported;
   }
 
+  deviation "/ios:native/ios:interface/ios:Tunnel/ios:ip/ios-igmp:igmp/ios-igmp:mroute-proxy" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Loopback/ios:ip/ios-igmp:igmp/ios-igmp:mroute-proxy" {
+    deviate not-supported;
+  }
+
+ deviation "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:ip/ios-mc:multicast" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:GigabitEthernet/ios:ip/ios-mc:multicast" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:HundredGigE/ios:ip/ios-mc:multicast" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:ip/ios-mc:multicast" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Vlan/ios:ip/ios-mc:multicast" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Tunnel/ios:ip/ios-mc:multicast" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Loopback/ios:ip/ios-mc:multicast" {
+    deviate not-supported;
+  }
+
   deviation "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:ip/ios-igmp:igmp/ios-igmp:helper-address" {
     deviate not-supported;
   }
@@ -1346,6 +1952,14 @@ module Cisco-IOS-XE-skip {
     deviate not-supported;
   }
 
+  deviation "/ios:native/ios:interface/ios:Tunnel/ios:ip/ios-igmp:igmp/ios-igmp:helper-address" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Loopback/ios:ip/ios-igmp:igmp/ios-igmp:helper-address" {
+    deviate not-supported;
+  }
+
   deviation "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:ip/ios-igmp:igmp/ios-igmp:static-group" {
     deviate not-supported;
   }
@@ -1363,6 +1977,14 @@ module Cisco-IOS-XE-skip {
   }
 
   deviation "/ios:native/ios:interface/ios:Vlan/ios:ip/ios-igmp:igmp/ios-igmp:static-group" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Tunnel/ios:ip/ios-igmp:igmp/ios-igmp:static-group" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:interface/ios:Loopback/ios:ip/ios-igmp:igmp/ios-igmp:static-group" {
     deviate not-supported;
   }
 
@@ -1446,6 +2068,10 @@ module Cisco-IOS-XE-skip {
   }
 
   deviation "/ios:native/ios:snmp-server/ios-snmp:trap-source" {
+    deviate not-supported;
+  }
+
+  deviation "/ios:native/ios:snmp-server/ios-snmp:enable/ios-snmp:enable-choice/ios-snmp:traps"  {
     deviate not-supported;
   }
 
